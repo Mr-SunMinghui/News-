@@ -1,0 +1,21 @@
+schema_version: 1
+event_id: evt-20261017-france-unrest
+title: "法国2026年10月17日示威及多地骚乱"
+aliases: ["法国骚乱", "2026年10月17日法国抗议冲突"]
+summary: "2026年10月17日法国多地举行反生活成本上涨、声援学生诉求的集会。多地出现警民冲突、纵火和商铺遭破坏/抢掠；截至10月18日，各来源公布的逮捕和受伤数字不同，仍需以后续官方数据核实。"
+status: developing
+priority: high
+event_time:
+  start: 2026-10-17
+  end: 2026-10-18
+  precision: "日期；各地发生时段不一"
+first_discovered_at: 2026-10-18T17:40:16+08:00
+last_checked_at: 2026-10-18T17:40:16+08:00
+created_at: 2026-10-18T17:40:16+08:00
+updated_at: 2026-10-18T17:40:16+08:00
+location: "法国多地；报道重点涉及巴黎、里昂、马赛、波尔多、利摩日、雷恩及留尼汪等地"
+entities: ["法国政府", "法国警方", "示威者", "CGT工会", "高中生及学生组织"]
+related_event_ids: []
+reopen_conditions: ["后续出现新的大规模集会、冲突或重大官方调查/司法进展"]
+closure_history: []
+open_questions: ["官方最终逮捕、伤者及损失统计为何？", "各地损毁与纵火的具体经过和责任认定如何？", "示威诉求及政府回应后续如何发展？"]

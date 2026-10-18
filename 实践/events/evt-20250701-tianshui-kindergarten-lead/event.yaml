@@ -1,0 +1,36 @@
+schema_version: 1
+event_id: evt-20250701-tianshui-kindergarten-lead
+title: 甘肃天水麦积区褐石培心幼儿园幼儿血铅异常事件
+aliases:
+  - 天水幼儿园铅中毒案
+  - 天水褐石培心幼儿园血铅异常事件
+summary: >-
+  2025年，甘肃省天水市麦积区褐石培心幼儿园幼儿及教职员工出现血铅异常。
+  省级调查通报称，涉案人员将含铅、不可食用颜料加入部分面点；医院与疾控检测
+  流程也发现严重问题。2026年10月16日，兰州市中级人民法院对六名被告人一审
+  宣判。本档案按公开来源持续跟进二审、受影响儿童长期健康及救济情况。
+status: developing
+priority: high
+event_time:
+  start: "2024-05"
+  end: unknown
+  precision: month
+first_discovered_at: "2025-07-01"
+last_checked_at: "2026-10-18"
+created_at: "2026-10-18"
+updated_at: "2026-10-18"
+location: 甘肃省天水市麦积区褐石培心幼儿园
+entities:
+  - 褐石培心幼儿园
+  - 甘肃省委省政府调查组
+  - 兰州市中级人民法院
+related_event_ids: []
+reopen_conditions:
+  - 刑事案件二审、判决生效或执行情况出现新信息
+  - 儿童后续治疗、长期健康监测、补偿或民事救济出现新信息
+  - 监管问责、检测数据调查或其他关联调查有新结论
+closure_history: []
+open_questions:
+  - 一审判决是否上诉、何时生效及后续执行情况如何？
+  - 受影响儿童的长期随访、健康支持和救济进展如何？
+  - 省级通报所述监管问责、医院及疾控检测问题后续处理结果如何？

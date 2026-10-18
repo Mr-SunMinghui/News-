@@ -1,0 +1,11 @@
+# 示例格式，不是实际运行记录。
+run_id: unknown
+trigger: codex_desktop_automation
+started_at: unknown
+finished_at: unknown
+timezone: Asia/Shanghai
+scope_event_ids: []
+completed_event_ids: []
+failed_event_ids: []
+last_successful_check_at: unknown
+notes: "example only; no checks have run"

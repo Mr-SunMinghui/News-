@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{事件标题}}｜事件速览</title>
+  <style>
+    :root{--ink:#202722;--muted:#68736c;--paper:#f4f3ee;--card:#fffefa;--line:#d9ddd5;--green:#235c48;--lime:#d8e5c9;--amber:#bd7045}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 "Aptos","Microsoft YaHei",system-ui,sans-serif}a{color:var(--green)}.wrap{width:min(960px,calc(100% - 36px));margin:auto}.hero{padding:48px 0;background:linear-gradient(140deg,#f4f3ee,#e7eee5)}.kicker{color:var(--green);letter-spacing:.12em;font-size:.78rem;font-weight:700}.hero h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.12;margin:.6rem 0}.muted{color:var(--muted)}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-size:.82rem}.content{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;padding:32px 0}.timeline{border-left:2px solid var(--line);padding-left:24px}.item{position:relative;padding:0 0 22px}.item:before{content:"";position:absolute;left:-31px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--green)}.item:last-child:before{background:var(--amber)}.item time{color:var(--green);font-size:.8rem;font-weight:700}.item h2{font-size:1.05rem;margin:2px 0}.item p{margin:0;color:#505b54}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px}.card h2{margin:0 0 10px;font-size:1rem}.card a{display:block;margin:8px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}.stats div{background:var(--card);padding:13px;border:1px solid var(--line);border-radius:13px}.stats strong{display:block;color:var(--green);font-size:1.3rem}.stats span{font-size:.76rem;color:var(--muted)}@media(max-width:700px){.content{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats div{display:flex;gap:10px;align-items:baseline}}
+  </style>
+</head>
+<body>
+  <header class="hero"><div class="wrap"><div class="kicker">事件档案 · {{event_id}}</div><h1>{{事件标题}}</h1><p class="muted">{{一句话摘要，标出目前最新进展及尚待核实事项}}</p><div class="chips"><span class="chip">状态：{{status}}</span><span class="chip">优先级：{{priority}}</span><span class="chip">最近核查：{{last_checked_at}}</span></div></div></header>
+  <main class="wrap content"><section><h2>关键数据</h2><div class="stats"><div><strong>{{数据 1}}</strong><span>{{统计口径/来源/时间}}</span></div><div><strong>{{数据 2}}</strong><span>{{统计口径/来源/时间}}</span></div><div><strong>{{最新进展}}</strong><span>{{来源/时间}}</span></div></div><h2>事件时间线</h2><div class="timeline">
+    <!-- 复制 .item 并按时间升序追加；分开事件发生时间与报道时间。 -->
+    <article class="item"><time>{{ISO 日期或时间范围}}</time><h2>{{节点标题}}</h2><p>{{简短事实摘要，标注来源和不确定性}}</p></article>
+  </div></section><aside><section class="card"><h2>档案导航</h2><a href="../../../速览.html">返回项目总览</a><a href="事实汇编.md">事实汇编</a><a href="timeline.md">详细时间线</a><a href="claims.md">主张与证据</a><a href="sources.md">来源登记</a><a href="status.md">状态与待办</a></section><section class="card"><h2>后续关注</h2><p class="muted">{{未决问题列表}}</p></section><section class="card"><h2>来源</h2><p class="muted">{{来源 ID、标题、日期、链接}}</p></section></aside></main>
+</body>
+</html>

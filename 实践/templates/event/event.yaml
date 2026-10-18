@@ -1,0 +1,21 @@
+schema_version: 1
+event_id: evt-YYYYMMDD-short-slug
+title: "待填写"
+aliases: []
+summary: "待核摘要"
+status: watching # watching | developing | quiet | closed_provisional | reopened | merged | archived
+priority: normal # critical | high | normal | low
+event_time:
+  start: unknown # ISO 8601 with timezone, or unknown
+  end: unknown
+  precision: unknown
+first_discovered_at: unknown # ISO 8601 with timezone
+last_checked_at: unknown
+created_at: unknown
+updated_at: unknown
+location: unknown
+entities: []
+related_event_ids: []
+reopen_conditions: []
+closure_history: []
+open_questions: []

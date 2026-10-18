@@ -1,0 +1,50 @@
+# 默认参数；均可在单次任务中由用户明确调整。严禁在此写入密钥。
+project:
+  name: Event Afterwatch
+  timezone: Asia/Shanghai
+  language: zh-CN
+monitoring:
+  default_frequency: daily
+  schedule_owner: codex_desktop_automation
+  priorities:
+    - critical
+    - high
+    - normal
+    - low
+  default_priority: normal
+  max_sources_per_event_per_run: 20
+retry:
+  max_attempts: 3
+  delays_seconds: [5, 30, 120]
+  respect_retry_after: true
+  retry_only_transient_errors: true
+media:
+  download_enabled_by_default: false
+  max_file_size_mb: 25
+  video_download_enabled: false
+  require_rights_and_technical_permission: true
+search:
+  preferred_source_order:
+    - primary_sources
+    - independent_reputable_media
+    - specialist_sources
+    - social_posts_as_leads_only
+  max_queries_per_event: 12
+  record_accessed_at: true
+  record_timezone: true
+  do_not_bypass:
+    - login
+    - paywall
+    - captcha
+    - access_control
+  archive_services_use: only_when_lawful_and_accessible
+source_snapshots:
+  enabled: true
+  format: markdown_text
+  save_full_text_only_when_permitted: true
+  otherwise_save_detailed_summary_and_short_quotes: true
+  preserve_each_observation_as_new_file: true
+  record_access_time_and_capture_scope: true
+git:
+  auto_commit: false
+  auto_push: false
