@@ -54,4 +54,33 @@
 - AP 两版标题（S-001→S-009）的后续版本变化；Le Parisien、Le Figaro 对两起重伤案的后续措辞（“查清”阶段是否用词回撤）。
 - 官方定性词后续迁移：`casseurs`/`violences` 与 `événements` 的使用场合差异是否扩大。
 - 11-05 动员前各方话语（组织方 “grève interprofessionnelle” vs 官方维稳预告）的用词与规模表述。
-- 议会调查委员会话语（10-20 提议）中“维稳策略可能的失灵”与“暴力小团体”并置框架的展开。
+- 议会调查委员会话语（10-20 提议）中"维稳策略可能的失灵"与"暴力小团体"并置框架的展开。
+
+## 2026-10-20 补充观察（观察窗口 2026-10-19～10-20，来源 S-022～S-032）
+
+### 一、官方与机构口径新增
+
+- **宵禁话语入场**：`couvre-feu`（宵禁）首次成为本轮官方话语核心词。Lecornu 的限定语值得逐字记录："très limité"（非常有限）、"localisé"（局部化）、"partiel"（部分的）、" géographiquement très inégale"（地理上非常不均衡，Daily Sabah 转述），并明确排除全面宵禁（"让全巴黎宵禁不可想象"，CGTN 转述）。限定语的密集使用显示官方在执措施辞上刻意收窄适用范围（分析）。
+- **紧急状态话语**：`état d'urgence`（紧急状态）被 Lecornu 两次提及但均以"如有必要/现阶段不合适"的否定-保留结构出现（S-022、S-023、S-025、S-026）——与马克龙 10-18 的排除性表态形成"排除全国性措施、保留升级选项"的话语结构（分析）。
+- **归因框架的对手化**：Lecornu 将骚乱归因于"一个极左运动，想在总统选举前夕给国家造成深度动荡"（CGTN 转述，S-024）；梅朗雄以"提供证据，否则道歉、闭嘴"回应（S-024）。此前 10-18 归因为"ultra-left"（Saudi Gazette 摘要转述）。"极左/极左翼"归因与努涅斯"数千名极左个体"（franceinenglish 摘要）互相叠加。
+- **刑事化框架的量化表达**：Darmanin 公布拘留数时突出"70% 为成年人""多人早为当局所知"（S-022）、"67 人已被监禁"（S-024）——以再犯/已知人口比例构建"犯罪团伙"而非"示威运动"的框架（分析）。
+- **能源外交话语**：马克龙将生活成本上升归因于地区冲突并赴海湾四国（S-023、S-032）——把国内分配矛盾部分转置为地缘供给矛盾（分析，属框架观察而非事实判断）。
+- **行政-经济口径延续**：官方通稿与商会话语继续使用 `événements du 17 octobre` 式中性语（见 10-19 首版 S-018）；10-19 后官方话语主轴为"恢复秩序+司法追究+经济善后"三件套（S-022～S-026）。
+
+### 二、媒体用词线索新增（观察时间 2026-10-20）
+
+- **Le Monde（英文版，S-022）**：标题 "Curfews announced in Paris and other cities as France grapples with unrest"——"unrest"（动荡）定性中性偏弱；正文以措施与数字为主轴，重伤/死亡事实着墨少；采用 "degenerated into some of the worst street violence in recent years" 的渐进式定性。
+- **CGTN（S-023、S-024）**：以 "anti-government protests"（反政府抗议）概括运动性质；标题 "France imposes curfews"（主动语态，政府为主语）强化国家行动者框架；转述 Lecornu "no one was killed... that is a miracle"（"无人死亡……是个奇迹"）——官方庆幸话语被原文保留。
+- **RTÉ（S-025）**：标题 "French curfews now in force"——完成时态强调既成事实；以 "rocked by some of its worst street violence in years" 评价规模；以 "culmination of four weeks of protests that began with high school students" 回溯运动周期，学生起点框架与 AP 早期"joining students"框架一致。
+- **Daily Sabah（S-026）**：以 "chaos" 直接引述 Lecornu（"混乱局限于市中心"）并以 "specific form of criminal activity involving looting and the resale of stolen goods"（涉及抢掠与赃物转卖的特定犯罪活动）转述官方犯罪化定性——官方框架被较完整保留。
+- **华尔街见闻/第一财经（S-027、S-028）**：中文财经媒体框架以市场为主轴（"股债双杀""欧央行会出手么"），社会事件被转译为财政信用事件；引机构观点"没有整顿财政的民意授权"（Shannon）、"两边同时造反"（Bell）——市场话语为骚乱提供"财政纪律"评价维度。
+- **江西日报（S-031）**：中文党媒框架 "法国抗议潮失控 暴力冲突蔓延多城"——"失控"与"蔓延"构成扩散性定性；抗议者个体引语（油费负担）给出生计视角。
+- **Times Now World（S-032）**：标题 "Widespread Unrest Over Education Cuts and Rising Cost of Living"——教育削减与生活成本并列归因；数据密集型写法（4,000 个岗位、30 人/班、15.4% 贫困率、油价 +36%）。
+- **黄背心话语复兴**：`"second act"`（第二幕）被用于 10-24 动员预告（S-025、S-026）——直接借用 2018—2019 年黄背心运动的"acte 1/acte 2"计数法，运动连续性的自我表述（观察，待 10-24 兑现情况验证）。
+
+### 三、态度与用词的时间变化（补充）
+
+- 官方话语第四阶段（10-19 晚起）：在"坚决执法+自我批评+经济善后"之外，新增"刑事司法量化"（Darmanin 拘留/监禁数据）与"空间管控"（宵禁/禁聚）两条线——从话语层进入行政措施层（分析）。
+- 同一来源的态度迁移示例：AP 10-18 标题 "Thousands arrested for rioting" → 10-19/20 各通讯社/综述稿以 "curfews" 为主轴——媒体焦点从"暴力规模"转向"国家管控升级"（观察，样本有限）。
+- `manifestants` 与 `casseurs` 的张力延续：官方与部分通讯社继续用 casseurs/looters 框架；RTÉ 同时保留 "a demonstrator's hand blown off by a police crowd-control grenade"（示威者被警用榴弹炸断手）的个体伤害记录——两套框架在同一稿件并存（S-025）。
+- 待观察（下次巡检）：10-20 预算表决与调查委员会提议结果及各方措辞；10-24 黄背心"第二幕"前的动员话语；宵禁是否续期/扩大；`état d'urgence` 话语是否从否定-保留转为启用；卢浮宫学生行动（`blocage`）的后续措辞。
