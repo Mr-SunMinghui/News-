@@ -38,8 +38,16 @@
 | S-031 | https://newspaper.jxnews.com.cn/jndsb/html/2026-10/20/content_897_206831.htm | 江西日报（据央视/新华社） | 法国抗议潮失控 暴力冲突蔓延多城 | 2026-10-20（版面日期） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。中文综合稿。 |
 | S-032 | https://www.timesnowworld.com/us-news/france-protests-education-cuts-cost-of-living-crisis-article-156369944 | Times Now World | France Faces Widespread Unrest Over Education Cuts and Rising Cost of Living | 2026-10-20 01:01 IST（页面显示 Updated） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。教育/贫困/油价背景数据；该页含无关国际简讯聚合，未采用。 |
 
+| S-033 | https://entrevue.fr/en/politique/budget-2027-apres-avoir-detricote-le-projet-de-lecornu-les-deputes | Entrevue（Radouan Kourak） | 2027 Budget: After dismantling Lecornu's proposal, MPs suspend debates in the National Assembly | 2026-10-20/21（页面未显示精确时刻） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。收入部分表决推迟、PLFSS 先行、Amiel €10bn 恶化。 |
+| S-034 | https://franceinenglish.com/p/french-parliament-approves-inquiry-commission-on-october-17-protest-violence | France in English（法文来源翻译综合稿） | French Parliament Approves Inquiry Commission on October 17 Protest Violence | 2026-10-20/21（页面未显示精确时刻） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见；二手综合稿，关键事实与 S-035 交叉。含 Caure 任委员会主席、Lajus"约8,000人被捕"（单一来源）。 |
+| S-035 | https://www.thehindu.com/news/international/french-pm-to-meet-unions-as-government-prepares-for-more-protests/article71606220.ece | The Hindu（据法新社等） | French PM to meet unions as government prepares for more protests | 2026-10-21 | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。Lecornu-工会会面、"叛乱计划"归因、150人监禁/800人送审、利摩日纵火案拘捕、宵禁与禁带汽油。 |
+| S-036 | https://www.thehindu.com/news/national/india-advises-caution-for-its-nationals-in-france-amid-unrest-curfews/article71610003.ece/amp | The Hindu | India advises nationals in France to exercise caution amid unrest, curfews | 2026-10-21/22（advisory 10-21） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。印度旅行提醒；该文 10-24 与 10-25 动员日期自相矛盾（已按原文记录，以多数来源记 10-24）。 |
+| S-037 | https://www.toutiao.com/article/7699366694002754048/ | 环球时报（综合法新社、美联社；记者郭孝伟），经今日头条发布 | 马克龙"点名"特朗普 | 2026-10-22 13:55（页面显示） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。马克龙多哈讲话；巴黎 10-22 白天禁聚区（爱丽舍宫、总理府、两院、卢浮宫、香街）；勒庞表态。 |
+| S-038 | https://www.toutiao.com/article/7699343580598420009/ | 南方都市报（南都N视频记者刘施阳），经今日头条发布 | 法国爆发全国性示威，至少3000家商铺遭劫掠，在巴黎的中国导游：带客人参观卢浮宫，遇上因示威临时闭馆 | 2026-10-22 12:26（页面显示） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。政府口径至少3,000家商铺；卢浮宫已恢复开放；巴黎本周第三次夜间宵禁；哨兵行动增援；驻法使领馆提醒。 |
+| S-039 | https://peoplesdaily.pdnews.cn/world/er/30053395867 | 人民日报英文客户端（据新华社） | Macron vows to prevent riots at fresh protests scheduled for Saturday | 2026-10-21/22（页面未显示精确时刻） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。马克龙：现阶段无需紧急状态、动用一切法律工具；哨兵行动。 |
+
 ## 报道版本
 
 - 本事件目前保存的均为基于网页可见内容整理的事实汇编/摘要型文字快照；未保存任何报道的完整正文字节或原始响应，未计算哈希。S-003 两次观察均为摘要型记录，无法据此做逐字版本差异结论（见 snapshots/2026-10-19-S-003-v2.md 版本说明）。
-- 各快照获取时间：2026-10-18 快照为当日 17:40（Asia/Shanghai）；2026-10-19 快照为当日运行时间窗约 16:02–17:10（Asia/Shanghai）；2026-10-20 快照（S-022～S-032）为当日 12:21–12:50 运行窗（Asia/Shanghai），未逐条记录到秒。
-- 供后续补做：S-018 官方 PDF 原件；S-002、S-007、S-008、S-018 等暂不可直接访问页面的存档（合法途径）；10-20 预算表决与调查委员会提议结果来源（表决时点在巴黎时间傍晚，本档案记录时结果未出）。
+- 各快照获取时间：2026-10-18 快照为当日 17:40（Asia/Shanghai）；2026-10-19 快照为当日运行时间窗约 16:02–17:10（Asia/Shanghai）；2026-10-20 快照（S-022～S-032）为当日 12:21–12:50 运行窗（Asia/Shanghai）；2026-10-22 快照（S-033～S-039）为当日 18:10–18:40 运行窗（Asia/Shanghai），未逐条记录到秒。
+- 供后续补做：S-018 官方 PDF 原件；S-002、S-007、S-008、S-018 等暂不可直接访问页面的存档（合法途径）；10-27 PLFSS 表决与 11-03 收入部分表决结果来源。
