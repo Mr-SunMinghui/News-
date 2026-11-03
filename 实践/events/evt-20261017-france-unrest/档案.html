@@ -1,0 +1,2456 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>档案 · 法国2026年10月17日示威及多地骚乱</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231E5744'/%3E%3Cpath d='M10 23V9h11M10 16h8' stroke='%23D8E6C6' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#F1F0E8; --surface:#FFFDF6; --surface-2:#F7F5EC; --surface-3:#EFEEE4;
+  --ink:#1A211C; --ink-2:#333D36; --muted:#6C7A71; --muted-2:#8B968D;
+  --line:#DCDED2; --line-2:#C7CDBE;
+  --brand:#1E5744; --brand-d:#153F31; --brand-l:#3C7A62;
+  --lime:#D8E6C6; --lime-2:#E8F0DC;
+  --amber:#A9612F; --amber-bg:#FBEFDF; --amber-line:#EFD8BC;
+  --red:#9E4136; --red-bg:#F8E4E0;
+  --serif:"Source Han Serif SC","Songti SC","STSong","Noto Serif SC",SimSun,Georgia,serif;
+  --sans:"Aptos","Segoe UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:"Cascadia Mono","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  --r-1:12px; --r-2:18px; --r-3:26px;
+  --sh-1:0 1px 2px rgba(26,33,28,.05), 0 8px 22px rgba(26,33,28,.055);
+  --sh-2:0 2px 6px rgba(26,33,28,.07), 0 22px 48px rgba(26,33,28,.11);
+  --ease:cubic-bezier(.2,0,0,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.72 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(940px 520px at 88% -10%, rgba(216,230,198,.80), transparent 62%),
+    radial-gradient(820px 460px at -8% 2%, rgba(213,224,207,.55), transparent 58%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
+  background-image:
+    linear-gradient(to right, rgba(26,33,28,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26,33,28,.05) 1px, transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto;position:relative;z-index:1}
+.wrap-narrow{width:min(900px,calc(100% - 40px))}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(241,240,232,.86);
+  -webkit-backdrop-filter:saturate(1.3) blur(14px);backdrop-filter:saturate(1.3) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .inner{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand .mark{
+  width:26px;height:26px;border-radius:9px;background:var(--brand);
+  display:grid;place-items:center;color:#EDF3E6;font:700 12px/1 var(--sans);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);
+}
+.brand .name{
+  font:700 12.5px/1 var(--sans);letter-spacing:.20em;text-transform:uppercase;color:var(--ink);
+}
+.brand .name span{color:var(--muted-2);font-weight:600}
+.topbar .spacer{flex:1}
+.navlink{
+  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:10px;
+  font:600 13px/1 var(--sans);color:var(--ink-2);text-decoration:none;
+  transition:background .16s var(--ease),color .16s var(--ease);
+}
+.navlink:hover{background:rgba(255,255,255,.72);color:var(--brand)}
+.navlink svg{opacity:.72}
+
+/* ---------- 版式基元 ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font:700 11.5px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brand);
+}
+.kicker{
+  font:600 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.012em}
+.display{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.5rem,6.4vw,4.5rem);line-height:1.04;letter-spacing:-.035em;
+  margin:.35rem 0 0;
+}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.35vw,1.09rem);line-height:1.78;max-width:62ch}
+.muted{color:var(--muted)}
+.hr{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---------- 按钮 ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:40px;padding:0 17px;border-radius:var(--r-1);border:1px solid transparent;
+  background:var(--brand);color:#F6F8F1;text-decoration:none;
+  font:600 13.5px/1 var(--sans);letter-spacing:.01em;cursor:pointer;white-space:nowrap;
+  transition:background .16s var(--ease),transform .16s var(--ease),box-shadow .16s var(--ease),color .16s var(--ease),border-color .16s var(--ease);
+  box-shadow:0 1px 0 rgba(255,255,255,.10) inset, 0 6px 16px rgba(30,87,68,.16);
+}
+.btn:hover{background:var(--brand-d);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.10) inset,0 10px 22px rgba(30,87,68,.22)}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn-ghost{
+  background:rgba(255,255,255,.55);border-color:var(--line-2);color:var(--ink-2);box-shadow:none;
+}
+.btn-ghost:hover{background:var(--surface);border-color:var(--brand);color:var(--brand);box-shadow:var(--sh-1)}
+.btn-sm{height:34px;padding:0 13px;font-size:12.5px;border-radius:10px}
+.btn .arw{transition:transform .2s var(--ease)}
+.btn:hover .arw{transform:translateX(3px)}
+:where(a,button,input,summary):focus-visible{
+  outline:2px solid var(--brand);outline-offset:3px;border-radius:6px;
+}
+
+/* ---------- 徽标 ---------- */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--muted);
+  font:600 11.5px/1.7 var(--sans);letter-spacing:.02em;white-space:nowrap;
+}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.85}
+.b-developing{background:var(--amber-bg);border-color:var(--amber-line);color:#8A4E1F}
+.b-watching{background:var(--lime-2);border-color:#CFE0BA;color:#2C5B3C}
+.b-quiet{background:#EDEEE7;border-color:var(--line);color:#6A7268}
+.b-closed{background:#E9EAE3;border-color:var(--line-2);color:#4C554D}
+.b-reopened{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-corrob{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.b-partial{background:var(--amber-bg);border-color:var(--amber-line);color:#8A5A22}
+.b-unver{background:#EFEFE8;border-color:var(--line);color:#5F675C}
+.b-disputed{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-refuted{background:#F1DEDA;border-color:#DFC0BA;color:#7E2F22}
+.b-ok{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.pulse{position:relative}
+.pulse::after{
+  content:"";position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid currentColor;opacity:0;animation:pulse 2.6s var(--ease) infinite;
+}
+@keyframes pulse{0%{transform:scale(.7);opacity:.5}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
+
+/* ---------- 卡片 ---------- */
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);
+  box-shadow:var(--sh-1);position:relative;
+}
+.card-pad{padding:26px}
+
+/* ---------- 进场动画 ---------- */
+.rise{animation:rise .58s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- 页脚 ---------- */
+.foot{
+  margin-top:64px;padding:26px 0 40px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12.5px;line-height:1.8;position:relative;z-index:1;
+}
+.foot .inner{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;align-items:flex-start}
+.foot code{font-family:var(--mono);font-size:12px;background:var(--surface-3);padding:1px 6px;border-radius:5px}
+
+html,body{height:100%}
+body{overflow:hidden}
+.shell{display:grid;grid-template-columns:296px minmax(0,1fr);height:100vh;position:relative;z-index:1}
+
+.side{
+  background:rgba(247,245,236,.92);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;min-height:0;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.side .head{padding:18px 18px 12px;border-bottom:1px solid var(--line)}
+.side .head .back{
+  display:inline-flex;align-items:center;gap:7px;font:600 12px/1 var(--sans);color:var(--muted);
+  text-decoration:none;margin-bottom:12px;
+}
+.side .head .back:hover{color:var(--brand)}
+.side .head .t{font-family:var(--serif);font-size:15px;line-height:1.42;letter-spacing:-.01em;color:var(--ink)}
+.side .head .k{margin-top:6px;font:500 10.5px/1.6 var(--mono);color:var(--muted-2);word-break:break-all}
+.side .srch{padding:12px 18px;border-bottom:1px solid var(--line)}
+.side .srch input{
+  width:100%;height:34px;border-radius:9px;border:1px solid var(--line-2);
+  background:var(--surface);padding:0 11px;font:400 12.5px/1 var(--sans);color:var(--ink);
+}
+.side .srch input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(30,87,68,.10)}
+.docs{flex:1;overflow-y:auto;padding:8px 10px 26px;scrollbar-width:thin}
+.grp{margin:12px 0 4px;padding:0 8px;font:700 10px/1.6 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2)}
+.grp .c{font-weight:600;color:var(--muted-2);opacity:.8;letter-spacing:0;text-transform:none}
+.doc{
+  display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:8px;text-decoration:none;
+  color:var(--ink-2);font-size:13px;line-height:1.45;transition:background .13s var(--ease),color .13s var(--ease);
+}
+.doc:hover{background:#fff;color:var(--brand-d)}
+.doc.active{background:var(--brand);color:#F4F8EE;box-shadow:0 6px 16px rgba(30,87,68,.18)}
+.doc .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.doc .n{margin-left:auto;font:500 10.5px/1 var(--mono);opacity:.55}
+
+.main{min-width:0;display:flex;flex-direction:column;min-height:0;position:relative}
+.main .bar{
+  display:flex;align-items:center;gap:12px;min-height:56px;padding:0 26px;
+  border-bottom:1px solid var(--line);background:rgba(241,240,232,.9);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.main .bar .cur{font:600 13px/1.4 var(--sans);color:var(--ink-2);display:flex;align-items:center;gap:9px;min-width:0}
+.main .bar .cur .path{font:500 11px/1.4 var(--mono);color:var(--muted-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.main .bar .sp{flex:1}
+.main .bar .tocbtn{display:none}
+.progress{position:absolute;left:0;right:0;top:0;height:2px;background:transparent;z-index:5}
+.progress i{display:block;height:100%;width:0;background:var(--brand);transition:width .1s linear}
+
+.content{flex:1;overflow-y:auto;padding:0;scroll-behavior:smooth}
+.doc-body{width:auto;margin:0;padding:32px 44px 96px}
+.crumb{
+  display:flex;align-items:center;gap:8px;font:600 11px/1.4 var(--sans);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:10px;
+}
+.crumb b{color:var(--brand);font-weight:700}
+
+/* ---- Markdown 排版 ---- */
+.md{font-size:15.5px;line-height:1.86;color:var(--ink-2)}
+.md > *{max-width:900px}
+.md > .tbl{max-width:min(100%,1120px)}
+.md > :first-child{margin-top:0}
+.md h1{
+  font-family:var(--serif);font-size:clamp(1.75rem,3vw,2.35rem);line-height:1.24;letter-spacing:-.028em;
+  color:var(--ink);margin:0 0 22px;padding-bottom:16px;border-bottom:1px solid var(--line);
+}
+.md h2{
+  font-family:var(--serif);font-size:1.24rem;line-height:1.45;letter-spacing:-.012em;color:var(--ink);
+  margin:38px 0 14px;padding-left:14px;border-left:3px solid var(--brand);
+}
+.md h3{font-family:var(--sans);font-size:1.02rem;font-weight:700;color:var(--ink);margin:24px 0 9px;letter-spacing:0}
+.md h4{font-family:var(--sans);font-size:.94rem;font-weight:700;color:var(--ink-2);margin:18px 0 7px}
+.md p{margin:0 0 14px}
+.md ul,.md ol{margin:0 0 14px;padding-left:1.35em}
+.md li{margin:4px 0}
+.md li > ul,.md li > ol{margin:5px 0 2px}
+.md li::marker{color:var(--brand-l)}
+.md strong{color:var(--ink);font-weight:700}
+.md em{color:var(--ink)}
+.md a{color:var(--brand);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px;text-decoration-color:rgba(30,87,68,.32);transition:background .14s var(--ease)}
+.md a:hover{background:var(--lime-2);text-decoration-color:var(--brand)}
+.md hr{border:0;height:1px;background:var(--line-2);margin:28px 0}
+.md blockquote{
+  margin:16px 0;padding:12px 18px;border-left:3px solid var(--line-2);
+  background:var(--surface-2);border-radius:0 var(--r-1) var(--r-1) 0;color:var(--ink-2);
+}
+.md blockquote p:last-child{margin-bottom:0}
+.md code{
+  font-family:var(--mono);font-size:.855em;background:var(--surface-3);color:#3A4A3E;
+  padding:1.5px 6px;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+.md pre{
+  background:#20261F;color:#E6EADD;border-radius:var(--r-1);padding:16px 18px;overflow-x:auto;
+  font-size:12.5px;line-height:1.7;margin:16px 0;
+}
+.md pre code{background:none;color:inherit;padding:0;font-size:inherit}
+.md .tbl{
+  margin:18px 0;border:1px solid var(--line);border-radius:var(--r-1);overflow:auto;
+  max-height:none;background:var(--surface);scrollbar-width:thin;
+}
+.md .tbl::-webkit-scrollbar{height:9px}
+.md .tbl::-webkit-scrollbar-track{background:var(--surface-2)}
+.md .tbl::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:99px;border:2px solid var(--surface)}
+.md .tbl::-webkit-scrollbar-thumb:hover{background:var(--muted-2)}
+.md table{
+  border-collapse:separate;border-spacing:0;
+  width:100%;font-size:12.5px;line-height:1.6;
+}
+.md thead th{
+  position:sticky;top:0;background:var(--surface-3);z-index:3;
+  font:700 11.5px/1.5 var(--sans);letter-spacing:.04em;color:var(--ink);
+  text-align:left;padding:8px 10px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+}
+.md tbody td{
+  padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;
+  color:var(--ink-2);min-width:84px;
+}
+.md td.nw{white-space:nowrap}
+.md .nw2{white-space:nowrap}
+.md th:first-child,.md td:first-child{position:sticky;left:0;z-index:2;background:var(--surface)}
+.md thead th:first-child{z-index:4}
+.md tbody tr:nth-child(even) td{background:#FAF8F0}
+.md tbody tr:nth-child(even) td:first-child{background:#FAF8F0}
+.md tbody tr:last-child td{border-bottom:0}
+.md tbody tr:hover td{background:var(--lime-2)}
+.md td:first-child{font-variant-numeric:tabular-nums}
+.md td .badge{font-size:10.5px;padding:1px 7px;line-height:1.7}
+.tbl-hint{
+  display:flex;align-items:center;gap:6px;margin:-8px 0 18px;
+  font:500 11.5px/1.6 var(--sans);color:var(--muted-2);letter-spacing:.01em;
+}
+.md .anchor{margin-left:-14px;opacity:0;color:var(--muted-2);font-size:.7em;text-decoration:none;transition:opacity .15s}
+.md h2:hover .anchor,.md h3:hover .anchor{opacity:1}
+
+.empty-note{color:var(--muted);font-size:13.5px;padding:60px 0;text-align:center}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .side{
+    position:fixed;inset:0 auto 0 0;width:288px;z-index:70;transform:translateX(-102%);
+    transition:transform .26s var(--ease);box-shadow:0 0 0 1px var(--line),24px 0 60px rgba(26,33,28,.18);
+  }
+  body.nav-open .side{transform:none}
+  .scrim{position:fixed;inset:0;background:rgba(26,33,28,.28);z-index:65;opacity:0;pointer-events:none;transition:opacity .22s}
+  body.nav-open .scrim{opacity:1;pointer-events:auto}
+  .main .bar{padding:0 14px}
+  .main .bar .tocbtn{display:inline-flex}
+  .doc-body{width:calc(100% - 32px);padding:22px 0 80px;margin-inline:auto}
+  .md > *{max-width:100%}
+}
+</style>
+</head>
+<body class="">
+
+<div class="scrim" id="scrim"></div>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="head">
+      <a class="back" href="速览.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><span>返回事件速览</span></a>
+      <div class="t">法国2026年10月17日示威及多地骚乱</div>
+      <div class="k">evt-20261017-france-unrest · 52 篇文档</div>
+    </div>
+    <div class="srch"><input id="docq" type="search" placeholder="过滤文档名…" autocomplete="off" aria-label="过滤文档"></div>
+    <nav class="docs" id="docs"><div class="grp">核心档案 <span class="c">6</span></div><a class="doc" href="#/timeline" data-doc="timeline" data-name="时间线"><span class="nm">时间线</span></a><a class="doc" href="#/claims" data-doc="claims" data-name="主张与证据"><span class="nm">主张与证据</span></a><a class="doc" href="#/sources" data-doc="sources" data-name="来源登记"><span class="nm">来源登记</span></a><a class="doc" href="#/status" data-doc="status" data-name="状态与待办"><span class="nm">状态与待办</span></a><a class="doc" href="#/narrative" data-doc="narrative" data-name="叙事与用语观察"><span class="nm">叙事与用语观察</span></a><a class="doc" href="#/event" data-doc="event" data-name="事件元数据（yaml）"><span class="nm">事件元数据（yaml）</span></a><div class="grp">巡检日志 <span class="c">5</span></div><a class="doc" href="#/daily-logs/2026-10-18T17-40-16+08-00" data-doc="daily-logs/2026-10-18T17-40-16+08-00" data-name="10-18 17:40 巡检"><span class="nm">10-18 17:40 巡检</span></a><a class="doc" href="#/daily-logs/2026-10-19T16-17+08-00" data-doc="daily-logs/2026-10-19T16-17+08-00" data-name="10-19 16:17 巡检"><span class="nm">10-19 16:17 巡检</span></a><a class="doc" href="#/daily-logs/2026-10-20T12-50+08-00" data-doc="daily-logs/2026-10-20T12-50+08-00" data-name="10-20 12:50 巡检"><span class="nm">10-20 12:50 巡检</span></a><a class="doc" href="#/daily-logs/2026-10-22T18-40+08-00" data-doc="daily-logs/2026-10-22T18-40+08-00" data-name="10-22 18:40 巡检"><span class="nm">10-22 18:40 巡检</span></a><a class="doc" href="#/daily-logs/2026-11-03T20-30+08-00" data-doc="daily-logs/2026-11-03T20-30+08-00" data-name="11-03 20:30 巡检"><span class="nm">11-03 20:30 巡检</span></a><div class="grp">来源快照 <span class="c">41</span></div><a class="doc" href="#/snapshots/2026-10-18-S-001" data-doc="snapshots/2026-10-18-S-001" data-name="10-18 · s-001"><span class="nm">10-18 · S-001</span></a><a class="doc" href="#/snapshots/2026-10-18-S-002" data-doc="snapshots/2026-10-18-S-002" data-name="10-18 · s-002"><span class="nm">10-18 · S-002</span></a><a class="doc" href="#/snapshots/2026-10-18-S-003" data-doc="snapshots/2026-10-18-S-003" data-name="10-18 · s-003"><span class="nm">10-18 · S-003</span></a><a class="doc" href="#/snapshots/2026-10-19-S-003-v2" data-doc="snapshots/2026-10-19-S-003-v2" data-name="10-19 · s-003-v2"><span class="nm">10-19 · S-003-v2</span></a><a class="doc" href="#/snapshots/2026-10-19-S-004" data-doc="snapshots/2026-10-19-S-004" data-name="10-19 · s-004"><span class="nm">10-19 · S-004</span></a><a class="doc" href="#/snapshots/2026-10-19-S-005" data-doc="snapshots/2026-10-19-S-005" data-name="10-19 · s-005"><span class="nm">10-19 · S-005</span></a><a class="doc" href="#/snapshots/2026-10-19-S-006" data-doc="snapshots/2026-10-19-S-006" data-name="10-19 · s-006"><span class="nm">10-19 · S-006</span></a><a class="doc" href="#/snapshots/2026-10-19-S-007" data-doc="snapshots/2026-10-19-S-007" data-name="10-19 · s-007"><span class="nm">10-19 · S-007</span></a><a class="doc" href="#/snapshots/2026-10-19-S-008" data-doc="snapshots/2026-10-19-S-008" data-name="10-19 · s-008"><span class="nm">10-19 · S-008</span></a><a class="doc" href="#/snapshots/2026-10-19-S-009" data-doc="snapshots/2026-10-19-S-009" data-name="10-19 · s-009"><span class="nm">10-19 · S-009</span></a><a class="doc" href="#/snapshots/2026-10-19-S-010" data-doc="snapshots/2026-10-19-S-010" data-name="10-19 · s-010"><span class="nm">10-19 · S-010</span></a><a class="doc" href="#/snapshots/2026-10-19-S-011" data-doc="snapshots/2026-10-19-S-011" data-name="10-19 · s-011"><span class="nm">10-19 · S-011</span></a><a class="doc" href="#/snapshots/2026-10-19-S-012" data-doc="snapshots/2026-10-19-S-012" data-name="10-19 · s-012"><span class="nm">10-19 · S-012</span></a><a class="doc" href="#/snapshots/2026-10-19-S-013" data-doc="snapshots/2026-10-19-S-013" data-name="10-19 · s-013"><span class="nm">10-19 · S-013</span></a><a class="doc" href="#/snapshots/2026-10-19-S-014" data-doc="snapshots/2026-10-19-S-014" data-name="10-19 · s-014"><span class="nm">10-19 · S-014</span></a><a class="doc" href="#/snapshots/2026-10-19-S-015" data-doc="snapshots/2026-10-19-S-015" data-name="10-19 · s-015"><span class="nm">10-19 · S-015</span></a><a class="doc" href="#/snapshots/2026-10-19-S-016" data-doc="snapshots/2026-10-19-S-016" data-name="10-19 · s-016"><span class="nm">10-19 · S-016</span></a><a class="doc" href="#/snapshots/2026-10-19-S-017" data-doc="snapshots/2026-10-19-S-017" data-name="10-19 · s-017"><span class="nm">10-19 · S-017</span></a><a class="doc" href="#/snapshots/2026-10-19-S-018" data-doc="snapshots/2026-10-19-S-018" data-name="10-19 · s-018"><span class="nm">10-19 · S-018</span></a><a class="doc" href="#/snapshots/2026-10-19-S-019" data-doc="snapshots/2026-10-19-S-019" data-name="10-19 · s-019"><span class="nm">10-19 · S-019</span></a><a class="doc" href="#/snapshots/2026-10-19-S-020" data-doc="snapshots/2026-10-19-S-020" data-name="10-19 · s-020"><span class="nm">10-19 · S-020</span></a><a class="doc" href="#/snapshots/2026-10-19-S-021" data-doc="snapshots/2026-10-19-S-021" data-name="10-19 · s-021"><span class="nm">10-19 · S-021</span></a><a class="doc" href="#/snapshots/2026-10-20-S-022" data-doc="snapshots/2026-10-20-S-022" data-name="10-20 · s-022"><span class="nm">10-20 · S-022</span></a><a class="doc" href="#/snapshots/2026-10-20-S-023" data-doc="snapshots/2026-10-20-S-023" data-name="10-20 · s-023"><span class="nm">10-20 · S-023</span></a><a class="doc" href="#/snapshots/2026-10-20-S-024" data-doc="snapshots/2026-10-20-S-024" data-name="10-20 · s-024"><span class="nm">10-20 · S-024</span></a><a class="doc" href="#/snapshots/2026-10-20-S-025" data-doc="snapshots/2026-10-20-S-025" data-name="10-20 · s-025"><span class="nm">10-20 · S-025</span></a><a class="doc" href="#/snapshots/2026-10-20-S-026" data-doc="snapshots/2026-10-20-S-026" data-name="10-20 · s-026"><span class="nm">10-20 · S-026</span></a><a class="doc" href="#/snapshots/2026-10-20-S-027" data-doc="snapshots/2026-10-20-S-027" data-name="10-20 · s-027"><span class="nm">10-20 · S-027</span></a><a class="doc" href="#/snapshots/2026-10-20-S-028" data-doc="snapshots/2026-10-20-S-028" data-name="10-20 · s-028"><span class="nm">10-20 · S-028</span></a><a class="doc" href="#/snapshots/2026-10-20-S-029" data-doc="snapshots/2026-10-20-S-029" data-name="10-20 · s-029"><span class="nm">10-20 · S-029</span></a><a class="doc" href="#/snapshots/2026-10-20-S-030" data-doc="snapshots/2026-10-20-S-030" data-name="10-20 · s-030"><span class="nm">10-20 · S-030</span></a><a class="doc" href="#/snapshots/2026-10-20-S-031" data-doc="snapshots/2026-10-20-S-031" data-name="10-20 · s-031"><span class="nm">10-20 · S-031</span></a><a class="doc" href="#/snapshots/2026-10-20-S-032" data-doc="snapshots/2026-10-20-S-032" data-name="10-20 · s-032"><span class="nm">10-20 · S-032</span></a><a class="doc" href="#/snapshots/2026-10-22-S-033" data-doc="snapshots/2026-10-22-S-033" data-name="10-22 · s-033"><span class="nm">10-22 · S-033</span></a><a class="doc" href="#/snapshots/2026-10-22-S-034" data-doc="snapshots/2026-10-22-S-034" data-name="10-22 · s-034"><span class="nm">10-22 · S-034</span></a><a class="doc" href="#/snapshots/2026-10-22-S-035" data-doc="snapshots/2026-10-22-S-035" data-name="10-22 · s-035"><span class="nm">10-22 · S-035</span></a><a class="doc" href="#/snapshots/2026-10-22-S-036" data-doc="snapshots/2026-10-22-S-036" data-name="10-22 · s-036"><span class="nm">10-22 · S-036</span></a><a class="doc" href="#/snapshots/2026-10-22-S-037" data-doc="snapshots/2026-10-22-S-037" data-name="10-22 · s-037"><span class="nm">10-22 · S-037</span></a><a class="doc" href="#/snapshots/2026-10-22-S-038" data-doc="snapshots/2026-10-22-S-038" data-name="10-22 · s-038"><span class="nm">10-22 · S-038</span></a><a class="doc" href="#/snapshots/2026-10-22-S-039" data-doc="snapshots/2026-10-22-S-039" data-name="10-22 · s-039"><span class="nm">10-22 · S-039</span></a><a class="doc" href="#/snapshots/2026-11-03-S-040" data-doc="snapshots/2026-11-03-S-040" data-name="11-03 · s-040"><span class="nm">11-03 · S-040</span></a></nav>
+  </aside>
+  <div class="main">
+    <div class="progress"><i id="bar"></i></div>
+    <div class="bar">
+      <button class="btn btn-ghost btn-sm tocbtn" id="menu" aria-label="打开文档列表"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="cur"><span id="curName">档案</span><span class="path" id="curPath"></span></div>
+      <div class="sp"></div>
+      <a class="navlink" href="速览.html">速览</a>
+      <a class="navlink" href="../../速览.html">总览</a>
+    </div>
+    <div class="content" id="content">
+      <div class="doc-body">
+        <article class="doc-sec" data-doc="timeline" data-title="时间线" data-sub="timeline.md" hidden><div class="md"><h1>时间线</h1>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>事件发生时间</th>
+<th>报道发布时间</th>
+<th>记录时间</th>
+<th>描述</th>
+<th>主张 ID</th>
+<th>来源 ID</th>
+<th>证据状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-17（当地时间）</td>
+<td>2026-10-17（具体时刻 unknown）</td>
+<td>2026-10-18<wbr/><span class="nw2">T17:40:16+08:00</span></td>
+<td>法国多地举行反生活成本上涨、<wbr/>声援学生诉求的游行；<wbr/>多地出现冲突、<wbr/>火灾和商铺破坏/抢掠。</td>
+<td>C-001、<wbr/>C-002</td>
+<td>S-001、<wbr/>S-002</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-17</td>
+<td>2026-10-17（具体时刻 unknown）</td>
+<td>2026-10-18<wbr/><span class="nw2">T17:40:16+08:00</span></td>
+<td>AP转述内政部长称全国110场集会约55万人参加、<wbr/>约400人被捕；<wbr/>组织方称约80万人参加。（该逮捕数为早期时点）</td>
+<td class="nw">C-003</td>
+<td class="nw">S-001</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-17晚</td>
+<td>2026-10-18（滚动更新）</td>
+<td>2026-10-18<wbr/><span class="nw2">T17:40:16+08:00</span></td>
+<td>Le Monde转述总理称截至其发言时约1,200人被捕、<wbr/>150名警察和宪兵受伤；<wbr/>属另一时点/口径（该来源 2026-10-19 复访暂不可达）。</td>
+<td class="nw">C-004</td>
+<td class="nw">S-002</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-17</td>
+<td>2026-10-17 23:55（时区未注明）</td>
+<td>2026-10-18<wbr/><span class="nw2">T17:40:16+08:00</span></td>
+<td>AFP报道利摩日市政厅在火灾中严重受损，<wbr/>巴黎等地出现纵火和商铺抢掠。</td>
+<td class="nw">C-005</td>
+<td class="nw">S-003</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-17 白天—深夜</td>
+<td>2026-10-17～10-19（多来源）</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>抢掠与破坏范围扩大：巴黎、<wbr/>马赛、<wbr/>尼斯、<wbr/>南特、<wbr/>波尔多、<wbr/>利摩日、<wbr/>里尔、<wbr/>图卢兹、<wbr/>斯特拉斯堡等地商铺被针对；<wbr/>有组织团伙先破坏监控再洗劫；<wbr/>马赛和里尔市政厅被闯入、<wbr/>波尔多警察设施被破坏、<wbr/>里昂旅游局被纵火。</td>
+<td>C-001、<wbr/>C-005</td>
+<td>S-003-v2、<wbr/>S-009、<wbr/>S-021</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-17 下午—傍晚</td>
+<td>2026-10-17～10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>两名17岁未成年人被防暴武器重伤：圣艾蒂安一名男青年右手被防暴手榴弹炸断（IGPN与IGGN受理）；<wbr/>米卢斯一名女青年左眼失明（检方以"加重暴力"交IGPN梅斯分队立案）。武器归属与责任待查。</td>
+<td class="nw">C-011</td>
+<td>S-011、<wbr/>S-012、<wbr/>S-020、<wbr/>S-009</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-17（巴黎Magenta大道）</td>
+<td class="nw">2026-10-18</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>巴黎一名男子在游行路线上身体不适后死亡（警察局称"心跳呼吸骤停"），<wbr/>被示威者抬至消防站前未及救治；<wbr/>年龄未公布；<wbr/>检察院调查中；<wbr/>无官方信息将其与警方行动关联。</td>
+<td class="nw">C-010</td>
+<td>S-009、<wbr/>S-010</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-17晚—2026-10-19</td>
+<td>2026-10-17～10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>官方数字按时点连续上修：约400被捕（17日晚）→约1,200被捕、<wbr/>150军警受伤（17日深夜，<wbr/>总理）→巴黎855被捕"纪录"、<wbr/>517在押、<wbr/>巴黎13军警+2消防受伤（18日上午）→全国1,800→"超过2,000"被捕、<wbr/>"超过600"军警消防受伤（18日，<wbr/>内政部长）→近2,400被捕、<wbr/>近千军警受伤、<wbr/>7人重伤（内政部，<wbr/>18日晚—19日）。巴黎周日108人被捕、<wbr/>至周一凌晨350+；<wbr/>马赛当局称周六有多达3万抢掠者。不可相加。</td>
+<td>C-003、<wbr/>C-004、<wbr/>C-008</td>
+<td>S-001、<wbr/>S-002、<wbr/>S-010、<wbr/>S-013、<wbr/>S-017、<wbr/>S-005、<wbr/>S-006、<wbr/>S-008、<wbr/>S-016、<wbr/>S-021</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-17～10-18</td>
+<td>2026-10-18～10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>损失与商业影响：FCD称约1,500家商铺被针对、<wbr/>"数亿欧元"；<wbr/>CCI France称至少2,000家受影响；<wbr/>利摩日市政厅被纵火近乎全毁（地方官员称预谋/故意纵火）；<wbr/>商户与行业组织要求加快保险赔付；<wbr/>10-19 Bercy会议（官方通稿预告）。</td>
+<td>C-009、<wbr/>C-013</td>
+<td>S-015、<wbr/>S-017、<wbr/>S-019、<wbr/>S-018、<wbr/>S-006</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-18 白天</td>
+<td>2026-10-18～10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>国民议会议长布拉恩-皮韦宣布将于10-20提议成立议会调查委员会（调查骚乱、<wbr/>暴力团伙手法与维稳策略"可能的失灵"）；<wbr/>参议院社会党团要求延长"信息任务"；<wbr/>巴黎、<wbr/>马赛、<wbr/>里昂市长批评维稳并要求会见总理；<wbr/>法国市长协会呼吁午间在市政厅前集会。</td>
+<td>C-012、<wbr/>C-013</td>
+<td>S-013、<wbr/>S-009、<wbr/>S-005</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-18 20:00</td>
+<td>2026-10-18～10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>马克龙电视讲话："愤怒与羞耻"；<wbr/>"摧毁者要赔偿、<wbr/>抢掠者要偿还"；<wbr/>不实施紧急状态或宵禁，<wbr/>但省长与市长必要时可禁止集会；<wbr/>下令审查"预见与情报"失误并承诺"完全透明"；<wbr/>责成本周召集学生、<wbr/>教师、<wbr/>议员、<wbr/>工会与企业代表提"具体建议"；<wbr/>承诺帮扶受损商户。</td>
+<td class="nw">C-006</td>
+<td>S-005、<wbr/>S-006、<wbr/>S-009、<wbr/>S-016、<wbr/>S-017</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-18 傍晚—夜间</td>
+<td>2026-10-18～10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>巴黎共和广场再发冲突（催泪瓦斯/震撼弹）；<wbr/>巴黎、<wbr/>里昂、<wbr/>马赛等地出现未申报游行与零星抢掠；<wbr/>巴黎当日108人被捕（巴黎警察局），<wbr/>至周一凌晨累计350+。</td>
+<td class="nw">C-008</td>
+<td>S-016、<wbr/>S-008、<wbr/>S-009</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-19 上午</td>
+<td class="nw">2026-10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>爱丽舍宫：马克龙拒绝内政部长辞呈（"执法力量需连续指挥"），<wbr/>要求部署针对"破坏者"的新行动方针并对"预见和情报失误"保持透明；<wbr/>努涅斯受访称"我对一切负责"，<wbr/>承认周六部分城市"失去控制"、<wbr/>存在"预判不足"（预测约20万人/实际55万+，<wbr/>部署6万警力）。</td>
+<td class="nw">C-007</td>
+<td>S-004、<wbr/>S-005、<wbr/>S-008</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-19（当天安排，<wbr/>进行中）</td>
+<td class="nw">2026-10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>9:00 Bercy行业会议；<wbr/>10:00 跨部门危机小组（经济-商业/保险/司法跟进）；<wbr/>午间 AMF 集会；<wbr/>努涅斯赴马赛。10-20：国民议会预算案第一部分表决、<wbr/>调查委员会提议提交、<wbr/>企业例外会议。CGT等呼吁11-05跨行业罢工示威日。</td>
+<td>C-013、<wbr/>C-012</td>
+<td>S-018、<wbr/>S-005、<wbr/>S-016、<wbr/>S-013、<wbr/>S-014、<wbr/>S-006</td>
+<td>corroborated（安排）；<wbr/>结果 unknown</td>
+</tr>
+<tr>
+<td>2026-10-05（前情）</td>
+<td>2026-10-17～10-18</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>前情：Lens一名未成年人在学生抗议中被防暴手榴弹重伤手部，<wbr/>引发对相关武器使用的争议与请愿（请愿数字待权威核实）。</td>
+<td>C-011（前情）</td>
+<td class="nw">S-012</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-17～10-19（表态与外溢时间各异）</td>
+<td>2026-10-18～10-19</td>
+<td>2026-10-19<wbr/><span class="nw2">T16:17+08:00</span></td>
+<td>国际反应：特朗普"France is burning!"并将骚乱与移民挂钩（法国当局未作此关联）；<wbr/>米兰、<wbr/>比利时、<wbr/>葡萄牙同类示威出现冲突；<wbr/>匈牙利、<wbr/>波兰总理就移民表态。</td>
+<td class="nw">C-014</td>
+<td>S-009、<wbr/>S-005、<wbr/>S-007、<wbr/>S-008</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-19 白天—夜间</td>
+<td>2026-10-19～10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>卢浮宫因学生封锁入口全日关闭（CGT 支持行动；<wbr/>当日亦为卢浮宫珍宝失窃案周年）；<wbr/>努涅斯称周六部署 6 万警力"不足以控制暴力人群"、<wbr/>周一起实施含增派街头警力的"一系列措施"；<wbr/>PSG—巴塞罗那欧冠赛按计划举行。</td>
+<td class="nw">C-015</td>
+<td>S-024、<wbr/>S-025、<wbr/>S-026</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-19 晚</td>
+<td>2026-10-19～10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>总理勒科尔尼指令实施局部宵禁并宣布"大规模司法行动"：巴黎共和广场与 Les Halles 周边 23:00—06:00 宵禁、<wbr/>部分区域 20:00—06:00 禁止示威；<wbr/>里尔、<wbr/>Douai、<wbr/>Wattignies、<wbr/>Denain 20:00—06:00 未成年人宵禁（连续两晚）；<wbr/>尼斯市长签署市中心未成年人宵禁令；<wbr/>马赛 12:00—20:00 禁止集会。Lecornu 称宵禁须"局部、<wbr/>部分"、<wbr/>"让全巴黎宵禁不可想象"；<wbr/>不排除"如有必要"宣布紧急状态。此与马克龙 10-18"不实施紧急状态或宵禁"的全国性表态并存（地方禁令权已有之前提）。</td>
+<td>C-006、<wbr/>C-015</td>
+<td>S-022、<wbr/>S-023、<wbr/>S-024、<wbr/>S-025、<wbr/>S-026</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-19</td>
+<td>2026-10-19～10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>司法部长达尔马宁：周末以来全国超过 2,330 人（后更新为 2,513 人）被拘留，<wbr/>70% 为成年人、<wbr/>多人早为当局所知；<wbr/>67 人已被监禁、<wbr/>"数十起"刑事案件立案。</td>
+<td class="nw">C-016</td>
+<td>S-022、<wbr/>S-024</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-19</td>
+<td>2026-10-19～10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>损失口径更新：商会会长 Di Crescenzo 称预计超过 2,000 家商铺受影响、<wbr/>损失"数亿欧元"；<wbr/>贸易与零售联合会（CGTN 口径）称近 3,000 家店铺受影响，<wbr/>呼吁社保与税收减免；<wbr/>巴黎 Place Vendôme 多数店铺周一关闭。</td>
+<td class="nw">C-009</td>
+<td>S-022、<wbr/>S-024</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-19—10-20</td>
+<td class="nw">2026-10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>金融市场反应：CAC40 收跌 1.11%～1.5%（法巴、<wbr/>兴业跌约 3%）；<wbr/>法国 10 年期国债收益率单日 +14.5～15bp 至 4.931%—4.93%，<wbr/>逼近 2002 年以来高位；<wbr/>OAT-Bund 利差扩至约 145—146bp（欧债危机以来罕见水平），<wbr/>法债收益率高于意大利；<wbr/>意大利 10Y +9.7～11bp 至 4.568%—4.58%；<wbr/>欧元兑主要货币跌 0.2%—0.3%。</td>
+<td class="nw">C-017</td>
+<td>S-027、<wbr/>S-028</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-19（抵达）—10-21（计划）</td>
+<td>2026-10-19～10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>马克龙赴海湾四国（科威特、<wbr/>阿联酋、<wbr/>巴林、<wbr/>卡塔尔）保障能源供应、<wbr/>推动霍尔木兹海峡重开；<wbr/>将生活成本上升归因于地区冲突。</td>
+<td class="nw">C-018</td>
+<td>S-023、<wbr/>S-032</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-19～10-20</td>
+<td>2026-10-19～10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>欧洲溢出与旅行提醒：布鲁塞尔周六催泪瓦斯/水炮（指示威者投掷投射物纵火）；<wbr/>里斯本数万人抗议（葡房价 2015—2024 +124%）；<wbr/>米兰冲突、<wbr/>梅洛尼谴责"流氓"；<wbr/>HEC 教授称希腊、<wbr/>德国、<wbr/>奥地利"早期阶段"运动、<wbr/>预计下周动员；<wbr/>意、<wbr/>德、<wbr/>捷、<wbr/>波、<wbr/>荷及北欧国家发布赴法旅行提醒。</td>
+<td>C-014、<wbr/>C-018</td>
+<td>S-029、<wbr/>S-026</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-20（安排，<wbr/>结果未出）</td>
+<td>2026-10-19～10-20</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:50+08:00</span></td>
+<td>10-20 当日：国民议会预算法案第一部分（收入）庄严表决（巴黎时间傍晚，<wbr/>本档案记录时结果未出）；<wbr/>议长 Braun-Pivet 与各党团主席讨论调查委员会提议；<wbr/>Lecornu 归因"极左运动"欲在大选前制造动荡，<wbr/>梅朗雄要求证据否则"道歉、<wbr/>闭嘴"。预告：黄背心 10-24"第二幕"全国示威；<wbr/>工会 11-05 罢工示威；<wbr/>11-17 预算全部表决。</td>
+<td>C-012、<wbr/>C-013、<wbr/>C-019</td>
+<td>S-024、<wbr/>S-025、<wbr/>S-030、<wbr/>S-026</td>
+<td>corroborated（安排）；<wbr/>unknown（结果）</td>
+</tr>
+<tr>
+<td>2026-10-20 白天—夜间</td>
+<td>2026-10-20～10-22</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:40+08:00</span></td>
+<td>国民议会收入部分审议暂停：至 10-19/20 午夜仍有 2,600+ 修正案待审，<wbr/>原定 10-20 的庄严表决推迟；<wbr/>议会转入社保融资法案（PLFSS，<wbr/>10-20 下午开始）；<wbr/>收入部分辩论 10-27 续审、<wbr/>庄严表决改期 11-03 下午。Amiel：已通过修改令预算平衡恶化约 €10bn。政府未决定是否动用 49.3 条或法令。</td>
+<td class="nw">C-020</td>
+<td>S-033、<wbr/>S-035</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-20</td>
+<td>2026-10-20～10-22</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:40+08:00</span></td>
+<td>议会调查委员会成立：国民议会在党团主席会议上同意设立（议长 Braun-Pivet 提议），<wbr/>调查 10-17 暴力之成因、<wbr/>后果与执法反应，<wbr/>含可能的情报失灵、<wbr/>警务战术与政府准备；<wbr/>主席 Vincent Caure；<wbr/>勒庞主张纳入刑事追责、<wbr/>潘ot（LFI）主张扩至 9 月中旬以来事件。前警务专员 Marie Lajus 称近期抗议约 8,000 人被捕、<wbr/>多数为未成年人（单一来源）。</td>
+<td class="nw">C-021</td>
+<td>S-034、<wbr/>S-035</td>
+<td>corroborated（成立）；<wbr/>partially_verified（范围细节与 Lajus 数字）</td>
+</tr>
+<tr>
+<td>2026-10-20—10-22</td>
+<td>2026-10-20～10-22</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:40+08:00</span></td>
+<td>安保升级：努涅斯 10-20 宣布部署"哨兵行动"（反恐）军人增援警宪，<wbr/>并考虑禁止未申报及"有失控风险"的已申报游行；<wbr/>巴黎连续实施夜间宵禁（共和广场/Les Halles 等，<wbr/>10-21 23:00—10-22 06:00 为本周第三次）；<wbr/>10-22 白天巴黎警方禁聚区扩大至爱丽舍宫、<wbr/>总理府、<wbr/>国民议会、<wbr/>参议院周边及卢浮宫、<wbr/>香榭丽舍大街；<wbr/>临时禁止携带汽油罐瓶；<wbr/>一名据信与极左有关男子因利摩日市政厅纵火案被捕。</td>
+<td class="nw">C-022</td>
+<td>S-035、<wbr/>S-037、<wbr/>S-038、<wbr/>S-039</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-21</td>
+<td>2026-10-21～10-22</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:40+08:00</span></td>
+<td>Lecornu 上午与五个工会代表会面（学生未受邀），<wbr/>讨论"保障示威自由的方式与手段"；<wbr/>信函称有人企图以"不可接受的行为"劫持抗议；<wbr/>努涅斯出席。马克龙在多哈称将动用一切法律工具防止 10-24 暴力重演，<wbr/>现阶段无需紧急状态；<wbr/>并"点名"特朗普等外国领导人传播虚假信息谋取政治利益（"是的，<wbr/>还有其他人"）。</td>
+<td>C-006、<wbr/>C-015、<wbr/>C-022</td>
+<td>S-035、<wbr/>S-037、<wbr/>S-039</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-21—10-22</td>
+<td class="nw">2026-10-22</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:40+08:00</span></td>
+<td>后续氛围与动员：卢浮宫 10-19 闭馆后已恢复预约进馆；<wbr/>政府口径至少 3,000 家商铺遭劫掠；<wbr/>司法口径近 150 人监禁、<wbr/>800 余人送审；<wbr/>印度等再发旅行提醒；<wbr/>黄背心与学生组织预告 10-24（周六）示威，<wbr/>工会 11-05 罢工。</td>
+<td>C-009、<wbr/>C-016、<wbr/>C-018、<wbr/>C-019</td>
+<td>S-036、<wbr/>S-038、<wbr/>S-035</td>
+<td>corroborated（安排与已公布数据）；<wbr/>unknown（10-24 结果）</td>
+</tr>
+<tr>
+<td>2026-10-24（当地时间）</td>
+<td>2026-10-24～10-25</td>
+<td>2026-11-03<wbr/><span class="nw2">T20:30+08:00</span></td>
+<td>黄背心"第二幕"全国示威：据 Rio Times 梳理，<wbr/>内政部统计约 410,000 人参加、<wbr/>全国近 1,000 人被捕（较 10-17 首轮的 55 万/2,397 人被捕明显下降）；<wbr/>组织方（CGT 等）口径约 80 万人参加。夜宵禁适用于巴黎、<wbr/>里昂、<wbr/>马赛等地部分区域；<wbr/>未宣布紧急状态。</td>
+<td class="nw">C-023</td>
+<td class="nw">S-041</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-30～11-02</td>
+<td>2026-10-30～10-31</td>
+<td>2026-11-03<wbr/><span class="nw2">T20:30+08:00</span></td>
+<td>随着 10-31 新一轮示威临近，<wbr/>多地延长管控：巴黎 10-31 晚至 11-02 凌晨在共和国广场和大堂商业区恢复夜间宵禁（23:00—次日 06:00）；<wbr/>此前巴黎已延长未成年人宵禁并限制未申报集会；<wbr/>马赛（10-29 令）10-30 晚至 11-02 凌晨每晚 23:00—05:00 对无人监护未成年人宵禁；<wbr/>里昂禁止市中心部分区域抗议性集会（允许已申报游行）；<wbr/>格勒诺布尔等亦宣布局部宵禁或加强集会管制。</td>
+<td class="nw">C-015</td>
+<td class="nw">S-042</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-31（当地时间）</td>
+<td class="nw">2026-11-01</td>
+<td>2026-11-03<wbr/><span class="nw2">T20:30+08:00</span></td>
+<td>据央视网/新华社 11-01 电，<wbr/>10-31 法国再现新一轮全国示威，<wbr/>围绕生活成本、<wbr/>住房、<wbr/>教育等诉求，<wbr/>部分伴随暴力冲突；<wbr/>内政部长努内兹当晚称全国约 32 万人参加、<wbr/>422 人被捕；<wbr/>政府部署约 7 万宪兵和警员，<wbr/>巴黎大众运输公司称巴黎超过 40 个地铁站关闭；<wbr/>同期欧洲多国（德、<wbr/>意、<wbr/>葡、<wbr/>西、<wbr/>荷）亦爆发示威。</td>
+<td class="nw">C-024</td>
+<td class="nw">S-040</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-23～11-03</td>
+<td>2026-10-23～11-02</td>
+<td>2026-11-03<wbr/><span class="nw2">T20:30+08:00</span></td>
+<td>预算议程：社保融资法案（PLFSS）收入部分已于 10-23 前后以 115:1 被国民议会一读否决、<wbr/>发回参议院（参议院 11-09 起审议政府原版）；<wbr/>国家预算收入部分表决原定 10-20→10-27→推迟至 11-03 下午（本次巡检当日），<wbr/>截至检索结果待出。插曲："流量税"修正案 10-30 以 11:10 通过（左翼议员 Coquerel 承认误投两票、<wbr/>将申请更正），<wbr/>拟按内容提供商发往法国用户数据量每 GB 收 €0.055；<wbr/>稳定币税修正案 10-16 以 38:37 通过。</td>
+<td>C-019、<wbr/>C-020、<wbr/>C-025</td>
+<td>S-043、<wbr/>S-044、<wbr/>S-045</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td>2026-10-22～10-23</td>
+<td>2026-10-22～10-23</td>
+<td>2026-11-03<wbr/><span class="nw2">T20:30+08:00</span></td>
+<td>金融市场与评级：10 年期 OAT 收益率 10-22 盘中升至 5.14%（2002 年来最高），<wbr/>OAT-Bund 利差约 156bp；<wbr/>穆迪 10-23 维持法国主权评级 Aa3、<wbr/>展望负面，<wbr/>但条件假设为 2027 减赤预算获通过，<wbr/>并警告公债收益率上升加大债务可负担性风险。</td>
+<td class="nw">C-017</td>
+<td class="nw">S-044</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20（成立）→2026-11-03（本周期）</td>
+<td>2026-10-20～11-03</td>
+<td>2026-11-03<wbr/><span class="nw2">T20:30+08:00</span></td>
+<td>议会调查委员会（主席 Vincent Caure）10-20 成立；<wbr/>本周期（至 11-03）未见听证日程或结论的公开报道，<wbr/>维持成立状态与范围待官方文本。工会 11-05 跨行业罢工示威仍为预告（未发生）。</td>
+<td>C-021、<wbr/>C-019</td>
+<td class="nw">S-035</td>
+<td>corroborated（成立）；<wbr/>unknown（听证/结论未出）</td>
+</tr>
+</tbody>
+</table></div></div></article><article class="doc-sec" data-doc="claims" data-title="主张与证据" data-sub="claims.md" hidden><div class="md"><h1>关键主张</h1>
+<h2>C-001 — 10月17日法国多地出现集会及相关暴力事件</h2>
+<ul>
+<li>表述：2026年10月17日，法国多地举行反生活成本上涨并声援学生诉求的游行；部分地点发生警民冲突、火灾及商铺破坏/抢掠。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：AP现场报道巴黎警方使用催泪瓦斯和水炮，报道里昂旅游办公室起火、马赛市政厅大厅被短暂闯入、利摩日市政厅起火；AFP亦报道多地冲突、纵火和抢掠。（S-001、S-003；后续 S-005、S-009、S-021 继续印证）</li>
+<li>反驳/限制证据：AP指出多数和平示威者参加游行；不能把所有参与者概括为暴力行为者。（S-001、S-005）</li>
+<li>推断与限制：此处"多地骚乱"为事件档案简称，具体参与者及各事件责任须逐案核实。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：AP与AFP报道相互印证核心事实；10-19复访 AFP 页面及新增多来源未出现相反信息。</li>
+</ul>
+<h2>C-002 — 示威诉求涉及生活成本及教育条件</h2>
+<ul>
+<li>表述：报道所述示威诉求包括应对生活成本上涨及改善学校条件/回应学生诉求。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：AP正文及AFP报道；France 24 概括为"要求公共支出修缮破败学校、改善教育标准及应对生活成本"。（S-001、S-003、S-005）</li>
+<li>反驳/限制证据：各地参与者诉求可能不同，现有报道不足以代表所有参与者；组织方与官方对规模统计不同。</li>
+<li>推断与限制：仅概括媒体报道呈现的主要诉求。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：多来源报道一致；新增来源补充教育设施诉求表述。</li>
+</ul>
+<h2>C-003 — 参加人数和早期逮捕数</h2>
+<ul>
+<li>表述：AP转述内政部长称110场集会约55万人参加、约400人被捕；组织方称约80万人参加。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：AP正文分别归因于内政部长和组织方。（S-001）</li>
+<li>反驳/限制证据：统计主体、口径和公布时点不同；本档案未独立核算。逮捕数字随后数小时连续上修（1,200→1,800→2,000+→近2,400），属同一事件不同时点统计，不能相加（见 C-008）；55万/80万人规模口径此后持续被引用。</li>
+<li>推断与限制：不选择某一方作为最终准确数字。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：来源内容可见，但属于转述统计；新增时点数字见 C-008。</li>
+</ul>
+<h2>C-004 — 总理公布的后续逮捕及警员受伤数</h2>
+<ul>
+<li>表述：Le Monde 10月18日滚动报道转述总理于17日晚称，截至发言时约1,200人被捕、150名警察和宪兵受伤。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：Le Monde直播报道明确归因于总理。（S-002）；Les Echos 10-18 复盘条目再次引用同一数字（S-017）。</li>
+<li>反驳/限制证据：未取得总理原始声明或内政部统计表；该时点数字随后被更晚统计取代（内政部口径近2,400人被捕、近千名军警受伤，见 C-008），保留为时点记录，不与后续数字混用。</li>
+<li>推断与限制：不与较早约400人被捕数字相加；伤者范围以来源原文为准。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：新增来源印证该转述，但原始材料仍缺失。</li>
+</ul>
+<h2>C-005 — 利摩日市政厅及其他城市受损</h2>
+<ul>
+<li>表述：报道指利摩日市政厅在火灾中严重受损；巴黎及其他城市发生火灾和商铺破坏或抢掠。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：AFP报道；AP报道巴黎车辆及垃圾桶火灾、里昂旅游办公室起火和利摩日市政厅起火。（S-001、S-003）</li>
+<li>新增支持证据：利摩日市长 Guillaume Guérin 称"有明确、有预谋的纵火意图，里面的人担心性命"（S-006）；上维埃纳省长 Maurice Barate 称"激进捣乱者"破门后"故意纵火"（S-009）；马赛、里尔市政厅被闯入，波尔多警察设施被破坏（S-003-v2、S-009）；周日马赛、里尔、昂热、波尔多曾有闯入市政厅/省政府建筑的记录（S-021）。</li>
+<li>反驳/限制证据：损毁程度、起火原因和责任认定应以消防调查及地方官方材料为准；官方最终损失评估未完成。</li>
+<li>推断与限制：不推断具体纵火者身份或组织归属。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：多家媒体报道火灾与闯入，地方官员表态增加细节；责任细节未独立核实。</li>
+</ul>
+<h2>C-006 — 马克龙10月18日电视讲话内容与宣布的措施</h2>
+<ul>
+<li>表述：马克龙周日电视讲话表达公众"愤怒与羞耻"；称对暴力"没有任何理由、解释或借口"；誓言对"极左激进团体的渗透者及大量犯罪分子"采取"毫不妥协"的回应；"摧毁者要赔偿、抢掠者要偿还"；宣布不实施紧急状态或宵禁，但省长和市长必要时可禁止集会；下令审查情报与警方准备是否存在失误、承诺对治安部署"完全透明"；责成政府本周召集学生、教师、议员、工会和企业代表提出"具体建议"；承诺支持受损商户，"尽快动员最快可得的援助"。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：France 24、CNBC、Ouest-France、Les Echos 均一致转述并引用引语（S-005、S-006、S-016、S-017）；AP直接引用"阻止共和国被推翻者将被追究"及"无节制暴力"表述（S-009）。</li>
+<li>反驳/限制证据：均为媒体转述/节选；爱丽舍宫讲话全文未取得存档；反对党与CGT批评其"缺乏具体内容"（S-004页内链接、S-008）。</li>
+<li>后续发展与口径关系（2026-10-20 补）：马克龙 10-18 称不实施紧急状态或宵禁、但省长与市长"必要时"可禁集会；10-19  Lecornu 在此基础上指令实施"局部、部分"宵禁（见 C-015），并称不排除"如有必要"宣布紧急状态。全国性紧急状态/全面宵禁与地方局部禁令为不同层级措施，记录并存，不视为单一矛盾。</li>
+<li>推断与限制：不以媒体标题语气替代原话；"具体建议"的内容与落实待后续观察。</li>
+<li>最近评估时间：2026-10-20</li>
+<li>状态变更理由：多来源独立转述一致，且引语互相印证；10-20 补记宵禁措施与全国表态的口径关系。</li>
+</ul>
+<h2>C-007 — 内政部长请辞被拒与"失去控制"的官方承认</h2>
+<ul>
+<li>表述：内政部长 Laurent Nuñez 周日递交辞呈；爱丽舍宫周一公告称马克龙以"当前情况下执法力量需要连续指挥"为由拒绝，并要求其部署针对"破坏者"的新行动方针、确保对"预见和情报失误"的透明。Nuñez 公开称"我对发生的一切负有责任"，承认周六在部分大城市警方"失去控制"且存在"预判不足"（事前预测约20万人，实际全国动员逾55万人；周六部署6万执法力量）。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：franceinfo（France Inter 采访原文引语+爱丽舍宫公报，S-004）；France 24、DW、CNA 等转述爱丽舍宫公报（S-005；DW/CNA 经检索集成，未单列）；BBC 滚动的"lost control""lack of anticipation"表述（S-008）。</li>
+<li>反驳/限制证据："新行动方针"细节未公布；部分反对派要求撤换内政部长（S-008）；"预判不足"为官方自我描述，仍需议会/调查委员会层面核实。</li>
+<li>推断与限制：不把"失去控制"扩大解读为所有城市、所有时段失控。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：官方公报与部长本人受访内容一致，多家媒体独立转述。</li>
+</ul>
+<h2>C-008 — 逮捕与受伤人数随时间连续上修（多时点、多口径）</h2>
+<ul>
+<li>表述（按公布时点排列，均属同一事件，不可相加）：</li>
+<li>10-17 晚（早期）：内政部长称约400人被捕（S-001）。</li>
+<li>10-17 深夜：总理勒科尔尼称约1,200人被捕、150名军警受伤（S-002、S-017）。</li>
+<li>10-18 上午（巴黎）：巴黎855人被捕，警察局称"纪录"；517人在押（346名成年人、171名未成年人）；巴黎13名军警及2名消防员受伤（S-010、S-017、S-021）。</li>
+<li>10-18：内政部长 Nuñez 在两处表述中先后称全国"超过1,800人被捕"（S-013、S-021）与"超过2,000人被捕""超过600名军警消防员受伤"（S-010）。</li>
+<li>10-18/19（内政部口径）：近2,400人被捕（一说2,397人）、近1,000名警察和宪兵受伤、其中7人重伤（S-005、S-006、S-008）。</li>
+<li>10-18 周日（巴黎）：108人被捕（巴黎警察局，S-016）；至周一凌晨共350余人（含周日与凌晨时段，S-008）。</li>
+<li>马赛（地方当局）：周六"多达30,000名抢掠者"（S-005）。</li>
+<li>2026-10-19（司法部长 Darmanin，Le Monde 转述）：周末以来全国超过 2,330 人被拘留（garde à vue），70% 为成年人，多人早为当局所知（S-022）。</li>
+<li>2026-10-20（司法部长 Darmanin，CGTN 转述）：周末以来全国超过 2,513 人被拘留；67 人已被监禁，"数十起"刑事案件立案（S-024）。</li>
+<li>RTÉ（2026-10-20）综述口径：超过 2,500 人被捕、近 1,000 名安全部队人员受伤（S-025）。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：上述各来源均注明公布主体（内政部、巴黎警察局、检察院、总理、司法部长）。</li>
+<li>反驳/限制证据：尚无汇总统计表；媒体转述之间时点混杂，个别数字（1,800/2,000+/2,397/2,400）需按时间轴理解；"被捕"（interpellations）与"拘留"（gardes à vue）为不同程序阶段，Darmanin 的 2,330/2,513 属后者，不与内政部 2,397 直接互证；最终数字待官方汇总与议会层面核对。</li>
+<li>推断与限制：本档案不以任一数字为"最终数字"；不将巴黎837/855与全国数字混淆。</li>
+<li>最近评估时间：2026-10-20</li>
+<li>状态变更理由：新增司法部长口径的拘留/监禁数据（不同程序阶段），维持部分核实。</li>
+</ul>
+<h2>C-009 — 商铺与公共建筑损失估计</h2>
+<ul>
+<li>表述：FCD（主席邦帕尔）初步估计约1,500家商铺在周六成为暴力目标，账单"数亿欧元"；CCI France 主席称"至少2,000家商铺"受影响（口径不同）。利摩日市政厅被纵火后大面积损毁；马赛、里尔市政厅被闯入，波尔多警察设施被破坏；里昂旅游局被纵火；巴黎等地多家商铺（含奢侈品店）被抢掠；波尔多市长称当地至多100家店铺被抢；南特一家电子商店遭洗劫（AFP照片/报道）。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：S-003-v2、S-006、S-009、S-015、S-017、S-019、S-021。</li>
+<li>反驳/限制证据：均为初步行业估计或官员个例陈述；保险定损与官方盘点未完成；"被针对"（pris pour cible）与"被抢掠/被摧毁"表述需区分（BBC 的"looted and destroyed"与 FCD 的"targeted"口径不同，见 S-008 备注）。</li>
+<li>新增口径（2026-10-19/20）：CCI France 会长 Alain Di Crescenzo 称预计超过 2,000 家商铺受影响、损失"数亿欧元"（S-022）；贸易与零售联合会（CGTN 表述）称周末近 3,000 家店铺受影响并呼吁社保与税收减免（S-024）；巴黎 Place Vendôme 奢侈品区多数店铺周一关闭（S-024）。</li>
+<li>推断与限制：不推断最终赔付金额；各行业组织口径（1,500/2,000/3,000）为不同时点与统计范围，不相加。</li>
+<li>最近评估时间：2026-10-20</li>
+<li>状态变更理由：新增两处行业口径，仍待官方/保险终局数据。</li>
+</ul>
+<h2>C-010 — 巴黎游行相关死亡事件（心脏骤停）</h2>
+<ul>
+<li>表述：一名男子10月17日在巴黎 Magenta 大道（游行路线经过处）身体不适，被示威者抬至 Château-d'Eau 消防站前，未及送医死亡；巴黎警察局将其列为"心跳呼吸骤停"死亡；年龄未公布；周六巴黎另有13名军警和2名消防员受伤。巴黎检察院表示正在调查；无信息将死亡与警方行动相关联。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：巴黎警察局通报经 AP（S-009）与 Le Parisien（S-010）转述；TF1info、CNews、RTL 等同日报道一致（经检索集成，未单列）；RTL 称"目前无任何要素表明与警方行动有关"。</li>
+<li>反驳/限制证据：医学死因与程序性调查结论未出；不排除其他因素，待司法结论。</li>
+<li>推断与限制：仅记录已公布的死亡事实与调查状态，不推断责任。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：官方通报经多家媒体一致转述；死因认定未完成。</li>
+</ul>
+<h2>C-011 — 两名未成年人被防暴武器重伤及监察调查</h2>
+<ul>
+<li>表述：</li>
+<li>圣艾蒂安：10月17日一名17岁男子右手被防暴手榴弹炸断；IGPN 与国家宪兵总监署（IGGN）受理（省长称事发约1小时后即受理）；手榴弹型号与归属未确认（内政部长公开表示"无法确认是否为宪兵手榴弹"）；圣艾蒂安检方以"查找受伤原因"立案。</li>
+<li>米卢斯：10月17日傍晚一名17岁女性左眼被催泪类榴弹击伤后永久失明；检方以"加重暴力"为由交由 IGPN 梅斯分队作现行调查；检方称伤势系"眼部受击"，经过复杂。媒体转述（未获检方证实）称其并非示威参与者。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：卢瓦尔省长记者会（S-012）；米卢斯检方公告（S-011）；AFP/Le Parisien 关于圣艾蒂安伤者的细节（S-020）；AP 对两案立案的概述（S-009）。</li>
+<li>反驳/限制证据：具体发射单位、武器型号与责任认定均在调查中，无结论；媒体关于受伤者身份/情境的细节需谨慎。</li>
+<li>前情（待进一步核）: 10月5日 Lens 另有一名未成年人被震撼弹重伤手部，曾引发对相关武器使用的"暂停"争议；国民议会请愿署名逾14万（S-012，单一来源叙述，数字待权威来源）。</li>
+<li>推断与限制：不将两案责任先行归因于特定警种。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：检方与省政府公告构成官方来源，多家媒体一致。</li>
+</ul>
+<h2>C-012 — 政治反应与制度回应</h2>
+<ul>
+<li>表述：勒庞称出现"信任与权威的深层危机、威胁民主"，政府"靠余烬运转、精疲力竭、迷失方向"；梅朗雄指责马克龙"任其腐烂"、勒科尔尼"玩火"，并强调参与其斗争者"不应参与抢掠或破坏"；格鲁克斯曼呼吁恢复平静；CGT 总书记比内批评马克龙未回应学生、生活成本与公共服务诉求；爱德华·菲利普称 LFI "对近日暴力负有重大责任"；巴黎、马赛、里昂、利摩日等市长批评维稳部署（马赛市长称周六警力不足），巴黎、马赛、里昂三大城市市长要求会见总理；法国市长协会（AMF）呼吁周中午间在各地市政厅前集会；国民议会议长布拉恩-皮韦宣布周二提议成立议会调查委员会（审查骚乱、暴力团体作案方式与维稳策略"可能的失灵"）；参议院社会党团要求延长既有"信息任务"。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：S-005、S-006、S-009、S-013、S-016。</li>
+<li>反驳/限制证据：政治声明密集、立场鲜明；调查委员会与信息任务尚未成立、无结论。</li>
+<li>新增（2026-10-19/20）：努涅斯称周六部署 6 万名警察等执法力量"不足以控制暴力人群"，周日起实施含增派街头警力的"一系列措施"；总理 Lecornu 公开归因"存在一个极左运动，想在总统选举前夕给国家造成深度动荡"，梅朗雄要求其提供证据，"否则应该道歉、闭嘴、停止为动荡之火扇风"；欧洲多国政府发布赴法旅行提醒（意、德、捷、波、荷及北欧，S-026）；马克龙赴海湾四国推动能源供应（S-023、S-032）。</li>
+<li>推断与限制：仅记录各方表态，不被任何一方叙事绑定；"极左"归因与"情报失灵"归因并存（前者针对示威者，后者针对政府自身），均待调查结论。</li>
+<li>最近评估时间：2026-10-20</li>
+<li>状态变更理由：多方来源独立记录同一系列表态；新增总理归因与反对党回应。</li>
+</ul>
+<h2>C-013 — 后续日程与动员安排（预告）</h2>
+<ul>
+<li>表述：10月19日：9:00 Bercy 行业会议（官方通稿 N°1131 确认）；10:00 跨部门危机小组（"经济-商业""保险""司法跟进"三板块）；中午 AMF 集会；内政部长赴马赛。10月20日：国民议会就2027预算案第一部分正式表决；布拉恩-皮韦提交调查委员会提议；"企业例外会议"（劳动、经济、商务三位部长）。组织方：CGT 等呼吁11月5日跨行业罢工与示威日（部分组织者欲将其扩大为联合行动支点）；本周学生假期开始。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span>（就"已宣布的安排"而言）</li>
+<li>支持证据：S-018（官方）、S-005、S-006、S-013、S-014、S-015、S-016。</li>
+<li>反驳/限制证据：均为预告性事务，实际结果与规模未知；动员呼吁的参与度待观察。</li>
+<li>更新（2026-10-20）：10-19 晚局部宵禁已按预告实施（见 C-015）；卢浮宫 10-19 全日关闭（学生封锁）；PSG—巴萨欧冠赛按计划；调查委员会议题 10-20 已有结果（成立，见 C-021）；<strong>10-20 预算第一部分表决被推迟</strong>（修正案未审完，见 C-020）；新增预告：黄背人运动 10-24"第二幕"全国示威（数十个地点，S-025、S-026、S-038）；预算全部表决定于 11-17（如支出部分未审完可能 11-18，S-030）。</li>
+<li>更新（2026-10-22）：议会转入社保融资法案（PLFSS）：10-20 下午开始审议，庄严表决定 10-27（20 天宪法限）；收入部分辩论 10-27 续审至 11-02，庄严表决改期 <strong>11-03 下午</strong>（S-033；cryptowatchdesk 同日佐证，未单列）。The Hindu 文中 10-24 与 10-25 日期自相矛盾，以多数来源（南都、RTÉ、Daily Sabah）记 10-24。</li>
+<li>推断与限制：不把预告当作已发生事件；10-24/10-27/11-03 各节点结果待后续巡检补录。</li>
+<li>最近评估时间：2026-10-22</li>
+<li>状态变更理由：两项当日议程一项成立（委员会）、一项推迟（表决），日程全面更新。</li>
+</ul>
+<h2>C-014 — 国际反应与欧洲境内溢出</h2>
+<ul>
+<li>表述：特朗普在 Truth Social 发"France is burning!"并称法国被移民"撕裂"，要求"关闭边界"，将骚乱与来自"完全不同世界的人"的移民相联系；法国当局未将移民与骚乱关联。周末意大利米兰（5,000余人示威）、比利时、葡萄牙同类示威出现暴力或冲突，意大利总理梅洛尼召开紧急会议称"流氓"借机"播种混乱"；匈牙利总理 Magyar 与波兰总理 Tusk 就移民问题表态。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：特朗普表述见 AP（S-009）与 France 24（S-005）；米兰/欧洲溢出见 Euronews（S-007）与 BBC 摘要（S-008）；Magyar/Tusk 表态见 Euronews（S-007）。</li>
+<li>反驳/限制证据：匈牙利/波兰相关表态来自单一通讯稿转述；各国事件细节未逐一独立核实。</li>
+<li>推断与限制：不将外国政治人物说法当作对法国事件事实的证明。</li>
+<li>最近评估时间：2026-10-19</li>
+<li>状态变更理由：核心（特朗普言论）有两来源；欧洲溢出部分待更多来源。</li>
+</ul>
+<h2>C-015 — 局部宵禁与现场管控措施（2026-10-19 晚起）</h2>
+<ul>
+<li>表述：10-19 危机会议后，总理 Lecornu 指令省长自周一晚起实施"非常有限"的"局部"宵禁，并宣布"大规模司法行动"。已实施：巴黎共和广场与 Les Halles 周边 23:00—06:00 宵禁、部分区域 20:00—06:00 禁止示威（巴黎警方令，称保护"人与财产免遭暴力与抢掠"）；里尔、Douai、Wattignies、Denain 经市长同意实施 20:00—06:00 未成年人宵禁（连续两晚）；尼斯市长签署市中心未成年人宵禁令；马赛 12:00—20:00 禁止公共集会与示威。Lecornu 称宵禁须"局部、部分"，"让全巴黎进入宵禁是不可想象的"；不排除"如有必要"宣布紧急状态，但现阶段定向宵禁"更合适"。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：Le Monde with AFP（S-022）、CGTN（S-023、S-024）、RTÉ（S-025）、Daily Sabah（S-026）；巴黎警方与 Lecornu 办公室为措施消息源。</li>
+<li>反驳/限制证据：彭博经华尔街见闻转述称"中央政府已要求部分地方当局实施宵禁"（S-027）与上述地方逐项公布并存的表述差异（中央指令 vs 地方命令），以各官方公布文本为准；宵禁期限多为 1—2 晚，续期情况待观察。</li>
+<li>更新（2026-10-22）：宵禁延续并扩大——巴黎警察总局 10-21 23:00—10-22 06:00 对共和国广场与 Les Halles 一带实施宵禁（据报道为本周第三次夜间宵禁，S-038）；10-22 白天巴黎警方禁聚区扩大至爱丽舍宫、总理府、国民议会、参议院周边及卢浮宫、香榭丽舍大街等旅游景点（S-037，引法广）；Lecornu 10-20 称 10-19 夜宵禁有助于维持平静（S-039）。</li>
+<li>推断与限制：不推断宵禁范围将扩大或紧急状态将宣布；与马克龙 10-18 全国性表态的口径关系见 C-006；马克龙 10-21 称现阶段无需紧急状态（S-039）。</li>
+<li>最近评估时间：2026-10-22</li>
+<li>状态变更理由：宵禁延续与禁聚区扩大有警方公告与多来源报道。</li>
+</ul>
+<h2>C-016 — 司法行动与拘留统计（司法部长口径）</h2>
+<ul>
+<li>表述：司法部长 Gérald Darmanin 10-19/20 表示：周末以来全国超过 2,330 人（10-20 更新为超过 2,513 人）被拘留（garde à vue），其中 70% 为成年人、多人早为当局所知；67 人已被监禁，"数十起"刑事案件立案。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span>（就司法部长公布口径而言）</li>
+<li>支持证据：Le Monde（S-022）、CGTN（S-024）。</li>
+<li>反驳/限制证据：属政府官员公布的时点数字；与内政部"被捕"口径（2,397）为不同程序阶段（见 C-008）；最终司法统计待结案汇总。</li>
+<li>更新（2026-10-22）：The Hindu（据法新社）转述司法部长：近 150 人已被监禁、800 余人被送交法院（S-035）。另：前警务专员 Marie Lajus 称"近期抗议中约 8,000 人被捕、多数为未成年人"（S-034，France in English 单一综合来源）——与司法部长 2,513 人口径差异大，可能覆盖 9 月中旬以来全部抗议事件的累计"被捕"口径或含重复计数，本档案不合并两者，待官方汇总。</li>
+<li>推断与限制：不将"早为当局所知"解读为有组织性的结论性证据。</li>
+<li>最近评估时间：2026-10-22</li>
+<li>状态变更理由：新增司法送审数据与单一来源的累计口径（差异已注明）。</li>
+</ul>
+<h2>C-017 — 金融市场反应</h2>
+<ul>
+<li>表述：10-19（周一）法国资产遭抛售：CAC40 收跌 1.11%（另报 1.5%），法巴与兴业银行跌约 2.5%—3.4%；法国 10 年期国债收益率单日上行 14.5—15 个基点至 4.93% 附近，逼近 2002 年以来高位；与德国国债利差扩大至约 145—146 个基点（欧债危机以来罕见水平）；法国 10 年期收益率高于意大利；意大利 10 年期上行约 10 个基点至 4.57% 附近；欧元兑美元、英镑、日元跌 0.2%—0.3%。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：华尔街见闻（S-027）、第一财经（S-028）。</li>
+<li>反驳/限制证据：不同来源对 CAC40 跌幅与利差数值有小幅差异（四舍五入/时点不同）；市场反应与骚乱的因果关系属分析层，机构观点（Shannon、Bell、Calenti）为受访者判断而非事实。</li>
+<li>更新（2026-11-03）：收益率进一步攀升——10 年期 OAT 10-22 盘中升至 5.14%（2002 年来最高），OAT-Bund 利差约 156bp（Monetary Elite，S-044）；穆迪 10-23 维持法国主权评级 Aa3、展望负面，但条件假设为 2027 减赤预算获通过，并警告公债收益率上升加大债务可负担性风险。</li>
+<li>推断与限制：记录市场数据与机构表态归属，不预测后续走势。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：10-19 市场数据由两来源印证；11-03 补充 OAT 新高与穆迪评级（S-044）。</li>
+</ul>
+<h2>C-018 — 能源外交与欧洲溢出</h2>
+<ul>
+<li>表述：马克龙 10-19 抵达科威特，将访问阿联酋、巴林、卡塔尔（至周三），目标保障法国能源供应并推动霍尔木兹海峡重新开放；将生活成本上升归因于地区冲突。欧洲溢出：布鲁塞尔周六催泪瓦斯/水炮（指示威者投掷投射物并纵火，抗议大学注册费已持续数周）；里斯本数万人抗议生活成本与住房（葡房价 2015—2024 上涨 124%，约为欧盟平均两倍）；米兰反战与生活成本游行中蒙面者投掷石块、点燃路障，梅洛尼称"流氓"借示威"播种混乱"；HEC Paris 教授 Alemanno 称希腊、德国、奥地利出现"早期阶段"运动、预计下周动员。多国（意、德、捷、波、荷及北欧）发布赴法旅行提醒。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：CGTN（S-023、S-029）、Daily Sabah（S-026）、Times Now World（S-032）。</li>
+<li>反驳/限制证据：欧洲各国事件细节未逐一独立核实；"预计下周动员"为学者预测；旅行提醒的完整清单以各国外交部门为准。</li>
+<li>推断与限制：各国抗议有共同诉求但非单一运动（Alemanno 判断，分析层）；不将外国事件归入本事件时间线主体。</li>
+<li>最近评估时间：2026-10-20</li>
+<li>状态变更理由：多来源记录溢出与外交动向，细节待核。</li>
+</ul>
+<h2>C-019 — 预算议程与后续动员预告</h2>
+<ul>
+<li>表述：2027 年预算案第一部分（收入）原定 10-20 在国民议会庄严表决，因修正案未审完而推迟（见 C-020）；新日程：PLFSS 庄严表决 10-27、收入部分续审 10-27—11-02、收入部分庄严表决 11-03 下午；全部预算表决定于 11-17（如支出部分未审完可能 11-18）。财政背景：赤字目标 2027 年 5%（2026 年预测 5.4%）；2027 年公共利息支出预计 912 亿欧元（2026 年 792 亿）；INSEE：二季度末公共债务 35,955 亿欧元、约占 GDP 119%；此前财政委员会 10-09 曾以 31:3 整体否决收入部分；10-15 全会否决政府削减退休人员税收减免提案（116:30）。动员预告：黄背心运动 10-24"第二幕"全国示威；CGT 等工会 11-05 跨行业罢工示威。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span>（就"已公布的日程与背景数据"而言）</li>
+<li>支持证据：EconoTimes（S-030）、RTÉ（S-025）、Daily Sabah（S-026）、CGTN（S-024）、Entrevue（S-033）。</li>
+<li>反驳/限制证据：预算数据为政府提案与机构统计，非最终值；表决结果均未发生。</li>
+<li>更新（2026-10-22）：原定 10-20 的收入部分庄严表决<strong>未举行</strong>（修正案未审完，见 C-020）；PLFSS 庄严表决 10-27、收入部分续审 10-27—11-02、收入部分庄严表决 <strong>11-03 下午</strong>（S-033）；动员预告维持 10-24（黄背人/学生）与 11-05（工会）。</li>
+<li>更新（2026-11-03）：PLFSS 收入部分已于 10-23 前后被国民议会一读以 115:1 否决、发回参议院（参议院 11-09 起审议政府原版，见 C-025）；国家预算收入部分表决从 10-20→10-27→推迟至 11-03 下午（本次巡检当日），截至检索结果待出（待后续补录，见 C-025）；插曲："流量税"修正案 10-30 以 11:10 通过（Coquerel 误投两票、将申请更正），稳定币税修正案 10-16 以 38:37 通过（S-045、S-043）；动员预告维持——黄背心 10-24"第二幕"已发生（C-023）、工会 11-05 跨行业罢工示威仍为预告（未发生）。</li>
+<li>推断与限制：不预告表决结果或动员规模。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：PLFSS 否决与 11-03 表决推迟由多来源确认；10-24 第二幕已转为已发生事实（C-023）。</li>
+</ul>
+<h2>C-020 — 预算收入部分表决推迟（2026-10-20）</h2>
+<ul>
+<li>表述：10-19 夜至 10-20，国民议会暂停对 2027 预算法案收入部分的审议——审议一周内多项政府措施被反对党改写/否决，且至暂停时仍有 2,600 余项修正案待审；原定 10-20 的收入部分庄严表决未举行。议会转入社保融资法案（PLFSS，10-20 下午开始审议）；收入部分辩论预计 10-27 续审、庄严表决改期 11-03 下午；PLFSS 庄严表决定 10-27（20 天宪法限）。公共账目部长 Amiel 称已通过的修改令预计预算平衡恶化约 100 亿欧元。政府尚未决定动用第 49.3 条或法令（ordonnances），多个党团已提出不信任动议可能。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：Entrevue（S-033）；cryptowatchdesk（引 LCP-Assemblée nationale，10-20 更新，未单列）对推迟与新日程的记述一致。</li>
+<li>反驳/限制证据：均为二手报道引述议会频道 LCP；未取得国民议会官方议程原文；"€10bn 恶化"为部长单方表述。</li>
+<li>更新（2026-11-03）：PLFSS 收入部分已于 10-23 前后被国民议会一读以 115:1 否决、整案发回参议院（参议院 11-09 起审议政府原版，见 C-025）；国家预算收入部分庄严表决从 10-20→10-27→推迟至 11-03 下午（本次巡检当日），截至检索结果待出（待后续补录）。"流量税"修正案 10-30 以 11:10 通过（Coquerel 误投两票、将申请更正），稳定币税修正案 10-16 以 38:37 通过（S-045、S-043）。</li>
+<li>推断与限制：不推断政府将动用 49.3 或法令；不把推迟读作预算案失败；不把 PLFSS 否决读作预算案整体失败（支出部分与各部委预算仍按程序推进）。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：两来源一致报道推迟与新日程（10-22）；11-03 多来源确认 PLFSS 否决与表决推迟，11-03 结果待补录，维持部分核实。</li>
+</ul>
+<h2>C-021 — 议会调查委员会成立（2026-10-20）</h2>
+<ul>
+<li>表述：10-20 国民议会在党团主席会议上同意设立议会调查委员会（议长 Braun-Pivet 提议），调查 10-17 暴力示威的成因、后果与执法反应，范围包括可能的情报失灵、警务战术与政府准备；委员会拥有调取文件与宣誓听证权；主席 Vincent Caure（文艺复兴党）。范围争议：勒庞（RN）主张把刑事追责反应纳入；潘ot（LFI）主张扩大至 9 月中旬以来与抗议相关的事件。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span>（成立事实）；<span class="badge b-partial">partially_verified</span>（范围细节）</li>
+<li>支持证据：The Hindu（S-035，据法新社："lawmakers from across France's fractured parliament agreed on Tuesday (October 20) to launch a parliamentary inquiry into the unrest, including possible intelligence failures, policing tactics and the government's preparedness"）；France in English 综合稿（S-034，含主席姓名与范围争议）。</li>
+<li>反驳/限制证据：主席姓名与范围争议目前仅见于单一综合稿（S-034）；委员会组成、听证日程未见官方公告。</li>
+<li>推断与限制：不预测调查结论；未把任何一方范围主张当作既定范围。</li>
+<li>最近评估时间：2026-10-22</li>
+<li>状态变更理由：The Hindu 独立确认委员会成立与范围要点；细节待官方文本。</li>
+</ul>
+<h2>C-022 — 安保升级：哨兵行动增援、禁聚区扩大与利摩日纵火案拘捕</h2>
+<ul>
+<li>表述：10-20 起安保措施升级：内政部长努涅斯宣布部署"哨兵行动"（反恐）军人增援警察与宪兵，并考虑禁止未经申报及"存在失控风险"的已申报游行；巴黎连续实施夜间宵禁（共和广场/Les Halles 一带 10-21 23:00—10-22 06:00，据报道为本周第三次）；10-22 白天巴黎警方禁聚区扩大至爱丽舍宫、总理府、国民议会、参议院周边及卢浮宫、香榭丽舍大街；巴黎警方临时禁止携带汽油罐/瓶；一名据信与极左有关联的男子因利摩日历史市政厅纵火案被捕。Lecornu 10-21 上午与五个工会代表会面（学生未受邀），讨论"保障示威这一基本自由的方式与手段"，信函称有人企图以"不可接受的行为"劫持抗议；他并指控极左激进团体炮制"叛乱计划"导致骚乱。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：The Hindu（S-035，哨兵行动、工会会面、禁聚区、汽油禁令、纵火案拘捕、"叛乱计划"归因）；环球时报（S-037，10-22 禁聚区）；南方都市报（S-038，本周第三次宵禁、哨兵增援）；人民日报英文/Xinhua（S-039，动用法律工具）。</li>
+<li>反驳/限制证据："据信与极左有关联"为当局/媒体表述，未经司法确认；"叛乱计划"为总理归因，梅朗雄已要求证据。</li>
+<li>推断与限制：不确认被捕者身份或责任；不把"叛乱计划"当作有组织性的结论。</li>
+<li>最近评估时间：2026-10-22</li>
+<li>状态变更理由：多来源（含警方公告转述与政府官员表态）交叉确认。</li>
+</ul>
+<h2>C-023 — 10月24日黄背心"第二幕"示威规模</h2>
+<ul>
+<li>表述：10月24日（周六）为"黄背心"运动"第二幕"全国示威日；据 Rio Times 梳理，法国内政部统计约 410,000 人参加、全国近 1,000 人被捕，较 10-17 首轮的 55 万/2,397 人被捕明显下降；组织方（CGT 等）口径约 80 万人参加。夜宵禁适用于巴黎、里昂、马赛等地部分区域；未宣布紧急状态。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：Rio Times 梳理（S-041）；与 10-17 首轮内政部口径（C-003、C-008）及 10-31 新一轮（C-024）形成连续时点序列，数字趋势一致（规模逐轮下降）。</li>
+<li>反驳/限制证据：不同来源对规模统计口径不一（内政部 vs 组织方）；不将各轮数字相加。</li>
+<li>推断与限制：仅记录已公布时点数据；下降归因（动员衰减/管控升级）属分析层，不写入事实。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：单一但明确来源给出内政部统计；与既有时点序列一致，作为已发生事实记录。</li>
+</ul>
+<h2>C-024 — 10月31日新一轮全国示威</h2>
+<ul>
+<li>表述：10月31日法国再现新一轮全国性示威，围绕生活成本、住房、教育等诉求，部分伴随暴力冲突；据央视网/新华社 11-01 电，内政部长努内兹当晚称全国约 32 万人参加、422 人被捕；政府部署约 7 万名宪兵和警员；巴黎大众运输公司称巴黎超过 40 个地铁站因示威关闭；同期欧洲多国（德、意、葡、西、荷）亦爆发示威。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：央视网/新华社（S-040）；与 10-24（C-023）形成连续时点序列。</li>
+<li>反驳/限制证据：组织方口径与内政部口径可能不同；伤者/损失等细分数字以官方汇总为准。</li>
+<li>推断与限制：不将 10-24 与 10-31 规模相加；欧洲多国同期示威属溢出（参见 C-014/C-018），不并入本事件主体。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：中文权威媒体转述内政部长口径，作为已发生事实记录。</li>
+</ul>
+<h2>C-025 — 预算表决推迟与社保融资法案（PLFSS）否决</h2>
+<ul>
+<li>表述：社保融资法案（PLFSS）收入部分已于 10-23 前后被国民议会一读以 115:1 否决、整案发回参议院（参议院 11-09 起审议政府原版）；国家预算收入部分庄严表决原定 10-20→10-27→推迟至 11-03 下午（即本次巡检当日），截至本次检索结果待出。插曲："流量税"修正案 10-30 以 11:10 通过（左翼议员 Coquerel 承认误投两票、将申请更正），拟按内容提供商发往法国用户数据量每 GB 收 €0.055；稳定币税修正案 10-16 以 38:37 通过（2027-01-01 起结束部分加密→稳定币换汇的税收递延）。政府计划 2027 年节省 €54bn、赤字降至 5%。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：Anadolu（S-043，PLFSS 115:1 否决与参议院日程）；Monetary Elite（S-044，OAT 与表决推迟）；快报/第一财经（S-045，流量税与 11-03 表决推迟）。</li>
+<li>反驳/限制证据：11-03 收入部分表决结果在本次巡检时尚未公布（记为 unknown，待后续补录）；"€10bn 恶化"为部长单方表述（见 C-020）；修正案通过细节以议会记录为准。</li>
+<li>推断与限制：不把推迟读作预算案失败；不预告表决结果。若收入部分被否决，则支出部分不再审议、该修正案随之作废。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：PLFSS 否决与表决推迟由三来源交叉确认；11-03 结果为待补项。</li>
+</ul></div></article><article class="doc-sec" data-doc="sources" data-title="来源登记" data-sub="sources.md" hidden><div class="md"><h1>来源登记</h1>
+<p>来源可访问状态仅描述本次访问观察，不代表事实状态。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>来源 ID</th>
+<th>URL</th>
+<th>发布者/作者</th>
+<th>标题</th>
+<th>报道发布时间</th>
+<th>首次发现</th>
+<th>最近核查</th>
+<th>可访问状态</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="nw">S-001</td>
+<td>https://apnews.com/article/france-school-protests-yellow-vest-44b9d3ba91ffad4029f975dced7e31cb</td>
+<td>Associated Press / Sylvie Corbet、<wbr/>Jade Le Deley</td>
+<td>Clashes, fires and looting break out as protesters rally across France, joining students</td>
+<td>2026-10-17（具体时刻 unknown）</td>
+<td class="nw">2026-10-18</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-partial">access_restricted</span></td>
+<td>2026-10-19 复访：直接抓取两次均 403，<wbr/>浏览器加载 ERR_FAILED。无法判断是访问限制还是页面变更；<wbr/>不证明删除或内容虚假。AP 已发布后续更新版文章（见 S-009）。</td>
+</tr>
+<tr>
+<td class="nw">S-002</td>
+<td>https://www.lemonde.fr/societe/live/2026/10/18/en-direct-mobilisation-du-17-octobre-au-lendemain-des-manifestations-le-chaos-a-la-une-de-la-presse-regionale_6795855_3224.html</td>
+<td>Le Monde（滚动报道）</td>
+<td>EN DIRECT, mobilisation du 17 octobre : au lendemain des manifestations, « le chaos » à la Une de la presse régionale</td>
+<td>2026-10-18（滚动更新）</td>
+<td class="nw">2026-10-18</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-partial">temporarily_unavailable</span></td>
+<td>2026-10-19 复访：抓取共三次传输错误、<wbr/>浏览器 ERR_TUNNEL_CONNECTION_FAILED；<wbr/>收尾（16:28）第三次抓取重试仍失败，<wbr/>web.archive.org 存档查询亦不可达（抓取传输错误、<wbr/>浏览器 ERR_CONNECTION_CLOSED）。属同一日多次观察到不可访问；<wbr/>不证明删除或内容虚假。摘要见 snapshots/2026-10-18-S-002.md。</td>
+</tr>
+<tr>
+<td class="nw">S-003</td>
+<td>https://www.afp.com/en/clashes-blazes-and-wide-scale-looting-grip-france-day-protests</td>
+<td>Agence France-Presse (AFP)</td>
+<td>Clashes, blazes and wide-scale looting grip France on day of protests</td>
+<td>2026-10-17 23:55（页面显示；<wbr/>时区未注明）</td>
+<td class="nw">2026-10-18</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>2026-10-19 复访可见较首次更完整的正文（首次仅见摘要段落）；<wbr/>新观察见 snapshots/2026-10-19-S-003-v2.md。因首次未保存全文，<wbr/>不能断言页面是否被修改。</td>
+</tr>
+<tr>
+<td class="nw">S-004</td>
+<td>https://www.franceinfo.fr/societe/mobilisation-du-17-octobre/j-ai-remis-ma-demission-parce-que-je-suis-responsable-de-tout-ce-qui-se-passe-affirme-laurent-nunez-apres-les-heurts-et-pillages-lors-de-la-mobilisation-du-17-octobre_8243536.html</td>
+<td>franceinfo（Radio France）</td>
+<td>"J'ai remis ma démission parce que je suis responsable de tout", affirme Laurent Nuñez, après les heurts et pillages lors de la mobilisation du 17 octobre</td>
+<td>2026-10-19 08:04（巴黎时间，<wbr/>页面显示）；<wbr/>更新 09:17</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>全文可见；<wbr/>Nuñez 受访（France Inter）与爱丽舍宫公报转述。快照见 snapshots/2026-10-19-S-004.md。</td>
+</tr>
+<tr>
+<td class="nw">S-005</td>
+<td>https://www.france24.com/fr/info-en-continu/20261019-sous-pression-l-ex%C3%A9cutif-tente-de-reprendre-la-main-apr%C3%A8s-le-chaos</td>
+<td>France 24（avec AFP）</td>
+<td>Après des manifestations ayant viré au chaos, l'exécutif sommé de rendre des comptes</td>
+<td>2026-10-19 05:21（巴黎时间）；<wbr/>修改 07:50</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>全文可见。快照见 snapshots/2026-10-19-S-005.md。</td>
+</tr>
+<tr>
+<td class="nw">S-006</td>
+<td>https://www.cnbc.com/2026/10/19/france-protests-worst-in-years-unrest-macron-.html</td>
+<td>CNBC / Anniek Bao</td>
+<td>France hit by worst unrest in years as attempts to rein in government spending meet citizen ire</td>
+<td>2026-10-18 22:06 EDT（美国东部时间）；<wbr/>页面显示 Updated</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>全文可见；<wbr/>多处转述 Reuters（Reuters 原文本次不可直接访问）。快照见 snapshots/2026-10-19-S-006.md。</td>
+</tr>
+<tr>
+<td class="nw">S-007</td>
+<td>https://www.euronews.com/2026/10/19/france-grapples-with-the-aftermath-of-a-weekend-of-violence</td>
+<td>Euronews / Mared Gwyn Jones（The Brief 通讯）</td>
+<td>France grapples with the aftermath of a weekend of violence</td>
+<td>2026-10-19 08:21 GMT+2；<wbr/>更新 08:24</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-partial">temporarily_unavailable</span></td>
+<td>直接抓取 3 次尝试均失败（含另一篇 Euronews 文章）；<wbr/>内容经检索集成可见。快照见 snapshots/2026-10-19-S-007.md。</td>
+</tr>
+<tr>
+<td class="nw">S-008</td>
+<td>https://www.bbc.com/news/live/c893v4gx2e47t ；<wbr/>https://www.bbc.com/news/articles/crwyd02yz22vo</td>
+<td>BBC News / Katya Adler（分析稿）</td>
+<td>French police lost control, says interior minister, after weekend of riots and looting；<wbr/>France's government under pressure after weekend of widespread violence</td>
+<td>滚动页持续更新；<wbr/>分析稿 2026-10-19<wbr/><span class="nw2">T04:16:46Z</span></td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-partial">temporarily_unavailable</span></td>
+<td>抓取两次传输错误、<wbr/>浏览器 ERR_CONNECTION_CLOSED；<wbr/>内容经检索集成可见。快照见 snapshots/2026-10-19-S-008.md。</td>
+</tr>
+<tr>
+<td class="nw">S-009</td>
+<td>https://apnews.com/article/france-protests-violence-looting-f5ce07c2ef46ad0c02c6ff7018532a59</td>
+<td>Associated Press / Sylvie Corbet、<wbr/>Alexander Turnbull</td>
+<td>Thousands arrested for rioting, looting as France cost-of-living protests spread</td>
+<td>2026-10-18 首发（检索元数据 10:10:03Z）；<wbr/>页面 Updated 2026-10-19 11:44（GMT+8 显示）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>经浏览器成功读取；<wbr/>S-001 的后续更新版文章。快照见 snapshots/2026-10-19-S-009.md。</td>
+</tr>
+<tr>
+<td class="nw">S-010</td>
+<td>https://www.leparisien.fr/paris-75/17-octobre-a-paris-un-manifestant-succombe-a-un-malaise-un-record-de-855-interpellations-18-10-2026-REP7K3KCUVDFTLF7KFKQBIPHJM.php</td>
+<td>Le Parisien / Gaëtane Bossaert、<wbr/>Caroline Piquet</td>
+<td>17 octobre à Paris : un manifestant succombe à un malaise, un « record » de 855 interpellations et plus de 500 gardes à vue</td>
+<td>2026-10-18 09:37（巴黎时间）；<wbr/>修改 10:28</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见；<wbr/>未做页面直接访问。快照见 snapshots/2026-10-19-S-010.md。</td>
+</tr>
+<tr>
+<td class="nw">S-011</td>
+<td>https://www.lefigaro.fr/faits-divers/violences-du-17-octobre-une-adolescente-perd-un-oeil-a-mulhouse-l-igpn-saisie-20261019</td>
+<td>Le Figaro（avec AFP）</td>
+<td>Violences du 17 octobre : une adolescente perd un œil à Mulhouse, l'IGPN saisie</td>
+<td>2026-10-19 07:34（巴黎时间）；<wbr/>更新 08:19</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见；<wbr/>France 3 Régions、<wbr/>RTL 同日报道一致（未单列）。快照见 snapshots/2026-10-19-S-011.md。</td>
+</tr>
+<tr>
+<td class="nw">S-012</td>
+<td>https://www.humanite.fr/societe/grenades/main-arrachee-a-saint-etienne-linspection-generale-de-la-gendarmerie-co-saisie-avec-ligpn</td>
+<td>L'Humanité</td>
+<td>Main arrachée à Saint-Étienne : l'inspection générale de la gendarmerie co-saisie avec l'IGPN</td>
+<td>2026-10-18（页面未显示具体时刻）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见；<wbr/>媒体有编辑立场，<wbr/>事实与其他来源交叉核对。快照见 snapshots/2026-10-19-S-012.md。</td>
+</tr>
+<tr>
+<td class="nw">S-013</td>
+<td>https://www.rtl.fr/actu/politique/faire-la-lumiere-sur-les-scenes-de-chaos-braun-pivet-va-proposer-une-commission-d-enquete-parlementaire-apres-les-violences-du-17-octobre-7900686499</td>
+<td>RTL（avec AFP）</td>
+<td>"Faire la lumière sur les scènes de chaos" : Braun-Pivet va proposer une commission d'enquête parlementaire après les violences du 17 octobre</td>
+<td>2026-10-18 15:27（巴黎时间）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见；<wbr/>同媒体滚动页信息并入本快照。快照见 snapshots/2026-10-19-S-013.md。</td>
+</tr>
+<tr>
+<td class="nw">S-014</td>
+<td>https://www.franceinfo.fr/societe/mobilisation-du-17-octobre/mobilisation-du-17-octobre-quelle-suite-au-mouvement_8242795.html</td>
+<td>franceinfo / France Télévisions</td>
+<td>Mobilisation du 17 octobre : quelle suite au mouvement ?</td>
+<td>2026-10-18（检索元数据 13:02 UTC）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见；<wbr/>CGT 11-05 另见 actu.fr 同日报道（未单列）。快照见 snapshots/2026-10-19-S-014.md。</td>
+</tr>
+<tr>
+<td class="nw">S-015</td>
+<td>https://www.lefigaro.fr/societes/apres-les-pillages-du-17-octobre-commercants-banques-et-assureurs-reunis-a-bercy-ce-lundi-20261019</td>
+<td>Le Figaro</td>
+<td>Après les pillages du 17 octobre, commerçants, banques et assureurs réunis à Bercy ce lundi</td>
+<td>2026-10-19 06:49（巴黎时间）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见。快照见 snapshots/2026-10-19-S-015.md。</td>
+</tr>
+<tr>
+<td class="nw">S-016</td>
+<td>https://www.ouest-france.fr/societe/manifestation/direct-violences-du-17-octobre-emmanuel-macron-promet-la-fermete-aux-casseurs-une-cellule-de-crise-prevue-ce-matin-025d6c92-e57f-4014-b92a-7627ffeb6608</td>
+<td>Ouest-France（滚动页）</td>
+<td>DIRECT. Violences du 17 octobre : Emmanuel Macron promet la fermeté aux casseurs, une cellule de crise prévue ce matin</td>
+<td>2026-10-19 06:43（巴黎时间）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见。快照见 snapshots/2026-10-19-S-016.md。</td>
+</tr>
+<tr>
+<td class="nw">S-017</td>
+<td>https://www.lesechos.fr/economie-france/social/direct-mobilisation-du-17-octobre-suivez-les-informations-et-les-reactions-au-lendemain-dune-journee-de-chaos-2257583</td>
+<td>Les Echos（滚动页）</td>
+<td>DIRECT - Mobilisation du 17 octobre : 1.500 commerçants touchés et des centaines de millions d'euros de dégâts, selon Alexandre Bompard</td>
+<td>2026-10-18 11:38 起（巴黎时间）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见。快照见 snapshots/2026-10-19-S-017.md。</td>
+</tr>
+<tr>
+<td class="nw">S-018</td>
+<td>https://presse.economie.gouv.fr/nar-consequences-economiques-des-evenements-du-17-octobre-serge-papin-reunit-les-federations-des-commercants-enseignes-artisans-et-restaurateurs-et-representants-des-banques-et-assurances-lundi-19-oc/</td>
+<td>法国经济财政部新闻办公室</td>
+<td>NAR - Conséquences économiques des événements du 17 octobre : Serge Papin réunit les fédérations…（官方通稿 N°1131）</td>
+<td>2026-10-18（发布日）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-partial">temporarily_unavailable</span></td>
+<td>官方第一手通稿；<wbr/>直接访问 404（可能反爬/路径问题），<wbr/>内容经检索集成可见（含官方 PDF 名称）；<wbr/>PDF 未下载。快照见 snapshots/2026-10-19-S-018.md。</td>
+</tr>
+<tr>
+<td class="nw">S-019</td>
+<td>https://www.bfmtv.com/economie/economie-social/elle-s-attend-a-des-faillites-en-cascade-la-federation-du-commerce-demande-l-acceleration-des-procedures-de-remboursement-des-assurances-et-de-chomage-partiel_AV-202610190236.html</td>
+<td>BFM Business / BFMTV</td>
+<td>Elle s'attend à des faillites en cascade : la fédération du commerce demande "l'accélération des procédures de remboursement des assurances et de chômage partiel"</td>
+<td>2026-10-19 08:52（巴黎时间）</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见；<wbr/>含 CCI France 主席"至少 2,000 家商铺受影响"（与 FCD 口径不同）。快照见 snapshots/2026-10-19-S-019.md。</td>
+</tr>
+<tr>
+<td class="nw">S-020</td>
+<td>https://www.leparisien.fr/faits-divers/mobilisation-du-17-octobre-un-manifestant-a-eu-la-main-arrachee-par-une-grenade-policiere-a-saint-etienne-17-10-2026-U7YFGHENJFBNTCEEESUBIFE3U4.php</td>
+<td>Le Parisien（avec AFP）</td>
+<td>Mobilisation du 17 octobre : un ado de 17 ans a eu la main arrachée par une grenade policière à Saint-Étienne</td>
+<td>2026-10-17 17:45（巴黎时间）；<wbr/>修改 21:39</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见；<wbr/>franceinfo 同日报道一致（未单列）。快照见 snapshots/2026-10-19-S-020.md。</td>
+</tr>
+<tr>
+<td class="nw">S-021</td>
+<td>https://www.rtl.fr/actu/debats-societe/en-direct-mobilisation-du-17-octobre-1-200-interpellations-et-d-importants-degats-au-lendemain-des-manifestations-7900686437</td>
+<td>RTL（滚动报道）</td>
+<td>En direct : Mobilisation du 17 octobre (1 200 interpellations et d'importants dégâts au lendemain des manifestations)</td>
+<td>2026-10-18 起持续更新</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-10-19</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>内容经检索集成可见。快照见 snapshots/2026-10-19-S-021.md。</td>
+</tr>
+</tbody>
+</table></div>
+<p>| S-022 | https://www.lemonde.fr/en/france/article/2026/10/19/prime-minister-calls-for-local-curfews-as-france-grapples-with-unrest_6758795_8.html | Le Monde with AFP（英文版） | Curfews announced in Paris and other cities as France grapples with unrest | 2026-10-19 | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。10-19 宵禁宣布、Darmanin 拘留数、Di Crescenzo 商铺估计。 |<br/>
+| S-023 | https://news.cgtn.com/news/2026-10-19/France-launches-judicial-operation-localized-curfews-after-unrest-1RncAFVxINa/p.html | CGTN（with input from agencies） | France launches judicial operation, localized curfews after violent unrest | 2026-10-19 | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。Lecornu 宵禁与司法行动、马克龙科威特之行。 |<br/>
+| S-024 | https://news.cgtn.com/news/2026-10-20/France-imposes-curfews-in-cities-after-weekend-of-protests-1Ro8Lh9EmJi/p.html | CGTN（部分据新华社） | France imposes curfews in cities after weekend of protests | 2026-10-20 | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。宵禁细节、Darmanin 2,513 拘留/67 监禁、Lecornu"极左"归因与梅朗雄回应、近 3,000 家店铺受影响（贸易与零售联合会口径）。 |<br/>
+| S-025 | https://www.rte.ie/news/2026/1019/1595915-france-protests/ | RTÉ News | French curfews now in force after weekend violence | 页面显示更新于 2026-10-20 00:32 | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。四城宵禁时段、卢浮宫关闭、黄背心 10-24"第二幕"。 |<br/>
+| S-026 | https://www.dailysabah.com/world/europe/france-moves-to-impose-localized-curfews-after-riots | Daily Sabah（引 AFP/Reuters 图片） | France moves to impose localized curfews after riots | 2026-10-19/20（页面未显示精确时刻） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。宵禁范围表述、欧洲多国旅行提醒。 |<br/>
+| S-027 | https://www.163.com/dy/article/L9L76DP205198NMR.html | 网易号转载华尔街见闻 | 法国骚乱冲击金融市场：股债双杀，欧元下跌 | 2026-10-20 01:19:40（页面显示） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。转述彭博：中央要求地方宵禁、Lecornu 不排除紧急状态；市场数据。 |<br/>
+| S-028 | https://www.toutiao.com/article/7698527062209937971/ | 第一财经（今日头条发布） | 法国遭遇股债双杀！示威活动冲击金融市场，欧央行会出手么？丨欧洲观察 | 2026-10-20 07:37（页面显示） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。OAT-Bund 利差约 145bp、法债收益率高于意大利；机构观点。 |<br/>
+| S-029 | https://news.cgtn.com/news/2026-10-19/Cost-of-living-protests-spread-across-Europe-1RmzmaBXT8Y/p.html | CGTN（with input from agencies） | Cost of living protests spread across Europe | 2026-10-19 12:07（页面显示） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。欧洲溢出（布鲁塞尔、里斯本、米兰、希腊/德国/奥地利）。 |<br/>
+| S-030 | https://www.econotimes.com/France-s-Draft-Budget-Puts-2027-Debt-Interest-at-91-2-Billion-1756063 | EconoTimes | France's Draft Budget Puts 2027 Debt Interest at €91.2 Billion | 页面未显示精确时刻 | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。预算日程（10-20 第一部分表决、11-17 全部表决）、债务与利息数据。 |<br/>
+| S-031 | https://newspaper.jxnews.com.cn/jndsb/html/2026-10/20/content_897_206831.htm | 江西日报（据央视/新华社） | 法国抗议潮失控 暴力冲突蔓延多城 | 2026-10-20（版面日期） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。中文综合稿。 |<br/>
+| S-032 | https://www.timesnowworld.com/us-news/france-protests-education-cuts-cost-of-living-crisis-article-156369944 | Times Now World | France Faces Widespread Unrest Over Education Cuts and Rising Cost of Living | 2026-10-20 01:01 IST（页面显示 Updated） | 2026-10-20 | 2026-10-20 | accessible | 内容经检索集成可见。教育/贫困/油价背景数据；该页含无关国际简讯聚合，未采用。 |</p>
+<p>| S-033 | https://entrevue.fr/en/politique/budget-2027-apres-avoir-detricote-le-projet-de-lecornu-les-deputes | Entrevue（Radouan Kourak） | 2027 Budget: After dismantling Lecornu's proposal, MPs suspend debates in the National Assembly | 2026-10-20/21（页面未显示精确时刻） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。收入部分表决推迟、PLFSS 先行、Amiel €10bn 恶化。 |<br/>
+| S-034 | https://franceinenglish.com/p/french-parliament-approves-inquiry-commission-on-october-17-protest-violence | France in English（法文来源翻译综合稿） | French Parliament Approves Inquiry Commission on October 17 Protest Violence | 2026-10-20/21（页面未显示精确时刻） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见；二手综合稿，关键事实与 S-035 交叉。含 Caure 任委员会主席、Lajus"约8,000人被捕"（单一来源）。 |<br/>
+| S-035 | https://www.thehindu.com/news/international/french-pm-to-meet-unions-as-government-prepares-for-more-protests/article71606220.ece | The Hindu（据法新社等） | French PM to meet unions as government prepares for more protests | 2026-10-21 | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。Lecornu-工会会面、"叛乱计划"归因、150人监禁/800人送审、利摩日纵火案拘捕、宵禁与禁带汽油。 |<br/>
+| S-036 | https://www.thehindu.com/news/national/india-advises-caution-for-its-nationals-in-france-amid-unrest-curfews/article71610003.ece/amp | The Hindu | India advises nationals in France to exercise caution amid unrest, curfews | 2026-10-21/22（advisory 10-21） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。印度旅行提醒；该文 10-24 与 10-25 动员日期自相矛盾（已按原文记录，以多数来源记 10-24）。 |<br/>
+| S-037 | https://www.toutiao.com/article/7699366694002754048/ | 环球时报（综合法新社、美联社；记者郭孝伟），经今日头条发布 | 马克龙"点名"特朗普 | 2026-10-22 13:55（页面显示） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。马克龙多哈讲话；巴黎 10-22 白天禁聚区（爱丽舍宫、总理府、两院、卢浮宫、香街）；勒庞表态。 |<br/>
+| S-038 | https://www.toutiao.com/article/7699343580598420009/ | 南方都市报（南都N视频记者刘施阳），经今日头条发布 | 法国爆发全国性示威，至少3000家商铺遭劫掠，在巴黎的中国导游：带客人参观卢浮宫，遇上因示威临时闭馆 | 2026-10-22 12:26（页面显示） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。政府口径至少3,000家商铺；卢浮宫已恢复开放；巴黎本周第三次夜间宵禁；哨兵行动增援；驻法使领馆提醒。 |<br/>
+| S-039 | https://peoplesdaily.pdnews.cn/world/er/30053395867 | 人民日报英文客户端（据新华社） | Macron vows to prevent riots at fresh protests scheduled for Saturday | 2026-10-21/22（页面未显示精确时刻） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成可见。马克龙：现阶段无需紧急状态、动用一切法律工具；哨兵行动。 |</p>
+<p>| S-040 | https://news.cctv.com/2026/11/01/ARTIltWFIywKJu7oPQpi5uV9261101.shtml | 央视网（据新华社） | 法国再现全国性示威 数十万人参与 数百人被捕 | 2026-11-01 | 2026-11-03 | 2026-11-03 | accessible | 内容经检索集成可见。10-31 法国新一轮全国示威，约 32 万人参加、422 人被捕；政府部署约 7 万军警；巴黎 40+ 地铁站关闭。 |<br/>
+| S-041 | https://www.riotimesonline.com/why-is-france-protesting-2026 | Rio Times | Why is France protesting in 2026? | 2026-10-24～10-25（页面未显示精确时刻） | 2026-11-03 | 2026-11-03 | accessible | 内容经检索集成可见。梳理 10-24 黄背心"第二幕"：内政部约 41 万人、近 1,000 人被捕；组织方约 80 万；多地夜宵禁，未宣布紧急状态。 |<br/>
+| S-042 | https://news.qq.com/rain/a/20261030A0E9MJ00 | 腾讯新闻 | 法国多地延长管控措施 应对新一轮示威 | 2026-10-30 | 2026-11-03 | 2026-11-03 | accessible | 内容经检索集成可见。巴黎恢复共和广场/Les Halles 夜宵禁（23:00—次日 06:00）；马赛未成年人宵禁；里昂、格勒诺布尔等局部管控。 |<br/>
+| S-043 | https://h.aa.com.tr/en/europe/french-lawmakers-reject-2027-social-security-budget-in-1st-reading/4098600 | Anadolu（AA） | French lawmakers reject 2027 social security budget in 1st reading | 2026-10-23 | 2026-11-03 | 2026-11-03 | accessible | 内容经检索集成可见。PLFSS 收入部分国民议会一读以 115:1 否决、发回参议院；参议院 11-09 起审议政府原版。 |<br/>
+| S-044 | https://www.monetaryelite.com/2026/10/27/frances-budget-vote-keeps-moving-the-bond-market-isnt-waiting | Monetary Elite | France's budget vote keeps moving, the bond market isn't waiting | 2026-10-27 | 2026-11-03 | 2026-11-03 | accessible | 内容经检索集成可见。10Y OAT 升至 5.14%（2002 年来最高）；穆迪维持 Aa3/负面；国家预算收入部分表决推迟至 11-03。 |<br/>
+| S-045 | https://kuaibao.qq.com/s/20261102A0BFEK00 | 快报/第一财经（腾讯看点） | 法国"流量税"风波：预算表决推迟至 11 月 3 日 | 2026-11-02 | 2026-11-03 | 2026-11-03 | accessible | 内容经检索集成可见。"流量税"修正案 10-30 以 11:10 通过（Coquerel 误投两票）；国家预算收入部分表决推迟至 11-03 下午，结果待出。 |</p>
+<h2>报道版本</h2>
+<ul>
+<li>本事件目前保存的均为基于网页可见内容整理的事实汇编/摘要型文字快照；未保存任何报道的完整正文字节或原始响应，未计算哈希。S-003 两次观察均为摘要型记录，无法据此做逐字版本差异结论（见 snapshots/2026-10-19-S-003-v2.md 版本说明）。</li>
+<li>各快照获取时间：2026-10-18 快照为当日 17:40（Asia/Shanghai）；2026-10-19 快照为当日运行时间窗约 16:02–17:10（Asia/Shanghai）；2026-10-20 快照（S-022～S-032）为当日 12:21–12:50 运行窗（Asia/Shanghai）；2026-10-22 快照（S-033～S-039）为当日 18:10–18:40 运行窗（Asia/Shanghai），未逐条记录到秒；2026-11-03 快照（S-040～S-045）为当日 20:30 运行窗（Asia/Shanghai）。</li>
+<li>供后续补做：S-018 官方 PDF 原件；S-002、S-007、S-008、S-018 等暂不可直接访问页面的存档（合法途径）；11-03 国家预算收入部分表决结果来源（本次巡检时结果尚未公布，记为待后续补录）；PLFSS 参议院审议（11-09 起）与两院联席委员会来源；11-05 工会罢工实际规模来源。</li>
+</ul></div></article><article class="doc-sec" data-doc="status" data-title="状态与待办" data-sub="status.md" hidden><div class="md"><h1>当前状态</h1>
+<ul>
+<li>事件状态：<code>developing</code></li>
+<li>截至时间：2026-11-03T20:30+08:00</li>
+<li>最近核查时间：2026-11-03T20:30+08:00</li>
+<li>状态依据：10-24 黄背心"第二幕"已发生——内政部约 41 万人、近 1,000 人被捕（较 10-17 首轮明显下降），组织方口径约 80 万；10-31 新一轮全国示威约 32 万人、422 人被捕、政府部署约 7 万军警、巴黎 40+ 地铁站关闭；多地宵禁延长（巴黎共和广场/Les Halles 23:00—06:00 至 11-02、马赛未成年人宵禁、里昂/格勒诺布尔局部管控）；PLFSS 收入部分 10-23 前后以 115:1 被国民议会否决发回参议院（11-09 起审议）；国家预算收入部分表决三度推迟至 11-03 下午（本次巡检当日，结果待出）；插曲"流量税"修正案 10-30 以 11:10 通过（Coquerel 误投）；10Y OAT 10-22 盘中升至 5.14%（2002 年来最高），穆迪 10-23 维持 Aa3/负面；议会调查委员会（主席 Vincent Caure）10-20 成立、本周期未见听证日程；工会 11-05 跨行业罢工示威仍为预告。事件仍在多线持续发展（示威—管控—预算—评级—调查）。</li>
+<li>阶段性结案条件/理由：不适用；事件仍在发展。</li>
+<li>重新激活条件：本档案目前处于活跃追踪；如转入 <code>quiet</code> 后再出现新的大规模集会/冲突、重大官方统计、或司法/议会调查结论，即重新激活。</li>
+<li>待办与未决问题：<br/>
+  1. <strong>11-03 国家预算收入部分表决结果</strong>（本次巡检当日，截至检索未出）——下次巡检第一优先；<br/>
+  2. 11-05 工会跨行业罢工实际规模与冲突；<br/>
+  3. PLFSS 参议院审议（11-09 起）与两院联席委员会；<br/>
+  4. 调查委员会听证日程与结论（主席 Caure）；<br/>
+  5. 宵禁续期/紧急状态话语是否启用；哨兵行动部署细节；<br/>
+  6. 官方最终逮捕/伤者/损失统计；巴黎死亡案、圣艾蒂安、米卢斯司法/监察进展；<br/>
+  7. 保险赔付与政府扶持落实；市场（OAT-Bund 利差）后续；<br/>
+  8. S-002（Le Monde）等暂不可直接访问来源的存档重查；S-018 官方通稿 PDF 补存；叙事与用语观察（narrative.md）后续补充。</li>
+<li>状态历史：2026-10-18 建档，<code>developing</code>；2026-10-19 巡检维持；2026-10-20 巡检维持（宵禁、司法量化、市场反应）；2026-10-22 巡检维持（预算表决推迟、委员会成立、安保升级与新一轮动员预告）；2026-11-03 巡检维持（10-24/10-31 两轮示威已发生、宵禁延长、PLFSS 否决与预算表决推迟、OAT 新高与穆迪负面、委员会未见进展，事件仍多线发展，详见时间线与主张更新）。</li>
+</ul></div></article><article class="doc-sec" data-doc="narrative" data-title="叙事与用语观察" data-sub="narrative.md" hidden><div class="md"><h1>叙事与用语观察（框架分析）</h1>
+<ul>
+<li>事件 ID：evt-20261017-france-unrest</li>
+<li>建档：2026-10-19（Asia/Shanghai）</li>
+<li>性质：分析/推断层记录，不是事实主张；每条尽量附来源 ID 与观察时间。</li>
+<li>方法依据：仓库根目录 <code>AGENTS.md</code>“叙事与用语观察（框架分析）”一节；后续每次巡检按日期追加“补充观察”。</li>
+<li>本次基础：2026-10-18～10-19 收集的来源 S-001～S-021。多数引语本地仅存中文转述，原文措辞未保存者已注明；此类条目只能作“要点级”参考，不能逐字比对。</li>
+</ul>
+<h2>2026-10-19 首版（观察窗口 2026-10-17～10-19）</h2>
+<h3>一、官方与机构口径</h3>
+<ul>
+<li>称名选择：官方话语中指涉破坏者用 “casseurs”（打砸者）——爱丽舍宫公报要求努涅斯部署针对“破坏者”（casseurs）的新维稳方针（S-004）；Ouest-France 标题直采该词且未加引号（S-016）。对参与主体整体，官方多用 “violences”（暴力）、“pillages”（抢掠）描述行为，而非 “manifestants”（示威者）。</li>
+<li>合法边界表述：努涅斯在 X 称“示威权是基本权利。蓄意、集体地以暴力制造混乱不是”（S-009）——官方刻意区分“和平示威者”与“暴力者”。</li>
+<li>责任与赔偿框架：马克龙“抢掠者要赔偿损失，企图推翻共和国者将被追究”（S-009）、“那些企图推翻共和国的人要为此负责”（S-005）；经济部长 Lescure“砸毁东西的人要赔、要修复，并为制造混乱的意图负责”（S-006，据 Reuters 转述）。</li>
+<li>自我批评框架（10-18 晚起出现）：努涅斯承认部分城市“失去控制”“预判不足”“力量配置不对称”（S-004）；爱丽舍宫要求透明、指出“预见和情报方面的失灵”（S-005）。观察点：官方话语从单纯强调“坚决执法”扩展为同时承认失误（分析）。</li>
+<li>事件定性用词迁移线索：经济财政部新闻通稿标题使用 “les événements du 17 octobre”（10 月 17 日事件，S-018）——中立-行政化表述；而同期政治话语以 “violences”“casseurs” 为关键词。注意通稿属经济口径文件，用词受场合影响，单独不足以证明官方整体口径转向（推断，待更多样本）。</li>
+<li>地方官员用语：上维埃纳省长 Barate 称利摩日市政厅纵火者为“激进捣乱者”并称“他们故意纵火”（S-009，中文转述，原文措辞未保存）；利摩日市长 Guérin 称“明确、有预谋的纵火意图”（S-006）。</li>
+<li>市长协会（AMF）：谴责“对民主制度的严重攻击”（S-005、S-008）——机构层把事件定性为对制度的攻击。</li>
+<li>政治人物互责框架：勒庞称政府“靠余烬运转、精疲力竭、迷失方向”（S-006、S-009）；梅朗雄称马克龙“任其腐烂”、强调“参与我们斗争的人不该去抢掠或破坏”（S-009）；菲利普称 LFI“对近日暴力负有重大责任”（C-012 记录）。各方均试图把暴力归因于对手阵营。</li>
+<li>外部官方话语：特朗普“France is burning!”并将骚乱与移民相联系（S-005、S-009）；梅洛尼称“流氓”借机“播种混乱”（S-008）。</li>
+</ul>
+<h3>二、媒体用词线索（按来源，观察时间 2026-10-19）</h3>
+<ul>
+<li>AFP（通讯社，S-003）：标题 “Clashes, blazes and wide-scale looting grip France on day of protests”——“clashes”（冲突）中性；正文记录抢掠者“有组织”作案观察，同时给伤者中立年龄表述。</li>
+<li>AP（S-001、S-009）：早期标题 “Clashes, fires and looting break out as protesters rally across France, joining students”（学生汇入的框架）；后续 “Thousands arrested for rioting, looting as France cost-of-living protests spread”（“rioting” 定性较强，但同句保留 “cost-of-living protests” 归因）；同一报道页面主标题为马克龙引语 “Macron condemns those who ‘sought to bring down the Republic’…”。同稿强调多数示威和平（C-001 引为限制证据）。标题层两套框架并存，适合逐版本观察。</li>
+<li>CNBC（S-006）：标题 “France hit by worst unrest in years as attempts to rein in government spending meet citizen ire”——归因框架：以财政紧缩为因、民众愤怒为果；“worst unrest in years” 为评价性表达。</li>
+<li>France 24（S-005）：标题 “l'exécutif sommé de rendre des comptes”（行政当局被要求问责）——问责政府视角；正文包含示威者被“围堵（nassés）”及重伤记录，给弱势方以显著篇幅。</li>
+<li>BBC（S-008）：标题将核心判断归因于官员（“French police lost control, says interior minister”）；分析稿 “government under pressure”；强调“绝大多数示威和平”。</li>
+<li>Le Monde（S-002）：滚动页标题把 “« le chaos »” 加引号（引自地方报纸头版）——转述式加引，未被作为自身定性。</li>
+<li>Le Parisien（S-010、S-020）：死亡者称 “un manifestant”（一名示威者）；“record” 加引号归因警方说法；圣艾蒂安标题直写 “une grenade policière”（警用榴弹）——在官方称“无法确认”时（S-012）标题已给出武器归属描述，是本组来源中最直接的责任指向措辞。</li>
+<li>Le Figaro（S-011）：以 “adolescente”（少女）+ “l'IGPN saisie”（警监立案）为主轴；用中立年龄称名而非贬称。</li>
+<li>L'Humanité（S-012）：标题即聚焦监察立案；引入“致残武器”请愿（14 万+签名）与 10-05 Lens 前例，构成武力使用问责框架。（该报有明确编辑立场，事实部分已与其他来源交叉核对）</li>
+<li>RTL（S-013）：以议长引语 “Faire la lumière sur les scènes de chaos” 为题；“chaos” 为其高频定性词。</li>
+<li>Ouest-France（S-016）：标题直采官方词汇 “casseurs”，未加引号——官方词汇被地方媒体直接采用的一例。</li>
+<li>Euronews（S-007）：标题 “France grapples with the aftermath of a weekend of violence”——“violence” 定性 + 善后视角。</li>
+</ul>
+<h3>三、态度与用词的时间变化（初步，均为分析）</h3>
+<ul>
+<li>官方话语三阶段（10-17 晚→10-19）：①强调坚决与快速（早期约 400 人被捕口径，S-001）；②加入自我批评（“失去控制”“预判不足”，S-004、S-008）；③转向经济善后与安抚（Bercy 会议、“赔偿/援助”话语，S-018、S-019）。是否构成“口径让步”或迫于图像/重伤案压力的调整，需更多版本比对后再判断。</li>
+<li>参与者称名张力：官方高频 “casseurs/violences”，同期媒体在重伤未成年人报道中使用 “ado/adolescente/jeune/17-year-old”（S-020、S-011、S-009）——去人性化与人性化措辞在同期并行（分析）。</li>
+<li>同一事件施动结构差异示例：圣艾蒂安案——“grenade policière”（Le Parisien 标题，S-020）vs 内政部长“无法确认是否为宪兵手榴弹”（S-012）vs 检方“查找受伤原因”立案（中立程序表述）。三种措辞对同一事实的责任指向显著不同，宜逐版本跟踪。</li>
+<li>Le Monde 对 “chaos” 加引号转述，与 RTL 将该词用于自身叙述（S-013）相比，措辞责任层级不同（分析）。</li>
+</ul>
+<h3>四、词表（便于后续逐次比对）</h3>
+<ul>
+<li>参与者称名：<code>manifestants</code>（示威者）、<code>étudiants</code>/<code>lycéens</code>（学生/高中生）、<code>casseurs</code>（打砸者）、<code>émeutiers</code>（骚乱者）、<code>violents</code>（暴力者）、<code>nassés</code>（被围堵，示威者视角用语）、<code>ado</code>/<code>adolescent(e)</code>（青少年）。</li>
+<li>事件定性：<code>manifestation</code>/<code>mouvement</code>（游行/运动）—<code>violences</code>（暴力）—<code>chaos</code>（混乱）—<code>émeutes</code>（骚乱）—<code>événements</code>（事件，行政中立语）。</li>
+<li>执法动作：<code>interpellations</code>（逮捕）、<code>gardes à vue</code>（拘留）、<code>maintien de l'ordre</code>（维稳）。</li>
+</ul>
+<h3>五、待观察（下次巡检补充）</h3>
+<ul>
+<li>未直接取得全文来源（S-002 Le Monde、S-007 Euronews、Reuters 经转述）的称名基线，取得访问后补录。</li>
+<li>AP 两版标题（S-001→S-009）的后续版本变化；Le Parisien、Le Figaro 对两起重伤案的后续措辞（“查清”阶段是否用词回撤）。</li>
+<li>官方定性词后续迁移：<code>casseurs</code>/<code>violences</code> 与 <code>événements</code> 的使用场合差异是否扩大。</li>
+<li>11-05 动员前各方话语（组织方 “grève interprofessionnelle” vs 官方维稳预告）的用词与规模表述。</li>
+<li>议会调查委员会话语（10-20 提议）中"维稳策略可能的失灵"与"暴力小团体"并置框架的展开。</li>
+</ul>
+<h2>2026-10-20 补充观察（观察窗口 2026-10-19～10-20，来源 S-022～S-032）</h2>
+<h3>一、官方与机构口径新增</h3>
+<ul>
+<li><strong>宵禁话语入场</strong>：<code>couvre-feu</code>（宵禁）首次成为本轮官方话语核心词。Lecornu 的限定语值得逐字记录："très limité"（非常有限）、"localisé"（局部化）、"partiel"（部分的）、" géographiquement très inégale"（地理上非常不均衡，Daily Sabah 转述），并明确排除全面宵禁（"让全巴黎宵禁不可想象"，CGTN 转述）。限定语的密集使用显示官方在执措施辞上刻意收窄适用范围（分析）。</li>
+<li><strong>紧急状态话语</strong>：<code>état d'urgence</code>（紧急状态）被 Lecornu 两次提及但均以"如有必要/现阶段不合适"的否定-保留结构出现（S-022、S-023、S-025、S-026）——与马克龙 10-18 的排除性表态形成"排除全国性措施、保留升级选项"的话语结构（分析）。</li>
+<li><strong>归因框架的对手化</strong>：Lecornu 将骚乱归因于"一个极左运动，想在总统选举前夕给国家造成深度动荡"（CGTN 转述，S-024）；梅朗雄以"提供证据，否则道歉、闭嘴"回应（S-024）。此前 10-18 归因为"ultra-left"（Saudi Gazette 摘要转述）。"极左/极左翼"归因与努涅斯"数千名极左个体"（franceinenglish 摘要）互相叠加。</li>
+<li><strong>刑事化框架的量化表达</strong>：Darmanin 公布拘留数时突出"70% 为成年人""多人早为当局所知"（S-022）、"67 人已被监禁"（S-024）——以再犯/已知人口比例构建"犯罪团伙"而非"示威运动"的框架（分析）。</li>
+<li><strong>能源外交话语</strong>：马克龙将生活成本上升归因于地区冲突并赴海湾四国（S-023、S-032）——把国内分配矛盾部分转置为地缘供给矛盾（分析，属框架观察而非事实判断）。</li>
+<li><strong>行政-经济口径延续</strong>：官方通稿与商会话语继续使用 <code>événements du 17 octobre</code> 式中性语（见 10-19 首版 S-018）；10-19 后官方话语主轴为"恢复秩序+司法追究+经济善后"三件套（S-022～S-026）。</li>
+</ul>
+<h3>二、媒体用词线索新增（观察时间 2026-10-20）</h3>
+<ul>
+<li><strong>Le Monde（英文版，S-022）</strong>：标题 "Curfews announced in Paris and other cities as France grapples with unrest"——"unrest"（动荡）定性中性偏弱；正文以措施与数字为主轴，重伤/死亡事实着墨少；采用 "degenerated into some of the worst street violence in recent years" 的渐进式定性。</li>
+<li><strong>CGTN（S-023、S-024）</strong>：以 "anti-government protests"（反政府抗议）概括运动性质；标题 "France imposes curfews"（主动语态，政府为主语）强化国家行动者框架；转述 Lecornu "no one was killed... that is a miracle"（"无人死亡……是个奇迹"）——官方庆幸话语被原文保留。</li>
+<li><strong>RTÉ（S-025）</strong>：标题 "French curfews now in force"——完成时态强调既成事实；以 "rocked by some of its worst street violence in years" 评价规模；以 "culmination of four weeks of protests that began with high school students" 回溯运动周期，学生起点框架与 AP 早期"joining students"框架一致。</li>
+<li><strong>Daily Sabah（S-026）</strong>：以 "chaos" 直接引述 Lecornu（"混乱局限于市中心"）并以 "specific form of criminal activity involving looting and the resale of stolen goods"（涉及抢掠与赃物转卖的特定犯罪活动）转述官方犯罪化定性——官方框架被较完整保留。</li>
+<li><strong>华尔街见闻/第一财经（S-027、S-028）</strong>：中文财经媒体框架以市场为主轴（"股债双杀""欧央行会出手么"），社会事件被转译为财政信用事件；引机构观点"没有整顿财政的民意授权"（Shannon）、"两边同时造反"（Bell）——市场话语为骚乱提供"财政纪律"评价维度。</li>
+<li><strong>江西日报（S-031）</strong>：中文党媒框架 "法国抗议潮失控 暴力冲突蔓延多城"——"失控"与"蔓延"构成扩散性定性；抗议者个体引语（油费负担）给出生计视角。</li>
+<li><strong>Times Now World（S-032）</strong>：标题 "Widespread Unrest Over Education Cuts and Rising Cost of Living"——教育削减与生活成本并列归因；数据密集型写法（4,000 个岗位、30 人/班、15.4% 贫困率、油价 +36%）。</li>
+<li><strong>黄背心话语复兴</strong>：<code>"second act"</code>（第二幕）被用于 10-24 动员预告（S-025、S-026）——直接借用 2018—2019 年黄背心运动的"acte 1/acte 2"计数法，运动连续性的自我表述（观察，待 10-24 兑现情况验证）。</li>
+</ul>
+<h3>三、态度与用词的时间变化（补充）</h3>
+<ul>
+<li>官方话语第四阶段（10-19 晚起）：在"坚决执法+自我批评+经济善后"之外，新增"刑事司法量化"（Darmanin 拘留/监禁数据）与"空间管控"（宵禁/禁聚）两条线——从话语层进入行政措施层（分析）。</li>
+<li>同一来源的态度迁移示例：AP 10-18 标题 "Thousands arrested for rioting" → 10-19/20 各通讯社/综述稿以 "curfews" 为主轴——媒体焦点从"暴力规模"转向"国家管控升级"（观察，样本有限）。</li>
+<li><code>manifestants</code> 与 <code>casseurs</code> 的张力延续：官方与部分通讯社继续用 casseurs/looters 框架；RTÉ 同时保留 "a demonstrator's hand blown off by a police crowd-control grenade"（示威者被警用榴弹炸断手）的个体伤害记录——两套框架在同一稿件并存（S-025）。</li>
+<li>待观察（下次巡检）：10-20 预算表决与调查委员会提议结果及各方措辞；10-24 黄背心"第二幕"前的动员话语；宵禁是否续期/扩大；<code>état d'urgence</code> 话语是否从否定-保留转为启用；卢浮宫学生行动（<code>blocage</code>）的后续措辞。</li>
+</ul>
+<h2>2026-10-22 补充观察（观察窗口 2026-10-20～10-22，来源 S-033～S-039）</h2>
+<h3>一、官方与机构口径新增</h3>
+<ul>
+<li><strong>"叛乱计划"归因升级</strong>：Lecornu 10-20/21 指控极左激进团体炮制导致骚乱的"叛乱计划"（<code>insurrectionary plan</code>，The Hindu 转述，S-035）——比此前"极左运动"（S-024）更具体的组织性指控；同时其在致工会信函中把部分行为称为"不可接受的"对抗议的劫持（S-035）。责任归因的修辞强度继续上行（分析）。</li>
+<li><strong>军事化话语入场</strong>：<code>Opération Sentinelle</code>（哨兵行动，反恐军事行动）增援警宪（S-035、S-038、S-039）——反恐框架首次与国内维稳并置；努涅斯同时考虑禁止"已申报但存在失控风险"的游行（S-038）——从"禁止未申报"扩展到"风险预禁"（分析）。</li>
+<li><strong>虚假信息/外部归因</strong>：马克龙 10-21 多哈讲话将"来自国外的虚假信息"作为外国领导人"不可接受又愚蠢"言论的成因，并点名特朗普（"是的，还有其他人"，S-037）——把叙事战纳入官方话语；与其 10-18 "愤怒与羞耻"的国内问责框架并列为两条战线（观察）。</li>
+<li><strong>司法刑事化延续并量化</strong>：近 150 人监禁、800 余人送审（S-035）；利摩日市政厅纵火案拘捕"据信与极左有关联"者（S-035）——个案刑事化与集体归因并行。</li>
+<li><strong>紧急状态话语</strong>：马克龙 10-21 称"现阶段无必要，但如需要可在稍后部署"（S-039）——仍是否定-保留结构，未升级为启用（观察）。</li>
+</ul>
+<h3>二、媒体用词线索新增（观察时间 2026-10-22）</h3>
+<ul>
+<li><strong>Entrevue（S-033）</strong>：标题 "After dismantling Lecornu's proposal"（在拆解 Lecornu 的提案之后）——以立法过程为主角、政府为受动者的框架；"ad hoc majorities"（临时多数）描述议会格局。</li>
+<li><strong>The Hindu（S-035、S-036）</strong>：引勒庞"wake-up call"（警钟）与"profound crisis" of authority（S-035）——反对派话语被完整转述；以 "prepare for more protests"（为更多抗议做准备）作为政府行为主轴——国家预防框架。</li>
+<li><strong>Xinhua/人民日报英文（S-039）</strong>：标题 "Macron vows to prevent riots at fresh protests"（马克龙誓言防止新一轮抗议中的骚乱）——承诺-预防框架；正文以政府措施为主轴，未着墨社会诉求侧。</li>
+<li><strong>环球时报（S-037）</strong>：标题即"点名"特朗普——中文官方媒体聚焦法国叙事战与外国干预框架；引法广证实 10-22 禁聚区清单（制度性保护框架）。</li>
+<li><strong>南方都市报（S-038）</strong>：以在法中国导游视角（卢浮宫闭馆、退票、行程取消）+"至少 3000 家商铺遭劫掠"（政府口径）——对华读者服务性框架 + 损失量化；"本周第三次夜间宵禁"的计数表述强化持续性。</li>
+<li><strong>France in English（S-034）</strong>：综合稿突出委员会主席姓名与前专员"8,000 人被捕、多数未成年人"——制度细节 + 警务批评框架（二手来源，已标注）。</li>
+</ul>
+<h3>三、态度与用词的时间变化（补充）</h3>
+<ul>
+<li>宵禁的"常态化"表述：从 10-19"首次局部宵禁"到 10-21"本周第三次"（S-038）——媒体计数语本身即记录管控的日常化（观察）。</li>
+<li>官方对示威运动的定性强弱序列（10-17 至今）：<code>casseurs</code>（打砸者）→<code>violences</code>（暴力）→<code>chaos</code>（混乱）→"far-left movement"（极左运动）→"insurrectionary plan"（叛乱计划）——责任归因的组织化程度逐级上调（分析，样本为官方表态）。</li>
+<li>动员日期口径分歧：The Hindu 同篇内 10-24 与 10-25 并存（S-036），多数来源（S-025、S-026、S-038）记 10-24（周六）——日期混乱本身是信息战/组织分散的观察点（分析）。</li>
+<li>待观察（下次巡检）：10-24"第二幕"实际规模与官方/组织方数字差；10-27 PLFSS 表决与 11-03 收入表决；调查委员会首次听证措辞；<code>Sentinelle</code> 部署的可见度与舆论反应；宵禁是否续期；欧洲溢出（希腊/德国/奥地利"下周动员"是否兑现）。</li>
+</ul></div></article><article class="doc-sec" data-doc="event" data-title="事件元数据（yaml）" data-sub="event.yaml" hidden><pre><code>schema_version: 1
+event_id: evt-20261017-france-unrest
+title: &quot;法国2026年10月17日示威及多地骚乱&quot;
+aliases: [&quot;法国骚乱&quot;, &quot;2026年10月17日法国抗议冲突&quot;, &quot;法国10月17日动员&quot;]
+summary: &quot;2026年10月17日法国多地举行反生活成本上涨、声援学生诉求的集会，多地演变为警民冲突、纵火和商铺遭破坏/抢掠。10-18至10-19：官方统计连续上修（内政部口径近2,400人被捕、近千名军警受伤）；马克龙发表全国讲话；内政部长请辞被拒并承认部分城市&#x27;失去控制&#x27;；多起重伤案由IGPN/IGGN调查。10-19晚起：局部宵禁与&#x27;大规模司法行动&#x27;；司法部长称周末2,513人被拘留、67人监禁；卢浮宫因学生封锁全日关闭（后恢复开放）；商铺损失口径2,000—3,000家；法国国债收益率与股市大跌（OAT-Bund利差约145—146bp）。10-20：议会调查委员会宣告成立（主席Vincent Caure）；预算收入部分表决因修正案未审完推迟（PLFSS 10-27表决、收入部分改期11-03）；安保升级（哨兵行动增援、巴黎本周第三次宵禁、10-22禁聚区扩至爱丽舍宫/两院/卢浮宫/香街）；司法口径近150人监禁、800余人送审；利摩日纵火案拘捕一名&#x27;据信与极左有关联&#x27;男子；马克龙多哈讲话点名特朗普&#x27;虚假信息&#x27;。黄背心与学生组织预告10-24示威、工会11-05罢工。数字随口径/时点变化，最终统计与司法结论待核。&quot;
+status: developing
+priority: high
+event_time:
+  start: 2026-10-17
+  end: unknown
+  precision: &quot;2026-10-17起，事件持续中（截至2026-10-20仍有后续事态与管控措施）；各地发生时段不一&quot;
+first_discovered_at: 2026-10-18T17:40:16+08:00
+last_checked_at: 2026-10-22T18:40:00+08:00
+created_at: 2026-10-18T17:40:16+08:00
+updated_at: 2026-10-22T18:40:00+08:00
+location: &quot;法国多地；报道重点涉及巴黎、马赛、里昂、利摩日、波尔多、里尔、南特、尼斯、图卢兹、斯特拉斯堡、蒙彼利埃、圣艾蒂安、米卢斯、拉罗谢尔、布雷斯特、雷恩及留尼汪等地&quot;
+entities: [&quot;法国政府&quot;, &quot;法国总统马克龙&quot;, &quot;总理勒科尔尼&quot;, &quot;内政部长努涅斯&quot;, &quot;司法部长达尔马宁&quot;, &quot;法国警方/宪兵&quot;, &quot;示威者&quot;, &quot;CGT工会&quot;, &quot;黄背心运动&quot;, &quot;高中生及学生组织&quot;, &quot;国民议会/地方市长（AMF）&quot;, &quot;商户及行业组织（FCD、CCI等）&quot;, &quot;司法机关（检察院、IGPN/IGGN）&quot;]
+related_event_ids: []
+reopen_conditions: [&quot;转入quiet后出现新的大规模集会、冲突或重大官方调查/司法/议会结论&quot;, &quot;10月24日黄背心&#x27;第二幕&#x27;、11月5日跨行业动员等预告行动出现重大事态&quot;, &quot;紧急状态启用或宵禁扩大&quot;]
+closure_history: []
+open_questions: [&quot;10月24日黄背心&#x27;第二幕&#x27;实际规模与冲突情况？&quot;, &quot;10-27 PLFSS表决、11-03收入部分表决、11-17全部表决结果？&quot;, &quot;调查委员会（主席Caure）组成、听证日程与结论？&quot;, &quot;宵禁续期/扩大与紧急状态话语是否启用；哨兵行动部署细节？&quot;, &quot;官方最终逮捕、伤者及损失统计为何？&quot;, &quot;巴黎Magenta大道死亡案的死因与程序结论？&quot;, &quot;圣艾蒂安、米卢斯重伤案的监察调查进展与责任认定？&quot;, &quot;保险赔付与政府扶持措施的实际落实？&quot;, &quot;市场（OAT-Bund利差）与财政整顿前景？&quot;]
+</code></pre></article><article class="doc-sec" data-doc="daily-logs/2026-10-18T17-40-16+08-00" data-title="10-18 17:40 巡检" data-sub="daily-logs/2026-10-18T17-40-16+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-10-18T17:40:16+08:00（Asia/Shanghai）</li>
+<li>检查范围：首次录入；检索并查看 AP、Le Monde、AFP 报道</li>
+<li>结果：建立法国2026-10-17示威冲突档案。多个来源支持核心事实；逮捕数、伤者数和参加人数来自不同主体/时点，按原归属记录。</li>
+<li>未完成项：未核验法国政府/内政部原始公告及各地消防、检方资料；未做既有网页的历史版本比对。</li>
+<li>来源 ID：S-001、S-002、S-003</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/2026-10-19T16-17+08-00" data-title="10-19 16:17 巡检" data-sub="daily-logs/2026-10-19T16-17+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-10-19T16:17+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求"继续追踪法国2026年10月示威及多地骚乱"（定向增量巡检）</li>
+<li>检查范围：</li>
+<li>既有来源复访：S-001（AP 旧文）、S-002（Le Monde 滚动）、S-003（AFP）</li>
+<li>新增检索与来源：S-004～S-021（法国、英文媒体与官方通稿，详见 sources.md）</li>
+<li>结果（新增进展摘要）：</li>
+<li>官方统计上修：内政部口径近2,400人被捕、近1,000名军警受伤（7人重伤）；巴黎周六855人被捕（称"纪录"）、517人在押；巴黎周日108人被捕、至周一凌晨350+。</li>
+<li>官方回应：马克龙10-18晚全国讲话（"愤怒与羞耻"、审查"预见与情报"失误、承诺透明）；内政部长努涅斯请辞被拒、承认部分城市"失去控制"与"预判不足"；10-19 Bercy行业会议与跨部门危机小组。</li>
+<li>司法：巴黎一名男子死亡（心脏骤停，调查中）；圣艾蒂安17岁男性手部截断（IGPN/IGGN）、米卢斯17岁女性失明（IGPN梅斯）两案立案。</li>
+<li>制度层面：国民议会议长拟10-20提议调查委员会；参议院社会党团要求延长信息任务；多家市长批评维稳。</li>
+<li>动员预告：CGT等呼吁11-05跨行业罢工示威；学生假期开始。</li>
+<li>来源复访情况：</li>
+<li>S-003：accessible，可见较首次更完整正文 → 保存第二观察版本（snapshots/2026-10-19-S-003-v2.md）。</li>
+<li>S-001：access_restricted（403×2、浏览器 ERR_FAILED）；AP 后续更新版另见 S-009（可访问）。</li>
+<li>S-002：temporarily_unavailable（抓取×3传输错误、浏览器 ERR_TUNNEL_CONNECTION_FAILED）；收尾复核（2026-10-19T16:28+08:00）第三次抓取重试仍失败，web.archive.org 存档查询亦不可达（抓取传输错误、浏览器 ERR_CONNECTION_CLOSED）。2026-10-19 多次观察到不可访问；不推断删除。</li>
+<li>文件更新：sources.md（新增登记与状态）、claims.md（更新 C-003/C-004/C-005；新增 C-006～C-014）、timeline.md（新增12行）、status.md、event.yaml、snapshots/（19个新文件）、事件索引.md、两级速览.html。</li>
+<li>未完成项与后续动作：<br/>
+  1. S-002 合法存档改期重查（本次存档站不可达）；S-001 旧文后续观察；<br/>
+  2. S-018 官方通稿 PDF 原件补存；<br/>
+  3. 10-20：预算案第一部分表决、调查委员会提议提交、企业例外会议的结果；<br/>
+  4. 司法与监察调查（巴黎死亡案、圣艾蒂安、米卢斯）进展；<br/>
+  5. 各地官方损失与保险赔付数据；<br/>
+  6. 11-05 跨行业动员前兆与规模。</li>
+<li>重试/失败记录：见上（S-001/S-002/S-007/S-008/S-018 本次观察不可直接访问或部分受限，均不推断删除；内容经检索集成取得处已注明）。</li>
+<li>来源 ID：S-001～S-021（本次新增 S-004～S-021）</li>
+<li>用户追加要求（2026-10-19T16:40+08:00）：记录时留意官方叙事主观性与媒体用词/支持反对倾向及态度变化 → 已写入 AGENTS.md 新节“叙事与用语观察（框架分析）”，并建立本事件 narrative.md（首版种子，基于 S-001～S-021 用语梳理，分析层）。</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/2026-10-20T12-50+08-00" data-title="10-20 12:50 巡检" data-sub="daily-logs/2026-10-20T12-50+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-10-20T12:21—12:50+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求"更新一下法国/欧洲地区骚乱动态"（定向增量巡检）</li>
+<li>检查范围：</li>
+<li>新增检索与来源：S-022～S-032（法国官方/媒体、欧洲媒体、财经媒体、中文媒体，详见 sources.md）</li>
+<li>既有来源复访：S-001、S-002 未复访（上次已记录不可访问/受限；本次无新增重试，待办保留）</li>
+<li>结果（新增进展摘要）：</li>
+<li>局部宵禁（10-19 晚起）：巴黎共和广场/Les Halles 23:00—06:00 宵禁、部分区域 20:00—06:00 禁示威；里尔、Douai、Wattignies、Denain 未成年人宵禁（两晚）；尼斯市中心未成年人宵禁；马赛 12:00—20:00 禁集会。Lecornu 同时宣布"大规模司法行动"，不排除"如有必要"紧急状态。</li>
+<li>司法口径：Darmanin 称周末 2,330→2,513 人被拘留（70% 成年人、多人早为当局所知）、67 人监禁、"数十起"刑案。</li>
+<li>卢浮宫 10-19 全日关闭（学生封锁入口，CGT 支持）；当日为卢浮宫珍宝失窃案周年。</li>
+<li>损失口径更新：CCI 会长称预计 2,000+ 家商铺受影响、"数亿欧元"；贸易与零售联合会称近 3,000 家受影响。</li>
+<li>市场反应：CAC40 -1.11%～-1.5%；OAT 10Y +14.5—15bp 至约 4.93%；OAT-Bund 利差约 145—146bp（欧债危机以来罕见）；法债收益率高于意大利；欧元跌 0.2%—0.3%。</li>
+<li>马克龙赴科威特等海湾四国（至周三）推动能源供应。</li>
+<li>欧洲：多国赴法旅行提醒；布鲁塞尔、里斯本、米兰动态；希腊/德国/奥地利"早期阶段"（HEC 教授）。</li>
+<li>预告：黄背心 10-24"第二幕"；工会 11-05；预算全部表决 11-17。</li>
+<li>政治话语：Lecornu 归因"极左运动"，梅朗雄要求证据。</li>
+<li>来源复访情况：本次未复访既有 URL（S-001/S-002 上次已不可访问，重试待办保留）；无新增不可访问来源。</li>
+<li>文件更新：sources.md（S-022～S-032 登记）、claims.md（更新 C-006/C-008/C-009/C-012/C-013；新增 C-015～C-019）、timeline.md（新增 8 行）、narrative.md（2026-10-20 补充观察）、status.md、event.yaml、snapshots/（11 个新文件）、本日志、实践/事件索引.md、两级速览.html、state/run-state.yaml、logs/。</li>
+<li>未完成项与后续动作：<br/>
+  1. <strong>10-20 预算第一部分表决结果</strong>（巴黎时间傍晚，本记录时未出）与调查委员会提议进展——下次巡检第一优先补录；<br/>
+  2. 10-24 黄背心"第二幕"前兆与规模；11-05 动员；<br/>
+  3. 宵禁续期/扩大与紧急状态话语；官方最终统计；<br/>
+  4. 司法/监察调查（巴黎死亡案、圣艾蒂安、米卢斯）进展；<br/>
+  5. 市场（OAT-Bund 利差）与保险赔付落实；<br/>
+  6. S-002 存档重查、S-018 PDF 补存；<br/>
+  7. narrative.md 逐次补充。</li>
+<li>重试/失败记录：本次无网络失败；10-20 两项政治议程（预算表决、委员会提议）在记录时点结果未公布，不虚构结果。</li>
+<li>来源 ID：S-001～S-032（本次新增 S-022～S-032）</li>
+<li>用户追加要求延续：官方叙事主观性与媒体用词/倾向及态度变化的观察已续入 narrative.md（2026-10-20 补充节）。</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/2026-10-22T18-40+08-00" data-title="10-22 18:40 巡检" data-sub="daily-logs/2026-10-22T18-40+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-10-22T18:10—18:40+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求"继续跟进"＋"整理好之后推送到仓库"（定向增量巡检）</li>
+<li>检查范围：新增检索与来源 S-033～S-039（法国媒体、印度媒体、中文媒体、通讯社）；未复访既有不可访问 URL（S-001/S-002/S-007/S-008/S-018 重试待办保留）</li>
+<li>结果（新增进展摘要）：</li>
+<li>预算：10-20 收入部分庄严表决<strong>未举行</strong>（2,600+ 修正案待审，议会暂停）；转 PLFSS（10-27 表决）；收入部分续审 10-27—11-02、表决改期 11-03 下午；Amiel 称已通过修改令平衡恶化约 €10bn；政府未定 49.3/法令。</li>
+<li>制度：议会调查委员会 10-20 成立（主席 Vincent Caure；范围含情报失灵、警务战术、政府准备；勒庞/潘ot 范围主张）。</li>
+<li>安保：哨兵行动军人增援；考虑禁止"有失控风险"的已申报游行；巴黎本周第三次夜间宵禁（10-21 23:00—10-22 06:00）；10-22 白天禁聚区扩至爱丽舍宫、总理府、两院、卢浮宫、香街；临时禁携汽油罐瓶；利摩日纵火案拘捕一名"据信与极左有关联"男子。</li>
+<li>司法：近 150 人监禁、800 余人送审（司法部长口径）；Lajus 称约 8,000 人被捕（单一来源，口径差异已注）。</li>
+<li>政治：Lecornu 10-21 会五工会（学生未受邀）；指控极左"叛乱计划"；马克龙多哈点名特朗普等"虚假信息"；勒庞称"警钟"。</li>
+<li>其他：卢浮宫已恢复开放；政府口径至少 3,000 家商铺遭劫掠；印度 10-21 发旅行提醒；黄背心/学生 10-24、工会 11-05 预告。</li>
+<li>来源复访情况：本次未复访既有 URL（上次不可访问者重试待办保留）；The Hindu 一篇内 10-24/10-25 日期自相矛盾，以多数来源记 10-24。</li>
+<li>文件更新：sources.md（S-033～S-039 登记）、claims.md（更新 C-013/C-015/C-016/C-019；新增 C-020～C-022）、timeline.md（新增 6 行）、narrative.md（2026-10-22 补充观察）、status.md、event.yaml、snapshots/（7 个新文件）、本日志。</li>
+<li>未完成项与后续动作：<br/>
+  1. 10-24 黄背心"第二幕"结果（下次巡检第一优先）；<br/>
+  2. 10-27 PLFSS、11-03 收入部分、11-17 全部表决；<br/>
+  3. 调查委员会听证日程；宵禁续期与紧急状态话语；<br/>
+  4. 司法/监察调查进展；官方最终统计；保险与市场后续；<br/>
+  5. S-002 存档重查、S-018 PDF 补存。</li>
+<li>重试/失败记录：本次无网络失败；未复访既有来源。</li>
+<li>来源 ID：S-001～S-039（本次新增 S-033～S-039）</li>
+<li>用户追加要求延续：叙事与用语观察已续入 narrative.md（2026-10-22 补充节：叛乱计划归因升级、哨兵行动军事化话语、虚假信息外部归因、宵禁常态化计数、定性强弱序列）。</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/2026-11-03T20-30+08-00" data-title="11-03 20:30 巡检" data-sub="daily-logs/2026-11-03T20-30+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-11-03T20:30+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求"追踪现有事件新进展"＋"处理完推送到仓库"（全事件增量巡检；本档案上次检查为 2026-10-22T18:40）</li>
+<li>检查范围：10-24 黄背心"第二幕"结果、10-31 新一轮全国示威、多地宵禁延长、11-05 工会罢工预告、预算议程（PLFSS 表决、收入部分 11-03 表决）、金融市场与评级、议会调查委员会后续。</li>
+<li>检索手段：网络检索（中文/英文媒体）+ 既有档案交叉核对；未做页面直接抓取哈希。</li>
+<li>结果：</li>
+<li><strong>10-24 第二幕（C-023）</strong>：多家媒体称 10-24 为第二轮全国抗议日，内政部口径约 41 万人、近 1,000 人被捕（较 10-17 的 55 万/2,397 人被捕明显下降）；组织方口径更高（约 80 万）。属已发生事实，更新 C-023 为 <span class="badge b-corrob">corroborated</span>。</li>
+<li><strong>10-31 新一轮示威（C-024）</strong>：据央视/新华社 11-01 报道，10-31 法国再现全国示威，约 32 万人参加、422 人被捕；政府部署约 7 万宪兵与警员，巴黎 40+ 地铁站因示威关闭；周末巴黎部分区域宵禁。</li>
+<li><strong>宵禁延长（C-015）</strong>：10-30/31 巴黎恢复共和广场与 Les Halles 一带 23:00—次日 06:00 宵禁（至 11-02 06:00）；马赛（10-29 令）10-30 至 11-02 每晚 23:00—05:00 对无人监护未成年人宵禁；里昂、格勒诺布尔等同步局部管控。</li>
+<li><strong>预算（C-019/C-020/C-025）</strong>：社保融资法案（PLFSS）收入部分已于 10-23 前后以 115:1 被国民议会否决、发回参议院（参议院 11-09 起审议）；<strong>国家预算收入部分表决从 10-20→10-27→推迟至今 11-03 下午</strong>，截至本次检索（11-02 报道口径）结果待出。插曲："流量税"修正案 10-30 以 11:10 通过（含Coquerel误投两票，本人称将申请更正），若收入部分被否决则该修正案作废；稳定币税修正案 10-16 以 38:37 通过。</li>
+<li><strong>金融与评级（C-017）</strong>：10 年期 OAT 收益率 10-22 盘中升至 5.14%（2002 年来最高）；穆迪 10-23 维持法国 Aa3/负面（条件为 2027 减赤预算获通过）。</li>
+<li><strong>议会调查委员会（C-021）</strong>：10-20 成立，主席 Vincent Caure；本周期未见听证日程或结论公开报道，维持原状态。</li>
+<li><strong>11-05 工会罢工（C-019）</strong>：CGT/CFDT/FO/UNSA/FSU 等呼吁 11-05 跨行业罢工示威，截至巡检仍为预告（未发生）。</li>
+<li>文件更新：daily-logs/（本文件）、snapshots/2026-11-03-S-040.md、timeline.md（新增 6 行）、sources.md（S-040～S-045）、claims.md（新增 C-023、C-024、C-025；更新 C-017、C-019、C-020）、status.md。</li>
+<li>未完成项与后续动作：<br/>
+  1. <strong>11-03 国家预算收入部分表决结果</strong>（今日，截至检索未出）——下次巡检第一优先。<br/>
+  2. 11-05 工会罢工实际规模与冲突。<br/>
+  3. PLFSS 参议院审议（11-09 起）与两院联席委员会。<br/>
+  4. 议会调查委员会听证日程与结论。<br/>
+  5. 宵禁续期/紧急状态话语是否启用；哨兵行动部署细节。<br/>
+  6. 官方最终逮捕/伤者/损失统计；保险赔付与政府扶持落实。<br/>
+  7. S-002（Le Monde）、S-007、S-008、S-018 等暂不可直接访问来源的存档重查。</li>
+<li>重试/失败记录：本次无网络失败；来源可访问状态见 sources.md。</li>
+<li>来源 ID：S-001～S-045（本次新增 S-040～S-045）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-18-S-001" data-title="10-18 · S-001" data-sub="snapshots/2026-10-18-S-001.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-001</li>
+<li>原始 URL：https://apnews.com/article/france-school-protests-yellow-vest-44b9d3ba91ffad4029f975dced7e31cb</li>
+<li>标题：Clashes, fires and looting break out as protesters rally across France, joining students</li>
+<li>发布者/作者：Associated Press；Sylvie Corbet、Jade Le Deley</li>
+<li>报道发布时间：2026-10-17（精确时刻未核定）</li>
+<li>获取时间：2026-10-18T17:40:16+08:00（Asia/Shanghai）</li>
+<li>访问状态：accessible；通过网页检索/打开查看可见正文</li>
+<li>保存范围：事实汇编，不是原文；未保存全文或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>AP报道，法国10月17日多地集会反对生活成本上涨，并声援高中生对教育条件的诉求。</li>
+<li>AP称内政部长Laurent Nuñez报告全国110场游行、约55万人参加、约400人被捕；组织方称约80万人参加。两组数字归属不同主体。</li>
+<li>AP现场报道巴黎共和国广场附近警方使用催泪瓦斯和水炮；现场有车辆、自行车、垃圾桶起火及商店遭抢掠。报道同时指出多数和平示威者参加游行。</li>
+<li>AP报道里昂约2万人参加游行，旅游办公室发生火灾；马赛有商店和市政警察局受损，部分示威者短暂进入市政厅门厅；利摩日市政厅起火。各地损失及责任调查尚待核实。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-18-S-002" data-title="10-18 · S-002" data-sub="snapshots/2026-10-18-S-002.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-002</li>
+<li>原始 URL：https://www.lemonde.fr/societe/live/2026/10/18/en-direct-mobilisation-du-17-octobre-au-lendemain-des-manifestations-le-chaos-a-la-une-de-la-presse-regionale_6795855_3224.html</li>
+<li>标题：EN DIRECT, mobilisation du 17 octobre : au lendemain des manifestations, « le chaos » à la Une de la presse régionale</li>
+<li>发布者/作者：Le Monde；滚动报道，页面条目由多位记者撰写</li>
+<li>报道发布时间：2026-10-18（持续更新）</li>
+<li>获取时间：2026-10-18T17:40:16+08:00（Asia/Shanghai）</li>
+<li>访问状态：accessible；网页显示滚动内容</li>
+<li>保存范围：事实汇编，不是原文；未保存全文或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>Le Monde 10月18日直播报道转述总理Sébastien Lecornu于17日晚称，截至发言时约1,200人被捕、150名警察和宪兵受伤。该数字为其发言时点统计；未取得原始声明核对。</li>
+<li>报道转述巴黎警察局称巴黎当日有855人被捕、13名警察和宪兵及2名消防员受伤；属于巴黎地域统计，不等同全国数据。</li>
+<li>报道援引波尔多市长称约50至100家商铺橱窗被砸/遭抢掠；该数字为当地官员提供，尚待后续核验。</li>
+<li>报道称利摩日市政厅遭火灾严重损毁，并记载留尼汪岛部分地区夜间发生暴力、火灾及抢掠；报道转述当地省政府称有11名警员/宪兵受伤、18人被捕。</li>
+<li>本记录保留来源对数字和陈述的归属，不将不同地区、不同时间的数字混加。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-18-S-003" data-title="10-18 · S-003" data-sub="snapshots/2026-10-18-S-003.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-003</li>
+<li>原始 URL：https://www.afp.com/en/clashes-blazes-and-wide-scale-looting-grip-france-day-protests</li>
+<li>标题：Clashes, blazes and wide-scale looting grip France on day of protests</li>
+<li>发布者/作者：Agence France-Presse (AFP)；作者未在可见页面确认</li>
+<li>报道发布时间：2026-10-17 23:55（页面显示；时区未注明）</li>
+<li>获取时间：2026-10-18T17:40:16+08:00（Asia/Shanghai）</li>
+<li>访问状态：accessible；可见摘要正文</li>
+<li>保存范围：事实汇编，不是原文；未保存全文或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>AFP报道称10月17日法国多地发生警民冲突、抢掠及多处火灾。</li>
+<li>AFP称巴黎市长Emmanuel Grégoire表示巴黎有街道遭严重破坏；总理Sébastien Lecornu称截至周六晚约1,200人被捕、150名警员受伤。</li>
+<li>AFP报道所述游行与通胀/生活成本问题相关，内政部估计参加人数约55万，CGT工会称约80万。</li>
+<li>这是对报道可见部分的摘要，未将新闻报道当作原始现场记录；数字及损失需以官方最终材料进一步核对。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-003-v2" data-title="10-19 · S-003-v2" data-sub="snapshots/2026-10-19-S-003-v2.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照（S-003 第二观察版本）</h1>
+<ul>
+<li>来源 ID：S-003</li>
+<li>原始 URL：https://www.afp.com/en/clashes-blazes-and-wide-scale-looting-grip-france-day-protests</li>
+<li>标题：Clashes, blazes and wide-scale looting grip France on day of protests</li>
+<li>发布者/作者：Agence France-Presse (AFP)；页面显示 By AFP</li>
+<li>报道发布时间：2026-10-17 23:55（页面显示；时区未注明）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：accessible；本次渲染可见较首次访问更完整的正文（首访仅见摘要段落）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道；图片（AFP/摄影师署名，如 Guillaume Saligot、Melaine Payzal、Kiran Ridley、Sebastien Salom-Gomis）未下载</li>
+<li>版本说明：首次观察（2026-10-18）保存的是摘要；本次可见完整正文。因首次未保存全文，无法据本次差异判定页面是否在两次访问间被修改。不做逐字差异结论。</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>AFP 称 10 月 17 日全国游行演变为"极端强度"的街头暴力；相关动荡发生在数周学生抗议之后，距替换马克龙的总统选举（2027 年 4—5 月）约半年。</li>
+<li>巴黎市长 Emmanuel Grégoire 称巴黎"整条整条街道被毁"；蒙面青年纵火烧车、洗劫商铺。</li>
+<li>总理 Sébastien Lecornu 周六晚称约 1,200 人被捕、150 名警察受伤（AFP 转述）。</li>
+<li>内政部称全国游行约 55 万人参加；参与组织的 CGT 工会称约 80 万人。</li>
+<li>警方对投掷物和烟花使用催泪瓦斯与水炮；圣艾蒂安一名 17 岁少年被防暴手榴弹炸掉右手。</li>
+<li>抢掠涉及巴黎、马赛、尼斯、南特、波尔多、利摩日、里尔、图卢兹、斯特拉斯堡；AFP 记者在巴黎看到戴口罩、手套的团伙先破坏监控摄像头再破窗洗劫（"有组织"）。</li>
+<li>市政厅被针对：利摩日（140 余年历史）市政厅被纵火大面积摧毁（地方最高官员称蒙面者破门纵火）；马赛和里尔市政厅被闯入破坏；波尔多一处警察设施被破坏；里昂旅游局遭纵火。</li>
+<li>马克龙在 X 表态：破坏、袭击行政机构或商铺、抢掠者"将被追诉和惩罚"。</li>
+<li>极右翼候选人 Marine Le Pen 谴责"暴徒"，称其极左对手 Jean-Luc Mélenchon 的政党"将暴力正当化"，称若上台将保护法国人"免受极左暴力"；Mélenchon 呼吁示威者远离抢掠，称抢掠"违背我们的方式"。</li>
+<li>"黄马甲"运动号召了本次"黄色与青年"示威；主要诉求为生活成本（部分归因于中东战争推高欧洲通胀）。</li>
+<li>巴黎数万人游行穿越城东和城北，口号包括"所有人都恨警察""马克龙辞职"；18 岁高中生 Kamil Alahyan 受访谈诉求；马赛有人喊"这是革命——我们攻占了巴士底狱"；拉罗谢尔队伍举"革命或死亡"标语；蒙彼利埃广场悬挂"人民将胜利"巨幅蓝标。</li>
+<li>高中学生会组织 LSU 负责人 Ryad Rani 对记者称"政府正在发抖，而且理当发抖"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-004" data-title="10-19 · S-004" data-sub="snapshots/2026-10-19-S-004.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-004</li>
+<li>原始 URL：https://www.franceinfo.fr/societe/mobilisation-du-17-octobre/j-ai-remis-ma-demission-parce-que-je-suis-responsable-de-tout-ce-qui-se-passe-affirme-laurent-nunez-apres-les-heurts-et-pillages-lors-de-la-mobilisation-du-17-octobre_8243536.html</li>
+<li>标题："J'ai remis ma démission parce que je suis responsable de tout", affirme Laurent Nuñez, après les heurts et pillages lors de la mobilisation du 17 octobre</li>
+<li>发布者/作者：franceinfo（Radio France）；署名"Article rédigé par franceinfo"</li>
+<li>报道发布时间：2026-10-19 08:04（巴黎时间，页面显示）；更新 09:17</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：accessible；已见正文</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>内政部长 Laurent Nuñez 周日（10-18）向马克龙递交辞呈；他 10-19 在 France Inter 称："我递交辞呈是因为我对发生的一切负有责任""我有公共利益意识，鉴于造成的损失，我辞职是正常的"。</li>
+<li>爱丽舍宫 10-19 公报：马克龙以"当前情况下执法力量需要连续指挥"为由拒绝辞呈；要求 Nuñez 部署针对"破坏者"（casseurs）的新维稳方针。</li>
+<li>Nuñez 在访谈中表示：</li>
+<li>次日主题"是这些暴力不再重演""必须在预判动员规模上做得更好"；</li>
+<li>周六动员 60,000 名执法力量，预测约 200,000 参与者，实际全国超"550,000 人"动员，造成"力量配置不对称"；</li>
+<li>承认周六在部分大城市"失去控制"："当有数百家商铺被抢掠时，你不能看着商家说没有失去控制"；</li>
+<li>宣布未来"加强对破坏者和抢掠者的干预方针"，使力量"更机动、反应更快"；"将竭尽所能避免重演"。</li>
+<li>文章页内链提及（未逐一核验正文）：警方证词"部署不足"；马克龙拒绝辞呈的单独报道；反对派对马克龙讲话"不负责任，讲了等于没讲"的严厉评价；里昂市长呼吁为市镇与商户设立团结基金；利摩日"什么都不剩了"的现场报道。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-005" data-title="10-19 · S-005" data-sub="snapshots/2026-10-19-S-005.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-005</li>
+<li>原始 URL：https://www.france24.com/fr/info-en-continu/20261019-sous-pression-l-ex%C3%A9cutif-tente-de-reprendre-la-main-apr%C3%A8s-le-chaos</li>
+<li>标题：Après des manifestations ayant viré au chaos, l'exécutif sommé de rendre des comptes</li>
+<li>发布者/作者：France 24（稿末标注 Avec AFP）</li>
+<li>报道发布时间：2026-10-19 05:21（巴黎时间，页面显示）；修改 07:50</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：accessible；已见正文</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>马克龙周日责成各省省长"保护我们的城市"，称对街道和商铺遭破坏"不可忍受"，并承诺对治安部署（巴黎、马赛、里昂、利摩日等）"完全透明"；"那些企图推翻共和国的人要为此负责"。</li>
+<li>周六全国行动后"近 2,400 人被捕"；近 1,000 名执法力量成员受伤（"据当局"）。</li>
+<li>爱丽舍宫周一公报：马克龙收到 Nuñez 辞呈但拒绝，理由"当前情况下执法力量需要连续指挥"；要求其部署针对"破坏者"的新维稳方针；再次要求"透明"，指出导致骚乱与破坏的"预见和情报方面的失灵"。</li>
+<li>周日 Marine Le Pen 谴责"信任与权威的深层危机，威胁民主"；Jean-Luc Mélenchon 指责总统"任其腐烂"（pourrissement）；PS 总统候选人 Raphaël Glucksmann 在 X 呼吁"亟需恢复平静，让共和国重新掌控局面"。</li>
+<li>周日晚巴黎共和广场再发冲突。</li>
+<li>总理 Lecornu 10-19 10:00 起主持跨部门危机小组，含三个板块："经济-商业""保险""司法跟进"（据马蒂尼翁）；马克龙另责成总理召集政党、工会、地方集体和议员。</li>
+<li>Nuñez 将赴马赛；当局在马赛统计周六"多达 30,000 名抢掠者"。</li>
+<li>9:00 起，商户、分销商、酒店餐馆业者及银行、保险在 Bercy 评估损失。</li>
+<li>FCD（商业与分销联合会）：周六约 1,500 家商铺被针对，损失估计"数亿欧元"；里昂市长 Grégory Doucet 呼吁尽快为商户提供援助。</li>
+<li>法国市长协会（AMF）呼吁"从正午起"在各市政厅前集会，谴责"对民主制度的严重攻击"。</li>
+<li>报道称周六许多示威者反映被"围堵"（nassés）并遭催泪瓦斯喷洒，部分人重伤；圣艾蒂安一名 17 岁示威者被手榴弹炸断手；米卢斯一名同龄年轻女性失去一只眼睛。</li>
+<li>特朗普称"法国在燃烧"，认为国家被移民"撕裂"。</li>
+<li>背景比较：2018—2019"黄马甲"危机；有观察者认为周六是"前所未有的转折点"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-006" data-title="10-19 · S-006" data-sub="snapshots/2026-10-19-S-006.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-006</li>
+<li>原始 URL：https://www.cnbc.com/2026/10/19/france-protests-worst-in-years-unrest-macron-.html</li>
+<li>标题：France hit by worst unrest in years as attempts to rein in government spending meet citizen ire</li>
+<li>发布者/作者：CNBC；作者 Anniek Bao</li>
+<li>报道发布时间：2026-10-18 22:06 EDT（美东时间）；页面显示 Updated</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：accessible；已见正文</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道；图片（Getty/AFP）未下载</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>内政部数据：近 2,400 人被捕、近 1,000 名警察和宪兵受伤（CNBC 称"据内政部"）。</li>
+<li>马克龙下令审查情报收集与警方准备是否存在失误；要求政府本周召集学生、教师、议员、工会和商界代表提出"具体建议"。</li>
+<li>预算背景：勒科尔尼少数政府寻求 2027 年预算 540 亿欧元节支；国民议会定于周二对法案第一部分进行正式表决；法国债务二季度达 3.6 万亿欧元、约占 GDP 119%。</li>
+<li>当局称周六约 55 万人游行（含巴黎 11 万人）。</li>
+<li>利摩日 143 年历史的市政厅被纵火大面积损毁；市长 Guillaume Guérin 对 Reuters 称"有明确、有预谋的烧毁市政厅意图，里面的人为自己的生命担忧"；马赛市政厅被闯入；里昂旅游局被纵火。</li>
+<li>Nuñez 周日称"数百家商铺遭受相当大物质损失"；波尔多市长 Thomas Cazenave 称当地多达 100 家店铺遭抢。</li>
+<li>巴黎警方称一名示威者因心脏骤停死亡（未提供细节）。</li>
+<li>周日下午巴黎共和广场：警方用催泪瓦斯和震撼弹驱散，有人点燃自行车。</li>
+<li>经济部长 Roland Lescure 承诺支持受损商户："砸毁东西的人要赔、要修复，并为制造混乱的意图负责"（据 Reuters）。</li>
+<li>Le Pen：政府"靠余烬运转、精疲力竭、迷失方向"；Mélenchon：马克龙需要回应高中生诉求，否则国家可能走向"最终无法控制的事件"。</li>
+<li>注：该文多处引用 Reuters 报道链接；Reuters 原文本次运行直接访问失败（见来源登记备注），相关内容以 CNBC 转述为准。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-007" data-title="10-19 · S-007" data-sub="snapshots/2026-10-19-S-007.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-007</li>
+<li>原始 URL：https://www.euronews.com/2026/10/19/france-grapples-with-the-aftermath-of-a-weekend-of-violence</li>
+<li>标题：France grapples with the aftermath of a weekend of violence</li>
+<li>发布者/作者：Euronews；作者 Mared Gwyn Jones（The Brief 时评通讯）</li>
+<li>报道发布时间：2026-10-19 08:21（GMT+2，页面显示）；更新 08:24</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：直接抓取（3 次尝试：2 次传输错误、1 次针对另一篇 Euronews 文章的尝试同样传输错误）均失败；内容经检索集成返回的页面内容查看。无法判断是仅访问限制还是页面不可用。另一篇同题报道 URL：https://www.euronews.com/2026/10/19/emmanuel-macron-rejects-resignation-of-interior-minister-laurent-nunez</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应；未计算哈希</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>Euronews 通讯称：法国继续处理周末反紧缩抗议演变为全国性暴力骚乱后的局面；约 2,000 人被捕、500 多名警察、宪兵和消防员受伤（该通讯自己的综述口径）。</li>
+<li>周六抗议起初和平（要求公共支出修缮学校、改善教育标准、应对生活成本）；被蒙面骚乱群体"劫持"，出现纵火、砸店和街垒。</li>
+<li>Euronews 法国记者 Estelle Nilsson-Julien 在巴黎市中心被抢掠者针对（其摄像师遭攻击）——为记者亲历转述。</li>
+<li>马克龙周日全国讲话：国家感到"羞耻与愤怒"，呼吁团结。</li>
+<li>行业机构估计损失达"数亿欧元"；事件或将深刻影响法国政治——距 4 月总统选举前的关键时期。</li>
+<li>内政部长 Laurent Nuñez 周一上午递交辞呈，被马克龙拒绝（该通讯写作时点）。</li>
+<li>周日 Le Pen 谈"信任危机"与"对民主的威胁"；Edouard Philippe 称 Mélenchon 的政党对近日暴力"负有重大责任"。</li>
+<li>溢出效应：比利时、意大利、葡萄牙周末同类示威出现暴力（未逐一核实）。</li>
+<li>匈牙利总理 Péter Magyar 将骚乱与移民水平挂钩，称"骇人场面"证明其强硬移民政策正确；波兰总理 Donald Tusk 表示波兰"不会重蹈其他欧洲国家的覆辙"；（另据通讯，马克龙曾在欧盟峰会警告不要"污名化"移民，西班牙首相桑切斯赞扬移民贡献）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-008" data-title="10-19 · S-008" data-sub="snapshots/2026-10-19-S-008.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-008</li>
+<li>原始 URL：https://www.bbc.com/news/live/c893v4gx2e47t （滚动页）；https://www.bbc.com/news/articles/crwyd02yz22vo （分析稿，作者 Katya Adler，发布 2026-10-19T04:16:46Z）</li>
+<li>标题：French police lost control, says interior minister, after weekend of riots and looting（滚动页）；France's government under pressure after weekend of widespread violence（分析稿）</li>
+<li>发布者/作者：BBC News；分析稿作者 Katya Adler</li>
+<li>报道发布时间：2026-10-19（滚动页持续更新；分析稿 04:16 UTC）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：直接抓取（2 次传输错误）与浏览器访问（ERR_CONNECTION_CLOSED）均失败；内容经检索集成返回查看。仅描述本次观察，不证明删除或内容虚假。</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应；未计算哈希</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>滚动页要点（BBC 摘要）：内政部长称周末部分城市警方"失去控制"；Nuñez 称存在"预判不足"，已提出辞职，但马克龙希望其留任；周六超 50 万人上街（源于上月学校抗议）；抗议演变为纵火与抢掠；周日仍有骚乱——巴黎警方在周日及周一凌晨逮捕 350 余人，至少 5 家商铺被抢；法国内阁周一上午召开紧急会议。</li>
+<li>滚动页另载：巴黎周日与周一凌晨共 350+ 人被捕；Nuñez 称"感到对发生的一切负有责任"；司法部长 Darmanin 表示支持 Nuñez（称其为"出色的"内政部长）。</li>
+<li>分析稿/相关报道要点：</li>
+<li>抗议自 9 月中旬始于巴黎学生（校舍破旧、师资短缺），蔓延多城，部分转为暴力；10 月 5 日一名 15 岁少年在警民冲突中被炸掉手（该表述与法媒"Lens 未成年人手部重伤"相符，细节以法媒为准）。</li>
+<li>教师、退休者、工会等更广泛群体加入，绝大多数示威和平。</li>
+<li>"黄马甲"运动部分回潮。</li>
+<li>估计约 1,500 家商铺遭抢掠毁坏（注：FCD 口径为"被针对"约 1,500 家；表述差异见 S-015）。</li>
+<li>意大利米兰周末示威（5,000+ 人）发生冲突，Meloni 召开紧急会议并称"流氓"借机"播种混乱"。</li>
+<li>总理勒科尔尼周一主持危机内阁会议（经济、保险、执法）。</li>
+<li>一批市长中午将在市政厅前集会，谴责"对民主制度的严重攻击"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-009" data-title="10-19 · S-009" data-sub="snapshots/2026-10-19-S-009.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-009</li>
+<li>原始 URL：https://apnews.com/article/france-protests-violence-looting-f5ce07c2ef46ad0c02c6ff7018532a59</li>
+<li>标题：Thousands arrested for rioting, looting as France cost-of-living protests spread（页面主标题为 "Macron condemns those who 'sought to bring down the Republic' after rioting mars nationwide protests"）</li>
+<li>发布者/作者：Associated Press；Sylvie Corbet、Alexander Turnbull</li>
+<li>报道发布时间：2026-10-18 首发（检索元数据 2026-10-18T10:10:03Z）；页面显示 Updated 2026-10-19 11:44（GMT+8 显示）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：accessible（经浏览器成功读取全文）；同一站点 S-001 旧文 URL 本次 403/ERR_FAILED（见来源登记）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道；图片（AP/Emma Da Silva 等）未下载</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>马克龙周日就全国抗议中的骚乱和抢掠表达公众的"愤怒"与"羞耻"；"至少 2,400 人被捕"。</li>
+<li>马克龙称"抢掠者要赔偿损失，企图推翻共和国者将被追究"；谴责"激进极左团体的叛乱分子及大量犯罪分子"的"无节制暴力"。</li>
+<li>马克龙此前（周日）召开高级别紧急会议；称已指示省长与市长合作在今后数周保护公共建筑和商铺，"必要时禁止集会"。</li>
+<li>利摩日 19 世纪市政厅被火焰吞没，屋顶坍塌、几乎全毁。</li>
+<li>周日巴黎：数百名示威者再次聚集共和广场，警力密集；警方使用催泪瓦斯；小群人试图点燃自行车和垃圾桶。</li>
+<li>Nuñez 在 X："示威权是基本权利。蓄意、集体地以暴力制造混乱不是。" 提到全国数百家商铺遭抢。</li>
+<li>当局称周六约 55 万人参加、组织方称 80 万人。</li>
+<li>巴黎警方称一人在首都因心脏病发作死亡（未提供细节）；巴黎检察院表示正在调查。</li>
+<li>巴黎地区 855 人被捕；检方称 557 人仍被拘留。</li>
+<li>现场引语：政府职员 Marie Peyreigne（57 岁）对破坏程度"震惊"；居民 Jean Foissy（74 岁）称遇到"防暴警察之墙和四处火焰"；Margaux Eude（26 岁）称"是捣乱者来了……这抹黑了运动"。</li>
+<li>政治互责：Le Pen 称政府"精疲力竭、迷失方向，似乎除了评论自身无能外什么都做不了"；Mélenchon 指责总理勒科尔尼"玩火"，"押注腐烂，只会把所有青年和工会联合起来"，并强调"参与我们斗争的人不该去抢掠或破坏"。</li>
+<li>特朗普在 Truth Social 发"France is burning!"，并将骚乱与来自"完全不同世界的人"的"移民"相联系，要求"关闭边界"；法国当局未将移民与骚乱相关联。</li>
+<li>巴黎市长 Grégoire 公开信："损失规模巨大且前所未有"；巴黎、马赛、里昂三大城市市长要求近日会见总理。</li>
+<li>马赛：有人短暂闯入市政厅门厅，戴头罩者破坏一处警察局；里昂：旅游局起火。</li>
+<li>上维埃纳省长 Maurice Barate：利摩日市政厅被"激进捣乱者"破门纵火，当时内有官员、职员、安保和公众；"他们故意纵火，极其严重、无法言喻"。</li>
+<li>米卢斯检察院：一名 17 岁女性在抗议中受伤并失去一只眼睛，已立案；周六另有圣艾蒂安一名年轻示威者失去一只手立案。报道点出警方在近期示威中因使用手榴弹等防暴武器受到严格审视。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-010" data-title="10-19 · S-010" data-sub="snapshots/2026-10-19-S-010.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-010</li>
+<li>原始 URL：https://www.leparisien.fr/paris-75/17-octobre-a-paris-un-manifestant-succombe-a-un-malaise-un-record-de-855-interpellations-18-10-2026-REP7K3KCUVDFTLF7KFKQBIPHJM.php</li>
+<li>标题：17 octobre à Paris : un manifestant succombe à un malaise, un « record » de 855 interpellations et plus de 500 gardes à vue</li>
+<li>发布者/作者：Le Parisien；Gaëtane Bossaert、Caroline Piquet</li>
+<li>报道发布时间：2026-10-18 09:37（巴黎时间）；修改 10:28</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容（页面直接访问未尝试/未成功记录）；仅描述本次观察</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>巴黎警察局周日上午通报：一人周六在巴黎"因心跳呼吸骤停"死亡；据该报信息，一名示威者在 Magenta 大道不适，被送救途中死亡；年龄和具体情形不明。</li>
+<li>当日巴黎另有 13 名警察和宪兵、2 名消防员在执勤中受伤。</li>
+<li>截至周日 8 时的统计：首都 855 人被捕，被警察局称为"纪录"；检方称 517 人在押（346 名成年人、171 名未成年人），并注明"尚未汇总完毕"。</li>
+<li>内政部长 Nuñez 在 X 称：全国"超过 2,000 人被捕"，"超过 600 名警察、宪兵和消防员在暴力场面中受伤"；当日已开始调查以识别违法者。</li>
+<li>检方：逮捕持续整夜至约 6 时，主要罪名包括收受赃物、结伙实施暴力、毁坏财物等；调查通过视频监控继续识别更多抢掠、破坏和暴力实施者。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-011" data-title="10-19 · S-011" data-sub="snapshots/2026-10-19-S-011.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-011</li>
+<li>原始 URL：https://www.lefigaro.fr/faits-divers/violences-du-17-octobre-une-adolescente-perd-un-oeil-a-mulhouse-l-igpn-saisie-20261019</li>
+<li>标题：Violences du 17 octobre : une adolescente perd un œil à Mulhouse, l'IGPN saisie</li>
+<li>发布者/作者：Le Figaro（avec AFP）</li>
+<li>报道发布时间：2026-10-19 07:34（巴黎时间）；更新 08:19</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容；同一事件另有 France 3 Régions（2026-10-18 18:57）与 RTL（2026-10-18 19:49）报道，内容一致</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>米卢斯共和国检察官 Nicolas Heitz 周日晚公告：已就一名未成年人在 10-17 游行中被伤及失去一只眼睛，立案"加重暴力"现行调查并交由 IGPN（国家警察总监署）梅斯分队。</li>
+<li>检察官："受害人是一名 17 岁、生于米卢斯的年轻女性""遗憾的是，尽管进行了紧急手术，她左眼的失明是永久性的"。</li>
+<li>调查需"确定导致这一重伤的具体经过"，将"必然复杂"，因为现场人数众多、维稳行动极其困难。</li>
+<li>事件脉络（据检方/省政府）：当日米卢斯游行约 1,000 人；下午约 16:30 一组约 400 人试图闯入火车站，警方使用催泪手段"保护旅客"，警方遭直接攻击和烟花射击；该群体部分转往市中心商业区，警方再次使用催泪瓦斯"应对多家商铺被抢掠的企图"；约 17:50 指挥中心首次获报一名女性眼部重伤被消防送医。</li>
+<li>警方在中午前后即多次使用催泪弹；省政府周六晚另通报：4 家店铺被洗劫、公交/有轨电车站玻璃被砸、10 人被捕（6 人拘留）。</li>
+<li>关联核查：France 3 Régions 报道称受害人与游行无关（据 Politis，她与朋友去市中心吃烤肉时遭遇示威）；该细节来自媒体转述，未获检方证实。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-012" data-title="10-19 · S-012" data-sub="snapshots/2026-10-19-S-012.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-012</li>
+<li>原始 URL：https://www.humanite.fr/societe/grenades/main-arrachee-a-saint-etienne-linspection-generale-de-la-gendarmerie-co-saisie-avec-ligpn</li>
+<li>标题：Main arrachée à Saint-Étienne : l'inspection générale de la gendarmerie co-saisie avec l'IGPN</li>
+<li>发布者/作者：L'Humanité（署名"La rédaction"）；注意：该媒体有明确编辑立场，事实部分与法煤通讯社报道相互印证</li>
+<li>报道发布时间：2026-10-18（页面未显示具体时刻）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>卢瓦尔省省长 François-Xavier Bieuville 周日在市政厅前记者会宣布：圣艾蒂安一名 17 岁未成年人周六被手榴弹炸断手，"IGPN 和 IGGN（国家宪兵总监署）已于周六 17 时——即事发约一小时后——受理"；称"无论情况如何，这是一个人道悲剧，交由司法查明"。</li>
+<li>内政部长 Nuñez 此前表态："有人告诉我们会是一枚宪兵的手榴弹。我无法确认。显然会有调查。"</li>
+<li>背景（该报道叙述）：这是近期第二名被手榴弹严重炸伤手部的未成年人——此前 10 月 5 日 Lens 已有一起；Nuñez 曾宣布对声波震撼弹"暂停使用"（措辞含糊），10-17 动员日恢复使用后再次发生事故；国民议会网站一份要求"禁止致残武器和致命制服技术用于高中示威"的请愿已获超 14 万签名。</li>
+<li>交叉核验：AFP/Le Parisien/franceinfo 报道细节（伤者送圣艾蒂安市立医院、右手"成碎片"、本人称拾起该手榴弹后爆炸、检察官"查找受伤原因"立案交 IGPN）另见 S-020。具体为何种手榴弹、发射单位归属：未确认（官方口径如此）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-013" data-title="10-19 · S-013" data-sub="snapshots/2026-10-19-S-013.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-013</li>
+<li>原始 URL：https://www.rtl.fr/actu/politique/faire-la-lumiere-sur-les-scenes-de-chaos-braun-pivet-va-proposer-une-commission-d-enquete-parlementaire-apres-les-violences-du-17-octobre-7900686499 （Braun-Pivet 报道）；同媒体另有滚动页 https://www.rtl.fr/actu/debats-societe/en-direct-mobilisation-du-17-octobre-1-200-interpellations-et-d-importants-degats-au-lendemain-des-manifestations-7900686437</li>
+<li>标题："Faire la lumière sur les scènes de chaos" : Braun-Pivet va proposer une commission d'enquête parlementaire après les violences du 17 octobre</li>
+<li>发布者/作者：RTL（avec AFP；作者 Juliette Vignaud 等）</li>
+<li>报道发布时间：2026-10-18 15:27（巴黎时间）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>国民议会议长 Yaël Braun-Pivet 周日宣布：将于 10-20（周二）向议长联席会议提议成立议会调查委员会，就 10-17 暴力与抢掠、以及受到反对派和部分市长质疑的"维稳策略"展开调查；称要"彻底查清混乱场面"、回应"民选官员、商户和所有受害者"及公民，并"吸取教训以更好保护法国人、保障示威权"。</li>
+<li>调查范围将包括"骚乱、暴力小团体的作案方式、维稳策略及其可能的失灵"，并提及"新型城市骚乱形式"。</li>
+<li>参议院社会党团周日呼吁延长已有的关于维稳的"信息任务"（结论原定周一），纳入 10-17 事件分析，并要求议会就动员"清算"进行辩论。</li>
+<li>同文背景：FCD 主席 Alexandre Bompard 估计 1,500 家商铺直接受暴力影响、账单达"数亿欧元"；"约 1,800 人被捕"（该报道时点）。</li>
+<li>RTL 滚动页（同媒体，周日更新）另载：Nuñez 称全国 1,800+ 被捕；巴黎检察院：517 人在押（346 成年、171 未成年）；另有信息称勒科尔尼将接见请求会面的巴黎、里昂、马赛市长；勒科尔尼周日 19:00 曾主持一次危机小组（注：与周一 10:00 的跨部门危机小组并存，见 S-004/S-005）；Nuñez 周一将赴马赛。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-014" data-title="10-19 · S-014" data-sub="snapshots/2026-10-19-S-014.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-014</li>
+<li>原始 URL：https://www.franceinfo.fr/societe/mobilisation-du-17-octobre/mobilisation-du-17-octobre-quelle-suite-au-mouvement_8242795.html</li>
+<li>标题：Mobilisation du 17 octobre : quelle suite au mouvement ?</li>
+<li>发布者/作者：franceinfo / France Télévisions</li>
+<li>报道发布时间：2026-10-18（检索元数据 2026-10-18 13:02 UTC；页面标题区未显示具体时刻）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容；CGT 呼吁 11-05 另见 actu.fr 同日报道（https://actu.fr/societe/apres-le-17-octobre-la-cgt-appelle-a-poursuivre-une-mobilisation-pacifique-le-5-novembre_64940558.html）</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>规模（官方与组织方）：巴黎 11 万人；蒙彼利埃 35,000；布雷斯特 10,000；全国 55 万（省/官方口径）对 80 万（组织方）。</li>
+<li>FAGE（学生组织）代表 Elisa Boinet 谴责"安全至上加码"，担忧示威权被边缘化，号召大中学生继续动员。</li>
+<li>CGT：称周六除暴力外的示威是成功的，呼吁"继续"以"和平动员"，指向"11 月 5 日跨行业罢工与示威的大型跨工会日"；CGT 还称当日全国有 1,750 场集会或游行（组织方统计）。</li>
+<li>CGT 另要求政府"停止镇压"、"立即回应社会诉求"；（actu.fr 转 AFP）：CGT 在公报中谴责"旨在阻止民众参加示威的镇压"，称"政府对今天暴力升级负有政治责任"，因为其"顽固拒绝回应被大规模和平表达的诉求"；部分组织者希望将 11-05 跨行业行动"扩大为一个能迫使政府的联合社会运动的支点"。</li>
+<li>现场情绪：雷恩受访示威者意见分化（有人因暴力"不想再示威"，有人希望运动像当年"黄马甲"一样持续）。</li>
+<li>背景：里昂、马赛、巴黎等地周日出现未申报游行，部分商店再次被抢（另见 S-016）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-015" data-title="10-19 · S-015" data-sub="snapshots/2026-10-19-S-015.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-015</li>
+<li>原始 URL：https://www.lefigaro.fr/societes/apres-les-pillages-du-17-octobre-commercants-banques-et-assureurs-reunis-a-bercy-ce-lundi-20261019</li>
+<li>标题：Après les pillages du 17 octobre, commerçants, banques et assureurs réunis à Bercy ce lundi</li>
+<li>发布者/作者：Le Figaro</li>
+<li>报道发布时间：2026-10-19 06:49（巴黎时间；检索元数据 04:49 UTC）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>商业与旅游业呼吁政府止暴并帮扶受损企业；商务部长 Serge Papin 10-19 9:00 在 Bercy 召集商户、手工艺者、餐饮酒店业代表及银行、保险机构。</li>
+<li>参会名单（据部里公布）：FCD、Conseil du commerce de France、Alliance du commerce、FCA、服装/钟表珠宝/体育用品/社区食品等组织、CCI France、CMA、SNARR、Umih、GHR；金融方面 FBF（法国银行业联合会）与 France Assureurs。</li>
+<li>Bompard（FCD 主席）在 LinkedIn："共和国必须保护自己的商户！"初步估计约 1,500 家门店在周六成为暴力目标，账单"将以数亿欧元计"；呼吁"像自然灾害情形一样加快赔付程序"（法国在特大自然灾害认定后，保险人须在部际令公布后三个月内全额赔付）。</li>
+<li>另：部长 Jean-Pierre Farandou（劳动）、Roland Lescure（经济）与 Papin 将于周二上午召开"企业例外会议"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-016" data-title="10-19 · S-016" data-sub="snapshots/2026-10-19-S-016.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-016</li>
+<li>原始 URL：https://www.ouest-france.fr/societe/manifestation/direct-violences-du-17-octobre-emmanuel-macron-promet-la-fermete-aux-casseurs-une-cellule-de-crise-prevue-ce-matin-025d6c92-e57f-4014-b92a-7627ffeb6608</li>
+<li>标题：DIRECT. Violences du 17 octobre : Emmanuel Macron promet la fermeté aux casseurs, une cellule de crise prévue ce matin</li>
+<li>发布者/作者：Ouest-France（滚动页）</li>
+<li>报道发布时间：2026-10-19 06:43（巴黎时间；检索元数据 04:43 UTC）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>全国近 2,400 人被捕；约 1,500 家商铺被针对（FCD），损失"数亿欧元"。</li>
+<li>周日巴黎、里昂、马赛等城市出现未申报游行；新店铺再遭抢掠；巴黎警察局统计周日 108 人被捕（巴黎口径的周日时点）。</li>
+<li>马克龙周日电视讲话：谴责暴力，称"那些企图推翻共和国的人要为此负责"；责成省长"保护我们的城市"；对街道和商铺被破坏"不可忍受"；承诺对治安部署"完全透明"（部署受到巴黎、马赛、利摩日市长批评）。</li>
+<li>周一日程：9:00 商户/分销/酒店餐饮与银行保险在财政部；10:00 勒科尔尼跨部门危机小组（"经济-商业""保险""司法跟进"三板块）。</li>
+<li>内政部长 Nuñez 赴马赛（市长 Benoît Payan 批评周六警力不足）。</li>
+<li>马克龙前往海湾国家访问，目标保障法国石油与柴油供应（与国内危机并行）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-017" data-title="10-19 · S-017" data-sub="snapshots/2026-10-19-S-017.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-017</li>
+<li>原始 URL：https://www.lesechos.fr/economie-france/social/direct-mobilisation-du-17-octobre-suivez-les-informations-et-les-reactions-au-lendemain-dune-journee-de-chaos-2257583</li>
+<li>标题：DIRECT - Mobilisation du 17 octobre : 1.500 commerçants touchés et des centaines de millions d'euros de dégâts, selon Alexandre Bompard</li>
+<li>发布者/作者：Les Echos（滚动页）</li>
+<li>报道发布时间：2026-10-18 11:38 起（巴黎时间；检索元数据 09:38 UTC）；持续更新</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>要点栏：马克龙周日晚 20:00 讲话；多城暴力抢掠，巴黎部分街区"被毁"；FCD 称近 1,500 商户受影响、损失数亿欧元；马赛、里尔、里昂、波尔多、利摩日公共建筑被针对；"至少 2,000 人被捕、600 名警察和宪兵受伤"（该页面周日时点）。</li>
+<li>20:00 条目：马克龙对治安力量、伤者及家属、"所有市长和民选官员"、受暴力影响的"众多商户、手工艺者、经济主体"表达国家支持；"他们不会被抛下……政府会给出回应"，并把具体援助交由周一的危机小组"尽快动员最快可得的援助"。</li>
+<li>12:11 条目：Bompard（LCI）称全国约 1,500 名商户直接受影响、账单"非常高"，"数亿欧元"；巴黎市长 Grégoire 发布致巴黎商户公开信：已要求设立面向受损商户的"紧急单元"，并"要求周一召开包括商户代表、商会、保险人和国家部门的特别会议"。</li>
+<li>CCI France 公报：这些暴力打击了"已因多年危机、成本上升和市中心客流下降而脆弱的企业"，对许多企业而言"可能是一根稻草压垮"。</li>
+<li>9:40 条目（复盘）：勒科尔尼周六晚宣布 1,200 人被捕、150 名警察宪兵受伤；巴黎 855 人被捕"纪录"；巴黎 13 名警察宪兵和 2 名消防员受伤；损毁统计仍在进行，但"损失规模显著"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-018" data-title="10-19 · S-018" data-sub="snapshots/2026-10-19-S-018.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照（官方通稿）</h1>
+<ul>
+<li>来源 ID：S-018</li>
+<li>原始 URL：https://presse.economie.gouv.fr/nar-consequences-economiques-des-evenements-du-17-octobre-serge-papin-reunit-les-federations-des-commercants-enseignes-artisans-et-restaurateurs-et-representants-des-banques-et-assurances-lundi-19-oc/ （检索结果所示 URL；直接抓取返回 404，可能为反爬或路径问题；页面内容经检索集成可见）</li>
+<li>标题：NAR - Conséquences économiques des événements du 17 octobre : Serge Papin réunit les fédérations des commerçants, enseignes, artisans et restaurateurs, et représentants des banques et assurances, lundi 19 octobre 2026</li>
+<li>发布者/作者：法国经济财政部新闻办公室（presse.economie.gouv.fr）；通稿编号 N°1131，巴黎，2026-10-18</li>
+<li>报道发布时间：2026-10-18（发布于经济财政部新闻页）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：直接访问 404；内容经检索集成可见（含官方 PDF 文件名"1131 - NAR - Conséquences économiques des événements du 17 octobre_Serge Papin…pdf"，PDF 未下载）</li>
+<li>保存范围：官方通稿要点（事实汇编），非逐字原文存档；未保存原始文件或哈希</li>
+<li>许可/限制：官方公开通稿，保留要点和链接；如后续可访问应补存原件</li>
+</ul>
+<h2>可核验信息</h2>
+<ul>
+<li>官方通稿（第一手来源）：因 10-17 事件造成大量商铺被砸、被破坏、被抢掠，中小企业、商业、手工艺、旅游与购买力部长 Serge Papin 将于 10-19（周一）9:00 在 Bercy 召集商户、连锁品牌、手工艺者和餐饮业联合会，以及银行和保险机构代表。</li>
+<li>会议目的：评估物质损失、对经济活动的影响，并确定支持受损企业修复和存续的可能行动。</li>
+<li>安排：8:50 媒体拍照环节（"Micro tendu"），9:00 会议开始；会议对媒体关闭（"Hors presse – pas de tour image"）；采访需向 Bercy 新闻处报名。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-019" data-title="10-19 · S-019" data-sub="snapshots/2026-10-19-S-019.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-019</li>
+<li>原始 URL：https://www.bfmtv.com/economie/economie-social/elle-s-attend-a-des-faillites-en-cascade-la-federation-du-commerce-demande-l-acceleration-des-procedures-de-remboursement-des-assurances-et-de-chomage-partiel_AV-202610190236.html</li>
+<li>标题：Elle s'attend à des faillites en cascade : la fédération du commerce demande "l'accélération des procédures de remboursement des assurances et de chômage partiel"</li>
+<li>发布者/作者：BFM Business / BFMTV</li>
+<li>报道发布时间：2026-10-19 08:52（巴黎时间；检索元数据 06:52 UTC）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>CCI France（法国工商会网络）主席 Alain Di Crescenzo 10-19 在 RTL 称："至少 2,000 家商铺"在周末暴力中受影响（高于 FCD 的约 1,500 家估计；口径待考）。</li>
+<li>FCD 总代表 Judith Jiguet 对 BFM Business：行业高度动员，商户在自救清障；"我们需要团结，但也需要加快程序，以便处理部分失业和保险赔付"；提出对受损商户"研究税费缓缴（moratoire）"。</li>
+<li>她表示对脆弱商户而言"毫无疑问"会出现倒闭潮；"目前无法量化（损失），但可以确定……未来几天会有更精确数字"。</li>
+<li>背景：Bercy 会议同日举行（见 S-015、S-018）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-020" data-title="10-19 · S-020" data-sub="snapshots/2026-10-19-S-020.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-020</li>
+<li>原始 URL：https://www.leparisien.fr/faits-divers/mobilisation-du-17-octobre-un-manifestant-a-eu-la-main-arrachee-par-une-grenade-policiere-a-saint-etienne-17-10-2026-U7YFGHENJFBNTCEEESUBIFE3U4.php</li>
+<li>标题：Mobilisation du 17 octobre : un ado de 17 ans a eu la main arrachée par une grenade policière à Saint-Étienne</li>
+<li>发布者/作者：Le Parisien（avec AFP）</li>
+<li>报道发布时间：2026-10-17 17:45（巴黎时间）；修改 21:39</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容；franceinfo 同日（2026-10-17 21:30，更新 10-18 11:08）报道与 AFP 一致</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>圣艾蒂安"反生活成本"游行中，一名 17 岁青年右手被手榴弹炸断；初报年龄为"二十岁上下"，卢瓦尔省府随后更正为 17 岁。</li>
+<li>伤者被送往圣艾蒂安大学医院；游行医疗人员称其"右手成碎片"，本人称是在爆炸前拾起了这枚手榴弹（该细节来自医疗人员转述）；手榴弹具体型号"现阶段未知"。</li>
+<li>圣艾蒂安检察院宣布将"查找受伤原因"的调查交予 IGPN；内政部长 Nuñez："有人告诉我们会是一枚宪兵的手榴弹，我无法确认，显然会有调查。"</li>
+<li>社会党市长 Régis Juanico 向伤者及家人致意："这样的悲剧不应发生"；他谴责"极其严重的骚乱与暴力场面"，列举"商铺被抢、候车亭和城市设施被毁、附属市政厅被破坏、有人企图闯入市政厅被市政警察阻止"。</li>
+<li>背景（该文）：巴黎、里昂、马赛、里尔等地当日均发生抢掠或暴力（原文截断部分以其他来源为准）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-19-S-021" data-title="10-19 · S-021" data-sub="snapshots/2026-10-19-S-021.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-021</li>
+<li>原始 URL：https://www.rtl.fr/actu/debats-societe/en-direct-mobilisation-du-17-octobre-1-200-interpellations-et-d-importants-degats-au-lendemain-des-manifestations-7900686437</li>
+<li>标题：En direct : Mobilisation du 17 octobre : 1 200 interpellations et d'importants dégâts au lendemain des manifestations（滚动页题面）</li>
+<li>发布者/作者：RTL（滚动报道）</li>
+<li>报道发布时间：2026-10-18 起持续更新（页面显示当日条目）</li>
+<li>获取时间：2026-10-19（Asia/Shanghai；本次巡检运行期间）</li>
+<li>访问状态：经检索集成可见内容</li>
+<li>保存范围：基于检索集成可见内容的事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>内政部长 Nuñez 称全国"超过 1,800 人被捕"（周日时点；其后数字继续上修，见 S-010、S-006）。</li>
+<li>巴黎检察院：517 人在押（346 名成年人、171 名未成年人）；"逮捕持续整夜，至约 06:00"；主要罪名：收受赃物、结伙实施暴力、毁坏财物等。</li>
+<li>市长层面：据 RTL 信息，勒科尔尼将接见请求会面的巴黎、里昂、马赛市长。</li>
+<li>周日晚 19:00：勒科尔尼曾主持一次跨部门危机小组（板块：经济-商业、保险、司法跟进）；周一 10:00 另行主持跨部门危机小组（见 S-004）。</li>
+<li>Nuñez 周一将赴马赛。</li>
+<li>周日概况（该滚动页导语）：马赛、里尔、昂热、波尔多的示威者曾闯入市政厅或省政府建筑；利摩日市政厅被纵火并大部分被毁；多座大城市商铺被破坏和抢掠。</li>
+<li>商务部长 Serge Papin 在 X 宣布周一 9:00 Bercy 会议："继周六的破坏与抢掠之后，我将召集商户、连锁品牌、手工艺者和餐饮业联合会，与银行和保险一起。我们将共同面对。"</li>
+<li>FCD 主席 Bompard（LCI）：约 1,500 家商户直接受影响，"账单非常高""数亿欧元"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-022" data-title="10-20 · S-022" data-sub="snapshots/2026-10-20-S-022.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-022</li>
+<li>原始 URL：https://www.lemonde.fr/en/france/article/2026/10/19/prime-minister-calls-for-local-curfews-as-france-grapples-with-unrest_6758795_8.html</li>
+<li>标题：Curfews announced in Paris and other cities as France grapples with unrest</li>
+<li>发布者/作者：Le Monde with AFP（英文版）</li>
+<li>报道发布时间：2026-10-19</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>当局宣布 10-19 晚起在巴黎、里尔、里昂等多个城市实施局部宵禁，以保护商铺。</li>
+<li>巴黎警方：某些区域 23:00—06:00 宵禁；某些区域 20:00—06:00 禁止示威；禁令覆盖共和广场（周六骚乱发生地）与 Les Halles 商业区；警方声明称目的是保护"人与财产免遭暴力与抢掠"。</li>
+<li>总理勒科尔尼危机会议后表示：已要求地方当局实施"局部的""本地化的"宵禁；"我恢复公共秩序的决心是绝对的"；政府准备"如有必要"宣布紧急状态。黄背心运动呼吁下周六新一轮示威。</li>
+<li>内政部长努涅斯在周末骚乱后提出辞职，被马克龙拒绝；爱丽舍宫要求其终结路障与抢掠、对"情报与预见失灵"保持透明、尽快引入"新的现场维稳战术"。</li>
+<li>司法部长 Gérald Darmanin（10-19）：周末以来全国超过 2,330 人被拘留（garde à vue），其中 70% 为成年人，多人早为当局所知。</li>
+<li>商会会长 Alain Di Crescenzo：预计全法超过 2,000 家商铺受影响，损失达"数亿欧元"。</li>
+<li>马克龙 10-18 晚讲话：谴责"无节制暴力"，称地方当局将能"必要时"禁止某些集会；但未宣布紧急状态或宵禁等 drastic measures。</li>
+<li>马赛市府：10-19 12:00—20:00 禁止公共集会与示威。</li>
+<li>背景段：上周六约 50 万人上街；为四周来自高中生要求改善校园条件开始抗议的高潮；蒙面团伙在游行外围袭击执法者、闯入市政厅等公共建筑并纵火、抢掠商铺、焚烧汽车与自行车滑板车。</li>
+<li>里昂 Place des Terreaux：市政人员清洗 Bartholdi 喷泉上的涂鸦（10-19，AFP 图片说明）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-023" data-title="10-20 · S-023" data-sub="snapshots/2026-10-20-S-023.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-023</li>
+<li>原始 URL：https://news.cgtn.com/news/2026-10-19/France-launches-judicial-operation-localized-curfews-after-unrest-1RncAFVxINa/p.html</li>
+<li>标题：France launches judicial operation, localized curfews after violent unrest</li>
+<li>发布者/作者：CGTN（with input from agencies）</li>
+<li>报道发布时间：2026-10-19</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>总理 Lecornu 10-19 在跨部门危机会议后宣布"大规模司法行动"追究暴力参与者责任；称已要求省长（prefects）自周一晚起实施"非常有限"的"局部"宵禁；"这些宵禁必须是局部和部分的。让全巴黎进入宵禁是不可想象的"；称若认定必要可以宣布紧急状态，但目前局部宵禁"更合适"。</li>
+<li>Lecornu："周六，尽管出现严重暴力场面和大量财产损失，无人死亡，这是个奇迹。"</li>
+<li>努涅斯（10-19）：承认周末暴力中警方在部分区域"失去控制"、"预见不足"；"数百家商铺被抢之后，你无法正视店主们的眼睛说我们在这些大城市没有失去控制。显然（我们失去了控制）。"</li>
+<li>爱丽舍宫：马克龙拒绝努涅斯辞呈（"当前情况下执法力量需要连续指挥"）；要求其对策划与情报失误"完全透明"、尽快部署"新的现场战术"以终结暴力事件。</li>
+<li>努涅斯（France Inter）："我递交辞呈是因为我对正在发生的一切负有责任。"</li>
+<li>马克龙 10-18 电视讲话要点：谴责"无节制暴力"；不要把合法诉求表达与暴力混为一谈；"摧毁者要赔偿、抢掠者要偿还"；政府应对暴露"情报与预见"短板，已下令审查；承认抗议反映生活成本与燃油价格担忧；宣布将赴海湾国家保障能源供应。</li>
+<li>马克龙 10-19 抵达科威特（埃米尔接待），还将访问阿联酋、巴林、卡塔尔（至周三）。</li>
+<li>统计：内政部称周六全国约 55 万人参加（巴黎 11 万）；CGT 称 80 万；共 2,397 人被捕、997 名警察与宪兵受伤（7 人重伤）。</li>
+<li>马赛 10-19 12:00—20:00 禁止一切公共集会与示威。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-024" data-title="10-20 · S-024" data-sub="snapshots/2026-10-20-S-024.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-024</li>
+<li>原始 URL：https://news.cgtn.com/news/2026-10-20/France-imposes-curfews-in-cities-after-weekend-of-protests-1Ro8Lh9EmJi/p.html</li>
+<li>标题：France imposes curfews in cities after weekend of protests</li>
+<li>发布者/作者：CGTN（部分内容据新华社）</li>
+<li>报道发布时间：2026-10-20</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>宵禁与禁令（10-19 晚起）：巴黎警方 20:00 起在部分区域禁止示威、23:00—06:00 对共和广场与 Les Halles 周边实施宵禁，"已部署警力确保严格执行"；里尔、杜埃（Douai）、Wattignies、Denain 经市长同意实施 20:00—06:00 未成年人宵禁（连续两晚，Lecornu 办公室消息）；尼斯市长 Éric Ciotti 签署命令对市中心实施未成年人宵禁；马赛禁止集会示威。</li>
+<li>司法部长 Darmanin：周末以来全国超过 2,513 人被拘留；67 人已被监禁，"数十起"刑事案件立案。</li>
+<li>爱丽舍宫：马克龙拒绝努涅斯辞呈，要求终结路障与抢掠、对"情报与预见失灵"透明、尽快引入新维稳战术。周六部署 6 万名警察等执法力量（努涅斯称 France Inter），"不足以控制暴力人群"。</li>
+<li>努涅斯：周一起将实施"一系列措施"遏制抢掠者与破坏者，包括增派街头警力；称周二晚巴黎圣日耳曼对巴塞罗那的欧冠赛将按计划举行。</li>
+<li>总理 Lecornu 归因"极左"："毕竟存在一个极左运动，想在总统选举前夕给国家造成深度动荡——再强烈不过的说法。"梅朗雄在 X 要求其提供证据，"否则他应该道歉、闭嘴、停止为动荡之火扇风"。</li>
+<li>商铺影响：贸易与零售联合会（per CGTN）称周末近 3,000 家店铺受影响；称"每一家被洗劫的店铺背后都是企业主、雇员和家庭，他们多年的努力几小时内被抹平"，呼吁社保与税收减免。</li>
+<li>巴黎 Place Vendôme（奢侈品区）周一多数店铺关闭并有保安看守。</li>
+<li>卢浮宫因学生堵门 10-19 全日关闭（警方站岗图片，新华社）。</li>
+<li>背景：距离法国下届总统选举约 6 个月；抗议源于 9 月下旬起学生示威。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-025" data-title="10-20 · S-025" data-sub="snapshots/2026-10-20-S-025.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-025</li>
+<li>原始 URL：https://www.rte.ie/news/2026/1019/1595915-france-protests/</li>
+<li>标题：French curfews now in force after weekend violence</li>
+<li>发布者/作者：RTÉ News</li>
+<li>报道发布时间：页面显示更新于 2026-10-20 00:32（都柏林时间）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>宵禁生效细节（Lecornu 办公室）：法国北部四城里尔、Douai、Wattignies、Denain 今晚与明晚 20:00—05:00（巴黎时间）实施宵禁；巴黎市中心共和广场与 Les Halles 周边区域另有宵禁至周二 05:00。巴黎警方称禁令"旨在保护人与财产免遭暴力与抢掠"；禁止在共和广场与 Les Halles 周边进入或停留；禁止集会示威。</li>
+<li>卢浮宫：因学生抗议运动封锁入口，周一未如常开放（先称至少关闭至中午，后更新为全日关闭）；学生封锁以支持持续数周的校园抗议并指称警方暴力；CGT 未参与但支持该行动。周一亦为卢浮宫 crown jewels 失窃案（估值约 8,800 万欧元）周年。</li>
+<li>组织方呼吁下周六（10-24）新一轮抗议；Lecornu 已敦促地方当局实施"局部"宵禁保护商铺与人。</li>
+<li>Lecornu 不排除紧急状态："如有必要"政府准备宣布紧急状态。</li>
+<li>努涅斯："周六在一些大城市，数百家店铺被抢之后，你无法正视店主们说我们没有失去控制。"；"一系列措施"自周一晚起实施，包括增派街头警力。</li>
+<li>统计（RTÉ 表述）：超过 2,500 人被捕、近 1,000 名安全部队人员受伤；一名示威者的手被警方控制人群手榴弹炸断（据内政部）。利摩日市政厅"历经两次世界大战幸存，周六被纵火焚毁"。</li>
+<li>马克龙承认政府应对失误，尽管周六全国部署约 6 万执法力量。</li>
+<li>欧洲动态：米兰、比利时周末爆发较小规模冲突，西班牙、葡萄牙抗议持续发酵；各国密切关注。周六全法约 50 万人示威，为 9 月下旬高中生抗议开始以来四周抗议的高潮。</li>
+<li>背景：距离法国总统选举约 6 个月。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-026" data-title="10-20 · S-026" data-sub="snapshots/2026-10-20-S-026.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-026</li>
+<li>原始 URL：https://www.dailysabah.com/world/europe/france-moves-to-impose-localized-curfews-after-riots</li>
+<li>标题：France moves to impose localized curfews after riots</li>
+<li>发布者/作者：Daily Sabah（文中引 AFP、Reuters 图片）</li>
+<li>报道发布时间：2026-10-19/20（页面未显示精确时刻）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>总理 Lecornu 称已指示部分地区自周一晚起实施局部、"非常有限"的宵禁；地方当局决定概览将于当日下午公布；宵禁将是"部分的""局部非常有限"的。</li>
+<li>Lecornu："混乱"局限于市中心，局势"地理上非常不均衡"；宵禁目的之一是保护人与财产、特别是商铺；当局正在应对一种涉及抢掠与赃物转卖的特定犯罪活动。</li>
+<li>Lecornu 不排除宣布紧急状态，但称这一严重措施在现阶段不合适，定向宵禁更适合。</li>
+<li>黄背心运动宣布 10-24（周六）"第二幕"示威，将在全国数十个地点进行；黄背心运动 2018 年 11 月—2019 年初曾举行数月抗议。</li>
+<li>卢浮宫 10-19 未如常开放（官网与社媒公告），为"造成的不便"道歉；法媒称学生封锁入口以支持校园抗议并指称警方暴力；CGT 称应至少关闭至中午，卢浮宫后更新为全日关闭。</li>
+<li>周一为卢浮宫珍宝失窃案（估值约 8,800 万欧元）周年。</li>
+<li>欧洲多国政府 10-19 提醒公民赴法避免人群、注意安全：意大利要求公民在法登记行踪并避免人群、极度谨慎；德国外交部称未来数日不能排除进一步骚乱；捷克、波兰、荷兰及北欧国家亦发提醒。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-027" data-title="10-20 · S-027" data-sub="snapshots/2026-10-20-S-027.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-027</li>
+<li>原始 URL：https://www.163.com/dy/article/L9L76DP205198NMR.html</li>
+<li>标题：法国骚乱冲击金融市场：股债双杀，欧元下跌</li>
+<li>发布者/作者：网易号转载华尔街见闻（原文来源标注华尔街见闻官方）</li>
+<li>报道发布时间：2026-10-20 01:19:40（页面显示）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>法国市场周一（10-19）遭全面抛售：CAC 40 下跌 1.5%；法巴银行（BNP Paribas）与兴业银行（Société Générale）均跌约 3%，领跌欧洲主要市场。</li>
+<li>债市：法国 10 年期国债收益率单日飙升 15 个基点至 4.93%，创近一个月最大单日涨幅；与德国同期国债利差扩大至 146 个基点，为两周高位。10 月初法国 10 年期收益率一度触及 4.99%（2002 年以来最高）。</li>
+<li>意大利 10 年期国债收益率同步上行 11 个基点至 4.58%；德国 10 年期上行 4 个基点至 3.45%（美国国债收益率同期走低）。</li>
+<li>欧元兑美元、英镑及日元均下跌 0.2% 至 0.3%。</li>
+<li>据彭博（该文转述）：法国中央政府已要求部分地方当局实施宵禁，总理 Lecornu 亦未排除宣布紧急状态的可能性。</li>
+<li>财政整顿背景：2027 年预算案含 540 亿欧元紧缩与增税措施（该文表述），政府称削减赤字所需；明年总统大选前政治博弈或令进程复杂化。</li>
+<li>市场观点：SMBC 全球市场策略师 Hank Calenti 称此次波动发生在大规模抗议之后，表明改革预期正在减退，涵盖削减财政赤字与推进养老金改革两大议题；投资者普遍认为法国须尽快推进预算法案立法以重建信心。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-028" data-title="10-20 · S-028" data-sub="snapshots/2026-10-20-S-028.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-028</li>
+<li>原始 URL：https://www.toutiao.com/article/7698527062209937971/</li>
+<li>标题：法国遭遇股债双杀！示威活动冲击金融市场，欧央行会出手么？丨欧洲观察</li>
+<li>发布者/作者：第一财经（经今日头条发布）</li>
+<li>报道发布时间：2026-10-20 07:37（页面显示）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>周一欧洲股市全线下跌：法国 CAC40 收跌 1.11%，银行股跌幅居前（法巴 -2.48%、兴业 -3.41%）；今年以来法国股市持续跑输欧洲其他市场。</li>
+<li>债市：法国 10 年期国债收益率日内上涨 14.5 个基点，收于 4.931%，逼近 2002 年以来高位；法国与德国 10 年期国债利差扩大至约 145 个基点，为欧债危机以来罕见水平；法国 10 年期国债收益率已高于意大利。意大利 10 年期亦上行 9.7 个基点至 4.568%——显示压力向欧元区其他高负债国家传导。</li>
+<li>引新华社：10-17 示威在巴黎、里昂、马赛等多城展开，政府估计全国约 55 万人参加；内政部统计当天 2,397 人被捕、997 名警察和宪兵受伤（7 人伤势严重），数百家商户遭受严重财产损失；内政部长努内兹周一承认"预判不足"、部分地区失控；曾请辞被拒。</li>
+<li>抗议由来（该文梳理）：起于 9 月中旬巴黎南郊一所高中的学生罢课；油价等生活成本上涨和公共服务不足使更多民众加入；诉求为降低生活成本、改善公共服务，而政府正控制福利开支、压缩财政支出。</li>
+<li>机构观点：TwentyFour Asset Management 基金经理 Gordon Shannon 称抗议让投资者更不愿意持有法国国债，"法国国内并没有整顿财政的民意授权"；RBC BlueBay 市场策略主管 Mike Bell 称政府左右为难——不整顿财政，债市会"造反"；整顿财政，民众会"造反"；也可能两边同时"造反"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-029" data-title="10-20 · S-029" data-sub="snapshots/2026-10-20-S-029.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-029</li>
+<li>原始 URL：https://news.cgtn.com/news/2026-10-19/Cost-of-living-protests-spread-across-Europe-1RmzmaBXT8Y/p.html</li>
+<li>标题：Cost of living protests spread across Europe</li>
+<li>发布者/作者：CGTN（with input from agencies，含半岛电视台访谈）</li>
+<li>报道发布时间：2026-10-19 12:07（页面显示）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>欧洲多国民众上街抗议生活成本高企、公共服务不足、教育资源短缺与政府紧缩：法国、意大利、葡萄牙等。</li>
+<li>法国：周六为数十年来最大规模抗议日之一，内政部称全国逾 55 万人参加；CGT（历史最悠久的全国工会中心之一）称 80 万；多地爆发冲突。</li>
+<li>马克龙电视讲话："Those who destroyed must pay. Those who looted must reimburse."（摧毁者要赔偿、抢掠者要偿还），承诺对暴力罪行司法追究；理解青年数周来在中学与大学表达的"深度焦虑"；本周政府将与学生、教师、工会、雇主组织与官员合作制定回应。</li>
+<li>预算背景：拟议 2027 年预算含 540 亿欧元紧缩与增税一揽子计划（政府称削减赤字所需）；包括冻结公务员基本薪级计算基数（工会称为连续第四年冻结）。</li>
+<li>爱丁堡大学当代史教授 Emile Chabal（对半岛电视台）：周六示威把学生诉求与全国公共部门罢工结合，对法国政府是"最坏结果"。</li>
+<li>布鲁塞尔：周六警方发射催泪瓦斯与水炮驱散示威者，指其投掷投射物并纵火；当地已连续数周学生抗议大学注册费。</li>
+<li>里斯本：数万人游行抗议生活成本危机、低工资与大城市住房不可及；欧洲议会数据：葡萄牙房价 2015—2024 年上涨 124%，约为欧盟平均增速两倍。</li>
+<li>米兰：反战与生活成本游行起初和平，蒙面示威者向防暴警察投掷石块、铺路块等并点燃路障（酒吧桌）；总理梅洛尼谴责："示威是权利。放火焚烧我们的城市不是。"归咎于"利用示威播种混乱的流氓"；市长 Sala："抗议的理由可以理解。对执法人员的暴力和对城市的严重破坏不可原谅。"</li>
+<li>HEC Paris 欧盟法教授 Alberto Alemanno（对半岛电视台）：周六抗议或不是这些国家的最后一次，可能出现新热点；希腊、德国、奥地利"早期阶段"运动正在出现，预计"下周"动员；它们不是单一运动，而是同时发生的多场抗议，有共同诉求：教育投入不足、生活成本上升、学生毕业前景不明。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-030" data-title="10-20 · S-030" data-sub="snapshots/2026-10-20-S-030.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-030</li>
+<li>原始 URL：https://www.econotimes.com/France-s-Draft-Budget-Puts-2027-Debt-Interest-at-91-2-Billion-1756063</li>
+<li>标题：France's Draft Budget Puts 2027 Debt Interest at €91.2 Billion</li>
+<li>发布者/作者：EconoTimes</li>
+<li>报道发布时间：页面未显示精确时刻（内容涉及 10-20 表决前的日程，发布于 2026-10 月中下旬）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>法国 2027 年预算草案预计公共利息支出 912 亿欧元（2026 年为 792 亿欧元）；赤字目标 2027 年 5%（2026 年政府预测 5.4%）。</li>
+<li>INSEE：马斯特里赫特口径公共债务在 2026 年二季度末达 35,955 亿欧元（较一季度末增加 596 亿欧元），相当于 GDP 的 119%。</li>
+<li>国民议会议程：10-20（周二）表决预算法案第一部分（收入，recettes）；11-17（周二）表决全部预算（如支出部分未审完可能延至 11-18）。</li>
+<li>背景：国民议会财政委员会 10-09 曾以 31 票对 3 票整体否决收入部分（Euronews 等报道），全会自 10-13 起以政府原文重新审议；社民党曾计划在辩论初期提出否决动议，RN 称将投反对票（即让辩论进行，见 S-033 备注/Lemonde 10-13 报道）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-031" data-title="10-20 · S-031" data-sub="snapshots/2026-10-20-S-031.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-031</li>
+<li>原始 URL：https://newspaper.jxnews.com.cn/jndsb/html/2026-10/20/content_897_206831.htm</li>
+<li>标题：法国抗议潮失控 暴力冲突蔓延多城</li>
+<li>发布者/作者：江西日报（信息主要据央视/新华社）</li>
+<li>报道发布时间：2026-10-20（版面日期）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>10-17 巴黎及多城市爆发示威游行，抗议生活成本高涨，部分地区发生暴力冲突，2,000 多人被捕（央视/法媒口径）。</li>
+<li>抗议背景：政府推进 2027 年财政预算案；公共债务与赤字高企，政府计划增收节支；民众担忧购买力与公共服务受影响。</li>
+<li>抗议群体：农民、气候活动人士、学生，部分工会参与；诉求涉及燃油价格、生活成本、教育和公共服务。</li>
+<li>现场引语：巴黎抗议者称"战争确实推高了某些资源的价格，比如汽油"；另一抗议者称今年夏天多次因负担不起油费放弃行程。</li>
+<li>外部环境（该文）：持续的俄乌冲突、中东紧张局势及国际能源市场不确定性给法国经济带来外部压力。</li>
+<li>图片说明：10-17 巴黎执法人员在抗议活动现场执勤（新华社发）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-20-S-032" data-title="10-20 · S-032" data-sub="snapshots/2026-10-20-S-032.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-032</li>
+<li>原始 URL：https://www.timesnowworld.com/us-news/france-protests-education-cuts-cost-of-living-crisis-article-156369944</li>
+<li>标题：France Faces Widespread Unrest Over Education Cuts and Rising Cost of Living</li>
+<li>发布者/作者：Times Now World</li>
+<li>报道发布时间：2026-10-20 01:01 IST（页面显示 Updated）</li>
+<li>获取时间：2026-10-20（Asia/Shanghai，本次巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>抗议背景数据（该文汇编）：政府 2026 年预算提案含取消逾 4,000 个教学岗位；官方数据称法国高中课堂平均 30 名学生（批评者称高于其他发达国家 17—25 人的标准）；塞纳-圣但尼学生指出设施损坏、结构老化等问题；2024 年法国贫困率达 15.4%（1996 年以来最高，贫困线为全国收入中位数 60%）；9 月汽油与柴油价格同比上涨 36%；整体通胀率 3.1%（2024 年 1 月以来最高）；该文将能源价格飙升与西亚冲突阻碍霍尔木兹海峡油气流动联系（约占全球能源供应 20%）。</li>
+<li>马克龙将生活成本上升归因于地区冲突，已启动对西亚四国（自科威特开始）的外交访问，目标保障能源供应并推动霍尔木兹海峡重新开放。</li>
+<li>当局统计约 2,400 人因骚乱、抢掠与纵火被捕。</li>
+<li>该文另含国际简讯条目（乌克兰打击俄数据基础设施、佛罗里达检方对前古巴领导人劳尔·卡斯特罗提出谋杀阴谋指控、伊朗外长指责美国造成霍尔木兹海峡不稳定、泽连斯基报道俄导弹袭击缺乏预警、阿尔巴尼亚总理拉马谴责抗议"越过红线"）——与本事件无关的聚合页内容，本档案不采用。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-033" data-title="10-22 · S-033" data-sub="snapshots/2026-10-22-S-033.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-033</li>
+<li>原始 URL：https://entrevue.fr/en/politique/budget-2027-apres-avoir-detricote-le-projet-de-lecornu-les-deputes</li>
+<li>标题：2027 Budget: After dismantling Lecornu's proposal, MPs suspend debates in the National Assembly</li>
+<li>发布者/作者：Entrevue（Radouan Kourak）</li>
+<li>报道发布时间：2026-10-20/21（页面未显示精确时刻；内容截至 10-20 夜间）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>10-19 夜至 10-20，国民议会暂停对 2027 预算法案"收入"部分的审议——起因是辩论一周内多项政府措施被否决，且仍有 2,600 余项修正案待审。</li>
+<li>议员转而审议社保融资法案（PLFSS，10-20 下午开始）。原定 10-20 的收入部分庄严表决因此<strong>推迟</strong>。</li>
+<li>讨论预计 10-27 社保账户第一阶段辩论结束后恢复。</li>
+<li>公共账目部长 David Amiel 10-19 晚警告：审议以来已通过的修改令预计预算平衡恶化 100 亿欧元。</li>
+<li>政府维持 2027 年将公共赤字降至 GDP 5% 的目标（2026 年为 5.4%）。</li>
+<li>政府尚无宪法选项定论：尚未决定诉诸法令（ordonnances）或第 49.3 条；此类举动可能引发新的对抗，多个党团已提出不信任动议可能。</li>
+<li>背景：自 10-13 开始讨论以来，反对党以"临时多数"大幅改写政府提案（多项税收条款被删改）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-034" data-title="10-22 · S-034" data-sub="snapshots/2026-10-22-S-034.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-034</li>
+<li>原始 URL：https://franceinenglish.com/p/french-parliament-approves-inquiry-commission-on-october-17-protest-violence</li>
+<li>标题：French Parliament Approves Inquiry Commission on October 17 Protest Violence</li>
+<li>发布者/作者：France in English（自述为法文来源的翻译与综合稿）</li>
+<li>报道发布时间：2026-10-20/21（页面未显示精确时刻）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道；该源为二手综合稿，关键事实已与 The Hindu 报道交叉（见 S-035）</li>
+</ul>
+<h2>可核验信息（来源归属；二手综合稿）</h2>
+<ul>
+<li>10-20，国民议会在党团主席会议上同意设立议会调查委员会，调查 10-17 暴力示威的成因、后果与执法反应；由议长 Braun-Pivet 提议。</li>
+<li>委员会拥有调取文件与宣誓听证的权力。</li>
+<li>委员会主席：Vincent Caure（文艺复兴党），负责组织调查议事与报告。</li>
+<li>范围争议：勒庞（RN）主张把刑事追责反应纳入调查；潘ot（LFI）主张扩大至 9 月中旬以来与抗议相关的事件。</li>
+<li>前警务专员 Marie Lajus：称近期抗议中约 8,000 人被捕、多数为未成年人；称警方是"安全政策的人质"，呼吁审视武力比例与基本权利侵蚀。（单一来源，与司法部长 2,513 人口径的差异见 claims C-016 备注）</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-035" data-title="10-22 · S-035" data-sub="snapshots/2026-10-22-S-035.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-035</li>
+<li>原始 URL：https://www.thehindu.com/news/international/french-pm-to-meet-unions-as-government-prepares-for-more-protests/article71606220.ece</li>
+<li>标题：French PM to meet unions as government prepares for more protests</li>
+<li>发布者/作者：The Hindu（据法新社等）</li>
+<li>报道发布时间：2026-10-21（页面显示；配图 10-20 议会质询）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>总理 Lecornu 10-21（周三）上午与五个工会代表会面，讨论"保障示威这一基本自由的方式与手段"（致各组织信函语）；信函指出有人企图以"不可接受的行为"劫持抗议；学生代表未受邀；内政部长努涅斯亦将出席。</li>
+<li>Lecornu 在议会面对质询时承认安全反应不足，承诺对下周抗议采取更强路线："下周六（10-24）的部署将是大规模的。"</li>
+<li>他指控极左激进团体炮制了导致骚乱的"叛乱计划"（"insurrectionary plan"）。</li>
+<li>10-20（周二）巴黎夜间宵禁自 21:00 GMT 起覆盖共和广场与 Les Halles 商业区；香榭丽舍大街（近多处公共建筑）及火车站亦禁止集会；巴黎警方临时禁止携带汽油罐/瓶。</li>
+<li>安全部队逮捕一名据信与极左有关联的男子，涉嫌纵火烧毁利摩日历史市政厅。</li>
+<li>议会跨党派 10-20 同意启动议会调查，范围包括可能的情报失灵、警务战术与政府准备（与 S-034 互证调查委员会成立）。</li>
+<li>司法：近 150 人已被监禁、800 余人被送交法院（司法部长口径，The Hindu 转述）。</li>
+<li>10-20 起在需要处实施新的宵禁（Lecornu 10-20 语）。</li>
+<li>政治压力：勒庞称骚乱是"警钟"，暴露"深刻的权威危机"；民调显示勒庞在第一轮领先、梅朗雄为第二轮最强竞争者（The Hindu 综述）。</li>
+<li>欧洲：米兰与比利时周末亦有较小规模冲突。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-036" data-title="10-22 · S-036" data-sub="snapshots/2026-10-22-S-036.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-036</li>
+<li>原始 URL：https://www.thehindu.com/news/national/india-advises-caution-for-its-nationals-in-france-amid-unrest-curfews/article71610003.ece/amp</li>
+<li>标题：India advises nationals in France to exercise caution amid unrest, curfews</li>
+<li>发布者/作者：The Hindu</li>
+<li>报道发布时间：2026-10-21/22（页面显示 advisory issued Wednesday October 21, 2026）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>印度驻法使馆 10-21（周三）发布提醒：鉴于近期事态与法国实施的局部宵禁，印度国民保持警惕、避开抗议发生地的大型集会与拥挤场所、遵循地方当局指示；通过 gouvernement.fr 与 RATP 官网获取信息；紧急联系巴黎使馆或马赛总领馆。</li>
+<li>抗议脉络（该文）：9 月下旬起因学校投入不足与过度拥挤爆发学潮，后扩展为针对通胀、生活成本与公共服务的全国性游行；10-17 外围暴力（抢掠、纵火、冲突）；当局在巴黎、里尔、里昂、尼斯等地实施局部宵禁；马赛限制集会示威。</li>
+<li>该文口径：周末骚乱中 2,400 余人被捕、近 1,000 名警察受伤（媒体转述）。</li>
+<li>动员预告（该文）：<strong>法国主要学生会与"黄背心"运动号召 10-25（周六）集会</strong>；工会宣布 11-05 罢工。——注意：该文同日正文另处写 "planned on Saturday (October 24, 2026), organised by the 'Yellow Vest' movement and high school students"，同一篇内 10-24 与 10-25 并存，且 2026-10-25 实为周日；与南方都市报（S-038）、RTÉ（S-025）、Daily Sabah（S-026）的 10-24（周六）口径不一致。以多数来源记 10-24，此处不一致已按原文记录。</li>
+<li>其他多国（美、中、德等）已对在法公民发布旅行提醒（该文综述）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-037" data-title="10-22 · S-037" data-sub="snapshots/2026-10-22-S-037.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-037</li>
+<li>原始 URL：https://www.toutiao.com/article/7699366694002754048/</li>
+<li>标题：马克龙"点名"特朗普</li>
+<li>发布者/作者：环球时报（综合法新社、美联社；记者郭孝伟），经今日头条发布</li>
+<li>报道发布时间：2026-10-22 13:55（页面显示）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>马克龙 10-21 在卡塔尔多哈批评部分外国领导人传播有关法国骚乱的虚假信息并谋取政治利益："事发后出现了来自国外的虚假信息，这促使许多人，包括外国领导人发表了既不可接受又愚蠢的言论。"记者追问是否指特朗普时称："是的，还有其他人。""有些人以牺牲法国为代价进行竞选活动——这些领导人正致力于竞选模式，无论是在本地区还是在大西洋彼岸。"</li>
+<li>特朗普此前为共和党中期选举造势时，将法国骚乱归咎于非法移民和极端分子等；以色列总理内塔尼亚胡称法国遭到"极端伊斯兰主义入侵"（该文综述）。</li>
+<li>据法国国际广播电台：巴黎警察局 10-22 白天已禁止在首都部分区域举行集会和示威，范围包括总统府爱丽舍宫、总理府、国民议会和参议院周边，以及卢浮宫、香榭丽舍大街等旅游景点。</li>
+<li>马克龙 10-21 表示将对暴力事件肇事者采取强硬措施；抗议者群体计划本周六再次发起大规模示威。</li>
+<li>距法国总统选举仅剩六个月；极右翼国民联盟领导人玛丽娜·勒庞指责马克龙政府"已经失去掌控局势的能力"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-038" data-title="10-22 · S-038" data-sub="snapshots/2026-10-22-S-038.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-038</li>
+<li>原始 URL：https://www.toutiao.com/article/7699343580598420009/</li>
+<li>标题：法国爆发全国性示威，至少3000家商铺遭劫掠，在巴黎的中国导游：带客人参观卢浮宫，遇上因示威临时闭馆</li>
+<li>发布者/作者：南方都市报（南都N视频记者刘施阳），经今日头条发布</li>
+<li>报道发布时间：2026-10-22 12:26（页面显示）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>政府统计口径：法国全国至少 3,000 家商铺遭劫掠（该文表述）；政府估计全国约 55 万人参加示威、组织方称 80 万。</li>
+<li>卢浮宫：当地时间 10-19 因学生社会运动闭馆，票务协助机构自动退票；目前已恢复正常预约进馆（巴黎导游李女士 10-21 晚语）。</li>
+<li>宵禁：当地时间 10-21，法国巴黎警察总局宣布 21 日 23 时至 22 日 6 时对共和国广场和大堂商业区一带实施宵禁，禁止人员在相关区域停留；据了解，这是巴黎本周第三次实施夜间宵禁。</li>
+<li>部署：法国内政部长努内兹 10-20 说，为应对预计 10-24 示威可能引发的暴力事件，法国政府将部署法军反恐力量"哨兵"行动的士兵增援警察和宪兵；政府还考虑禁止未经申报的示威游行，以及已申报但存在失控风险的示威游行。</li>
+<li>动员：部分工会和学生组织将下一次全国性抗议日期定在 11 月 5 日；参与 17 日示威的部分活动人士称会在 10 月 24 日再次举行示威。</li>
+<li>中国驻法国使领馆 10-19 再次提醒赴法中国公民提高风险防范意识，密切关注当地形势，远离游行示威地区。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-039" data-title="10-22 · S-039" data-sub="snapshots/2026-10-22-S-039.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-039</li>
+<li>原始 URL：https://peoplesdaily.pdnews.cn/world/er/30053395867</li>
+<li>标题：Macron vows to prevent riots at fresh protests scheduled for Saturday</li>
+<li>发布者/作者：人民日报英文客户端（据新华社/Xinhua，巴黎 10-21 电；图片吴宏伟）</li>
+<li>报道发布时间：2026-10-21/22（页面未显示精确时刻）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>法国政府誓言竭尽所能防止 10-24 新一轮社会示威中的暴力重演；马克龙在卡塔尔访问期间对媒体表示将动用一切可用法律工具（法国 BFM TV 转述）。</li>
+<li>针对宣布紧急状态的呼声，马克龙称现阶段无必要，但如需要可在稍后部署。</li>
+<li>10-17 骚乱后法国已在多城实施定向宵禁；Lecornu 10-20 称宵禁有助于维持周一夜间平静。</li>
+<li>内政部长努涅斯 10-20 称将部署"哨兵行动"军人协助防范 10-24 示威中的暴力。</li>
+<li>图片说明：10-21 巴黎街头被焚车辆（新华社）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-11-03-S-040" data-title="11-03 · S-040" data-sub="snapshots/2026-11-03-S-040.md" hidden><div class="md"><h1>快照 · 2026-11-03-S-040（事实汇编/摘要型）</h1>
+<ul>
+<li>快照类型：基于网页检索可见内容整理的事实汇编/摘要；未保存完整正文字节，未计算哈希。</li>
+<li>获取时间：2026-11-03T20:30+08:00（Asia/Shanghai）</li>
+<li>获取方式：网络检索（中文/英文媒体）+ 与既有档案（S-001～S-039）交叉核对</li>
+<li>保存范围：10-22 → 11-03 区间新进展的事实、数字、时点与口径；原始 URL 见 sources.md（S-040～S-045）</li>
+<li>来源可访问状态仅描述本次观察，不代表事实状态。</li>
+</ul>
+<hr/>
+<h2>一、10-24 黄背心"第二幕"（C-023，corroborated）</h2>
+<ul>
+<li>Rio Times 梳理：10-24 为第二轮全国抗议日，内政部统计约 410,000 人（较 10-17 的 550,000 下降），全国近 1,000 人被捕；夜宵禁适用于巴黎、里昂、马赛等地部分区域；未宣布紧急状态。</li>
+<li>背景：17 日 Lycée 学生罢课与"黄背心"生活成本游行合流，10-24 为延续动员。</li>
+<li>来源：S-041（Rio Times，https://www.riotimesonline.com/why-is-france-protesting-2026）。</li>
+</ul>
+<h2>二、10-31 新一轮全国示威（C-024，corroborated）</h2>
+<ul>
+<li>央视网/新华社 11-01 电：10-31 法国再现新一轮全国性示威，围绕生活成本、住房、教育等诉求；部分伴随暴力冲突，数百人被捕。法国内政部长努内兹当晚称示威总体秩序较好但警方遭遇"大量暴力行为"，全国约 32 万人参加、422 人被捕。</li>
+<li>政府部署约 7 万名宪兵和警员；巴黎大众运输公司称 31 日巴黎超过 40 个地铁站关闭。</li>
+<li>同期欧洲多国（德、意、葡、西、荷）亦爆发示威。</li>
+<li>来源：S-040（央视网，https://news.cctv.com/2026/11/01/ARTIltWFIywKJu7oPQpi5uV9261101.shtml）。</li>
+</ul>
+<h2>三、宵禁延长（C-015，corroborated）</h2>
+<ul>
+<li>腾讯新闻 10-30：随着 31 日新一轮示威临近，多地出台管控；巴黎 10-31 晚至 11-02 凌晨在共和国广场和大堂商业区恢复夜间宵禁（23:00—次日 06:00）；此前一天巴黎已延长未成年人宵禁并限制未申报集会。</li>
+<li>里昂禁止市中心部分区域抗议性集会（允许已申报游行）；马赛 10-29 令：10-30 晚至 11-02 凌晨每晚 23:00—05:00 对无人监护未成年人宵禁；格勒诺布尔等亦宣布局部宵禁或加强集会管制。</li>
+<li>来源：S-042（腾讯新闻，https://news.qq.com/rain/a/20261030A0E9MJ00）。</li>
+</ul>
+<h2>四、预算议程（C-019 / C-020 / C-025，partially_verified）</h2>
+<ul>
+<li>PLFSS（社保融资法案）：国民议会一读以 115:1 否决其收入部分（此前已删除多数关键措施），整案被击败并送交参议院；参议院定于 11-09 起审议政府原版。政府计划 2027 年节省 €54bn、赤字降至 5%。</li>
+<li>国家预算收入部分表决：原定 10-20 → 10-27 → 推迟至 <strong>11-03 下午</strong>（即本次巡检当日）；截至 11-02 报道口径结果待出。若收入部分在全体会议被否决，则支出部分不再审议、该修正案随之作废。</li>
+<li>插曲："流量税"修正案 10-30 以 11:10 通过（左翼议员 Coquerel 承认误投两票、将申请更正），拟按内容提供商发往法国用户数据量每 GB 收 €0.055；稳定币税修正案 10-16 以 38:37 通过（2027-01-01 起结束部分加密→稳定币换汇的税收递延）。</li>
+<li>来源：S-043（AA/Anadolu，https://h.aa.com.tr/en/europe/french-lawmakers-reject-2027-social-security-budget-in-1st-reading/4098600）、S-044（Monetary Elite，https://www.monetaryelite.com/2026/10/27/frances-budget-vote-keeps-moving-the-bond-market-isnt-waiting）、S-045（快报/第一财经，https://kuaibao.qq.com/s/20261102A0BFEK00）。</li>
+</ul>
+<h2>五、金融市场与评级（C-017，corroborated）</h2>
+<ul>
+<li>10 年期 OAT 收益率 10-22 盘中升至 5.14%（2002 年来最高）；OAT-Bund 利差约 156bp。</li>
+<li>穆迪 10-23 维持法国主权评级 Aa3、展望负面，但条件假设为 2027 减赤预算获通过；并警告公债收益率上升加大债务可负担性风险。</li>
+<li>来源：S-044。</li>
+</ul>
+<h2>六、议会调查委员会（C-021，corroborated 成立；范围细节部分核实）</h2>
+<ul>
+<li>10-20 成立，主席 Vincent Caure（文艺复兴党）。本周期（至 11-03）未见听证日程或结论的公开报道；维持原状态。</li>
+</ul>
+<h2>七、待核/限制</h2>
+<ul>
+<li>11-03 预算收入部分表决结果在本次检索时尚未公布，记为 unknown（结果待后续巡检补录）。</li>
+<li>各来源对 10-24/10-31 示威规模统计口径不一（内政部 vs 组织方），不与 10-17 数字相加。</li>
+<li>宵禁、逮捕、损失等最终统计以官方汇总与议会/调查委员会结论为准。</li>
+</ul></div></article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const first="timeline";
+  const ORIG_TITLE="\u6863\u6848 \u00b7 \u6cd5\u56fd2026\u5e7410\u670817\u65e5\u793a\u5a01\u53ca\u591a\u5730\u9a9a\u4e71";
+  const secs=[...document.querySelectorAll('.doc-sec')];
+  const links=[...document.querySelectorAll('.doc')];
+  const content=document.getElementById('content');
+  const curName=document.getElementById('curName');
+  const curPath=document.getElementById('curPath');
+  const bar=document.getElementById('bar');
+  function show(id){
+    let hit=null;
+    secs.forEach(s=>{const on=s.dataset.doc===id;s.hidden=!on;if(on)hit=s;});
+    if(!hit){ if(secs[0]){secs[0].hidden=false;hit=secs[0];} }
+    links.forEach(a=>a.classList.toggle('active',a.dataset.doc===(hit?hit.dataset.doc:'')));
+    if(hit){
+      curName.textContent=hit.dataset.title||'';
+      curPath.textContent=hit.dataset.sub||'';
+      content.scrollTop=0;
+      document.title=(hit.dataset.title||'档案')+'｜'+ORIG_TITLE;
+      if(document.body.classList.contains('nav-open')) document.body.classList.remove('nav-open');
+      markWideTables(hit);
+    }
+  }
+  // 宽表在窄容器里需要横向滚动：补一条提示，避免误以为右侧没有内容
+  function markWideTables(scope){
+    scope.querySelectorAll('.tbl').forEach(t=>{
+      const wide=t.scrollWidth-t.clientWidth>4;
+      let hint=t.nextElementSibling;
+      const isHint=hint&&hint.classList&&hint.classList.contains('tbl-hint');
+      if(wide&&!isHint){
+        const d=document.createElement('p');
+        d.className='tbl-hint';
+        d.textContent='表格较宽，可左右滚动查看全部列 →';
+        t.insertAdjacentElement('afterend',d);
+      }else if(!wide&&isHint){
+        hint.remove();
+      }
+    });
+  }
+  function route(){
+    const h=decodeURIComponent(location.hash.replace(/^#\/?/,''));
+    show(h||first);
+  }
+  window.addEventListener('hashchange',route);
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('.md a[href^="#/"]');
+    if(a){ /* 交给 hashchange */ }
+  });
+  const docq=document.getElementById('docq');
+  docq.addEventListener('input',()=>{
+    const kw=docq.value.trim().toLowerCase();
+    links.forEach(a=>{a.style.display=!kw||a.dataset.name.includes(kw)?'':'none';});
+    document.querySelectorAll('.grp').forEach(g=>{
+      let n=g.nextElementSibling,any=false;
+      while(n&&!n.classList.contains('grp')){
+        if(n.classList.contains('doc')&&n.style.display!=='none')any=true;
+        n=n.nextElementSibling;
+      }
+      g.style.display=any?'':'none';
+    });
+  });
+  content.addEventListener('scroll',()=>{
+    const h=content.scrollHeight-content.clientHeight;
+    bar.style.width=(h>0?Math.min(100,content.scrollTop/h*100):0)+'%';
+  });
+  document.getElementById('menu').addEventListener('click',()=>document.body.classList.toggle('nav-open'));
+  document.getElementById('scrim').addEventListener('click',()=>document.body.classList.remove('nav-open'));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='/'&&document.activeElement!==docq){e.preventDefault();docq.focus();}
+    if(e.key==='Escape')document.body.classList.remove('nav-open');
+  });
+  route();
+})();
+</script>
+</body>
+</html>

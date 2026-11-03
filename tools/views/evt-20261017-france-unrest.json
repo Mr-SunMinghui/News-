@@ -1,0 +1,111 @@
+{
+  "event_id": "evt-20261017-france-unrest",
+  "title": "法国2026年10月17日示威及多地骚乱",
+  "intro": "法国多地示威演变为冲突、纵火和商铺破坏/抢掠。10月18—19日：官方统计上修、总统讲话、内政部长请辞被拒、司法与议会调查启动。10月19日晚起：局部宵禁与\"大规模司法行动\"、卢浮宫全日关闭（后恢复开放）、金融市场剧烈反应。10月20日：议会调查委员会成立、预算表决推迟（收入部分改期11-03）；安保持续升级。数字均按来源与时点分别记录，最终统计待核。",
+  "metrics": [],
+  "timeline": [
+    {
+      "date": "2026-10-17",
+      "title": "",
+      "body": "法国多地举行反生活成本上涨、声援学生诉求的集会，多地出现冲突、纵火和商铺抢掠；利摩日市政厅被纵火近乎全毁，马赛、里尔市政厅被闯入，里昂旅游局起火。（AP、AFP、France 24）",
+      "tag": "",
+      "latest": false
+    },
+    {
+      "date": "2026-10-18",
+      "title": "",
+      "body": "全国统计上修至约2,400人被捕；巴黎855人被捕\"创纪录\"。总统马克龙晚20:00电视讲话：\"愤怒与羞耻\"，称\"摧毁者要赔偿\"，下令审查情报与预判失误。国民议会议长宣布将提议调查委员会；巴黎共和广场当晚再发生冲突。（France 24、AP、BBC、CNBC）",
+      "tag": "",
+      "latest": false
+    },
+    {
+      "date": "2026-10-19",
+      "title": "",
+      "body": "爱丽舍宫宣布马克龙拒绝内政部长努涅斯的辞呈，要求新维稳方针；努涅斯承认部分城市\"失去控制\"、预判不足。晚间起局部宵禁生效（巴黎共和广场/Les Halles、里尔等北部四城、尼斯、马赛禁令），\"大规模司法行动\"宣布；卢浮宫因学生封锁全日关闭；法债与股市大跌；马克龙启程访海湾四国。（franceinfo、France 24、Le Monde、CGTN）",
+      "tag": "",
+      "latest": false
+    },
+    {
+      "date": "2026-10-20",
+      "title": "",
+      "body": "议会调查委员会宣告成立（主席Vincent Caure；范围含情报失灵、警务战术、政府准备）。预算收入部分庄严表决因2,600+修正案待审而推迟：议会转社保融资法案（PLFSS 10-27表决），收入部分续审10-27—11-02、表决改期11-03下午。努涅斯宣布部署\"哨兵行动\"军人增援；利摩日纵火案拘捕一名据信与极左有关男子；Lecornu会五工会。（The Hindu、Entrevue、franceinenglish）",
+      "tag": "",
+      "latest": false
+    },
+    {
+      "date": "2026-10-21—22",
+      "title": "",
+      "body": "巴黎实施本周第三次夜间宵禁（10-21 23:00—10-22 06:00）；10-22白天禁聚区扩大至爱丽舍宫、总理府、国民议会、参议院周边及卢浮宫、香榭丽舍大街；卢浮宫已恢复开放。马克龙在多哈点名特朗普等外国领导人传播\"虚假信息\"谋取政治利益；称现阶段无需紧急状态。印度等国再发旅行提醒；黄背心与学生组织预告10-24示威、工会11-05罢工。（环球时报、南方都市报、RTÉ、人民日报英文）",
+      "tag": "",
+      "latest": false
+    }
+  ],
+  "info": [
+    {
+      "title": "当前信息",
+      "paras": [
+        "内政部口径（10-18至10-19）：全国近2,400人被捕、近1,000名军警受伤（7人重伤）；巴黎周六855人被捕（警察局称\"纪录\"）、517人在押。参加规模：官方约55万人、组织方约80万人（巴黎官方11万人）。两名17岁未成年人分别被防暴手榴弹重伤（圣艾蒂安失手、米卢斯失明），IGPN/IGGN分别调查；巴黎另有一名男子在游行路线心脏骤停死亡，检察院调查中。商铺损失：口径2,000—3,000家受影响、政府称至少3,000家遭劫掠。",
+        "<b>10-20以来</b>：议会调查委员会成立（主席Vincent Caure）；预算收入部分表决推迟（PLFSS 10-27表决、收入部分改期11-03下午）；哨兵行动军人增援、巴黎本周第三次夜间宵禁、10-22禁聚区扩至爱丽舍宫/两院/卢浮宫/香街；司法口径近150人监禁、800余人送审；利摩日纵火案拘捕一名\"据信与极左有关联\"男子；马克龙多哈讲话点名特朗普\"虚假信息\"；卢浮宫已恢复开放。黄背心与学生组织预告10-24示威、工会11-05罢工。"
+      ]
+    }
+  ],
+  "watch": "10-24黄背心\"第二幕\"结果；10-27 PLFSS、11-03收入部分、11-17全部表决；调查委员会听证；宵禁续期与紧急状态话语；官方最终统计与司法/监察结论；保险赔付与市场后续。",
+  "nav": [
+    [
+      "项目总览",
+      "../../../速览.html"
+    ],
+    [
+      "时间线",
+      "timeline.md"
+    ],
+    [
+      "主张与证据",
+      "claims.md"
+    ],
+    [
+      "来源登记",
+      "sources.md"
+    ],
+    [
+      "状态",
+      "status.md"
+    ],
+    [
+      "叙事与用语观察",
+      "narrative.md"
+    ]
+  ],
+  "sources": [
+    [
+      "AP（更新版）",
+      "https://apnews.com/article/france-protests-violence-looting-f5ce07c2ef46ad0c02c6ff7018532a59"
+    ],
+    [
+      "AFP",
+      "https://www.afp.com/en/clashes-blazes-and-wide-scale-looting-grip-france-day-protests"
+    ],
+    [
+      "France 24",
+      "https://www.france24.com/fr/info-en-continu/20261019-sous-pression-l-ex%C3%A9cutif-tente-de-reprendre-la-main-apr%C3%A8s-le-chaos"
+    ],
+    [
+      "Le Monde（英文）",
+      "https://www.lemonde.fr/en/france/article/2026/10/19/prime-minister-calls-for-local-curfews-as-france-grapples-with-unrest_6758795_8.html"
+    ],
+    [
+      "CGTN",
+      "https://news.cgtn.com/news/2026-10-20/France-imposes-curfews-in-cities-after-weekend-of-protests-1Ro8Lh9EmJi/p.html"
+    ],
+    [
+      "RTÉ",
+      "https://www.rte.ie/news/2026/1019/1595915-france-protests/"
+    ],
+    [
+      "The Hindu",
+      "https://www.thehindu.com/news/international/french-pm-to-meet-unions-as-government-prepares-for-more-protests/article71606220.ece"
+    ]
+  ],
+  "end_note": "",
+  "extracted_from": "C:\\001AI\\004News\\News-\\.workbuddy\\backup\\2026-10-22-quickview\\evt-20261017-france-unrest_速览.html"
+}

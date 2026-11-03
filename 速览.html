@@ -1,61 +1,467 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f3ee">
-  <title>Event Afterwatch｜事件速览</title>
-  <style>
-    :root{--ink:#202722;--muted:#68736c;--paper:#f4f3ee;--card:#fffefa;--line:#d9ddd5;--green:#235c48;--lime:#d8e5c9;--amber:#bd7045;--shadow:0 18px 45px #22352a12}
-    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "Aptos","Microsoft YaHei",system-ui,sans-serif}
-    a{color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.top{padding:54px 0 32px;background:radial-gradient(ellipse at 85% 5%,#d8e5c988,transparent 38%),linear-gradient(135deg,#f4f3ee,#e9eee5)}
-    .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:750;color:var(--green)}h1{font-size:clamp(2.2rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.055em;margin:.5rem 0 1rem}.lede{max-width:620px;color:var(--muted);font-size:1.08rem}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.pill{border:1px solid var(--line);border-radius:99px;padding:6px 12px;background:#ffffffa8;font-size:.84rem}
-    main{padding:34px 0 70px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px}h2{font-size:1.35rem;margin:0}.count{color:var(--muted);font-size:.9rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:18px}.event{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:270px}.event-top{display:flex;justify-content:space-between;gap:14px;align-items:start}.status{color:#6a4c20;background:#f4ead6;border-radius:99px;padding:4px 10px;font-size:.78rem;white-space:nowrap}.event h3{font-size:1.45rem;line-height:1.3;margin:18px 0 8px}.event p{color:var(--muted);margin:0 0 20px}.event-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted)}.button{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;text-decoration:none;padding:10px 15px;border-radius:12px;font-weight:650}.button:hover{background:#174332}.arrow{font-size:1.1rem}footer{padding:18px 0 34px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
-    @media(max-width:600px){.top{padding-top:38px}.section-head{align-items:start;flex-direction:column}.event{padding:20px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Event Afterwatch｜事件速览</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231E5744'/%3E%3Cpath d='M10 23V9h11M10 16h8' stroke='%23D8E6C6' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#F1F0E8; --surface:#FFFDF6; --surface-2:#F7F5EC; --surface-3:#EFEEE4;
+  --ink:#1A211C; --ink-2:#333D36; --muted:#6C7A71; --muted-2:#8B968D;
+  --line:#DCDED2; --line-2:#C7CDBE;
+  --brand:#1E5744; --brand-d:#153F31; --brand-l:#3C7A62;
+  --lime:#D8E6C6; --lime-2:#E8F0DC;
+  --amber:#A9612F; --amber-bg:#FBEFDF; --amber-line:#EFD8BC;
+  --red:#9E4136; --red-bg:#F8E4E0;
+  --serif:"Source Han Serif SC","Songti SC","STSong","Noto Serif SC",SimSun,Georgia,serif;
+  --sans:"Aptos","Segoe UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:"Cascadia Mono","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  --r-1:12px; --r-2:18px; --r-3:26px;
+  --sh-1:0 1px 2px rgba(26,33,28,.05), 0 8px 22px rgba(26,33,28,.055);
+  --sh-2:0 2px 6px rgba(26,33,28,.07), 0 22px 48px rgba(26,33,28,.11);
+  --ease:cubic-bezier(.2,0,0,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.72 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(940px 520px at 88% -10%, rgba(216,230,198,.80), transparent 62%),
+    radial-gradient(820px 460px at -8% 2%, rgba(213,224,207,.55), transparent 58%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
+  background-image:
+    linear-gradient(to right, rgba(26,33,28,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26,33,28,.05) 1px, transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto;position:relative;z-index:1}
+.wrap-narrow{width:min(900px,calc(100% - 40px))}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(241,240,232,.86);
+  -webkit-backdrop-filter:saturate(1.3) blur(14px);backdrop-filter:saturate(1.3) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .inner{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand .mark{
+  width:26px;height:26px;border-radius:9px;background:var(--brand);
+  display:grid;place-items:center;color:#EDF3E6;font:700 12px/1 var(--sans);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);
+}
+.brand .name{
+  font:700 12.5px/1 var(--sans);letter-spacing:.20em;text-transform:uppercase;color:var(--ink);
+}
+.brand .name span{color:var(--muted-2);font-weight:600}
+.topbar .spacer{flex:1}
+.navlink{
+  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:10px;
+  font:600 13px/1 var(--sans);color:var(--ink-2);text-decoration:none;
+  transition:background .16s var(--ease),color .16s var(--ease);
+}
+.navlink:hover{background:rgba(255,255,255,.72);color:var(--brand)}
+.navlink svg{opacity:.72}
+
+/* ---------- 版式基元 ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font:700 11.5px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brand);
+}
+.kicker{
+  font:600 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.012em}
+.display{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.5rem,6.4vw,4.5rem);line-height:1.04;letter-spacing:-.035em;
+  margin:.35rem 0 0;
+}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.35vw,1.09rem);line-height:1.78;max-width:62ch}
+.muted{color:var(--muted)}
+.hr{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---------- 按钮 ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:40px;padding:0 17px;border-radius:var(--r-1);border:1px solid transparent;
+  background:var(--brand);color:#F6F8F1;text-decoration:none;
+  font:600 13.5px/1 var(--sans);letter-spacing:.01em;cursor:pointer;white-space:nowrap;
+  transition:background .16s var(--ease),transform .16s var(--ease),box-shadow .16s var(--ease),color .16s var(--ease),border-color .16s var(--ease);
+  box-shadow:0 1px 0 rgba(255,255,255,.10) inset, 0 6px 16px rgba(30,87,68,.16);
+}
+.btn:hover{background:var(--brand-d);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.10) inset,0 10px 22px rgba(30,87,68,.22)}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn-ghost{
+  background:rgba(255,255,255,.55);border-color:var(--line-2);color:var(--ink-2);box-shadow:none;
+}
+.btn-ghost:hover{background:var(--surface);border-color:var(--brand);color:var(--brand);box-shadow:var(--sh-1)}
+.btn-sm{height:34px;padding:0 13px;font-size:12.5px;border-radius:10px}
+.btn .arw{transition:transform .2s var(--ease)}
+.btn:hover .arw{transform:translateX(3px)}
+:where(a,button,input,summary):focus-visible{
+  outline:2px solid var(--brand);outline-offset:3px;border-radius:6px;
+}
+
+/* ---------- 徽标 ---------- */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--muted);
+  font:600 11.5px/1.7 var(--sans);letter-spacing:.02em;white-space:nowrap;
+}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.85}
+.b-developing{background:var(--amber-bg);border-color:var(--amber-line);color:#8A4E1F}
+.b-watching{background:var(--lime-2);border-color:#CFE0BA;color:#2C5B3C}
+.b-quiet{background:#EDEEE7;border-color:var(--line);color:#6A7268}
+.b-closed{background:#E9EAE3;border-color:var(--line-2);color:#4C554D}
+.b-reopened{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-corrob{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.b-partial{background:var(--amber-bg);border-color:var(--amber-line);color:#8A5A22}
+.b-unver{background:#EFEFE8;border-color:var(--line);color:#5F675C}
+.b-disputed{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-refuted{background:#F1DEDA;border-color:#DFC0BA;color:#7E2F22}
+.b-ok{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.pulse{position:relative}
+.pulse::after{
+  content:"";position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid currentColor;opacity:0;animation:pulse 2.6s var(--ease) infinite;
+}
+@keyframes pulse{0%{transform:scale(.7);opacity:.5}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
+
+/* ---------- 卡片 ---------- */
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);
+  box-shadow:var(--sh-1);position:relative;
+}
+.card-pad{padding:26px}
+
+/* ---------- 进场动画 ---------- */
+.rise{animation:rise .58s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- 页脚 ---------- */
+.foot{
+  margin-top:64px;padding:26px 0 40px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12.5px;line-height:1.8;position:relative;z-index:1;
+}
+.foot .inner{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;align-items:flex-start}
+.foot code{font-family:var(--mono);font-size:12px;background:var(--surface-3);padding:1px 6px;border-radius:5px}
+
+.hero{padding:64px 0 34px}
+.hero .row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.hero .lede{margin:18px 0 0}
+.hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.hero .meta .badge{background:rgba(255,255,255,.7)}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:34px;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.stats .cell{padding:18px 22px 16px 0;display:flex;flex-direction:column;min-height:106px}
+.stats .cell + .cell{border-left:1px solid var(--line);padding-left:22px}
+.stats .n{font-family:var(--serif);font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats .k{margin-top:8px;font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;font-weight:600}
+.stats .bar{display:flex;height:5px;border-radius:99px;overflow:hidden;margin-top:auto;background:var(--surface-3)}
+.stats .bar i{display:block;height:100%}
+
+.legend{
+  display:grid;gap:10px;padding:20px 22px;border:1px solid var(--line);
+  border-radius:var(--r-2);background:rgba(255,255,255,.55);width:min(268px,100%);
+}
+.legend .t{font:700 10.5px/1.6 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:2px}
+.legend .r{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.legend .r i{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.legend .r em{margin-left:auto;font:500 11px/1 var(--mono);font-style:normal;color:var(--muted-2)}
+
+.tools{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:22px 0 18px;
+}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{
+  border:1px solid var(--line-2);background:rgba(255,255,255,.6);color:var(--ink-2);
+  border-radius:999px;height:32px;padding:0 14px;display:inline-flex;align-items:center;
+  font:600 12.5px/1 var(--sans);cursor:pointer;transition:all .16s var(--ease);
+}
+.chip:hover{border-color:var(--brand);color:var(--brand);background:var(--surface)}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#F6F8F1}
+.search{margin-left:auto;position:relative;display:flex;align-items:center}
+.search svg{position:absolute;left:13px;opacity:.5;pointer-events:none}
+.search input{
+  height:38px;width:min(280px,60vw);padding:0 14px 0 36px;border-radius:11px;
+  border:1px solid var(--line-2);background:rgba(255,255,255,.72);
+  font:400 13.5px/1 var(--sans);color:var(--ink);transition:box-shadow .16s var(--ease),border-color .16s var(--ease);
+}
+.search input::placeholder{color:var(--muted-2)}
+.search input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(30,87,68,.12);background:#fff}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,352px),1fr));gap:20px;padding-bottom:10px}
+.ev{
+  display:flex;flex-direction:column;gap:0;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);
+  padding:26px 26px 22px;box-shadow:var(--sh-1);position:relative;overflow:hidden;
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease);
+}
+.ev::before{
+  content:"";position:absolute;left:0;top:26px;bottom:26px;width:3px;border-radius:0 3px 3px 0;
+  background:var(--brand);opacity:.0;transition:opacity .22s var(--ease);
+}
+.ev:hover{transform:translateY(-3px);box-shadow:var(--sh-2);border-color:#BFCDBB}
+.ev:hover::before{opacity:1}
+.ev .no{
+  position:absolute;right:18px;top:8px;font-family:var(--serif);font-size:64px;line-height:1;
+  color:var(--ink);opacity:.055;font-weight:600;pointer-events:none;letter-spacing:-.04em;
+}
+.ev .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:26px}
+.ev .place{font:700 11px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+.ev .sep{width:14px;height:1px;background:var(--line-2)}
+.ev h3{
+  font-size:1.32rem;line-height:1.4;margin:16px 0 0;letter-spacing:-.015em;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.ev p{
+  color:var(--muted);font-size:14px;line-height:1.72;margin:11px 0 0;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+}
+.ev .foot2{
+  margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.ev .foot2 .t{font:500 11.5px/1.6 var(--mono);color:var(--muted-2);letter-spacing:-.01em}
+.ev .acts{display:flex;gap:7px;margin-left:auto}
+.empty{
+  grid-column:1/-1;text-align:center;padding:64px 20px;color:var(--muted);
+  border:1px dashed var(--line-2);border-radius:var(--r-3);background:rgba(255,255,255,.4);
+}
+@media(max-width:760px){
+  .stats{grid-template-columns:1fr}
+  .stats .cell{padding:16px 0;min-height:0}
+  .stats .cell + .cell{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .stats .bar{margin-top:12px}
+  .search{margin-left:0;width:100%}
+  .search input{width:100%}
+  .ev{padding:22px 20px 18px}
+  .ev .no{font-size:52px}
+}
+@media(max-width:600px){
+  .topbar .inner{gap:10px;min-height:56px}
+  .brand{gap:8px}
+  .brand .mark{width:23px;height:23px;border-radius:8px;font-size:11px}
+  .brand .name{font-size:11px;letter-spacing:.10em}
+  .brand .name span{display:none}
+  .navlink{padding:0 8px}
+  .navlink span{display:none}
+  .hero{padding:34px 0 24px}
+  .hero .row{gap:24px}
+  .legend{width:100%}
+}
+</style>
 </head>
-<body>
-  <header class="top"><div class="wrap">
-    <div class="eyebrow">Independent event tracking · 本地档案</div>
-    <h1>Event<br>Afterwatch</h1>
-    <p class="lede">把重要事件的时间线、调查进展和后续结果放在一处。每张卡片都通往可离线查阅的事件速览与来源档案。</p>
-    <div class="meta"><span class="pill">事件总览</span><span class="pill">按时间线追踪</span><span class="pill">最近更新：2026-10-22</span></div>
-  </div></header>
-  <main class="wrap">
-    <div class="section-head"><h2>正在追踪</h2><span class="count">5 个事件档案</span></div>
-    <section class="grid" aria-label="事件列表">
-      <article class="event">
-        <div class="event-top"><span class="eyebrow">中国 · 线上 · 2026-10-20</span><span class="status">持续发展</span></div>
-        <h3>国内《我的世界》第三方启动器关闭游戏本体下载功能</h3>
-        <p>10月20日下午起，PCL 关闭下载功能，HMCL（预览版）与 PCL CE 按中国大陆地区限制《我的世界》本体/整合包下载、安装功能；三款均未显示已安装版本无法启动。作者经媒体自述起因“未成年私服充值被家长举报、PCL受牵连”，但无举报文书且与社区公告矛盾；具体法律依据与监管文书仍待核实。</p>
-        <div class="event-foot"><span>首次发现：2026-10-21</span><a class="button" href="实践/events/evt-20261020-mc-launcher-download-shutdown/速览.html">打开事件速览 <span class="arrow">→</span></a></div>
-      </article>
-      <article class="event">
-        <div class="event-top"><span class="eyebrow">中国 · 湖北/线上 · 2026-10-15</span><span class="status">持续发展</span></div>
-        <h3>B站UP主“神奇阿宇Ayu”自制载人飞行滑板及舆论争议</h3>
-        <p>10月15日原视频发布后，飞行滑板从“科技奇迹/中国人能飞”迅速转入“AI合成/空域合规/资本账本”争议。载人飞行有多来源迹象（含景区员工与路人第三视角）；“全片无AI”“已获批准”“180万换34亿”均未获权威证实；空域批文、帧级技术核验与监管细则仍待跟踪。</p>
-        <div class="event-foot"><span>首次发现：2026-10-21</span><a class="button" href="实践/events/evt-20261015-ayu-flying-hoverboard/速览.html">打开事件速览 <span class="arrow">→</span></a></div>
-      </article>
-      <article class="event">
-        <div class="event-top"><span class="eyebrow">法国 · 多地 · 2026-10-17</span><span class="status">持续发展</span></div>
-        <h3>法国2026年10月17日示威及多地骚乱</h3>
-        <p>10月17日多地示威演变为冲突、纵火与商铺抢掠（内政部口径近2,400人被捕、近千名军警受伤）。10-19晚起局部宵禁、“大规模司法行动”；10-20议会调查委员会成立、预算表决推迟（收入部分改期11-03）；哨兵行动增援、巴黎连续宵禁；黄背心预告10-24示威、工会11-05罢工。数字与司法结论均待核。</p>
-        <div class="event-foot"><span>首次发现：2026-10-18</span><a class="button" href="实践/events/evt-20261017-france-unrest/速览.html">打开事件速览 <span class="arrow">→</span></a></div>
-      </article>
-      <article class="event">
-        <div class="event-top"><span class="eyebrow">俄罗斯 · 莫斯科 · 2026-10-14</span><span class="status">持续发展</span></div>
-        <h3>莫斯科大学中国留学生课堂身披旭日旗事件</h3>
-        <p>莫大历史系一名中国留学生（陈某某）课堂身披旭日旗、摆放日军军帽，遭同学抗议并两次道歉。集体请愿后校方启动调查，据了解该学生已被遣返，校方称将尽快公布开除决定；使馆教育处已接学联汇报。截至10-22，正式决定与使馆声明尚未发布。钧正平、人民日报发表评论。</p>
-        <div class="event-foot"><span>首次发现：2026-10-20</span><a class="button" href="实践/events/evt-20261014-msu-rising-sun-flag/速览.html">打开事件速览 <span class="arrow">→</span></a></div>
-      </article>
-      <article class="event">
-        <div class="event-top"><span class="eyebrow">甘肃 · 天水 · 2025—</span><span class="status">持续跟进</span></div>
-        <h3>褐石培心幼儿园幼儿血铅异常事件</h3>
-        <p>省级调查通报公布涉案食品、血铅检测与监管调查情况；兰州市中级人民法院已于 2026 年 10 月 16 日作出一审判决（实际负责人无期徒刑）。截至10-22未见上诉/生效报道（上诉期约至10-26）；长期健康随访和救济情况仍待核。</p>
-        <div class="event-foot"><span>首次发现：2025-07-01</span><a class="button" href="实践/events/evt-20250701-tianshui-kindergarten-lead/速览.html">打开事件速览 <span class="arrow">→</span></a></div>
-      </article>
-    </section>
-  </main>
-  <footer><div class="wrap">本页面为本地静态导航，不自动联网或更新。资料核验时间与来源见各事件档案。</div></footer>
+<body class="">
+
+<div class="topbar"><div class="wrap inner">
+  <a class="brand" href="速览.html">
+    <span class="mark">EA</span>
+    <span class="name">Event&nbsp;Afterwatch <span>/ 事件档案</span></span>
+  </a>
+  <div class="spacer"></div>
+  <a class="navlink" href="#list"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><span>跳转到列表</span></a>
+</div></div>
+<header class="hero"><div class="wrap">
+  <div class="row">
+    <div>
+      <div class="eyebrow">Independent Event Tracking · 本地离线档案</div>
+      <h1 class="display">事件速览</h1>
+      <p class="lede">把每起追踪中事件的时间线、关键数据、主张证据与来源状态放在一处。页面全部离线自包含，档案正文在站内直接阅读，无需打开原始 Markdown。</p>
+    </div>
+    <aside class="legend" aria-label="状态图例">
+      <div class="t">状态图例</div>
+      <div class="r"><i style="background:#C08A50"></i>持续发展<em>6</em></div>
+      <div class="r"><i style="background:#3C7A62"></i>跟踪中<em>0</em></div>
+      <div class="r"><i style="background:#A9B2A4"></i>结案 / 归档<em>0</em></div>
+    </aside>
+  </div>
+  <div class="stats">
+    <div class="cell">
+      <div class="n">6</div>
+      <div class="k">追踪中事件</div>
+      <div class="bar"><i style="width:100.00%;background:#C08A50" title="持续发展 6"></i></div>
+    </div>
+    <div class="cell">
+      <div class="n">103<span style="font-size:.5em;color:var(--muted);letter-spacing:0"> 条</span></div>
+      <div class="k">编号主张 · 已登记</div>
+    </div>
+    <div class="cell">
+      <div class="n">164<span style="font-size:.5em;color:var(--muted);letter-spacing:0"> 个</span></div>
+      <div class="k">来源 · 126 份本地快照</div>
+    </div>
+  </div>
+  <div class="meta">
+    <span class="badge">最近核查 2026-11-02</span>
+    <span class="badge">全部离线 · 无外部依赖</span>
+    <span class="badge">时区 Asia/Shanghai</span>
+  </div>
+</div></header>
+
+<main class="wrap" id="list">
+  <div class="tools">
+    <div class="chips" role="group" aria-label="按状态筛选">
+      <button class="chip" data-filter="all" aria-pressed="true">全部 6</button><button class="chip" data-filter="developing" aria-pressed="false">持续发展 6</button>
+    </div>
+    <label class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input id="q" type="search" placeholder="搜索事件、地区或关键词" autocomplete="off" aria-label="搜索事件">
+    </label>
+  </div>
+  <section class="grid" id="grid" aria-label="事件列表">
+<article class="ev rise" data-group="developing" data-search="中国 · 线上 · 2026-10-20 国内《我的世界》第三方启动器关闭游戏本体下载功能 10月20日下午起，PCL 关闭下载功能，HMCL（预览版）与 PCL CE 按中国大陆地区限制《我的世界》本体/整合包下载、安装功能；三款均未显示已安装版本无法启动。作者经媒体自述起因“未成年私服充值被家长举报、PCL受牵连”，但无举报文书且与社区公告矛盾；具体法律依据与监管文书仍待核实。" style="animation-delay:0ms">
+  <span class="no">01</span>
+  <div class="head">
+    <span class="place">中国 · 线上 · 2026-10-20</span>
+    <span class="badge b-developing"><i class="dot pulse"></i>持续发展</span>
+  </div>
+  <h3>国内《我的世界》第三方启动器关闭游戏本体下载功能</h3>
+  <p>10月20日下午起，PCL 关闭下载功能，HMCL（预览版）与 PCL CE 按中国大陆地区限制《我的世界》本体/整合包下载、安装功能；三款均未显示已安装版本无法启动。作者经媒体自述起因“未成年私服充值被家长举报、PCL受牵连”，但无举报文书且与社区公告矛盾；具体法律依据与监管文书仍待核实。</p>
+  <div class="foot2">
+    <span class="t">首次发现 2026-10-21</span>
+    <span class="acts">
+      <a class="btn btn-sm btn-ghost" href="实践/events/evt-20261020-mc-launcher-download-shutdown/档案.html">打开档案</a>
+      <a class="btn btn-sm" href="实践/events/evt-20261020-mc-launcher-download-shutdown/速览.html">事件速览 <span class="arw">→</span></a>
+    </span>
+  </div>
+</article>
+<article class="ev rise" data-group="developing" data-search="中国 · 湖北/线上 · 2026-10-15 B站UP主“神奇阿宇Ayu”自制载人飞行滑板及舆论争议 10月15日原视频发布后，飞行滑板从“科技奇迹/中国人能飞”迅速转入“AI合成/空域合规/资本账本”争议。载人飞行有多来源迹象（含景区员工与路人第三视角）；“全片无AI”“已获批准”“180万换34亿”均未获权威证实；空域批文、帧级技术核验与监管细则仍待跟踪。" style="animation-delay:45ms">
+  <span class="no">02</span>
+  <div class="head">
+    <span class="place">中国 · 湖北/线上 · 2026-10-15</span>
+    <span class="badge b-developing"><i class="dot pulse"></i>持续发展</span>
+  </div>
+  <h3>B站UP主“神奇阿宇Ayu”自制载人飞行滑板及舆论争议</h3>
+  <p>10月15日原视频发布后，飞行滑板从“科技奇迹/中国人能飞”迅速转入“AI合成/空域合规/资本账本”争议。载人飞行有多来源迹象（含景区员工与路人第三视角）；“全片无AI”“已获批准”“180万换34亿”均未获权威证实；空域批文、帧级技术核验与监管细则仍待跟踪。</p>
+  <div class="foot2">
+    <span class="t">首次发现 2026-10-21</span>
+    <span class="acts">
+      <a class="btn btn-sm btn-ghost" href="实践/events/evt-20261015-ayu-flying-hoverboard/档案.html">打开档案</a>
+      <a class="btn btn-sm" href="实践/events/evt-20261015-ayu-flying-hoverboard/速览.html">事件速览 <span class="arw">→</span></a>
+    </span>
+  </div>
+</article>
+<article class="ev rise" data-group="developing" data-search="法国 · 多地 · 2026-10-17 法国2026年10月17日示威及多地骚乱 10月17日多地示威演变为冲突、纵火与商铺抢掠（内政部口径近2,400人被捕、近千名军警受伤）。10-19晚起局部宵禁、“大规模司法行动”；10-20议会调查委员会成立、预算表决推迟（收入部分改期11-03）；哨兵行动增援、巴黎连续宵禁；黄背心预告10-24示威、工会11-05罢工。数字与司法结论均待核。" style="animation-delay:90ms">
+  <span class="no">03</span>
+  <div class="head">
+    <span class="place">法国 · 多地 · 2026-10-17</span>
+    <span class="badge b-developing"><i class="dot pulse"></i>持续发展</span>
+  </div>
+  <h3>法国2026年10月17日示威及多地骚乱</h3>
+  <p>10月17日多地示威演变为冲突、纵火与商铺抢掠（内政部口径近2,400人被捕、近千名军警受伤）。10-19晚起局部宵禁、“大规模司法行动”；10-20议会调查委员会成立、预算表决推迟（收入部分改期11-03）；哨兵行动增援、巴黎连续宵禁；黄背心预告10-24示威、工会11-05罢工。数字与司法结论均待核。</p>
+  <div class="foot2">
+    <span class="t">首次发现 2026-10-18</span>
+    <span class="acts">
+      <a class="btn btn-sm btn-ghost" href="实践/events/evt-20261017-france-unrest/档案.html">打开档案</a>
+      <a class="btn btn-sm" href="实践/events/evt-20261017-france-unrest/速览.html">事件速览 <span class="arw">→</span></a>
+    </span>
+  </div>
+</article>
+<article class="ev rise" data-group="developing" data-search="俄罗斯 · 莫斯科 · 2026-10-14 莫斯科大学中国留学生课堂身披旭日旗事件 莫大历史系一名中国留学生（陈某某）课堂身披旭日旗、摆放日军军帽，遭同学抗议并两次道歉。集体请愿后校方启动调查，据了解该学生已被遣返，校方称将尽快公布开除决定；使馆教育处已接学联汇报。截至10-22，正式决定与使馆声明尚未发布。钧正平、人民日报发表评论。" style="animation-delay:135ms">
+  <span class="no">04</span>
+  <div class="head">
+    <span class="place">俄罗斯 · 莫斯科 · 2026-10-14</span>
+    <span class="badge b-developing"><i class="dot pulse"></i>持续发展</span>
+  </div>
+  <h3>莫斯科大学中国留学生课堂身披旭日旗事件</h3>
+  <p>莫大历史系一名中国留学生（陈某某）课堂身披旭日旗、摆放日军军帽，遭同学抗议并两次道歉。集体请愿后校方启动调查，据了解该学生已被遣返，校方称将尽快公布开除决定；使馆教育处已接学联汇报。截至10-22，正式决定与使馆声明尚未发布。钧正平、人民日报发表评论。</p>
+  <div class="foot2">
+    <span class="t">首次发现 2026-10-20</span>
+    <span class="acts">
+      <a class="btn btn-sm btn-ghost" href="实践/events/evt-20261014-msu-rising-sun-flag/档案.html">打开档案</a>
+      <a class="btn btn-sm" href="实践/events/evt-20261014-msu-rising-sun-flag/速览.html">事件速览 <span class="arw">→</span></a>
+    </span>
+  </div>
+</article>
+<article class="ev rise" data-group="developing" data-search="甘肃 · 天水 · 2025— 褐石培心幼儿园幼儿血铅异常事件 省级调查通报公布涉案食品、血铅检测与监管调查情况；兰州市中级人民法院已于 2026 年 10 月 16 日作出一审判决（实际负责人无期徒刑）。截至10-22未见上诉/生效报道（上诉期约至10-26）；长期健康随访和救济情况仍待核。" style="animation-delay:180ms">
+  <span class="no">05</span>
+  <div class="head">
+    <span class="place">甘肃 · 天水 · 2025—</span>
+    <span class="badge b-developing"><i class="dot pulse"></i>持续发展</span>
+  </div>
+  <h3>褐石培心幼儿园幼儿血铅异常事件</h3>
+  <p>省级调查通报公布涉案食品、血铅检测与监管调查情况；兰州市中级人民法院已于 2026 年 10 月 16 日作出一审判决（实际负责人无期徒刑）。截至10-22未见上诉/生效报道（上诉期约至10-26）；长期健康随访和救济情况仍待核。</p>
+  <div class="foot2">
+    <span class="t">首次发现 2025-07-01</span>
+    <span class="acts">
+      <a class="btn btn-sm btn-ghost" href="实践/events/evt-20250701-tianshui-kindergarten-lead/档案.html">打开档案</a>
+      <a class="btn btn-sm" href="实践/events/evt-20250701-tianshui-kindergarten-lead/速览.html">事件速览 <span class="arw">→</span></a>
+    </span>
+  </div>
+</article>
+<article class="ev rise" data-group="developing" data-search="中国（测试在封闭场地 尊界V800刹车踏板支架断裂风波（含智界V9误传与复测） 2026年10月8日，汽车垂媒懂车帝发布测试视频：其自购的三台全新尊界V800（江淮汽车与华为鸿蒙智行合作的百万级MPV）在封闭场地100km/h-0全力制动中，刹车踏板支架分别于第2~4次制动时断裂，断裂位置一致。视频引发『设计强度不足』质疑，江淮汽车当日跌停、市值蒸发超60亿元。车企称制动系统满足高于国标/行标验证、用户实际场景未断裂，并承诺11月起免费升级；10月11日第三方检测称1500N合格、加严至3000N未裂。10月15日工信部、中央网信办、市场监管总局成立联合调查组。同期懂车帝复测显示智界V9等同材质竞品未断，『智界V9刹车踩断3次』系误传。10月31日懂车帝复测智界V9爬坡（50%坡动力不足未通过）但制动未断。截至2026-11-02，三部门调查结果尚未公布，事件未结。重要事实澄清：物理断裂仅发生于尊界V800；用户原表述『智界刹车踏板断裂』经核验为事实偏差——智界（奇瑞/华为）的智界V9在实测中未断裂。" style="animation-delay:225ms">
+  <span class="no">06</span>
+  <div class="head">
+    <span class="place">中国（测试在封闭场地</span>
+    <span class="badge b-developing"><i class="dot pulse"></i>持续发展</span>
+  </div>
+  <h3>尊界V800刹车踏板支架断裂风波（含智界V9误传与复测）</h3>
+  <p>2026年10月8日，汽车垂媒懂车帝发布测试视频：其自购的三台全新尊界V800（江淮汽车与华为鸿蒙智行合作的百万级MPV）在封闭场地100km/h-0全力制动中，刹车踏板支架分别于第2~4次制动时断裂，断裂位置一致。视频引发『设计强度不足』质疑，江淮汽车当日跌停、市值蒸发超60亿元。车企称制动系统满足高于国标/行标验证、用户实际场景未断裂，并承诺11月起免费升级；10月11日第三方检测称1500N合格、加严至3000N未裂。10月15日工信部、中央网信办、市场监管总局成立联合调查组。同期懂车帝复测显示智界V9等同材质竞品未断，『智界V9刹车踩断3次』系误传。10月31日懂车帝复测智界V9爬坡（50%坡动力不足未通过）但制动未断。截至2026-11-02，三部门调查结果尚未公布，事件未结。重要事实澄清：物理断裂仅发生于尊界V800；用户原表述『智界刹车踏板断裂』经核验为事实偏差——智界（奇瑞/华为）的智界V9在实测中未断裂。</p>
+  <div class="foot2">
+    <span class="t">首次发现 2026-11-02</span>
+    <span class="acts">
+      <a class="btn btn-sm btn-ghost" href="实践/events/evt-20261008-zunjie-v800-brake-pedal/档案.html">打开档案</a>
+      <a class="btn btn-sm" href="实践/events/evt-20261008-zunjie-v800-brake-pedal/速览.html">事件速览 <span class="arw">→</span></a>
+    </span>
+  </div>
+</article>
+    <div class="empty" id="empty" hidden>没有匹配的事件。换个关键词，或点「全部」。</div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap inner">
+  <div>本地静态页面 · 构建于 2026-11-03 21:27 · 数据以 <code>event.yaml</code> 与各档案 <code>.md</code> 为准</div>
+  <div>刷新视图：<code>python tools/build_views.py</code></div>
+</div></footer>
+
+<script>
+(function(){
+  const grid=document.getElementById('grid');
+  const cards=[...grid.querySelectorAll('.ev')];
+  const empty=document.getElementById('empty');
+  const q=document.getElementById('q');
+  const chips=[...document.querySelectorAll('.chip')];
+  let filter='all';
+  function apply(){
+    const kw=q.value.trim().toLowerCase();
+    let shown=0;
+    cards.forEach(c=>{
+      const okGroup = filter==='all'
+        || (filter==='other' ? !['developing','watching'].includes(c.dataset.group) : c.dataset.group===filter);
+      const okKw=!kw||c.dataset.search.toLowerCase().includes(kw);
+      const show=okGroup&&okKw;
+      c.hidden=!show;
+      if(show) shown++;
+    });
+    empty.hidden=shown>0;
+  }
+  chips.forEach(b=>b.addEventListener('click',()=>{
+    filter=b.dataset.filter;
+    chips.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    apply();
+  }));
+  q.addEventListener('input',apply);
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+{
+  "event_id": "evt-YYYYMMDD-short-slug",
+  "title": "（事件标题，可含 <br> 指定换行位置）",
+  "intro": "一句话摘要：最新进展 + 尚待核实事项。",
+  "metrics": [
+    { "v": "关键数字", "l": "统计口径 / 来源 / 时间" }
+  ],
+  "info": [
+    { "title": "当前信息", "paras": ["第一段（可含 <b>小标题</b>）", "第二段"] }
+  ],
+  "timeline": [
+    {
+      "date": "2026-10-20",
+      "title": "节点标题（可留空）",
+      "body": "简短事实摘要，标注来源和不确定性。",
+      "tag": "标签（可留空）",
+      "latest": false
+    }
+  ],
+  "watch": "后续要盯的问题，用分号分隔。",
+  "sources": [
+    { "label": "来源短名", "href": "https://example.com/article" }
+  ],
+  "end_note": "可选：时间线下方的一句说明。"
+}

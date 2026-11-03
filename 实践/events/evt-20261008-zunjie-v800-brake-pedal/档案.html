@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>档案 · 尊界V800刹车踏板支架断裂风波（含智界V9误传与复测）</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231E5744'/%3E%3Cpath d='M10 23V9h11M10 16h8' stroke='%23D8E6C6' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#F1F0E8; --surface:#FFFDF6; --surface-2:#F7F5EC; --surface-3:#EFEEE4;
+  --ink:#1A211C; --ink-2:#333D36; --muted:#6C7A71; --muted-2:#8B968D;
+  --line:#DCDED2; --line-2:#C7CDBE;
+  --brand:#1E5744; --brand-d:#153F31; --brand-l:#3C7A62;
+  --lime:#D8E6C6; --lime-2:#E8F0DC;
+  --amber:#A9612F; --amber-bg:#FBEFDF; --amber-line:#EFD8BC;
+  --red:#9E4136; --red-bg:#F8E4E0;
+  --serif:"Source Han Serif SC","Songti SC","STSong","Noto Serif SC",SimSun,Georgia,serif;
+  --sans:"Aptos","Segoe UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:"Cascadia Mono","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  --r-1:12px; --r-2:18px; --r-3:26px;
+  --sh-1:0 1px 2px rgba(26,33,28,.05), 0 8px 22px rgba(26,33,28,.055);
+  --sh-2:0 2px 6px rgba(26,33,28,.07), 0 22px 48px rgba(26,33,28,.11);
+  --ease:cubic-bezier(.2,0,0,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.72 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(940px 520px at 88% -10%, rgba(216,230,198,.80), transparent 62%),
+    radial-gradient(820px 460px at -8% 2%, rgba(213,224,207,.55), transparent 58%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
+  background-image:
+    linear-gradient(to right, rgba(26,33,28,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26,33,28,.05) 1px, transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto;position:relative;z-index:1}
+.wrap-narrow{width:min(900px,calc(100% - 40px))}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(241,240,232,.86);
+  -webkit-backdrop-filter:saturate(1.3) blur(14px);backdrop-filter:saturate(1.3) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .inner{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand .mark{
+  width:26px;height:26px;border-radius:9px;background:var(--brand);
+  display:grid;place-items:center;color:#EDF3E6;font:700 12px/1 var(--sans);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);
+}
+.brand .name{
+  font:700 12.5px/1 var(--sans);letter-spacing:.20em;text-transform:uppercase;color:var(--ink);
+}
+.brand .name span{color:var(--muted-2);font-weight:600}
+.topbar .spacer{flex:1}
+.navlink{
+  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:10px;
+  font:600 13px/1 var(--sans);color:var(--ink-2);text-decoration:none;
+  transition:background .16s var(--ease),color .16s var(--ease);
+}
+.navlink:hover{background:rgba(255,255,255,.72);color:var(--brand)}
+.navlink svg{opacity:.72}
+
+/* ---------- 版式基元 ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font:700 11.5px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brand);
+}
+.kicker{
+  font:600 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.012em}
+.display{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.5rem,6.4vw,4.5rem);line-height:1.04;letter-spacing:-.035em;
+  margin:.35rem 0 0;
+}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.35vw,1.09rem);line-height:1.78;max-width:62ch}
+.muted{color:var(--muted)}
+.hr{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---------- 按钮 ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:40px;padding:0 17px;border-radius:var(--r-1);border:1px solid transparent;
+  background:var(--brand);color:#F6F8F1;text-decoration:none;
+  font:600 13.5px/1 var(--sans);letter-spacing:.01em;cursor:pointer;white-space:nowrap;
+  transition:background .16s var(--ease),transform .16s var(--ease),box-shadow .16s var(--ease),color .16s var(--ease),border-color .16s var(--ease);
+  box-shadow:0 1px 0 rgba(255,255,255,.10) inset, 0 6px 16px rgba(30,87,68,.16);
+}
+.btn:hover{background:var(--brand-d);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.10) inset,0 10px 22px rgba(30,87,68,.22)}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn-ghost{
+  background:rgba(255,255,255,.55);border-color:var(--line-2);color:var(--ink-2);box-shadow:none;
+}
+.btn-ghost:hover{background:var(--surface);border-color:var(--brand);color:var(--brand);box-shadow:var(--sh-1)}
+.btn-sm{height:34px;padding:0 13px;font-size:12.5px;border-radius:10px}
+.btn .arw{transition:transform .2s var(--ease)}
+.btn:hover .arw{transform:translateX(3px)}
+:where(a,button,input,summary):focus-visible{
+  outline:2px solid var(--brand);outline-offset:3px;border-radius:6px;
+}
+
+/* ---------- 徽标 ---------- */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--muted);
+  font:600 11.5px/1.7 var(--sans);letter-spacing:.02em;white-space:nowrap;
+}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.85}
+.b-developing{background:var(--amber-bg);border-color:var(--amber-line);color:#8A4E1F}
+.b-watching{background:var(--lime-2);border-color:#CFE0BA;color:#2C5B3C}
+.b-quiet{background:#EDEEE7;border-color:var(--line);color:#6A7268}
+.b-closed{background:#E9EAE3;border-color:var(--line-2);color:#4C554D}
+.b-reopened{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-corrob{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.b-partial{background:var(--amber-bg);border-color:var(--amber-line);color:#8A5A22}
+.b-unver{background:#EFEFE8;border-color:var(--line);color:#5F675C}
+.b-disputed{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-refuted{background:#F1DEDA;border-color:#DFC0BA;color:#7E2F22}
+.b-ok{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.pulse{position:relative}
+.pulse::after{
+  content:"";position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid currentColor;opacity:0;animation:pulse 2.6s var(--ease) infinite;
+}
+@keyframes pulse{0%{transform:scale(.7);opacity:.5}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
+
+/* ---------- 卡片 ---------- */
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);
+  box-shadow:var(--sh-1);position:relative;
+}
+.card-pad{padding:26px}
+
+/* ---------- 进场动画 ---------- */
+.rise{animation:rise .58s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- 页脚 ---------- */
+.foot{
+  margin-top:64px;padding:26px 0 40px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12.5px;line-height:1.8;position:relative;z-index:1;
+}
+.foot .inner{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;align-items:flex-start}
+.foot code{font-family:var(--mono);font-size:12px;background:var(--surface-3);padding:1px 6px;border-radius:5px}
+
+html,body{height:100%}
+body{overflow:hidden}
+.shell{display:grid;grid-template-columns:296px minmax(0,1fr);height:100vh;position:relative;z-index:1}
+
+.side{
+  background:rgba(247,245,236,.92);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;min-height:0;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.side .head{padding:18px 18px 12px;border-bottom:1px solid var(--line)}
+.side .head .back{
+  display:inline-flex;align-items:center;gap:7px;font:600 12px/1 var(--sans);color:var(--muted);
+  text-decoration:none;margin-bottom:12px;
+}
+.side .head .back:hover{color:var(--brand)}
+.side .head .t{font-family:var(--serif);font-size:15px;line-height:1.42;letter-spacing:-.01em;color:var(--ink)}
+.side .head .k{margin-top:6px;font:500 10.5px/1.6 var(--mono);color:var(--muted-2);word-break:break-all}
+.side .srch{padding:12px 18px;border-bottom:1px solid var(--line)}
+.side .srch input{
+  width:100%;height:34px;border-radius:9px;border:1px solid var(--line-2);
+  background:var(--surface);padding:0 11px;font:400 12.5px/1 var(--sans);color:var(--ink);
+}
+.side .srch input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(30,87,68,.10)}
+.docs{flex:1;overflow-y:auto;padding:8px 10px 26px;scrollbar-width:thin}
+.grp{margin:12px 0 4px;padding:0 8px;font:700 10px/1.6 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2)}
+.grp .c{font-weight:600;color:var(--muted-2);opacity:.8;letter-spacing:0;text-transform:none}
+.doc{
+  display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:8px;text-decoration:none;
+  color:var(--ink-2);font-size:13px;line-height:1.45;transition:background .13s var(--ease),color .13s var(--ease);
+}
+.doc:hover{background:#fff;color:var(--brand-d)}
+.doc.active{background:var(--brand);color:#F4F8EE;box-shadow:0 6px 16px rgba(30,87,68,.18)}
+.doc .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.doc .n{margin-left:auto;font:500 10.5px/1 var(--mono);opacity:.55}
+
+.main{min-width:0;display:flex;flex-direction:column;min-height:0;position:relative}
+.main .bar{
+  display:flex;align-items:center;gap:12px;min-height:56px;padding:0 26px;
+  border-bottom:1px solid var(--line);background:rgba(241,240,232,.9);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.main .bar .cur{font:600 13px/1.4 var(--sans);color:var(--ink-2);display:flex;align-items:center;gap:9px;min-width:0}
+.main .bar .cur .path{font:500 11px/1.4 var(--mono);color:var(--muted-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.main .bar .sp{flex:1}
+.main .bar .tocbtn{display:none}
+.progress{position:absolute;left:0;right:0;top:0;height:2px;background:transparent;z-index:5}
+.progress i{display:block;height:100%;width:0;background:var(--brand);transition:width .1s linear}
+
+.content{flex:1;overflow-y:auto;padding:0;scroll-behavior:smooth}
+.doc-body{width:auto;margin:0;padding:32px 44px 96px}
+.crumb{
+  display:flex;align-items:center;gap:8px;font:600 11px/1.4 var(--sans);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:10px;
+}
+.crumb b{color:var(--brand);font-weight:700}
+
+/* ---- Markdown 排版 ---- */
+.md{font-size:15.5px;line-height:1.86;color:var(--ink-2)}
+.md > *{max-width:900px}
+.md > .tbl{max-width:min(100%,1120px)}
+.md > :first-child{margin-top:0}
+.md h1{
+  font-family:var(--serif);font-size:clamp(1.75rem,3vw,2.35rem);line-height:1.24;letter-spacing:-.028em;
+  color:var(--ink);margin:0 0 22px;padding-bottom:16px;border-bottom:1px solid var(--line);
+}
+.md h2{
+  font-family:var(--serif);font-size:1.24rem;line-height:1.45;letter-spacing:-.012em;color:var(--ink);
+  margin:38px 0 14px;padding-left:14px;border-left:3px solid var(--brand);
+}
+.md h3{font-family:var(--sans);font-size:1.02rem;font-weight:700;color:var(--ink);margin:24px 0 9px;letter-spacing:0}
+.md h4{font-family:var(--sans);font-size:.94rem;font-weight:700;color:var(--ink-2);margin:18px 0 7px}
+.md p{margin:0 0 14px}
+.md ul,.md ol{margin:0 0 14px;padding-left:1.35em}
+.md li{margin:4px 0}
+.md li > ul,.md li > ol{margin:5px 0 2px}
+.md li::marker{color:var(--brand-l)}
+.md strong{color:var(--ink);font-weight:700}
+.md em{color:var(--ink)}
+.md a{color:var(--brand);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px;text-decoration-color:rgba(30,87,68,.32);transition:background .14s var(--ease)}
+.md a:hover{background:var(--lime-2);text-decoration-color:var(--brand)}
+.md hr{border:0;height:1px;background:var(--line-2);margin:28px 0}
+.md blockquote{
+  margin:16px 0;padding:12px 18px;border-left:3px solid var(--line-2);
+  background:var(--surface-2);border-radius:0 var(--r-1) var(--r-1) 0;color:var(--ink-2);
+}
+.md blockquote p:last-child{margin-bottom:0}
+.md code{
+  font-family:var(--mono);font-size:.855em;background:var(--surface-3);color:#3A4A3E;
+  padding:1.5px 6px;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+.md pre{
+  background:#20261F;color:#E6EADD;border-radius:var(--r-1);padding:16px 18px;overflow-x:auto;
+  font-size:12.5px;line-height:1.7;margin:16px 0;
+}
+.md pre code{background:none;color:inherit;padding:0;font-size:inherit}
+.md .tbl{
+  margin:18px 0;border:1px solid var(--line);border-radius:var(--r-1);overflow:auto;
+  max-height:none;background:var(--surface);scrollbar-width:thin;
+}
+.md .tbl::-webkit-scrollbar{height:9px}
+.md .tbl::-webkit-scrollbar-track{background:var(--surface-2)}
+.md .tbl::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:99px;border:2px solid var(--surface)}
+.md .tbl::-webkit-scrollbar-thumb:hover{background:var(--muted-2)}
+.md table{
+  border-collapse:separate;border-spacing:0;
+  width:100%;font-size:12.5px;line-height:1.6;
+}
+.md thead th{
+  position:sticky;top:0;background:var(--surface-3);z-index:3;
+  font:700 11.5px/1.5 var(--sans);letter-spacing:.04em;color:var(--ink);
+  text-align:left;padding:8px 10px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+}
+.md tbody td{
+  padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;
+  color:var(--ink-2);min-width:84px;
+}
+.md td.nw{white-space:nowrap}
+.md .nw2{white-space:nowrap}
+.md th:first-child,.md td:first-child{position:sticky;left:0;z-index:2;background:var(--surface)}
+.md thead th:first-child{z-index:4}
+.md tbody tr:nth-child(even) td{background:#FAF8F0}
+.md tbody tr:nth-child(even) td:first-child{background:#FAF8F0}
+.md tbody tr:last-child td{border-bottom:0}
+.md tbody tr:hover td{background:var(--lime-2)}
+.md td:first-child{font-variant-numeric:tabular-nums}
+.md td .badge{font-size:10.5px;padding:1px 7px;line-height:1.7}
+.tbl-hint{
+  display:flex;align-items:center;gap:6px;margin:-8px 0 18px;
+  font:500 11.5px/1.6 var(--sans);color:var(--muted-2);letter-spacing:.01em;
+}
+.md .anchor{margin-left:-14px;opacity:0;color:var(--muted-2);font-size:.7em;text-decoration:none;transition:opacity .15s}
+.md h2:hover .anchor,.md h3:hover .anchor{opacity:1}
+
+.empty-note{color:var(--muted);font-size:13.5px;padding:60px 0;text-align:center}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .side{
+    position:fixed;inset:0 auto 0 0;width:288px;z-index:70;transform:translateX(-102%);
+    transition:transform .26s var(--ease);box-shadow:0 0 0 1px var(--line),24px 0 60px rgba(26,33,28,.18);
+  }
+  body.nav-open .side{transform:none}
+  .scrim{position:fixed;inset:0;background:rgba(26,33,28,.28);z-index:65;opacity:0;pointer-events:none;transition:opacity .22s}
+  body.nav-open .scrim{opacity:1;pointer-events:auto}
+  .main .bar{padding:0 14px}
+  .main .bar .tocbtn{display:inline-flex}
+  .doc-body{width:calc(100% - 32px);padding:22px 0 80px;margin-inline:auto}
+  .md > *{max-width:100%}
+}
+</style>
+</head>
+<body class="">
+
+<div class="scrim" id="scrim"></div>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="head">
+      <a class="back" href="速览.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><span>返回事件速览</span></a>
+      <div class="t">尊界V800刹车踏板支架断裂风波（含智界V9误传与复测）</div>
+      <div class="k">evt-20261008-zunjie-v800-brake-pedal · 16 篇文档</div>
+    </div>
+    <div class="srch"><input id="docq" type="search" placeholder="过滤文档名…" autocomplete="off" aria-label="过滤文档"></div>
+    <nav class="docs" id="docs"><div class="grp">核心档案 <span class="c">6</span></div><a class="doc" href="#/timeline" data-doc="timeline" data-name="时间线"><span class="nm">时间线</span></a><a class="doc" href="#/claims" data-doc="claims" data-name="主张与证据"><span class="nm">主张与证据</span></a><a class="doc" href="#/sources" data-doc="sources" data-name="来源登记"><span class="nm">来源登记</span></a><a class="doc" href="#/status" data-doc="status" data-name="状态与待办"><span class="nm">状态与待办</span></a><a class="doc" href="#/narrative" data-doc="narrative" data-name="叙事与用语观察"><span class="nm">叙事与用语观察</span></a><a class="doc" href="#/event" data-doc="event" data-name="事件元数据（yaml）"><span class="nm">事件元数据（yaml）</span></a><div class="grp">巡检日志 <span class="c">3</span></div><a class="doc" href="#/daily-logs/2026-11-02T18-08+08-00" data-doc="daily-logs/2026-11-02T18-08+08-00" data-name="11-02 18:08 巡检"><span class="nm">11-02 18:08 巡检</span></a><a class="doc" href="#/daily-logs/2026-11-03T21-45+08-00" data-doc="daily-logs/2026-11-03T21-45+08-00" data-name="11-03 21:45 巡检"><span class="nm">11-03 21:45 巡检</span></a><a class="doc" href="#/daily-logs/README" data-doc="daily-logs/README" data-name="readme"><span class="nm">README</span></a><div class="grp">来源快照 <span class="c">5</span></div><a class="doc" href="#/snapshots/2026-11-03-S-013" data-doc="snapshots/2026-11-03-S-013" data-name="11-03 · s-013"><span class="nm">11-03 · S-013</span></a><a class="doc" href="#/snapshots/README" data-doc="snapshots/README" data-name="readme"><span class="nm">README</span></a><a class="doc" href="#/snapshots/S-006_第三方检测_事实汇编" data-doc="snapshots/S-006_第三方检测_事实汇编" data-name="s-006_第三方检测_事实汇编"><span class="nm">S-006_第三方检测_事实汇编</span></a><a class="doc" href="#/snapshots/S-008_首发与车企回应_事实汇编" data-doc="snapshots/S-008_首发与车企回应_事实汇编" data-name="s-008_首发与车企回应_事实汇编"><span class="nm">S-008_首发与车企回应_事实汇编</span></a><a class="doc" href="#/snapshots/S-010-S-011_官方与调查组_事实汇编" data-doc="snapshots/S-010-S-011_官方与调查组_事实汇编" data-name="s-010-s-011_官方与调查组_事实汇编"><span class="nm">S-010-S-011_官方与调查组_事实汇编</span></a><div class="grp">报道元数据 <span class="c">1</span></div><a class="doc" href="#/reports/README" data-doc="reports/README" data-name="readme"><span class="nm">README</span></a><div class="grp">版本差异 <span class="c">1</span></div><a class="doc" href="#/diffs/README" data-doc="diffs/README" data-name="readme"><span class="nm">README</span></a></nav>
+  </aside>
+  <div class="main">
+    <div class="progress"><i id="bar"></i></div>
+    <div class="bar">
+      <button class="btn btn-ghost btn-sm tocbtn" id="menu" aria-label="打开文档列表"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="cur"><span id="curName">档案</span><span class="path" id="curPath"></span></div>
+      <div class="sp"></div>
+      <a class="navlink" href="速览.html">速览</a>
+      <a class="navlink" href="../../速览.html">总览</a>
+    </div>
+    <div class="content" id="content">
+      <div class="doc-body">
+        <article class="doc-sec" data-doc="timeline" data-title="时间线" data-sub="timeline.md" hidden><div class="md"><h1>时间线</h1>
+<p>仅列有来源支撑的条目。事件发生时间与报道发布时间分别记录；时间不明时写 <span class="badge b-unver">unknown</span>。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>事件发生时间</th>
+<th>报道发布时间</th>
+<th>记录时间</th>
+<th>描述</th>
+<th>主张 ID</th>
+<th>来源 ID</th>
+<th>证据状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-01~10-04</td>
+<td class="nw">2026-10-08</td>
+<td class="nw">2026-11-02</td>
+<td>懂车帝自购三台全新尊界V800（不同批次，<wbr/>第三台约3km里程），<wbr/>封闭场地100km/h-0全力制动；<wbr/>三台分别在第3/4/2次制动时刹车踏板支架断裂，<wbr/>断裂位置相同、<wbr/>断口形态接近；<wbr/>第三台断裂瞬间踏板力读数1612N（网传4589N系高速摄像机拍液晶屏帧率不同留下的数字残影）；<wbr/>断裂后踩踏面消失，<wbr/>靠P挡应急减速，<wbr/>停车距离约140m（正常约38m）。</td>
+<td>C-001,C-002,C-003</td>
+<td>S-008,S-009</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-08 上午</td>
+<td class="nw">2026-10-08</td>
+<td class="nw">2026-11-02</td>
+<td>懂车帝发布测试视频；<wbr/>江淮汽车盘中跌停收24.72元/股，<wbr/>市值单日蒸发超60亿元；<wbr/>鸿蒙智行回应『尚未接到相关反馈，<wbr/>交付周期正常』；<wbr/>江淮对央视财经称『正在调查和测试』。</td>
+<td class="nw">C-010</td>
+<td>S-002,S-008</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-08 中午</td>
+<td class="nw">2026-10-08</td>
+<td class="nw">2026-11-02</td>
+<td>懂车帝再发视频扩大对比：智界V9连续5脚100km/h-0制动（平均踏板力1700+N）未断裂；<wbr/>阿维塔、<wbr/>小鹏、<wbr/>理想、<wbr/>保时捷、<wbr/>问界等多款竞品6脚全力制动均未断。</td>
+<td class="nw">C-005</td>
+<td>S-008,S-004</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-08 晚</td>
+<td class="nw">2026-10-08</td>
+<td class="nw">2026-11-02</td>
+<td>尊界汽车发布《关于尊界汽车制动踏板支架底座相关问题的情况说明》：制动系统按高于国标（GB 21670-2025/GB 7258-2026）、<wbr/>高于行标（QC/T 788-2018）完成开发验证；<wbr/>用户实际场景未发生断裂；<wbr/>将优化设计并为已交付用户免费升级；<wbr/>对设计验证、<wbr/>试验边界、<wbr/>生产质量做系统性复核。</td>
+<td class="nw">C-004</td>
+<td>S-008,S-002</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-09</td>
+<td class="nw">2026-10-09</td>
+<td class="nw">2026-11-02</td>
+<td>懂车帝放出智界、<wbr/>小鹏、<wbr/>理想、<wbr/>阿维塔、<wbr/>保时捷等同类制动测试，<wbr/>支架均未断；<wbr/>风波中尊界V800现车仍加价数千至约1万元。</td>
+<td class="nw">C-005</td>
+<td class="nw">S-002</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-10</td>
+<td class="nw">2026-10-10</td>
+<td class="nw">2026-11-02</td>
+<td>长安汽车证实9日收到中汽中心（中国汽车技术研究中心）制动踏板总成材质调研问卷，<wbr/>关注非金属材质应用，<wbr/>业内认为或推动相关标准修订；<wbr/>岚图、<wbr/>广汽本田、<wbr/>猛士、<wbr/>仰望等高管密集晒自家踏板结构。</td>
+<td>—</td>
+<td>S-002,S-003</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-11</td>
+<td>2026-10-11~13</td>
+<td class="nw">2026-11-02</td>
+<td>尊界客服向界面确认升级方案预计10月底确认、<wbr/>11月起陆续升级；<wbr/>已提车用户可预约登记，<wbr/>未发运车辆升级后交付。同日国家认可第三方检测机构检验尊界V800制动踏板。</td>
+<td class="nw">C-004</td>
+<td>S-002,S-006</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-13</td>
+<td class="nw">2026-10-13</td>
+<td class="nw">2026-11-02</td>
+<td>尊界公布《尊界V800制动踏板检测情况说明》（央广网等报道）：10月11日第三方检测，<wbr/>纵向力1500N检验符合QC/T 788-2018（位移均值2.61mm≤5mm）；<wbr/>加严至纵向力3000N（加载速度20mm/min，<wbr/>保持5s解除，<wbr/>共5次，<wbr/>检测14个踏板总成），<wbr/>目视均未出现裂纹和损坏。</td>
+<td class="nw">C-004</td>
+<td>S-006,S-007</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-15</td>
+<td class="nw">2026-10-15</td>
+<td class="nw">2026-11-02</td>
+<td>新华社通报：针对网络反映的『尊界V800汽车刹车踏板支架断裂问题』，<wbr/>工信部、<wbr/>中央网信办、<wbr/>市场监管总局成立联合调查组开展核查，<wbr/>依法依规处理，<wbr/>情况及时公布；<wbr/>尊界当日声明『积极响应、<wbr/>完全服从并将全力配合』。</td>
+<td class="nw">C-007</td>
+<td>S-009,S-010</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-16~17</td>
+<td>2026-10-16~17</td>
+<td class="nw">2026-11-02</td>
+<td>网传懂车帝下架涉事尊界制动测试视频，<wbr/>7月后部分作品同步失效，<wbr/>未公开说明原因，<wbr/>『删除争议』接棒『断裂争议』。</td>
+<td class="nw">C-008</td>
+<td>S-002,S-009</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-26</td>
+<td class="nw">2026-10-26</td>
+<td class="nw">2026-11-02</td>
+<td>停更多日的尊界汽车微博恢复日常更新，<wbr/>发布尊界S800典藏大观宣传图。</td>
+<td>—</td>
+<td class="nw">S-002</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-28</td>
+<td class="nw">2026-10-28</td>
+<td class="nw">2026-11-02</td>
+<td>新华网财经观察发文，<wbr/>从江淮汽车尊界V800风波看汽车安全评测体系。</td>
+<td>—</td>
+<td class="nw">S-003</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-10-31</td>
+<td class="nw">2026-10-31</td>
+<td class="nw">2026-11-02</td>
+<td>懂车帝复测智界V9、<wbr/>岚图梦想家9、<wbr/>理想MEGA三款高端MPV：爬坡30/40/50%（约26.57°），<wbr/>智界V9在50%坡动力不足未通过（车手判动力跟不上），<wbr/>岚图/理想全通过；<wbr/>制动测试均未断，<wbr/>三车刹车距离安全范围（岚图最好，<wbr/>智界V9靠后）；<wbr/>完整视频难搜到，<wbr/>全网剩零散切片。</td>
+<td class="nw">C-009</td>
+<td class="nw">S-005</td>
+<td><span class="badge b-partial">partially_verified</span></td>
+</tr>
+<tr>
+<td class="nw">2026-11-02</td>
+<td>—</td>
+<td class="nw">2026-11-02</td>
+<td>本次建档核查：三部门联合调查组结果尚未公布；<wbr/>尊界V800事件未结；<wbr/>智界V9实测未断、<wbr/>『智界V9刹车踩断3次』系误传已澄清。用户原表述『智界刹车踏板断裂』为事实偏差，<wbr/>真实断裂车型为尊界V800。</td>
+<td class="nw">C-007</td>
+<td>—</td>
+<td>unknown（待公布）</td>
+</tr>
+<tr>
+<td class="nw">2026-10-10</td>
+<td class="nw">2026-10-10</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:45+08:00</span></td>
+<td>工信部会同公安部、<wbr/>生态环境部、<wbr/>市场监管总局发布《关于进一步加强汽车产品创新设计和研发测试验证有关管理工作的通知（征求意见稿）》，<wbr/>明确 2027 年起新申报车型需开展全维度创新设计安全核验，<wbr/>存量车型限期补全验证材料。非专为尊界，<wbr/>但与踏板事件同属"安全验证"议题。</td>
+<td>—</td>
+<td class="nw">S-014</td>
+<td>partially_verified（政策层，<wbr/>与事件强相关）</td>
+</tr>
+<tr>
+<td>2026-10 月底～11 月起</td>
+<td>2026-11-01（报道）</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:45+08:00</span></td>
+<td>尊界免费升级方案 11 月起陆续启动：覆盖已交付 V800 与 S800 典藏大观车主，<wbr/>预约后到店免费更换踏板总成；<wbr/>未发运车辆直接装升级件。官方与客服定性为"优化/提升安全冗余"而非"召回"，<wbr/>并明确已提车车主可选择不升级（非强制）。中国汽研检测：1500N 纵向力永久变形 2.61mm（限值 5.0mm）、<wbr/>加严至 3000N 仍无裂纹。</td>
+<td>C-004、<wbr/>C-011</td>
+<td>S-013、<wbr/>S-015、<wbr/>S-016、<wbr/>S-018</td>
+<td>corroborated（官方客服口径+报道）</td>
+</tr>
+<tr>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:45+08:00</span></td>
+<td>截至本次巡检，<wbr/>三部门（工信/网信/市场监管）联合调查组结论仍未公布；<wbr/>媒体综述称事件已从企业自主处理升级为监管缺陷调查，<wbr/>最终定性（系统性缺陷→强制召回 vs 自愿升级收尾）待公布。</td>
+<td class="nw">C-007</td>
+<td>S-014、<wbr/>S-015、<wbr/>S-019</td>
+<td>unknown（结论待公布）</td>
+</tr>
+<tr>
+<td>2026-10 下旬～11 月</td>
+<td class="nw">2026-11-03</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:45+08:00</span></td>
+<td>召回争议：专家称三台不同批次同位置断裂可认定共性质量问题、<wbr/>理论上符合召回条件，<wbr/>但最终是否强制召回取决于监管缺陷认定；<wbr/>尊界以"非强制免费升级"回应。江淮汽车受事件冲击，<wbr/>两个交易日市值蒸发约 117 亿元。</td>
+<td class="nw">C-012</td>
+<td>S-015、<wbr/>S-019</td>
+<td>partially_verified（专家观点；<wbr/>强制召回待监管认定）</td>
+</tr>
+</tbody>
+</table></div></div></article><article class="doc-sec" data-doc="claims" data-title="主张与证据" data-sub="claims.md" hidden><div class="md"><h1>关键主张</h1>
+<p>每条主张使用稳定 ID（如 <code>C-001</code>），拆分复合陈述。证据需关联 <code>sources.md</code> 的来源 ID；明确区分直接证据、转述、推断和未知。</p>
+<h2>C-001 — 三台全新尊界V800在懂车帝100km/h-0全力制动测试中刹车踏板支架断裂（断裂位置高度一致）</h2>
+<ul>
+<li>表述：懂车帝自购的三台不同批次全新尊界V800，在封闭场地100km/h-0连续全力制动中，刹车踏板支架分别于第2~4次制动时断裂，断口形态接近、断裂位置一致。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：懂车帝测试视频（经 S-008/S-009 转引）；车企10月8日声明未否认断裂事实，仅归为『非标准极端工况』（见 C-004）。</li>
+<li>反驳/限制证据：车企主张属『非标准极端测试工况』，日常使用未发生；是否『暴力测试』存争议（见 C-002）。</li>
+<li>推断与限制：断裂事实本身被多方确认，争议在工况合理性与设计余量，不在『是否断』。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：多来源一致，车企未否认。</li>
+</ul>
+<h2>C-002 — 断裂瞬间踏板力约1612N，未超过静态台架标准门槛；是否『暴力测试』存争议</h2>
+<ul>
+<li>表述：懂车帝称第三台车断裂瞬间踏板力读数1612N（前一次1596N），网传『4589N』系拍摄残影；该值未超过行标 QC/T 788-2018 静态加载门槛（约1500~2000N）。</li>
+<li>核实状态：<span class="badge b-disputed">disputed</span></li>
+<li>支持证据：懂车帝传感器读数、对4589N残影的解释（S-008/S-009）；行标静态加载门槛。</li>
+<li>反驳/限制证据：舆论质疑『连续全力重刹』本身非常规；『静态单点加载』与『连续动态冲击』差异是核心分歧（S-003 分析）；一线豪华品牌内控目标多在2700~4500N，尊界余量偏低。</li>
+<li>推断与限制：1612N是否『超常』取决于工况定义；标准缺口（动态连续冲击未强制）是争议核心。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：事实读数多源一致，但工况合理性 dispute。</li>
+</ul>
+<h2>C-003 — 网传『踏板力4589N』系高速摄像机拍液晶屏帧率不同留下的数字残影，真实峰值约1612N</h2>
+<ul>
+<li>表述：视频截图中出现的4589N为高速摄像机拍液晶屏时帧率不同留下的数字残影，真实峰值为1612N。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：懂车帝官方解释（S-008/S-009）。</li>
+<li>反驳/限制证据：仅为单方解释，未见独立帧级核验公开材料。</li>
+<li>推断与限制：技术上讲帧率不同可造成屏幕数字残影，合理但未被独立验证。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：单方解释，待独立核验。</li>
+</ul>
+<h2>C-004 — 尊界V800制动系统满足高于国标/行标验证，用户实际场景未发生断裂；第三方检测1500N合格、加严3000N未裂；承诺免费升级</h2>
+<ul>
+<li>表述：尊界称制动系统按高于 GB 21670-2025/GB 7258-2026、高于 QC/T 788-2018 完成验证，用户实际场景未发生踏板支架底座断裂；10月11日第三方检测1500N符合行标、加严至3000N未现裂纹损坏；将为已交付用户免费升级。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：尊界10月8日声明（S-008/S-002）、10月13日第三方检测（S-006/S-007）；中国汽研（中国汽车工程研究院）检测中心静态检测：1500N 纵向力永久变形均值 2.61mm（限值 5.0mm）、加严至 3000N 仍无裂纹（S-013）；11 月起免费升级启动、覆盖 V800 与 S800 典藏大观、官方称"非召回/非强制"（S-013、S-015、S-016、S-018）。</li>
+<li>反驳/限制证据：第三方检测为『静态缓慢加载』（20mm/min），与懂车帝『连续动态冲击』工况不同（S-009 指出『静态合规≠动态安全』）；车企未否认设计余量不足，承认『极端受力冗余需提升』。</li>
+<li>推断与限制：静态检测合格不直接否定动态测试失效；免费升级变相承认余量不足。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：声明与检测可核；补充中国汽研检测数值（2.61mm/3000N）与 11 月升级启动进展；动态/静态分歧与升级执行质量仍待调查组与官方落地检验。</li>
+</ul>
+<h2>C-005 — 智界V9（奇瑞/华为）刹车踏板在同工况测试中未断裂；『智界V9刹车踩断3次』系误传</h2>
+<ul>
+<li>表述：懂车帝复测中，智界V9连续5脚100km/h-0制动（平均踏板力1700+N）未断裂；多款竞品6脚全力制动均未断。将『尊界V800断裂』与『智界V9』混为一谈属误传。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：懂车帝复测视频（S-008/S-004）、新浪等澄清（S-004）；智界V9受力摇臂为钢制、外壳PP-GF40仅支撑，与尊界V800结构不同。</li>
+<li>反驳/限制证据：智界V9后续 10-31 爬坡复测未通过50%坡（动力不足，非制动），但与踏板断裂无关（见 C-009）。</li>
+<li>推断与限制：用户原表述『智界刹车踏板断裂』与事实不符，断裂主体为尊界V800。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：多源复测一致，误传已澄清。</li>
+</ul>
+<h2>C-006 — 断裂根因指向设计余量不足：踏板力臂约130mm（竞品约105mm）、转轴单层立板（竞品2~3层）、熔接痕位于应力集中区</h2>
+<ul>
+<li>表述：拆解分析显示尊界V800制动踏板中心距转轴轴线约130mm（竞品约105mm），转轴区仅单层立板，PP-GF40熔接痕恰好落在应力最集中区；三者叠加在连续动态冲击下吃光设计余量。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：懂车帝拆解与对比（S-008）、行业分析（S-003；同供应商同材质问界/智界支架料厚更厚、2~3层加强筋，6脚未断）。</li>
+<li>反驳/限制证据：属工程分析与推断，官方未确认；车企称满足标准验证。</li>
+<li>推断与限制：分析层面高度可信，但『是否系统性缺陷』需调查组认定。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：多源拆解一致，待官方/监管认定。</li>
+</ul>
+<h2>C-007 — 工信部、中央网信办、市场监管总局成立联合调查组核查『尊界V800刹车踏板支架断裂问题』</h2>
+<ul>
+<li>表述：2026-10-15 新华社通报，三部门针对网络反映的尊界V800刹车踏板支架断裂问题成立联合调查组，依法核查处理，情况及时公布；尊界声明全力配合。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：新华社通报（经 S-009/S-010 转引）、尊界回应。</li>
+<li>反驳/限制证据：截至2026-11-03 增量巡检，调查结论仍未公布；媒体综述确认事件已从企业自主处理升级为监管缺陷调查，最终定性（系统性缺陷→强制召回 vs 自愿升级收尾）待公布。</li>
+<li>推断与限制：监管介入确认事件重大性；结论与处理措施待公布决定事件走向。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：官方通报可核；截至本次巡检结论仍待公布，维持 corroborated（就调查组成立事实）。</li>
+</ul>
+<h2>C-008 — 懂车帝涉事尊界制动测试视频被下架/部分作品失效（『删除争议』）</h2>
+<ul>
+<li>表述：2026-10-16~17 网传懂车帝下架涉事尊界制动测试视频，且7月后部分作品同步失效，未公开说明原因。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：网传与媒体转述（S-002/S-009）。</li>
+<li>反驳/限制证据：未见懂车帝官方说明；平台下架原因未公开；页面打不开不证明删除。</li>
+<li>推断与限制：属叙事层争议（『删除争议』接棒『断裂争议』），与事实主张分开保存。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：网传为主，待平台/实测核查。</li>
+</ul>
+<h2>C-009 — 2026-10-31 懂车帝复测智界V9等三款MPV：爬坡50%未通过（动力不足），但制动未断</h2>
+<ul>
+<li>表述：懂车帝复测智界V9、岚图梦想家9、理想MEGA，爬坡30/40/50%，智界V9在50%坡（约26.57°）动力跟不上未通过；制动测试三车均未断，刹车距离安全范围（岚图最好，智界V9靠后）；完整视频难搜到。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：腾讯新闻等报道（S-005）。</li>
+<li>反驳/限制证据：50%坡超常规（地下车库约15%），是否构成缺陷有争议；制动未断与踏板事件无直接关联但同属『复测』风波。</li>
+<li>推断与限制：爬坡动力问题独立于踏板断裂；完整视频不可见，结论基于零散切片与报道。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：媒体报道可核，原视频不可见。</li>
+</ul>
+<h2>C-010 — 江淮汽车2026-10-08跌停，市值单日蒸发超60亿元</h2>
+<ul>
+<li>表述：受事件影响，江淮汽车（600418.SH）10月8日盘中跌停，收报24.72元/股，市值单日蒸发超60亿元。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：多家媒体报道（S-002/S-008）。</li>
+<li>反驳/限制证据：股价波动多因素，直接归因需谨慎。</li>
+<li>推断与限制：资本市场即时反应显著，反映事件影响面。</li>
+<li>最近评估时间：2026-11-02</li>
+<li>状态变更理由：多源报道一致。</li>
+</ul>
+<h2>C-011 — 免费升级 11 月启动，定性"优化/提升冗余"而非"召回"，非强制</h2>
+<ul>
+<li>表述：尊界方案 11 月起陆续启动免费升级，覆盖已交付 V800 与 S800 典藏大观车主，预约后到店免费更换踏板总成；未发运车辆直接装升级件。官方与客服明确"不是召回"、称系"提升安全冗余的优化措施"，并确认已提车车主可自主选择不升级（非强制）。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：新浪汽车 FAQ（S-013）列明升级时间表、覆盖范围与"非召回"定性；客服口径经大象新闻/微信（S-016）、今日头条（S-018）、今日头条综述（S-015）一致复述；中国汽研检测 1500N 变形 2.61mm、3000N 无裂（S-013）。</li>
+<li>反驳/限制证据：升级具体改动内容、覆盖批次与执行质量未完全公开；"非强制"意味着未主动申请者继续使用原踏板设计，与法定召回"强制通知、全覆盖"属性不同；检测仅对送检样品负责。</li>
+<li>推断与限制：可确认"企业已启动自愿免费升级并避开召回定性"，不能据此认定监管已排除缺陷或用户安全已全覆盖。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：本轮新增 11 月升级启动与"非召回"定性报道（S-013～S-018），与 C-004 衔接。</li>
+</ul>
+<h2>C-012 — 召回争议与监管最终定性待定</h2>
+<ul>
+<li>表述：专家（黄河科技学院客座教授张翔）称，三台不同批次同位置断裂可认定为共性质量问题，按召回管理办法理论上可触发召回；但最终是否强制召回取决于监管部门的缺陷认定。尊界以"非强制免费升级"回应。江淮汽车受事件冲击，两个交易日市值蒸发约 117 亿元。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：专家观点经今日头条/大象新闻报道（S-019）；市值蒸发数据见综述（S-015）；尊界"非召回"口径见 S-013/S-015/S-016/S-018。</li>
+<li>反驳/限制证据：专家观点为个别判断，非监管结论；强制召回与否以监管部门缺陷认定为准；市值波动多因素，直接归因需谨慎。</li>
+<li>推断与限制：可确认"存在召回争议、监管定性待定"，不把专家"理论上符合召回"当作已触发召回。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：本轮新增召回争议与资本市场冲击报道（S-015、S-019），列为 partially_verified 主张。</li>
+</ul></div></article><article class="doc-sec" data-doc="sources" data-title="来源登记" data-sub="sources.md" hidden><div class="md"><h1>来源登记</h1>
+<p>来源可访问状态仅描述本次访问观察，不代表事实状态。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>来源 ID</th>
+<th>URL</th>
+<th>发布者/作者</th>
+<th>标题</th>
+<th>报道发布时间</th>
+<th>首次发现</th>
+<th>最近核查</th>
+<th>可访问状态</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="nw">S-001</td>
+<td>https://www.huxiu.com/article/4901220.html</td>
+<td>虎嗅网</td>
+<td>一根踏板的三次断裂：测试太暴力，<wbr/>还是冗余不够？</td>
+<td>约2026-10中旬</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>深度分析三台断裂与车企回应分寸</td>
+</tr>
+<tr>
+<td class="nw">S-002</td>
+<td>https://post.m.smzdm.com/p/ad7meg3n</td>
+<td>什么值得买社区</td>
+<td>三部门进场、<wbr/>踏板换件、<wbr/>月销37490台：鸿蒙智行这个风波月</td>
+<td>约2026-10-29</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>10-08至10-29时间线分层（已定事实/未定争议/混进来的说法）</td>
+</tr>
+<tr>
+<td class="nw">S-003</td>
+<td>https://youjia-pc.bdstatic.com/article/9610914843089342488.html</td>
+<td>有驾</td>
+<td>工信部等三部门出手，<wbr/>联合调查！有关车辆刹车踏板支架断裂问题</td>
+<td>约2026-10-15后</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>PP-GF40材料与结构余量分析、<wbr/>一线豪华品牌内控目标</td>
+</tr>
+<tr>
+<td class="nw">S-004</td>
+<td>https://www.sina.cn/gc/article/nivysyi5476235.html</td>
+<td>新浪网</td>
+<td>智界V9刹车踩断3次是真是假？6脚重刹实测3组数据说清FAQ</td>
+<td>约2026-10-09后</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>澄清智界V9未断、<wbr/>结构差异、<wbr/>误传说明</td>
+</tr>
+<tr>
+<td class="nw">S-005</td>
+<td>https://news.qq.com/rain/a/20261031A0E1A400</td>
+<td>腾讯新闻</td>
+<td>刹车事件后，<wbr/>懂车帝又来测试华为智界了！视频又「消失」了！</td>
+<td class="nw">2026-10-31</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>10-31 智界V9复测（爬坡/制动/滤震）</td>
+</tr>
+<tr>
+<td class="nw">S-006</td>
+<td>https://www.cnr.cn/jingji/ycbd/20261013/t20261013_527840494.shtml</td>
+<td>央广网（记者齐智颖）</td>
+<td>尊界汽车：尊界V800制动踏板，<wbr/>检测后「未出现裂纹和损坏」</td>
+<td class="nw">2026-10-13</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>第三方检测情况说明要点</td>
+</tr>
+<tr>
+<td class="nw">S-007</td>
+<td>https://www.toutiao.com/article/7695975309878821419</td>
+<td>上海证券报（上证报中国证券网）</td>
+<td>尊界最新回应！国家认可的第三方检测来了</td>
+<td class="nw">2026-10-13</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>检测细节（1500N合格、<wbr/>3000N×5次×14总成未裂）、<wbr/>升级预约</td>
+</tr>
+<tr>
+<td class="nw">S-008</td>
+<td>https://www.163.com/dy/article/L8O6UVMK051492LM.html</td>
+<td>都市快报橙柿互动（浙江）</td>
+<td>江淮汽车、<wbr/>鸿蒙智行回应「尊界V800刹车踏板支架被踩断」</td>
+<td class="nw">2026-10-08</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>首发详情、<wbr/>复测对比数据、<wbr/>股价</td>
+</tr>
+<tr>
+<td class="nw">S-009</td>
+<td>https://news.qq.com/rain/a/20261019A043T500</td>
+<td>腾讯新闻</td>
+<td>尊界V800刹车踏板支架断裂争议持续：懂车帝复测多车未断裂，<wbr/>三部门已介入联合调查</td>
+<td class="nw">2026-10-19</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>复测多车未断、<wbr/>三部门调查、<wbr/>静态vs动态争议；<wbr/>转引新华社10-15通报</td>
+</tr>
+<tr>
+<td class="nw">S-010</td>
+<td>原文URL待补（本轮未取得）</td>
+<td>新华社</td>
+<td>三部门针对「尊界V800汽车刹车踏板支架断裂问题」成立联合调查组（2026-10-15通报）</td>
+<td class="nw">2026-10-15</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-partial">access_restricted</span></td>
+<td>官方通报，<wbr/>最权威；<wbr/>本轮经 S-009/S-003 转引，<wbr/>原文链接待补登</td>
+</tr>
+<tr>
+<td class="nw">S-011</td>
+<td>官微原文URL待补（本轮未取得）</td>
+<td>尊界汽车官方</td>
+<td>《关于尊界汽车制动踏板支架底座相关问题的情况说明》（2026-10-08）、<wbr/>配合调查声明（2026-10-15）</td>
+<td>2026-10-08、<wbr/>2026-10-15</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-partial">access_restricted</span></td>
+<td>车企官方立场；<wbr/>本轮经 S-008/S-009 转引，<wbr/>官微原文链接待补登</td>
+</tr>
+<tr>
+<td class="nw">S-012</td>
+<td>原始视频URL待补（平台疑似下架，<wbr/>见 C-008）</td>
+<td>懂车帝</td>
+<td>尊界V800 100km/h-0紧急制动测试视频（事件源头）</td>
+<td class="nw">2026-10-08</td>
+<td class="nw">2026-11-02</td>
+<td class="nw">2026-11-02</td>
+<td><span class="badge b-partial">access_restricted</span></td>
+<td>事件源头视频；<wbr/>网传下架/失效，<wbr/>待核验原始链接与可访问性</td>
+</tr>
+<tr>
+<td class="nw">S-013</td>
+<td>https://auto.sina.cn/2026-11-01/detail-inixetzz6804463.d.html</td>
+<td>新浪汽车</td>
+<td>尊界V800刹车踏板断裂最新消息：免费升级三台断裂真相，<wbr/>现在买吗？FAQ</td>
+<td class="nw">2026-11-01</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>accessible（内容经检索集成取得）</td>
+<td>中国汽研检测中心静态检测：1500N 纵向力永久变形均值 2.61mm（限值 5.0mm）、<wbr/>加严至 3000N 仍无裂纹；<wbr/>免费升级 11 月落地、<wbr/>覆盖 V800 与 S800 典藏大观；<wbr/>机构声明仅对送检样品负责。属 FAQ 型整理。</td>
+</tr>
+<tr>
+<td class="nw">S-014</td>
+<td>https://news.qq.com/rain/a/20261103A09H4H00</td>
+<td>腾讯新闻</td>
+<td>一脚刹车，<wbr/>踩醒了汽车业</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>accessible（内容经检索集成取得）</td>
+<td>综述：10-10 工信部等四部门发布创新设计安全核验征求意见稿（2027 年起新车型全维度核验）；<wbr/>卢放"用钢还是塑料不是重点"发言；<wbr/>10-15 三部门联合调查组成立；<wbr/>"联合调查结论尚未公布，<wbr/>断裂原因有待权威认定"。</td>
+</tr>
+<tr>
+<td class="nw">S-015</td>
+<td>https://www.toutiao.com/w/1880609300933642/</td>
+<td>今日头条（番茄西红柿 等综述）</td>
+<td>尊界V800"刹车门"核心进展综述</td>
+<td>2026-11-03 前后（页面显示）</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>accessible（内容经检索集成取得）</td>
+<td>综述：监管调查介入但结论未出；<wbr/>官方方案时间表明确但定性避开"召回"，<wbr/>称"优化措施"、<wbr/>已提车可不选升级；<wbr/>10-13 第三方检测 1500N 合格、<wbr/>3000N 无裂；<wbr/>江淮两个交易日市值蒸发约 117.67 亿元。</td>
+</tr>
+<tr>
+<td class="nw">S-016</td>
+<td>http://mp.weixin.qq.com/s?__biz=MjM5MTI3MTY3Mg==&amp;mid=2651668779&amp;idx=2&amp;sn=257c150466edcbc1e5a6e3cf699a0476</td>
+<td>大象新闻 / 微信</td>
+<td>尊界V800刹车踏板"免费升级"追踪（客服：月底确认方案，<wbr/>11月启动，<wbr/>不是召回）</td>
+<td>2026-10-09（报道）</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>accessible（内容经检索集成取得）</td>
+<td>客服口径：10 月底确认方案、<wbr/>11 月启动、<wbr/>新订单直接装升级件；<wbr/>强调免费、<wbr/>明确"不是召回"、<wbr/>已提车可不选升级；<wbr/>转述懂车帝对 4589N 残影的解释（真实峰值 1612N）。</td>
+</tr>
+<tr>
+<td class="nw">S-017</td>
+<td>https://m.thepaper.cn/newsdetail_forward_34241352</td>
+<td>澎湃新闻（引第一财经）</td>
+<td>尊界公布制动踏板第三方检测结果：符合行标，<wbr/>加严至3000N未现裂纹损坏</td>
+<td class="nw">2026-10-13</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>accessible（内容经检索集成取得）</td>
+<td>复述 10-13《尊界V800制动踏板检测情况说明》：1500N 符合 QC/T 788-2018、<wbr/>加严至 3000N 未裂；<wbr/>与 S-006/S-007 同源。</td>
+</tr>
+<tr>
+<td class="nw">S-018</td>
+<td>https://www.toutiao.com/article/7694595681134068278/</td>
+<td>今日头条（齐鲁壹点）</td>
+<td>尊界V800刹车踏板"免费升级"，<wbr/>客服称不是召回，<wbr/>非强制</td>
+<td>2026-10-09 17:21</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>accessible（内容经检索集成取得）</td>
+<td>客服与门店走访：升级非强制、<wbr/>非召回；<wbr/>门店销售确认会升级但"具体怎么改不知道"；<wbr/>部分车主担忧、<wbr/>销售称此前无提车车主踩断。</td>
+</tr>
+<tr>
+<td class="nw">S-019</td>
+<td>https://m.toutiao.com/article/7695689369197330994</td>
+<td>今日头条（大象新闻）</td>
+<td>三辆尊界V800刹车踏板支架断裂，<wbr/>有车主准备卖车，<wbr/>专家：理论上符合召回条件</td>
+<td>2026-10-09 前后</td>
+<td class="nw">2026-11-03</td>
+<td class="nw">2026-11-03</td>
+<td>accessible（内容经检索集成取得）</td>
+<td>专家（张翔）称三台不同批次同位置断裂可认定共性质量问题、<wbr/>理论上符合召回条件，<wbr/>是否强制召回取决于监管缺陷认定；<wbr/>有车主退订/卖车、<wbr/>二手车回收折价；<wbr/>尊界以非强制免费升级回应。</td>
+</tr>
+</tbody>
+</table></div>
+<h2>报道版本</h2>
+<p>每个版本实际取得后记录：来源 ID、版本 ID、观察时间、取得方式、原始/规范化文件路径、HTTP 状态（如可见）、许可说明、哈希算法与值（只对真实保存字节计算）。无法保存全文时记摘要、必要短引文及限制原因。不得预填虚构值。</p>
+<ul>
+<li>本次（2026-11-02）对 S-006、S-008、S-010/S-011 保存<strong>事实汇编/摘要型文字快照</strong>（见 <code>snapshots/</code>），不保存原文全文（版权与可访问性限制）。快照文件明确标注为「事实汇编/摘要型文字快照」，不得冒充来源原文。</li>
+<li>S-012 原始视频未在本轮取得，记录为待补；可访问性以 C-008 网传下架为准，待实测核验。</li>
+<li>S-013～S-019 为 2026-11-03T21:45 增量巡检窗口新增（升级启动与"非召回"定性、中国汽研检测细节、四部门征求意见稿、召回争议与市值冲击）；均经检索集成取得，未保存完整正文字节。各来源可访问状态仅描述本次观察。</li>
+<li>后续若取得原文，按 <code>reports/</code> + <code>snapshots/</code> 规范补充版本与哈希。</li>
+</ul></div></article><article class="doc-sec" data-doc="status" data-title="状态与待办" data-sub="status.md" hidden><div class="md"><h1>当前状态</h1>
+<ul>
+<li>事件状态：<code>developing</code></li>
+<li>截至时间：2026-11-03T21:45+08:00</li>
+<li>最近核查时间：2026-11-03T21:45+08:00</li>
+<li>状态依据：核心事实（三台尊界V800在懂车帝测试中踏板支架断裂、车企未否认、10月13日第三方检测、10月15日三部门联合调查组）已确证。本轮（11-03）更新：免费升级 11 月起陆续启动，覆盖 V800 与 S800 典藏大观，官方定性为"优化/提升冗余"而非"召回"、非强制（C-011）；中国汽研检测 1500N 纵向力永久变形 2.61mm（限值 5.0mm）、加严至 3000N 仍无裂纹（C-004）；10-10 工信部等四部门发布创新设计安全核验征求意见稿（政策层）。<strong>截至 11-03，三部门联合调查组结论仍未公布</strong>（C-007， unknown），最终定性（系统性缺陷→强制召回 vs 自愿升级）待定；专家称理论上符合召回条件，尊界以非强制免费升级回应，江淮市值两个交易日蒸发约 117 亿元（C-012）。懂车帝涉事视频下架原因未公开。事件未结。</li>
+<li>阶段性结案条件/理由：不适用；事件仍在发展（监管调查未出结论）。</li>
+<li>重新激活条件：三部门调查结论公布且出现新事实；出现召回或处罚；关联车型出现独立可核实问题。</li>
+<li>待办与未决问题：<br/>
+  1. 三部门联合调查组最终结论与处理措施（最关键，待公布）；<br/>
+  2. 免费升级方案细节、覆盖批次与启动时间；<br/>
+  3. 断裂根因的官方/权威认定（设计余量 vs 特定批次）；<br/>
+  4. 懂车帝视频下架原因与范围核实；<br/>
+  5. 召回与否的官方定调；<br/>
+  6. 智界V9等关联车型结构一致性疑虑的后续；<br/>
+  7. 新华社 10-15 通报与 10-28 财经观察原文 URL 补登（本次以转引来源 S-009/S-003 登记）。</li>
+<li>状态历史：2026-11-02 建档，<code>developing</code>（核心事实已确证，三部门结论待公布；用户原表述『智界刹车踏板断裂』经核验为事实偏差，实际断裂车型为尊界V800，智界V9未断，已在档案中澄清并单列关联叙事）。</li>
+<li>2026-11-03 增量巡检，维持 <code>developing</code>（新增 11 月免费升级启动与"非召回"定性、中国汽研检测细节、四部门征求意见稿、召回争议与市值冲击；三部门调查结论仍待公布，单列 unknown）。</li>
+</ul></div></article><article class="doc-sec" data-doc="narrative" data-title="叙事与用语观察" data-sub="narrative.md" hidden><div class="md"><h1>叙事与用语观察（框架分析）</h1>
+<p>本文件记录事件中的「叙事层」：各方如何称呼参与者与行为、框架要素的归因方式、用词迁移。属分析/推断层，与 <code>claims.md</code> 的事实主张分开保存；不得把推断写成官方立场或事实，不得凭措辞推断动机。</p>
+<h2>N-001 — 「尊界」与「智界」的品牌混淆（责任归因错位风险）</h2>
+<ul>
+<li>观察：事件物理断裂仅发生于<strong>尊界V800</strong>（江淮汽车 + 华为鸿蒙智行，百万级MPV）。但网络舆论将<strong>智界V9</strong>（奇瑞 + 华为鸿蒙智行）一并卷入，『智界V9刹车踩断3次』成为热搜/搜索误传词。</li>
+<li>证据：新浪 S-004 专文澄清『智界V9刹车踩断3次是真是假』并指出为误传；懂车帝复测显示智界V9连续5脚制动未断（S-008）。本次建档的用户原始指令亦写为『智界刹车踏板断裂』，经核验为事实偏差。</li>
+<li>框架风险：两品牌同属『X界 + 华为鸿蒙智行』命名体系，公众易将单一车型问题归因为联盟整体品控，造成责任归因错位。</li>
+<li>记录时间：2026-11-02。</li>
+</ul>
+<h2>N-002 — 「断裂争议」→「删除争议」的叙事迁移</h2>
+<ul>
+<li>观察：2026-10-16~17 网传懂车帝下架涉事尊界制动测试视频、且7月后部分作品同步失效，未公开说明原因。舆论焦点由『车有没有问题』转向『为何删视频』（C-008）。</li>
+<li>证据：S-002、S-009 转述『删除争议接棒断裂争议』。</li>
+<li>框架要素：未公开说明的下架动作本身成为新争议源；平台方未给出口径，留下叙事真空被多方填充。</li>
+<li>记录时间：2026-11-02。</li>
+</ul>
+<h2>N-003 — 「静态合规」与「动态安全」的框架对立</h2>
+<ul>
+<li>观察：车企与第三方检测以<strong>静态台架</strong>（1500N/加严3000N 缓慢加载，20mm/min）为论据，称符合标准；懂车帝与行业分析以<strong>连续动态冲击</strong>（100km/h-0 连续全力制动）为论据，称暴露余量不足。同一部件在两种框架下结论相反。</li>
+<li>证据：S-006/S-007（静态检测合格）与 S-009（『静态合规≠动态安全』）对立；S-003 分析静态单点加载与连续冲击差异。</li>
+<li>框架要素：争议本质是标准缺口（动态连续冲击未强制），而非单一事实真伪。</li>
+<li>记录时间：2026-11-02。</li>
+</ul>
+<h2>N-004 — 官方措辞的回避性选择</h2>
+<ul>
+<li>观察：媒体多用『断裂』『争议』『风波』；官方/车企用『非标准极端工况』『冗余提升』『免费升级』，<strong>回避『缺陷』『召回』定性</strong>。</li>
+<li>证据：尊界10-08声明（S-008/S-002）称『优化该部件设计，并为已交付用户提供免费升级选择』，未走召回流程；截至本次核查未见『召回』权威表述。</li>
+<li>框架要素：用『升级』替代『召回』，将问题框定为『冗余优化』而非『安全缺陷』。</li>
+<li>记录时间：2026-11-02。</li>
+</ul>
+<h2>N-005 — 对「华为系」联盟的连带叙事</h2>
+<ul>
+<li>观察：因尊界/智界/问界同属鸿蒙智行，单一车型问题被放大为联盟品控疑虑，消费端出现『对同联盟车型结构一致性有疑虑』的观望情绪。</li>
+<li>证据：S-004 分人群建议中提及『对同联盟车型的结构一致性有疑虑，建议等三部门联合调查结果公布后再做决定』。</li>
+<li>框架要素：品牌联名相近导致风险外溢，叙事从『一台车』扩展到『一个联盟』。</li>
+<li>记录时间：2026-11-02。</li>
+</ul>
+<h2>观察方法说明</h2>
+<ul>
+<li>以上为框架/推断层记录，逐次巡检累积；判断『支持/反对』倾向须基于版面与措辞证据，本档案不凭单篇用词给媒体贴标签。</li>
+<li>用词迁移（如『断裂』→『删除』、『风波』的持续性）按时间序列对照，不因单篇表述推断整体立场转变。</li>
+</ul></div></article><article class="doc-sec" data-doc="event" data-title="事件元数据（yaml）" data-sub="event.yaml" hidden><pre><code>schema_version: 1
+event_id: evt-20261008-zunjie-v800-brake-pedal
+title: &quot;尊界V800刹车踏板支架断裂风波（含智界V9误传与复测）&quot;
+aliases: [&quot;尊界V800刹车踏板断裂&quot;, &quot;尊界踏板断裂&quot;, &quot;鸿蒙智行刹车踏板事件&quot;, &quot;智界V9刹车断裂（误传）&quot;, &quot;华为系MPV踏板断裂&quot;, &quot;尊界V800制动踏板争议&quot;]
+summary: &quot;2026年10月8日，汽车垂媒懂车帝发布测试视频：其自购的三台全新尊界V800（江淮汽车与华为鸿蒙智行合作的百万级MPV）在封闭场地100km/h-0全力制动中，刹车踏板支架分别于第2~4次制动时断裂，断裂位置一致。视频引发『设计强度不足』质疑，江淮汽车当日跌停、市值蒸发超60亿元。车企称制动系统满足高于国标/行标验证、用户实际场景未断裂，并承诺11月起免费升级；10月11日第三方检测称1500N合格、加严至3000N未裂。10月15日工信部、中央网信办、市场监管总局成立联合调查组。同期懂车帝复测显示智界V9等同材质竞品未断，『智界V9刹车踩断3次』系误传。10月31日懂车帝复测智界V9爬坡（50%坡动力不足未通过）但制动未断。截至2026-11-02，三部门调查结果尚未公布，事件未结。重要事实澄清：物理断裂仅发生于尊界V800；用户原表述『智界刹车踏板断裂』经核验为事实偏差——智界（奇瑞/华为）的智界V9在实测中未断裂。&quot;
+status: developing
+priority: high
+event_time:
+  start: 2026-10-08
+  end: unknown
+  precision: &quot;首发报道 2026-10-08（懂车帝发布测试视频）；实车测试发生在 2026-10-01 至 2026-10-04（懂车帝自购三台车）；截至 2026-11-02 三部门联合调查组结论未公布，事件未结&quot;
+first_discovered_at: 2026-11-02T18:08:00+08:00
+last_checked_at: 2026-11-02T18:08:00+08:00
+created_at: 2026-11-02T18:08:00+08:00
+updated_at: 2026-11-02T18:08:00+08:00
+location: &quot;中国（测试在封闭场地；车企主体江淮汽车位于安徽合肥、鸿蒙智行/华为；监管方位于北京；对比测试涉多品牌）&quot;
+entities: [&quot;尊界汽车（江淮汽车与华为鸿蒙智行合作品牌，尊界V800为百万级MPV）&quot;, &quot;江淮汽车（600418.SH，上市公司）&quot;, &quot;华为/鸿蒙智行&quot;, &quot;懂车帝（汽车垂媒，测试方）&quot;, &quot;工业和信息化部&quot;, &quot;中央网信办&quot;, &quot;市场监管总局&quot;, &quot;智界V9（奇瑞与华为合作MPV，被误传断裂、后被复测）&quot;, &quot;国家认可第三方检测机构（2026-10-11 检测）&quot;]
+related_event_ids: []
+reopen_conditions: [&quot;三部门联合调查组公布结论，若认定存在系统性缺陷或扩大核查范围&quot;, &quot;出现召回流程或监管处罚决定&quot;, &quot;免费升级方案被证实未覆盖已知问题批次&quot;, &quot;智界V9等关联车型出现独立可核实的踏板强度问题&quot;, &quot;出现与测试标准、第三方检测公信力相关的重大反转证据&quot;]
+closure_history: []
+open_questions: [&quot;三部门联合调查组最终结论与处理措施（截至2026-11-02未公布）&quot;, &quot;免费升级方案具体内容、覆盖批次与启动时间（官方称11月起，待核）&quot;, &quot;断裂属特定批次/供应商问题还是全批次设计余量不足（力臂约130mm、单层立板、熔接痕位于应力区）&quot;, &quot;懂车帝涉事视频下架原因与范围（『删除争议』）&quot;, &quot;是否触发召回流程（目前走免费升级而非召回）&quot;, &quot;智界V9与尊界V800同联盟踏板结构一致性疑虑（消费者层面）&quot;, &quot;10-31 智界V9复测 50% 坡动力不足是否另有官方说明&quot;, &quot;新华社 10-15 通报与 10-28 财经观察原文 URL 补登（本次以转引来源 S-009/S-003 登记）&quot;]
+</code></pre></article><article class="doc-sec" data-doc="daily-logs/2026-11-02T18-08+08-00" data-title="11-02 18:08 巡检" data-sub="daily-logs/2026-11-02T18-08+08-00.md" hidden><div class="md"><h1>巡检日志 · 2026-11-02T18:08+08:00</h1>
+<ul>
+<li>事件：evt-20261008-zunjie-v800-brake-pedal（尊界V800刹车踏板支架断裂风波，含智界V9误传与复测）</li>
+<li>检查范围：网络公开报道与官方通报（2026-10-08 至 2026-11-02）</li>
+<li>操作：首次建档。读取项目 <code>AGENTS.md</code> 规范与现有事件模板；通过 WebSearch 核验事实；生成 <code>event.yaml</code> / <code>status.md</code> / <code>timeline.md</code> / <code>claims.md</code> / <code>sources.md</code> / <code>narrative.md</code> / <code>速览.html</code>；保存 3 份事实汇编快照。</li>
+<li>结果：</li>
+<li>确认核心事实：三台尊界V800在懂车帝测试中踏板支架断裂（C-001 corroborated）；车企未否认，归为『非标准极端工况』。</li>
+<li><strong>关键澄清</strong>：用户原表述『智界刹车踏板断裂』为事实偏差，真实断裂车型为<strong>尊界V800</strong>（江淮/华为）；智界V9（奇瑞/华为）实测未断（C-005 corroborated）。已在 claims、sources、narrative 与速览中单列澄清。</li>
+<li>确认进度：10-13 第三方检测（1500N合格、加严3000N未裂，C-004 corroborated）；10-15 三部门联合调查组（C-007 corroborated）；10-31 智界V9复测爬坡未过50%坡但制动未断（C-009 partially_verified）。</li>
+<li>截至本次核查：三部门调查结论<strong>尚未公布</strong>，事件维持 <code>developing</code>。</li>
+<li>未完成/待核：</li>
+<li>S-010 新华社 10-15 通报、S-011 尊界官微原文 URL 未在本轮取得（以转引来源 S-009/S-003 登记，access_restricted）。</li>
+<li>S-012 懂车帝原视频疑似下架（C-008 partially_verified），待实测核验可访问性。</li>
+<li>免费升级方案细节与覆盖批次（官方称11月起）待后续巡检核实。</li>
+<li>新华社 10-28 财经观察原文未单独登记来源。</li>
+<li>引用来源：S-001～S-012（其中 S-010/S-011/S-012 为 access_restricted/转引）。</li>
+<li>说明：快照为事实汇编/摘要型，不冒充来源原文；未保存报道全文（版权与可访问性限制）。</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/2026-11-03T21-45+08-00" data-title="11-03 21:45 巡检" data-sub="daily-logs/2026-11-03T21-45+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-11-03T21:45+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求"追踪现有事件新进展"＋"处理完推送到仓库"（全事件增量巡检；本档案上次检查为 2026-11-02 建档）</li>
+<li>检查范围：10-22 → 11-03 区间——免费升级 11 月启动进展与"优化/非召回"定性、中国汽研检测细节（2.61mm/3000N）、三部门联合调查结论状态、10-10 四部门创新设计安全核验征求意见稿、召回争议与资本市场冲击。</li>
+<li>检索手段：网络检索（新浪汽车/腾讯/今日头条/澎湃/大象新闻/汽车供应商网）+ 既有档案交叉核对。</li>
+<li>结果：</li>
+<li><strong>免费升级 11 月启动、定性"优化"非"召回"（C-011，corroborated）</strong>：尊界方案 11 月起陆续启动，覆盖已交付 V800 与 S800 典藏大观车主，预约后到店免费更换踏板总成，未发运车辆直接装升级件；官方与客服明确"不是召回""已提车车主可选择不升级"（非强制）。中国汽研检测：1500N 纵向力永久变形 2.61mm（限值 5.0mm）、加严至 3000N 仍无裂纹（S-013、S-015、S-016、S-018）。C-004 据此补充检测机构与数值细节。</li>
+<li><strong>三部门联合调查结论仍未公布（C-007 更新，unknown）</strong>：截至 11-03 检索，工信/网信/市场监管联合调查组结论尚未公布；媒体综述称事件已从企业自主处理升级为监管缺陷调查，最终定性（系统性缺陷→强制召回 vs 自愿升级收尾）待公布（S-014、S-015、S-019）。</li>
+<li><strong>召回争议与监管定性待定（C-012，partially_verified）</strong>：专家称三台不同批次同位置断裂可认定共性质量问题、理论上符合召回条件，但最终是否强制召回取决于监管缺陷认定；尊界以非强制免费升级回应。江淮汽车受冲击，两个交易日市值蒸发约 117 亿元（S-015、S-019）。</li>
+<li><strong>10-10 四部门征求意见稿（政策层）</strong>：工信部会同公安部、生态环境部、市场监管总局发布《关于进一步加强汽车产品创新设计和研发测试验证有关管理工作的通知（征求意见稿）》，明确 2027 年起新申报车型需全维度创新设计安全核验；非专为尊界，但同属"安全验证"议题（S-014）。</li>
+<li>文件更新：daily-logs/（本文件）、snapshots/2026-11-03-S-013.md、timeline.md（新增 4 行）、sources.md（S-013～S-019）、claims.md（新增 C-011、C-012；更新 C-004、C-007）、status.md。</li>
+<li>未完成项与后续动作：<br/>
+  1. 三部门联合调查组最终结论与处理措施（最关键，待公布）；<br/>
+  2. 免费升级实际执行质量、覆盖批次与车主完成率；<br/>
+  3. 是否触发法定召回的官方定调；<br/>
+  4. 召回管理条例/标准修订是否落地；<br/>
+  5. 新华社 10-15 通报与官微声明原文 URL 补登（本次仍以转引来源登记）。</li>
+<li>重试/失败记录：本次无网络失败；来源可访问状态见 sources.md。</li>
+<li>来源 ID：S-001～S-019（本次新增 S-013～S-019）。</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/README" data-title="README" data-sub="daily-logs/README.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<p>每次检查新建按时间命名的 Markdown 文件，记录检查时间/时区、查询范围、来源状态、发现、无变化或失败、重试和未检查项。不要覆写既有日志或把不可访问推断为删除。</p></div></article><article class="doc-sec" data-doc="snapshots/2026-11-03-S-013" data-title="11-03 · S-013" data-sub="snapshots/2026-11-03-S-013.md" hidden><div class="md"><h1>快照 · 2026-11-03-S-013（事实汇编/摘要型）</h1>
+<ul>
+<li>快照类型：基于网页检索可见内容整理的事实汇编/摘要；未保存完整正文字节，未计算哈希。</li>
+<li>获取时间：2026-11-03T21:45+08:00（Asia/Shanghai）</li>
+<li>获取方式：网络检索（新浪汽车/腾讯/今日头条/澎湃/大象新闻/汽车供应商网）+ 与既有档案（S-001～S-012）交叉核对</li>
+<li>保存范围：10-22 → 11-03 区间新进展；原始 URL 见 sources.md（S-013～S-019）</li>
+<li>来源可访问状态仅描述本次观察，不代表事实状态。</li>
+</ul>
+<h2>一、免费升级 11 月启动、定性"优化"非"召回"（C-011，corroborated）</h2>
+<ul>
+<li>尊界方案 11 月起陆续启动免费升级：覆盖已交付 V800 与 S800 典藏大观车主，预约后到店免费更换踏板总成；未发运车辆直接装升级件（S-013、S-015、S-016、S-018）。客服口径：预计 10 月底确认方案、11 月启动；强调"不是召回""已提车车主可选择不升级"（非强制），未主动申请者车辆继续使用原踏板设计。</li>
+<li>中国汽研（中国汽车工程研究院）检测中心静态检测：依据 QC/T 788-2018 施加 1500N 纵向力，永久变形量均值 2.61mm（限值 5.0mm）；加严至 3000N 保持 5 秒仍无裂纹损坏。机构同时声明仅对送检样品/样车负责，对批量产品不做保证（S-013）。</li>
+</ul>
+<h2>二、三部门联合调查结论仍未公布（C-007 更新，unknown）</h2>
+<ul>
+<li>截至 2026-11-03 检索，工信部、中央网信办、市场监管总局联合调查组针对尊界V800 踏板支架断裂问题的结论尚未公布（S-014、S-015、S-019 一致确认）。事件已从企业自主处理升级为监管缺陷调查，最终定性（系统性缺陷→强制召回，或以自愿升级收尾）待公布决定走向。</li>
+</ul>
+<h2>三、召回争议与监管定性待定（C-012，partially_verified）</h2>
+<ul>
+<li>专家（黄河科技学院客座教授张翔）称三台不同批次同位置断裂可认定为共性质量问题，按召回管理办法理论上可触发召回；但最终是否强制召回取决于监管部门的缺陷认定（S-019）。尊界以"非强制免费升级"回应，避开"召回"定性。</li>
+<li>资本市场冲击：江淮汽车受事件影响，两个交易日市值蒸发约 117.67 亿元（S-015）。</li>
+</ul>
+<h2>四、10-10 四部门创新设计安全核验征求意见稿（政策层）</h2>
+<ul>
+<li>2026-10-10，工信部会同公安部、生态环境部、市场监管总局发布《关于进一步加强汽车产品创新设计和研发测试验证有关管理工作的通知（征求意见稿）》，明确 2027 年起新申报车型需开展全维度创新设计安全核验，存量车型限期补全验证材料（S-014）。非专为尊界，但同属"安全验证"议题，被普遍解读为事件催化的监管回应。</li>
+</ul>
+<h2>五、待核/限制</h2>
+<ul>
+<li>调查结论、是否召回与升级执行质量仍待官方公布；检测报告仅覆盖送检样品；"召回 vs 升级"的定性分歧是舆论焦点，须以监管结论为准。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/README" data-title="README" data-sub="snapshots/README.md" hidden><div class="md"><h1>snapshots</h1>
+<p>对每个查到并核验的来源优先保存可检索的本地文字快照。许可允许时，保存实际取得的正文为 UTF-8 Markdown/纯文本，保留段落顺序和来源元数据；每次观察另存新文件，不覆盖历史版本。</p>
+<p>多个来源的事实可以汇总到事件目录的 <code>事实汇编.md</code>，注明每项来源和统计口径，使用自己的语言整理，方便离线查阅。</p>
+<p>全文未保存时，仍创建尽可能详尽的“事实汇编/摘要型文字快照”，包括事实、数字、时间、统计口径、结论归属、必要短引文、原始 URL、获取时间/时区、获取方式和保存范围。用自己的语言整理，不得把汇编伪装成原文。页面不可访问时只能记录本次观察和其他可核验材料，不得伪造快照。</p>
+<p>哈希只对实际保存在本地的真实字节计算，并注明算法、文件路径与计算时间。摘要笔记只能比较摘要，不得据此声称原文有逐字改动。</p></div></article><article class="doc-sec" data-doc="snapshots/S-006_第三方检测_事实汇编" data-title="S-006_第三方检测_事实汇编" data-sub="snapshots/S-006_第三方检测_事实汇编.md" hidden><div class="md"><h1>快照 · S-006 尊界V800第三方检测（事实汇编）</h1>
+<ul>
+<li>来源 ID：S-006</li>
+<li>原始 URL：https://www.cnr.cn/jingji/ycbd/20261013/t20261013_527840494.shtml</li>
+<li>发布者/作者：央广网（记者齐智颖）</li>
+<li>报道发布时间：2026-10-13</li>
+<li>实际获取时间/时区：2026-11-02（转引检索，非原始页面逐字保存）</li>
+<li>访问状态：accessible（原报道可访问）；本快照为事实汇编，非逐字原文</li>
+<li>许可/限制：未保存全文（版权与可访问性限制）；以下为事实要点汇编</li>
+</ul>
+<h2>事实要点（据央广网及上证报 S-007 综合）</h2>
+<ul>
+<li>2026-10-11，国家认可的第三方检测机构对尊界V800制动踏板进行检验。</li>
+<li>纵向力 1500N 检验：位移量均值 2.61mm，符合 QC/T 788-2018（要求位移量≤5mm）。</li>
+<li>加严检验：逐渐加大纵向力至 3000N，加载速度 20mm/min，保持 5s 解除纵向力，共进行 5 次；检测 14 个制动踏板部件总成。</li>
+<li>目视检查：均未出现裂纹和损坏。</li>
+<li>背景：尊界 10-08 声明称制动系统按高于国标（GB 21670-2025/GB 7258-2026）、高于行标（QC/T 788-2018）完成验证；用户实际场景未发生断裂；将优化设计并免费升级。</li>
+<li>注意：该检测为静态缓慢加载，与懂车帝连续动态冲击工况不同（见 C-004 反驳证据、S-009『静态合规≠动态安全』）。</li>
+</ul>
+<blockquote>
+<p>本文件为「事实汇编/摘要型文字快照」，非来源原文；引用请以原始链接为准。</p>
+</blockquote></div></article><article class="doc-sec" data-doc="snapshots/S-008_首发与车企回应_事实汇编" data-title="S-008_首发与车企回应_事实汇编" data-sub="snapshots/S-008_首发与车企回应_事实汇编.md" hidden><div class="md"><h1>快照 · S-008 首发详情与车企/官方回应（事实汇编）</h1>
+<ul>
+<li>来源 ID：S-008</li>
+<li>原始 URL：https://www.163.com/dy/article/L8O6UVMK051492LM.html</li>
+<li>发布者/作者：都市快报橙柿互动（浙江）</li>
+<li>报道发布时间：2026-10-08</li>
+<li>实际获取时间/时区：2026-11-02（转引检索）</li>
+<li>访问状态：accessible；本快照为事实汇编，非逐字原文</li>
+<li>许可/限制：未保存全文；以下为事实要点汇编</li>
+</ul>
+<h2>事实要点</h2>
+<ul>
+<li>10-08 上午懂车帝发布测试视频：三台全新尊界V800在封闭场地100km/h-0紧急制动中，刹车踏板支架全部断裂；其他采用同类材质踏板支架的车型均经受六脚全力制动。</li>
+<li>测试员描述断裂瞬间：『时速到目标约105km/h，看到桩桶全力制动，从根儿就砰一下，像爆炸一样，脚面被东西打到』；断裂后踏板从脚底消失，靠P挡应急减速，停车距离从约38m延至约140m。</li>
+<li>回应：鸿蒙智行服务热线转尊界专属顾问称『结果需由官方核实』；江淮汽车向媒体称『正在调查、多方测试，有结果后官方说明』；鸿蒙智行称『尚未接到相关反馈，交付周期正常』。</li>
+<li>复测对比数据（懂车帝中午视频）：智界V9连续5脚100km/h-0制动，平均踏板力1700+N未断；阿维塔、小鹏、理想、保时捷、问界等踏板力均值全在1600N以上均未断。</li>
+<li>结构对比：尊界V800制动踏板中心距支架转轴轴线约130mm（竞品约105mm）；问界/智界踏板支架转轴附近做2~3层立板加强、用料更厚；尊界V800转轴处仅单层立板。</li>
+<li>股价：江淮汽车（600418.SH）10-08 盘中跌停，收24.72元/股，跌幅10.01%，成交额超35亿元。</li>
+<li>尊界V800定位百万级豪华MPV，售价76.6万~101.6万元，2026-08 上市。</li>
+</ul>
+<blockquote>
+<p>本文件为「事实汇编/摘要型文字快照」，非来源原文；引用请以原始链接为准。</p>
+</blockquote></div></article><article class="doc-sec" data-doc="snapshots/S-010-S-011_官方与调查组_事实汇编" data-title="S-010-S-011_官方与调查组_事实汇编" data-sub="snapshots/S-010-S-011_官方与调查组_事实汇编.md" hidden><div class="md"><h1>快照 · S-009/S-010/S-011 官方通报、三部门调查组与车企声明（事实汇编）</h1>
+<ul>
+<li>来源 ID：S-009（腾讯新闻转引）、S-010（新华社通报，原文URL待补）、S-011（尊界官微，原文URL待补）</li>
+<li>实际获取时间/时区：2026-11-02（转引检索；S-010/S-011 原文本轮未取得，access_restricted）</li>
+<li>访问状态：S-009 accessible；S-010/S-011 access_restricted（以转引登记）</li>
+<li>许可/限制：未保存全文；以下为事实要点汇编</li>
+</ul>
+<h2>事实要点</h2>
+<ul>
+<li>三部门联合调查组（据 S-009 转引新华社 10-15 通报）：针对网络反映的『尊界V800汽车刹车踏板支架断裂问题』，工业和信息化部、中央网信办、市场监管总局成立联合调查组，依法依规开展核查，有关情况将及时公布。</li>
+<li>尊界回应（10-15）：『积极响应、完全服从并将全力配合联合调查组的工作』，『坚决维护消费者合法权益和新能源汽车产业发展大局』。</li>
+<li>核心争议（S-009）：『静态合规』能否代表『动态安全』。懂车帝认为实车连续紧急制动的瞬间动态冲击与实验室静态缓慢加载不同；尊界强调部件已通过高于国标/行标验证、日常使用未现同类故障。</li>
+<li>复测结果（S-009）：沿用100km/h-0连续6次全力制动、踏板力均值超1600N，智界V9、理想、保时捷、阿维塔、小鹏等多款车型踏板及支架均未断裂；与尊界V800三台连续断裂形成反差。</li>
+</ul>
+<blockquote>
+<p>本文件为「事实汇编/摘要型文字快照」，非来源原文；S-010/S-011 原文链接待后续补登。</p>
+</blockquote></div></article><article class="doc-sec" data-doc="reports/README" data-title="README" data-sub="reports/README.md" hidden><div class="md"><h1>reports</h1>
+<p>保存实际取得的报道元数据和允许保存的正文。建议每来源 ID 一个子目录，再按观察版本时间创建文件；旧版本只追加不覆盖。具体字段见上级 <code>sources.md</code>。未取得的版本不创建占位内容。</p></div></article><article class="doc-sec" data-doc="diffs/README" data-title="README" data-sub="diffs/README.md" hidden><div class="md"><h1>diffs</h1>
+<p>只比较真实取得的两个版本。保存版本 ID、生成时间、规范化规则及逐段新增/删除/修改；差异结论不得超过实际快照支持范围。没有两个版本时不生成差异。</p></div></article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const first="timeline";
+  const ORIG_TITLE="\u6863\u6848 \u00b7 \u5c0a\u754cV800\u5239\u8f66\u8e0f\u677f\u652f\u67b6\u65ad\u88c2\u98ce\u6ce2\uff08\u542b\u667a\u754cV9\u8bef\u4f20\u4e0e\u590d\u6d4b\uff09";
+  const secs=[...document.querySelectorAll('.doc-sec')];
+  const links=[...document.querySelectorAll('.doc')];
+  const content=document.getElementById('content');
+  const curName=document.getElementById('curName');
+  const curPath=document.getElementById('curPath');
+  const bar=document.getElementById('bar');
+  function show(id){
+    let hit=null;
+    secs.forEach(s=>{const on=s.dataset.doc===id;s.hidden=!on;if(on)hit=s;});
+    if(!hit){ if(secs[0]){secs[0].hidden=false;hit=secs[0];} }
+    links.forEach(a=>a.classList.toggle('active',a.dataset.doc===(hit?hit.dataset.doc:'')));
+    if(hit){
+      curName.textContent=hit.dataset.title||'';
+      curPath.textContent=hit.dataset.sub||'';
+      content.scrollTop=0;
+      document.title=(hit.dataset.title||'档案')+'｜'+ORIG_TITLE;
+      if(document.body.classList.contains('nav-open')) document.body.classList.remove('nav-open');
+      markWideTables(hit);
+    }
+  }
+  // 宽表在窄容器里需要横向滚动：补一条提示，避免误以为右侧没有内容
+  function markWideTables(scope){
+    scope.querySelectorAll('.tbl').forEach(t=>{
+      const wide=t.scrollWidth-t.clientWidth>4;
+      let hint=t.nextElementSibling;
+      const isHint=hint&&hint.classList&&hint.classList.contains('tbl-hint');
+      if(wide&&!isHint){
+        const d=document.createElement('p');
+        d.className='tbl-hint';
+        d.textContent='表格较宽，可左右滚动查看全部列 →';
+        t.insertAdjacentElement('afterend',d);
+      }else if(!wide&&isHint){
+        hint.remove();
+      }
+    });
+  }
+  function route(){
+    const h=decodeURIComponent(location.hash.replace(/^#\/?/,''));
+    show(h||first);
+  }
+  window.addEventListener('hashchange',route);
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('.md a[href^="#/"]');
+    if(a){ /* 交给 hashchange */ }
+  });
+  const docq=document.getElementById('docq');
+  docq.addEventListener('input',()=>{
+    const kw=docq.value.trim().toLowerCase();
+    links.forEach(a=>{a.style.display=!kw||a.dataset.name.includes(kw)?'':'none';});
+    document.querySelectorAll('.grp').forEach(g=>{
+      let n=g.nextElementSibling,any=false;
+      while(n&&!n.classList.contains('grp')){
+        if(n.classList.contains('doc')&&n.style.display!=='none')any=true;
+        n=n.nextElementSibling;
+      }
+      g.style.display=any?'':'none';
+    });
+  });
+  content.addEventListener('scroll',()=>{
+    const h=content.scrollHeight-content.clientHeight;
+    bar.style.width=(h>0?Math.min(100,content.scrollTop/h*100):0)+'%';
+  });
+  document.getElementById('menu').addEventListener('click',()=>document.body.classList.toggle('nav-open'));
+  document.getElementById('scrim').addEventListener('click',()=>document.body.classList.remove('nav-open'));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='/'&&document.activeElement!==docq){e.preventDefault();docq.focus();}
+    if(e.key==='Escape')document.body.classList.remove('nav-open');
+  });
+  route();
+})();
+</script>
+</body>
+</html>

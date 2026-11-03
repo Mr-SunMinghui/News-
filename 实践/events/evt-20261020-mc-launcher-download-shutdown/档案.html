@@ -1,0 +1,2184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>档案 · 国内《我的世界》第三方启动器关闭游戏本体下载功能</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231E5744'/%3E%3Cpath d='M10 23V9h11M10 16h8' stroke='%23D8E6C6' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#F1F0E8; --surface:#FFFDF6; --surface-2:#F7F5EC; --surface-3:#EFEEE4;
+  --ink:#1A211C; --ink-2:#333D36; --muted:#6C7A71; --muted-2:#8B968D;
+  --line:#DCDED2; --line-2:#C7CDBE;
+  --brand:#1E5744; --brand-d:#153F31; --brand-l:#3C7A62;
+  --lime:#D8E6C6; --lime-2:#E8F0DC;
+  --amber:#A9612F; --amber-bg:#FBEFDF; --amber-line:#EFD8BC;
+  --red:#9E4136; --red-bg:#F8E4E0;
+  --serif:"Source Han Serif SC","Songti SC","STSong","Noto Serif SC",SimSun,Georgia,serif;
+  --sans:"Aptos","Segoe UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:"Cascadia Mono","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  --r-1:12px; --r-2:18px; --r-3:26px;
+  --sh-1:0 1px 2px rgba(26,33,28,.05), 0 8px 22px rgba(26,33,28,.055);
+  --sh-2:0 2px 6px rgba(26,33,28,.07), 0 22px 48px rgba(26,33,28,.11);
+  --ease:cubic-bezier(.2,0,0,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.72 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(940px 520px at 88% -10%, rgba(216,230,198,.80), transparent 62%),
+    radial-gradient(820px 460px at -8% 2%, rgba(213,224,207,.55), transparent 58%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
+  background-image:
+    linear-gradient(to right, rgba(26,33,28,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26,33,28,.05) 1px, transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.6), transparent 42%);
+}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto;position:relative;z-index:1}
+.wrap-narrow{width:min(900px,calc(100% - 40px))}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(241,240,232,.86);
+  -webkit-backdrop-filter:saturate(1.3) blur(14px);backdrop-filter:saturate(1.3) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .inner{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.brand .mark{
+  width:26px;height:26px;border-radius:9px;background:var(--brand);
+  display:grid;place-items:center;color:#EDF3E6;font:700 12px/1 var(--sans);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);
+}
+.brand .name{
+  font:700 12.5px/1 var(--sans);letter-spacing:.20em;text-transform:uppercase;color:var(--ink);
+}
+.brand .name span{color:var(--muted-2);font-weight:600}
+.topbar .spacer{flex:1}
+.navlink{
+  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:10px;
+  font:600 13px/1 var(--sans);color:var(--ink-2);text-decoration:none;
+  transition:background .16s var(--ease),color .16s var(--ease);
+}
+.navlink:hover{background:rgba(255,255,255,.72);color:var(--brand)}
+.navlink svg{opacity:.72}
+
+/* ---------- 版式基元 ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font:700 11.5px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brand);
+}
+.kicker{
+  font:600 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.012em}
+.display{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.5rem,6.4vw,4.5rem);line-height:1.04;letter-spacing:-.035em;
+  margin:.35rem 0 0;
+}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.35vw,1.09rem);line-height:1.78;max-width:62ch}
+.muted{color:var(--muted)}
+.hr{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---------- 按钮 ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:40px;padding:0 17px;border-radius:var(--r-1);border:1px solid transparent;
+  background:var(--brand);color:#F6F8F1;text-decoration:none;
+  font:600 13.5px/1 var(--sans);letter-spacing:.01em;cursor:pointer;white-space:nowrap;
+  transition:background .16s var(--ease),transform .16s var(--ease),box-shadow .16s var(--ease),color .16s var(--ease),border-color .16s var(--ease);
+  box-shadow:0 1px 0 rgba(255,255,255,.10) inset, 0 6px 16px rgba(30,87,68,.16);
+}
+.btn:hover{background:var(--brand-d);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.10) inset,0 10px 22px rgba(30,87,68,.22)}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn-ghost{
+  background:rgba(255,255,255,.55);border-color:var(--line-2);color:var(--ink-2);box-shadow:none;
+}
+.btn-ghost:hover{background:var(--surface);border-color:var(--brand);color:var(--brand);box-shadow:var(--sh-1)}
+.btn-sm{height:34px;padding:0 13px;font-size:12.5px;border-radius:10px}
+.btn .arw{transition:transform .2s var(--ease)}
+.btn:hover .arw{transform:translateX(3px)}
+:where(a,button,input,summary):focus-visible{
+  outline:2px solid var(--brand);outline-offset:3px;border-radius:6px;
+}
+
+/* ---------- 徽标 ---------- */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--muted);
+  font:600 11.5px/1.7 var(--sans);letter-spacing:.02em;white-space:nowrap;
+}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.85}
+.b-developing{background:var(--amber-bg);border-color:var(--amber-line);color:#8A4E1F}
+.b-watching{background:var(--lime-2);border-color:#CFE0BA;color:#2C5B3C}
+.b-quiet{background:#EDEEE7;border-color:var(--line);color:#6A7268}
+.b-closed{background:#E9EAE3;border-color:var(--line-2);color:#4C554D}
+.b-reopened{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-corrob{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.b-partial{background:var(--amber-bg);border-color:var(--amber-line);color:#8A5A22}
+.b-unver{background:#EFEFE8;border-color:var(--line);color:#5F675C}
+.b-disputed{background:var(--red-bg);border-color:#EACBC4;color:#8E3A2C}
+.b-refuted{background:#F1DEDA;border-color:#DFC0BA;color:#7E2F22}
+.b-ok{background:#E4EFD8;border-color:#CFE0BA;color:#2C5B3C}
+.pulse{position:relative}
+.pulse::after{
+  content:"";position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid currentColor;opacity:0;animation:pulse 2.6s var(--ease) infinite;
+}
+@keyframes pulse{0%{transform:scale(.7);opacity:.5}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
+
+/* ---------- 卡片 ---------- */
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);
+  box-shadow:var(--sh-1);position:relative;
+}
+.card-pad{padding:26px}
+
+/* ---------- 进场动画 ---------- */
+.rise{animation:rise .58s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- 页脚 ---------- */
+.foot{
+  margin-top:64px;padding:26px 0 40px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12.5px;line-height:1.8;position:relative;z-index:1;
+}
+.foot .inner{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;align-items:flex-start}
+.foot code{font-family:var(--mono);font-size:12px;background:var(--surface-3);padding:1px 6px;border-radius:5px}
+
+html,body{height:100%}
+body{overflow:hidden}
+.shell{display:grid;grid-template-columns:296px minmax(0,1fr);height:100vh;position:relative;z-index:1}
+
+.side{
+  background:rgba(247,245,236,.92);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;min-height:0;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.side .head{padding:18px 18px 12px;border-bottom:1px solid var(--line)}
+.side .head .back{
+  display:inline-flex;align-items:center;gap:7px;font:600 12px/1 var(--sans);color:var(--muted);
+  text-decoration:none;margin-bottom:12px;
+}
+.side .head .back:hover{color:var(--brand)}
+.side .head .t{font-family:var(--serif);font-size:15px;line-height:1.42;letter-spacing:-.01em;color:var(--ink)}
+.side .head .k{margin-top:6px;font:500 10.5px/1.6 var(--mono);color:var(--muted-2);word-break:break-all}
+.side .srch{padding:12px 18px;border-bottom:1px solid var(--line)}
+.side .srch input{
+  width:100%;height:34px;border-radius:9px;border:1px solid var(--line-2);
+  background:var(--surface);padding:0 11px;font:400 12.5px/1 var(--sans);color:var(--ink);
+}
+.side .srch input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(30,87,68,.10)}
+.docs{flex:1;overflow-y:auto;padding:8px 10px 26px;scrollbar-width:thin}
+.grp{margin:12px 0 4px;padding:0 8px;font:700 10px/1.6 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2)}
+.grp .c{font-weight:600;color:var(--muted-2);opacity:.8;letter-spacing:0;text-transform:none}
+.doc{
+  display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:8px;text-decoration:none;
+  color:var(--ink-2);font-size:13px;line-height:1.45;transition:background .13s var(--ease),color .13s var(--ease);
+}
+.doc:hover{background:#fff;color:var(--brand-d)}
+.doc.active{background:var(--brand);color:#F4F8EE;box-shadow:0 6px 16px rgba(30,87,68,.18)}
+.doc .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.doc .n{margin-left:auto;font:500 10.5px/1 var(--mono);opacity:.55}
+
+.main{min-width:0;display:flex;flex-direction:column;min-height:0;position:relative}
+.main .bar{
+  display:flex;align-items:center;gap:12px;min-height:56px;padding:0 26px;
+  border-bottom:1px solid var(--line);background:rgba(241,240,232,.9);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.main .bar .cur{font:600 13px/1.4 var(--sans);color:var(--ink-2);display:flex;align-items:center;gap:9px;min-width:0}
+.main .bar .cur .path{font:500 11px/1.4 var(--mono);color:var(--muted-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.main .bar .sp{flex:1}
+.main .bar .tocbtn{display:none}
+.progress{position:absolute;left:0;right:0;top:0;height:2px;background:transparent;z-index:5}
+.progress i{display:block;height:100%;width:0;background:var(--brand);transition:width .1s linear}
+
+.content{flex:1;overflow-y:auto;padding:0;scroll-behavior:smooth}
+.doc-body{width:auto;margin:0;padding:32px 44px 96px}
+.crumb{
+  display:flex;align-items:center;gap:8px;font:600 11px/1.4 var(--sans);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:10px;
+}
+.crumb b{color:var(--brand);font-weight:700}
+
+/* ---- Markdown 排版 ---- */
+.md{font-size:15.5px;line-height:1.86;color:var(--ink-2)}
+.md > *{max-width:900px}
+.md > .tbl{max-width:min(100%,1120px)}
+.md > :first-child{margin-top:0}
+.md h1{
+  font-family:var(--serif);font-size:clamp(1.75rem,3vw,2.35rem);line-height:1.24;letter-spacing:-.028em;
+  color:var(--ink);margin:0 0 22px;padding-bottom:16px;border-bottom:1px solid var(--line);
+}
+.md h2{
+  font-family:var(--serif);font-size:1.24rem;line-height:1.45;letter-spacing:-.012em;color:var(--ink);
+  margin:38px 0 14px;padding-left:14px;border-left:3px solid var(--brand);
+}
+.md h3{font-family:var(--sans);font-size:1.02rem;font-weight:700;color:var(--ink);margin:24px 0 9px;letter-spacing:0}
+.md h4{font-family:var(--sans);font-size:.94rem;font-weight:700;color:var(--ink-2);margin:18px 0 7px}
+.md p{margin:0 0 14px}
+.md ul,.md ol{margin:0 0 14px;padding-left:1.35em}
+.md li{margin:4px 0}
+.md li > ul,.md li > ol{margin:5px 0 2px}
+.md li::marker{color:var(--brand-l)}
+.md strong{color:var(--ink);font-weight:700}
+.md em{color:var(--ink)}
+.md a{color:var(--brand);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px;text-decoration-color:rgba(30,87,68,.32);transition:background .14s var(--ease)}
+.md a:hover{background:var(--lime-2);text-decoration-color:var(--brand)}
+.md hr{border:0;height:1px;background:var(--line-2);margin:28px 0}
+.md blockquote{
+  margin:16px 0;padding:12px 18px;border-left:3px solid var(--line-2);
+  background:var(--surface-2);border-radius:0 var(--r-1) var(--r-1) 0;color:var(--ink-2);
+}
+.md blockquote p:last-child{margin-bottom:0}
+.md code{
+  font-family:var(--mono);font-size:.855em;background:var(--surface-3);color:#3A4A3E;
+  padding:1.5px 6px;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+.md pre{
+  background:#20261F;color:#E6EADD;border-radius:var(--r-1);padding:16px 18px;overflow-x:auto;
+  font-size:12.5px;line-height:1.7;margin:16px 0;
+}
+.md pre code{background:none;color:inherit;padding:0;font-size:inherit}
+.md .tbl{
+  margin:18px 0;border:1px solid var(--line);border-radius:var(--r-1);overflow:auto;
+  max-height:none;background:var(--surface);scrollbar-width:thin;
+}
+.md .tbl::-webkit-scrollbar{height:9px}
+.md .tbl::-webkit-scrollbar-track{background:var(--surface-2)}
+.md .tbl::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:99px;border:2px solid var(--surface)}
+.md .tbl::-webkit-scrollbar-thumb:hover{background:var(--muted-2)}
+.md table{
+  border-collapse:separate;border-spacing:0;
+  width:100%;font-size:12.5px;line-height:1.6;
+}
+.md thead th{
+  position:sticky;top:0;background:var(--surface-3);z-index:3;
+  font:700 11.5px/1.5 var(--sans);letter-spacing:.04em;color:var(--ink);
+  text-align:left;padding:8px 10px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+}
+.md tbody td{
+  padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;
+  color:var(--ink-2);min-width:84px;
+}
+.md td.nw{white-space:nowrap}
+.md .nw2{white-space:nowrap}
+.md th:first-child,.md td:first-child{position:sticky;left:0;z-index:2;background:var(--surface)}
+.md thead th:first-child{z-index:4}
+.md tbody tr:nth-child(even) td{background:#FAF8F0}
+.md tbody tr:nth-child(even) td:first-child{background:#FAF8F0}
+.md tbody tr:last-child td{border-bottom:0}
+.md tbody tr:hover td{background:var(--lime-2)}
+.md td:first-child{font-variant-numeric:tabular-nums}
+.md td .badge{font-size:10.5px;padding:1px 7px;line-height:1.7}
+.tbl-hint{
+  display:flex;align-items:center;gap:6px;margin:-8px 0 18px;
+  font:500 11.5px/1.6 var(--sans);color:var(--muted-2);letter-spacing:.01em;
+}
+.md .anchor{margin-left:-14px;opacity:0;color:var(--muted-2);font-size:.7em;text-decoration:none;transition:opacity .15s}
+.md h2:hover .anchor,.md h3:hover .anchor{opacity:1}
+
+.empty-note{color:var(--muted);font-size:13.5px;padding:60px 0;text-align:center}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .side{
+    position:fixed;inset:0 auto 0 0;width:288px;z-index:70;transform:translateX(-102%);
+    transition:transform .26s var(--ease);box-shadow:0 0 0 1px var(--line),24px 0 60px rgba(26,33,28,.18);
+  }
+  body.nav-open .side{transform:none}
+  .scrim{position:fixed;inset:0;background:rgba(26,33,28,.28);z-index:65;opacity:0;pointer-events:none;transition:opacity .22s}
+  body.nav-open .scrim{opacity:1;pointer-events:auto}
+  .main .bar{padding:0 14px}
+  .main .bar .tocbtn{display:inline-flex}
+  .doc-body{width:calc(100% - 32px);padding:22px 0 80px;margin-inline:auto}
+  .md > *{max-width:100%}
+}
+</style>
+</head>
+<body class="">
+
+<div class="scrim" id="scrim"></div>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="head">
+      <a class="back" href="速览.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><span>返回事件速览</span></a>
+      <div class="t">国内《我的世界》第三方启动器关闭游戏本体下载功能</div>
+      <div class="k">evt-20261020-mc-launcher-download-shutdown · 36 篇文档</div>
+    </div>
+    <div class="srch"><input id="docq" type="search" placeholder="过滤文档名…" autocomplete="off" aria-label="过滤文档"></div>
+    <nav class="docs" id="docs"><div class="grp">核心档案 <span class="c">6</span></div><a class="doc" href="#/timeline" data-doc="timeline" data-name="时间线"><span class="nm">时间线</span></a><a class="doc" href="#/claims" data-doc="claims" data-name="主张与证据"><span class="nm">主张与证据</span></a><a class="doc" href="#/sources" data-doc="sources" data-name="来源登记"><span class="nm">来源登记</span></a><a class="doc" href="#/status" data-doc="status" data-name="状态与待办"><span class="nm">状态与待办</span></a><a class="doc" href="#/narrative" data-doc="narrative" data-name="叙事与用语观察"><span class="nm">叙事与用语观察</span></a><a class="doc" href="#/event" data-doc="event" data-name="事件元数据（yaml）"><span class="nm">事件元数据（yaml）</span></a><div class="grp">巡检日志 <span class="c">3</span></div><a class="doc" href="#/daily-logs/2026-10-21T18-58+08-00" data-doc="daily-logs/2026-10-21T18-58+08-00" data-name="10-21 18:58 巡检"><span class="nm">10-21 18:58 巡检</span></a><a class="doc" href="#/daily-logs/2026-10-22T18-55+08-00" data-doc="daily-logs/2026-10-22T18-55+08-00" data-name="10-22 18:55 巡检"><span class="nm">10-22 18:55 巡检</span></a><a class="doc" href="#/daily-logs/2026-11-03T21-15+08-00" data-doc="daily-logs/2026-11-03T21-15+08-00" data-name="11-03 21:15 巡检"><span class="nm">11-03 21:15 巡检</span></a><div class="grp">来源快照 <span class="c">27</span></div><a class="doc" href="#/snapshots/2026-10-21-S-001" data-doc="snapshots/2026-10-21-S-001" data-name="10-21 · s-001"><span class="nm">10-21 · S-001</span></a><a class="doc" href="#/snapshots/2026-10-21-S-002" data-doc="snapshots/2026-10-21-S-002" data-name="10-21 · s-002"><span class="nm">10-21 · S-002</span></a><a class="doc" href="#/snapshots/2026-10-21-S-003" data-doc="snapshots/2026-10-21-S-003" data-name="10-21 · s-003"><span class="nm">10-21 · S-003</span></a><a class="doc" href="#/snapshots/2026-10-21-S-004" data-doc="snapshots/2026-10-21-S-004" data-name="10-21 · s-004"><span class="nm">10-21 · S-004</span></a><a class="doc" href="#/snapshots/2026-10-21-S-005" data-doc="snapshots/2026-10-21-S-005" data-name="10-21 · s-005"><span class="nm">10-21 · S-005</span></a><a class="doc" href="#/snapshots/2026-10-21-S-006" data-doc="snapshots/2026-10-21-S-006" data-name="10-21 · s-006"><span class="nm">10-21 · S-006</span></a><a class="doc" href="#/snapshots/2026-10-21-S-007" data-doc="snapshots/2026-10-21-S-007" data-name="10-21 · s-007"><span class="nm">10-21 · S-007</span></a><a class="doc" href="#/snapshots/2026-10-21-S-008" data-doc="snapshots/2026-10-21-S-008" data-name="10-21 · s-008"><span class="nm">10-21 · S-008</span></a><a class="doc" href="#/snapshots/2026-10-21-S-009" data-doc="snapshots/2026-10-21-S-009" data-name="10-21 · s-009"><span class="nm">10-21 · S-009</span></a><a class="doc" href="#/snapshots/2026-10-21-S-010" data-doc="snapshots/2026-10-21-S-010" data-name="10-21 · s-010"><span class="nm">10-21 · S-010</span></a><a class="doc" href="#/snapshots/2026-10-21-S-011" data-doc="snapshots/2026-10-21-S-011" data-name="10-21 · s-011"><span class="nm">10-21 · S-011</span></a><a class="doc" href="#/snapshots/2026-10-21-S-012" data-doc="snapshots/2026-10-21-S-012" data-name="10-21 · s-012"><span class="nm">10-21 · S-012</span></a><a class="doc" href="#/snapshots/2026-10-21-S-013" data-doc="snapshots/2026-10-21-S-013" data-name="10-21 · s-013"><span class="nm">10-21 · S-013</span></a><a class="doc" href="#/snapshots/2026-10-21-S-014" data-doc="snapshots/2026-10-21-S-014" data-name="10-21 · s-014"><span class="nm">10-21 · S-014</span></a><a class="doc" href="#/snapshots/2026-10-21-S-015" data-doc="snapshots/2026-10-21-S-015" data-name="10-21 · s-015"><span class="nm">10-21 · S-015</span></a><a class="doc" href="#/snapshots/2026-10-21-S-016" data-doc="snapshots/2026-10-21-S-016" data-name="10-21 · s-016"><span class="nm">10-21 · S-016</span></a><a class="doc" href="#/snapshots/2026-10-21-S-017" data-doc="snapshots/2026-10-21-S-017" data-name="10-21 · s-017"><span class="nm">10-21 · S-017</span></a><a class="doc" href="#/snapshots/2026-10-21-S-018" data-doc="snapshots/2026-10-21-S-018" data-name="10-21 · s-018"><span class="nm">10-21 · S-018</span></a><a class="doc" href="#/snapshots/2026-10-21-S-019" data-doc="snapshots/2026-10-21-S-019" data-name="10-21 · s-019"><span class="nm">10-21 · S-019</span></a><a class="doc" href="#/snapshots/2026-10-21-S-020" data-doc="snapshots/2026-10-21-S-020" data-name="10-21 · s-020"><span class="nm">10-21 · S-020</span></a><a class="doc" href="#/snapshots/2026-10-21-S-021" data-doc="snapshots/2026-10-21-S-021" data-name="10-21 · s-021"><span class="nm">10-21 · S-021</span></a><a class="doc" href="#/snapshots/2026-10-21-S-022" data-doc="snapshots/2026-10-21-S-022" data-name="10-21 · s-022"><span class="nm">10-21 · S-022</span></a><a class="doc" href="#/snapshots/2026-10-21-S-023" data-doc="snapshots/2026-10-21-S-023" data-name="10-21 · s-023"><span class="nm">10-21 · S-023</span></a><a class="doc" href="#/snapshots/2026-10-22-S-024" data-doc="snapshots/2026-10-22-S-024" data-name="10-22 · s-024"><span class="nm">10-22 · S-024</span></a><a class="doc" href="#/snapshots/2026-10-22-S-025" data-doc="snapshots/2026-10-22-S-025" data-name="10-22 · s-025"><span class="nm">10-22 · S-025</span></a><a class="doc" href="#/snapshots/2026-10-22-S-026" data-doc="snapshots/2026-10-22-S-026" data-name="10-22 · s-026"><span class="nm">10-22 · S-026</span></a><a class="doc" href="#/snapshots/2026-11-03-S-027" data-doc="snapshots/2026-11-03-S-027" data-name="11-03 · s-027"><span class="nm">11-03 · S-027</span></a></nav>
+  </aside>
+  <div class="main">
+    <div class="progress"><i id="bar"></i></div>
+    <div class="bar">
+      <button class="btn btn-ghost btn-sm tocbtn" id="menu" aria-label="打开文档列表"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="cur"><span id="curName">档案</span><span class="path" id="curPath"></span></div>
+      <div class="sp"></div>
+      <a class="navlink" href="速览.html">速览</a>
+      <a class="navlink" href="../../速览.html">总览</a>
+    </div>
+    <div class="content" id="content">
+      <div class="doc-body">
+        <article class="doc-sec" data-doc="timeline" data-title="时间线" data-sub="timeline.md" hidden><div class="md"><h1>时间线</h1>
+<p>时间均为 Asia/Shanghai（UTC+8）。事件发生时间与报道发布时间分列；未知写 <span class="badge b-unver">unknown</span>。GitHub 时间由 API 的 UTC 时间换算。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>事件发生时间</th>
+<th>报道发布时间</th>
+<th>记录时间</th>
+<th>描述</th>
+<th>主张 ID</th>
+<th>来源 ID</th>
+<th>证据状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-20 14:51:42</td>
+<td>2026-10-20 15:01:34</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>PCL 2.99.0.0 的 GitHub Release 对象创建；<wbr/>15:01:34 正式出版。说明全文为“为遵守相关法律法规，<wbr/>PCL 不再提供 MC 下载功能，<wbr/>非常抱歉 qwq…… 注：与网易微软麻将无关，<wbr/>中国式家长很神奇吧”。</td>
+<td>C-001、<wbr/>C-002</td>
+<td class="nw">S-001</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20 15:07</td>
+<td><span class="badge b-unver">unknown</span></td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>社群截图显示，<wbr/>HMCL 维护者 Glavo 在 QQ 群称“根据相关法律法规，<wbr/>HMCL 也正在准备停用中国大陆地区用户的 MC 下载功能”。截图为二手转存，<wbr/>未取得原始群聊记录。</td>
+<td class="nw">C-003</td>
+<td class="nw">S-009</td>
+<td>partially_verified（截图存在）；<wbr/>unverified（原始语境）</td>
+</tr>
+<tr>
+<td>2026-10-20 15:19</td>
+<td><span class="badge b-unver">unknown</span></td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>PCL 作者龙腾猫跃在 B 站动态/视频评论区置顶：“注：与网易微软麻将无关，<wbr/>中国式家长很神奇吧”。经游民星空截图可见；<wbr/>Afdian 公告作者评论亦有同一句。</td>
+<td>C-001、<wbr/>C-008</td>
+<td>S-002、<wbr/>S-010</td>
+<td>corroborated（评论存在）</td>
+</tr>
+<tr>
+<td>2026-10-20 15:22:28</td>
+<td>2026-10-20 15:22:28</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>HMCL 维护者 Glavo 提交 PR #7017《在中国大陆地区禁用游戏下载功能》，<wbr/>6 个提交，<wbr/>涉及 20 个文件。</td>
+<td class="nw">C-003</td>
+<td class="nw">S-003</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20 16:26:07</td>
+<td>2026-10-20 16:26:07</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>游侠网刊发《晴天霹雳！国内所有《我的世界》启动器下载功能被禁》，<wbr/>称“国内所有的MC启动器都遭到了封禁”，<wbr/>并称“有部分启动器还严肃警告玩家请勿使用正常启动方式启动游戏”。此时 HMCL 改动尚未发版，<wbr/>PCL CE 尚未发版。</td>
+<td>C-006、<wbr/>C-012</td>
+<td class="nw">S-009</td>
+<td>报道存在；<wbr/>概括性判断 disputed</td>
+</tr>
+<tr>
+<td>2026-10-20 16:37:22</td>
+<td>2026-10-20 16:37:22</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>HMCL PR #7017 合并（merge commit <code>583e004</code>）；<wbr/>PR 随后被锁定为 off-topic、<wbr/>仅协作者可评论。</td>
+<td class="nw">C-003</td>
+<td class="nw">S-003</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20 16:50:39</td>
+<td>2026-10-20 16:50:39</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>HMCL 发布预览版 v3.17.0.362（prerelease），<wbr/>包含 #7017。稳定版仍为 2026-09-17 的 v3.16.4。</td>
+<td>C-003、<wbr/>C-004</td>
+<td class="nw">S-004</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20 17:55</td>
+<td>2026-10-20 17:55</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>MineBBS 新闻资讯版发布《关于近期第三方启动器关闭游戏本体下载功能的情况说明与临时管制条例》，<wbr/>称 PCL 与 HMCL 等因合规性原因关停核心文件与资源包下载；<wbr/>明确“与网易游戏、<wbr/>Mojang Studio 与 Microsoft 均无直接关联”；<wbr/>警告“修复版启动器”风险；<wbr/>对无来源信息、<wbr/>伪造官方说明等行为从重处罚。</td>
+<td>C-005、<wbr/>C-007、<wbr/>C-009、<wbr/>C-012</td>
+<td class="nw">S-007</td>
+<td>corroborated（公告存在）</td>
+</tr>
+<tr>
+<td>2026-10-20 17:56:13</td>
+<td>2026-10-20 17:56:13</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>PCL CE 社区版 PR #3673《fix(install): 中国大陆地区禁用 Minecraft 安装功能》创建，<wbr/>正文称“受近期事件影响，<wbr/>我们决定暂时禁止中国大陆地区用户使用 Minecraft 本体、<wbr/>整合包的下载、<wbr/>安装与补全功能”。</td>
+<td class="nw">C-005</td>
+<td class="nw">S-006</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20 18:24:20</td>
+<td>2026-10-20 18:24:20</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>PCL CE PR #3673 合并。</td>
+<td class="nw">C-005</td>
+<td class="nw">S-006</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20 18:52</td>
+<td>2026-10-20 18:52</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>新浪游戏刊发服务型稿件《PCL不能下载我的世界了怎么办？常用下载入口出问题后，<wbr/>MC玩家还能怎么办》，<wbr/>称 PCL 提示“为遵守相关法律法规，<wbr/>PCL 暂不支持提供 MC 下载”，<wbr/>并推介 CKTools/外星仔联机助手。</td>
+<td>C-006、<wbr/>C-013</td>
+<td class="nw">S-013</td>
+<td>报道存在；<wbr/>推介内容为商业信息</td>
+</tr>
+<tr>
+<td>2026-10-20 20:47:51</td>
+<td>2026-10-20 20:47:51</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>PCL CE 发布正式版 2.15.1，<wbr/>更新日志列“<em>install</em>: 中国大陆地区禁用 Minecraft 安装功能 (#3673)”。</td>
+<td class="nw">C-005</td>
+<td class="nw">S-005</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-20 23:57:51</td>
+<td>2026-10-20 23:57:51</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>B 站视频《一个举报，<wbr/>让国内所有 MC 启动器关停下载：这件事到底谁的错》发布，<wbr/>简介把“一名未成年玩家在服务器充值后被家长举报，<wbr/>投诉一路‘连坐’到免费启动器”标为社区传闻，<wbr/>并注明未经官方证实。</td>
+<td>C-006、<wbr/>C-008</td>
+<td class="nw">S-017</td>
+<td>视频存在；<wbr/>起因说法 unverified</td>
+</tr>
+<tr>
+<td>2026-10-21 09:58:37</td>
+<td>2026-10-21 09:58:37</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>游民星空刊发《未成年私服充值被家长举报！启动器无奈关闭游戏下载》，<wbr/>称“据说明，<wbr/>事件起因是有未成年玩家在私服充值后被家长举报服务器，<wbr/>而PCL提供了下载游玩私服的方式，<wbr/>因此受到牵连”，<wbr/>并称作者给出退款安排。文中未给出可核对的举报材料或官方来源。</td>
+<td>C-008、<wbr/>C-010</td>
+<td class="nw">S-010</td>
+<td>报道存在；<wbr/>因果断言 disputed</td>
+</tr>
+<tr>
+<td>2026-10-21 18:58</td>
+<td>—</td>
+<td>2026-10-21<wbr/><span class="nw2">T18:58:09+08:00</span></td>
+<td>本档案建档并完成首轮核查：PCL 最新正式版仍为 2.99.0.0，<wbr/>HMCL 最新稳定版仍为 3.16.4、<wbr/>最新预览版为 3.17.0.362，<wbr/>PCL CE 最新正式版为 2.15.1；<wbr/>未发现恢复下载的正式版本或监管机关公开文书。</td>
+<td>—</td>
+<td>S-001、<wbr/>S-004、<wbr/>S-005</td>
+<td>核查时点记录</td>
+</tr>
+<tr>
+<td>2026-10-21 20:00</td>
+<td>—</td>
+<td>2026-10-21<wbr/><span class="nw2">T20:00:00+08:00</span></td>
+<td>补充复核 GitHub Releases API：PCL 仍为 2.99.0.0，<wbr/>HMCL 仍为预览版 3.17.0.362（稳定版 3.16.4），<wbr/>PCL CE 仍为 2.15.1；<wbr/>无恢复下载的新版本。网络检索未发现监管机关公开文书或官方恢复公告。</td>
+<td>—</td>
+<td>S-001、<wbr/>S-004、<wbr/>S-005</td>
+<td>核查时点记录</td>
+</tr>
+<tr>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:55+08:00</span></td>
+<td>腾讯新闻/网易号转述 PCL 作者龙腾猫跃发文，<wbr/>直接自述起因：“有未成年玩家在私服充值后被家长举报服务器，<wbr/>而 PCL 提供了下载游玩私服的方式，<wbr/>因此受到牵连，<wbr/>只能暂时关闭下载功能”；<wbr/>重申“与网易、<wbr/>微软、<wbr/>Mojang 无关”与“中国式家长很神奇吧”；<wbr/>公告含赞助退款安排。</td>
+<td>C-008、<wbr/>C-010</td>
+<td>S-024、<wbr/>S-025</td>
+<td>作者自述（经媒体）；<wbr/>因果链 disputed</td>
+</tr>
+<tr>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:55+08:00</span></td>
+<td>腾讯搜索聚合页整理：三款启动器限制复述；<wbr/>明确流传聊天截图“不足以确认完整事件经过”；<wbr/>vivo 应用商店“游戏资源准备中”现象与本次事件关联“没有可靠证据”；<wbr/>提供备份指导与 Mojang 官方启动器替代；<wbr/>推介 CKTools/外星仔联机助手第三方渠道（商业推广）；<wbr/>提醒警惕“PCL 修复版/特殊修改版/整合下载包”。</td>
+<td>C-006、<wbr/>C-012、<wbr/>C-014</td>
+<td class="nw">S-026</td>
+<td>报道存在；<wbr/>商业信息与安全警告分注</td>
+</tr>
+<tr>
+<td>2026-10-22 18:55</td>
+<td>—</td>
+<td>2026-10-22<wbr/><span class="nw2">T18:55+08:00</span></td>
+<td>本轮巡检复核：未发现 PCL/HMCL/PCL CE 发布恢复下载功能的新版本或公告；<wbr/>未发现监管机关公开文书；<wbr/>未发现 BakaXL 等其他启动器的同类限制公告（以上以本次检索范围为限）。</td>
+<td>—</td>
+<td>S-024～S-026（检索集成）</td>
+<td>核查时点记录</td>
+</tr>
+<tr>
+<td>2026-10-22 22:05</td>
+<td>2026-10-22 22:05</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:15+08:00</span></td>
+<td>PCL 服务器遭大规模 DDoS 攻击：峰值每分钟 1.54 亿次 HTTPS 请求、<wbr/>总计 21 亿次、<wbr/>超 10000 个 IPv4 地址参与、<wbr/>直接损失超 6000 元（资源包被打穿后溢出计费 4674 元）；<wbr/>腾讯云 CDN 触发风控被临时禁用，<wbr/>多项线上服务瘫痪；<wbr/>作者准备报警并征集攻击者线索。后续情况更新称 CDN 累计受 4 轮 DDoS/CC、<wbr/>总计 35 亿次请求。</td>
+<td class="nw">C-016</td>
+<td>S-027、<wbr/>S-031、<wbr/>S-032</td>
+<td>corroborated（作者自述+多源）</td>
+</tr>
+<tr>
+<td>2026-10-22 14:08 起</td>
+<td class="nw">2026-10-22</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:15+08:00</span></td>
+<td>龙腾猫跃 GitHub 账号被封禁，<wbr/>大量仓库内容隐藏；<wbr/>GitHub Discussion #9521 由 HexDragon-Bot 于 10-22 14:08 开帖确认"龙猫的GitHub号被封了"；<wbr/>作者称原因不明、<wbr/>未收邮件、<wbr/>已联系客服；<wbr/>后续（10-26）怀疑发送"后门/漏洞说明"文章触发风控误封。</td>
+<td class="nw">C-017</td>
+<td>S-033、<wbr/>S-032</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-22～10-23</td>
+<td class="nw">2026-10-23</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:15+08:00</span></td>
+<td>火绒论坛出现"后门/漏洞"指控（指 PCL 公告分发存在预留命令执行后门）；<wbr/>作者 10-23 在爱发电/B站与 GitHub #9531 回应称经调查不存在安全漏洞或后门；<wbr/>火绒实验室核查结论"未发现恶意行为、<wbr/>属设计缺陷、<wbr/>不属于病毒范围"，<wbr/>360 亦人工检测确认多版本非恶意。</td>
+<td class="nw">C-018</td>
+<td>S-034、<wbr/>S-030、<wbr/>S-031、<wbr/>S-032</td>
+<td>partially_verified（指控与回应均存在；<wbr/>安全结论待厂商原文）</td>
+</tr>
+<tr>
+<td>2026-10-25 00:58</td>
+<td>2026-10-25 00:58</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:15+08:00</span></td>
+<td>PCL 2.99.0.1 发布：删除"暂时不再提供MC下载功能"中的"暂时"，<wbr/>隐藏下载入口，<wbr/>为部分设置修改添加黑名单；<wbr/>因 GitHub 封、<wbr/>CDN 被攻击、<wbr/>某平台关站，<wbr/>更新日志改发爱发电/黑盒。10-26 情况更新明确"下载功能确实是永久关闭、<wbr/>不会恢复了"，<wbr/>并称与网易/微软/Mojang/各启动器均无关，<wbr/>具体细节仍不能公开。</td>
+<td>C-019、<wbr/>C-001</td>
+<td>S-027、<wbr/>S-031、<wbr/>S-032</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+<tr>
+<td>2026-10-25～10-28</td>
+<td>2026-10-28（页面）</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:15+08:00</span></td>
+<td>信息真空期，<wbr/>"修改版/修复版"启动器涌现（OpenPCL、<wbr/>PCL 社区版系改件、<wbr/>图灵镜恢复工具、<wbr/>VMD 原版下载器等）；<wbr/>平台与安全提醒来路不明安装包或夹带木马、<wbr/>警惕索取微软账号密码。另有 UP 主称"HMCL 最新版已恢复 MC 本体下载功能"（社群说法，<wbr/>待核）。</td>
+<td>C-020、<wbr/>C-012、<wbr/>C-021</td>
+<td class="nw">S-028</td>
+<td>partially_verified（改件存在 corroborated；<wbr/>具体恶意事件待厂商通报；<wbr/>HMCL 恢复 unverified）</td>
+</tr>
+<tr>
+<td class="nw">2026-10-26</td>
+<td class="nw">2026-10-26</td>
+<td>2026-11-03<wbr/><span class="nw2">T21:15+08:00</span></td>
+<td>龙腾猫跃发布"一些情况更新"：GitHub 封禁疑为误封、<wbr/>仍在等回复；<wbr/>CDN 累计受 4 轮 DDoS/CC、<wbr/>总计 35 亿次请求；<wbr/>火绒与 360 人工检测确认多版本 PCL 非恶意软件；<wbr/>重申下载永久关闭、<wbr/>细节暂不能公开。</td>
+<td>C-016、<wbr/>C-017、<wbr/>C-019</td>
+<td class="nw">S-032</td>
+<td><span class="badge b-corrob">corroborated</span></td>
+</tr>
+</tbody>
+</table></div></div></article><article class="doc-sec" data-doc="claims" data-title="主张与证据" data-sub="claims.md" hidden><div class="md"><h1>关键主张</h1>
+<p>每条主张使用稳定 ID；证据关联 <code>sources.md</code>。区分直接观察、来源转述、推断与未知。来源可访问状态不代表主张真假。</p>
+<h2>C-001 — PCL 2.99.0.0 关闭 Minecraft 下载功能，并给出“相关法律法规”表述</h2>
+<ul>
+<li>表述：2026-10-20，PCL 发布 2.99.0.0。版本说明称“为遵守相关法律法规，PCL 不再提供 MC 下载功能，非常抱歉 qwq……”，并补充“注：与网易微软麻将无关，中国式家长很神奇吧”。作者在爱发电公告中重复同一首句，并公布赞助退款安排。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：GitHub Release 页面正文与 API 元数据（S-001）；爱发电公告正文（S-002）；游民星空截图（S-010）；NexusMC、MoIu、MrXiaoM 等二手整理（S-008、S-012、S-011）。</li>
+<li>反驳/限制证据：版本说明没有说明具体法律条款、监管机关、通知形式或恢复时间；"不再提供"与客户端弹窗"暂时不再提供"措辞不完全一致；PCL 官方未说明限制是否仅限中国大陆。截图与转述不能替代完整原始公告。</li>
+<li>推断与限制：可确认"PCL 删除了下载功能并给出合规理由"，不能据此确认存在某一具体行政处罚或通知。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：一手 Release 与作者公告一致，多家独立整理相互印证。</li>
+<li><strong>2026-11-03 更新（2.99.0.1）</strong>：2026-10-25 00:58 发布的 2.99.0.1 已删除"暂时"二字、隐藏下载入口、为部分设置修改添加黑名单；作者在 10-26 情况更新中明确"下载功能确实是永久关闭、不会恢复了"。故本主张由"暂时关闭"更新为"永久关闭下载功能"，属 corroborated。详见 C-019。</li>
+</ul>
+<h2>C-002 — PCL 2.99.0.0 的公开出版时间</h2>
+<ul>
+<li>表述：GitHub Release 对象创建于 2026-10-20T06:51:42Z（14:51:42+08:00），正式出版于 2026-10-20T07:01:34Z（15:01:34+08:00）。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：GitHub REST API <code>repos/Meloong-Git/PCL/releases/tags/2.99.0.0</code> 的 <code>created_at</code>、<code>published_at</code> 字段（S-001）。</li>
+<li>反驳/限制证据：部分二手整理把 14:51 记为“发布”时间（S-012），实际是 Release 对象创建时间；两者相差约 10 分钟。GitHub 时间戳精度为秒，但页面显示可能有时区差异。</li>
+<li>推断与限制：以 <code>published_at</code> 作为公开出版时间；14:51 作为“版本对象创建/可能开始推送”的时点保留，不混用。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：API 元数据为直接观察。</li>
+</ul>
+<h2>C-003 — HMCL 在中国大陆地区限制下载，并以预览版发布</h2>
+<ul>
+<li>表述：2026-10-20 15:22:28，Glavo 提交 PR #7017《在中国大陆地区禁用游戏下载功能》；16:37:22 合并；16:50:39 发布预览版 v3.17.0.362。代码新增 <code>RegionUtils</code>，综合时区（<code>Asia/Shanghai</code> 或 UTC+8）、系统国家码、Windows <code>GetUserGeoID</code>（中国为 45）判断机器是否在中国大陆，并用 <code>ipwho.is</code> 检查网络国家；判断失败时按“在中国大陆”处理（fail-closed）。受限时，版本下载页与一个附加内容下载列表页被禁用并显示提示。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：PR #7017 元数据、文件列表与 patch（S-003）；Release v3.17.0.362 元数据与校验和（S-004）；NexusMC 对“版本及部分资源下载页面”的概括（S-008）；MoIu 对地区判定的描述（S-012）。</li>
+<li>反驳/限制证据：v3.17.0.362 是 prerelease；截至核查，HMCL 最新稳定版仍为 v3.16.4（2026-09-17），稳定版用户不一定已受影响。PR 评论区有人建议只限制离线玩家、给正版玩家豁免，但未被采纳；PR 随后被锁定为 off-topic。代码只直接禁用两个下载页面，不能据此断言所有下载入口（如整合包、Java、启动器自更新）都被完全切断。</li>
+<li>推断与限制：可确认“HMCL 预览版对大陆网络环境禁用版本/部分资源下载页面”，不能确认“所有 HMCL 用户立即无法下载”。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：PR 与 Release 为一手材料，代码 patch 可直接核对。</li>
+</ul>
+<h2>C-004 — HMCL 稳定版在核查时点尚未包含该限制</h2>
+<ul>
+<li>表述：截至 2026-10-21 20:00（Asia/Shanghai），HMCL 最新稳定版为 v3.16.4（2026-09-17 发布），最新版本为预览版 v3.17.0.362。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：GitHub Releases API 列表（S-004 备注）；HMCL 官方 Release 页。</li>
+<li>反驳/限制证据：稳定版未在本次核查中实际下载运行验证；“稳定版未包含限制”是根据版本发布时间与变更记录推断，不排除服务端/下载源侧的限制。</li>
+<li>推断与限制：仅描述版本发布状态，不保证稳定版在所有网络环境下仍可下载。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：版本列表为直接观察。</li>
+</ul>
+<h2>C-005 — PCL CE 2.15.1 在中国大陆禁用本体、整合包下载/安装/补全</h2>
+<ul>
+<li>表述：PCL CE 社区版 PR #3673 于 2026-10-20 17:56:13 创建、18:24:20 合并，正文称“受近期事件影响，我们决定暂时禁止中国大陆地区用户使用 Minecraft 本体、整合包的下载、安装与补全功能”。正式版 2.15.1 于 20:47:51 发布，更新日志列“中国大陆地区禁用 Minecraft 安装功能 (#3673)”。PR 摘要称：按 Windows 地理位置、区域设置、语言和时区信号评估地区；限制客户端下载、安装/修复、重置、加载器安装与整合包安装；仅当所需文件均已本地存在时允许启动。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：PCL CE Release 2.15.1 正文（S-005）；PR #3673 正文与文件变更摘要（S-006）；NexusMC 报道（S-008）。</li>
+<li>反驳/限制证据：PCL CE 是独立社区分支，不是 PCL 官方；PR 摘要由自动化工具生成，具体实现需逐行核对；地区信号“保守处理未知地区”可能导致误判；未实际运行 2.15.1 验证。</li>
+<li>推断与限制：可确认“PCL CE 正式版加入大陆地区安装限制”，不能把 PCL CE 的行为直接归因于 PCL 团队。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：Release 与 PR 为一手材料。</li>
+</ul>
+<h2>C-006 — 至少三款启动器调整，但“国内所有启动器被封禁/无法使用”不准确</h2>
+<ul>
+<li>表述：截至核查，可确认 PCL、HMCL（预览版）、PCL CE 三款启动器调整了下载/安装功能。三款均未使已完整安装的本地游戏无法启动；“国内所有 MC 启动器均被封禁/无法使用”的广泛说法与实际证据不符。</li>
+<li>核实状态：<span class="badge b-disputed">disputed</span>（“至少三款”为 <span class="badge b-corrob">corroborated</span>；“所有/无法使用”为过度概括）</li>
+<li>支持证据：PCL、HMCL、PCL CE 的一手发布记录（S-001、S-003、S-004、S-005、S-006）；HMCL/PCL CE 明确保留本地启动；MineBBS 称“包括但不仅限于 PCL 与 HMCL”，并未说全部（S-007）；NexusMC 明确提醒“没有充分依据认为所有国内第三方启动器都将停止下载”（S-008）；游侠网“所有”报道发布于 16:26，早于 HMCL 发版与 PCL CE 发版（S-009）。</li>
+<li>反驳/限制证据：无法证明没有其他启动器悄悄调整；BakaXL 等未找到公开公告，但“未找到”不等于“未调整”；“封禁”一词含义模糊，可能指下载功能、账号服务或整款软件。</li>
+<li>推断与限制：应把“多家启动器关闭下载功能”与“所有启动器被封杀/游戏全面停运”分开表述；本档案不采用后一说法。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：一手来源显示调整范围有限；媒体“所有”表述缺乏名单与逐家核验。</li>
+</ul>
+<h2>C-007 — 已安装的本地版本仍可启动</h2>
+<ul>
+<li>表述：PCL、HMCL、PCL CE 的功能调整主要针对下载/安装/补全；已完整安装的本地版本仍可启动，PCL CE 明确“仅当所需的所有游戏文件均已在本地时”允许启动，HMCL 的改动只禁用下载页面。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：PCL CE PR 摘要与 Release（S-005、S-006）；HMCL PR patch（S-003）；NexusMC、MoIu、新浪游戏均称已装版本不受影响（S-008、S-012、S-013）。</li>
+<li>反驳/限制证据：未逐一实际启动三款客户端的各版本验证；PCL 的“不再提供下载”是否影响缺失库文件的自动补全，官方未逐项说明；旧版启动器/旧版本入口仍可能受服务端变化影响。</li>
+<li>推断与限制：可确认“官方设计意图是保留本地启动”，不能保证所有旧版本、所有整合包在缺文件时都能离线启动。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：官方代码/说明支持，但缺少逐项运行验证。</li>
+</ul>
+<h2>C-008 — “未成年私服充值被家长举报、牵连启动器”的起因说法</h2>
+<ul>
+<li>表述：社区广泛流传：某未成年玩家在某个与 PCL 相关的私服充值，被家长发现后举报服务器，举报进一步牵连 PCL，导致启动器关闭下载。部分媒体与二手整理把这作为事件起因；PCL 作者的“中国式家长很神奇吧”被解读为对该说法的暗示。</li>
+<li>核实状态：<span class="badge b-disputed">disputed</span></li>
+<li>支持证据：PCL 作者置顶评论与爱发电评论“注：与网易微软麻将无关，中国式家长很神奇吧”（S-002、S-010），确实把原因指向“家长”而非网易/Mojang/Microsoft；<strong>10-21 腾讯新闻/网易号转述龙腾猫跃发文，直接自述起因“有未成年玩家在私服充值后被家长举报服务器，而 PCL 提供了下载游玩私服的方式，因此受到牵连，只能暂时关闭下载功能”（S-024、S-025）——作者自述经媒体报道，较此前“暗示”更直接</strong>；MrXiaoM 称据两位维护者聊天记录“可能是未成年人充值私服，家长举报所致”（S-011）；游民星空称“据说明”起因是未成年私服充值被家长举报（S-010）；X 用户 @realNyarime 称“某服务器未成年充钱，然后老中举报顺手把PCL也带上了”（S-015）。</li>
+<li>反驳/限制证据：没有可公开核对的举报回执、受理通知、交易记录、聊天原文或监管文书；PCL/HMCL/PCL CE 的官方发布说明均未给出具体起因；MineBBS 明确称“目前未有任何迹象表明本次事件与某一具体服务器、资源或资源作者存在关联”（S-007）——与作者自述直接矛盾并存；NexusMC 指出充值者身份、金额、举报对象、监管通知均未获证实（S-008）；“6000 元”“《自然之需》”“珍妮模组”等细节在不同版本中互相矛盾，MrXiaoM 亦把后者列为谣言（S-011、S-016）；聚合页（S-026）自承聊天截图“不足以确认完整事件经过”。</li>
+<li>推断与限制：作者措辞与其经媒体的自述可以支持“起因与家长/举报有关”的弱推断，但作者自述不等于可核验的事实链，且与 MineBBS 公告矛盾；不得把传闻或作者单方陈述写成已证事实。</li>
+<li>最近评估时间：2026-10-22</li>
+<li>状态变更理由：新增作者自述的媒体报道（S-024/S-025），证据层从"暗示"升级为"作者单方陈述"，但缺文书且与社区公告矛盾，维持 <span class="badge b-disputed">disputed</span>。</li>
+<li><strong>2026-11-03 更新</strong>：10-26 情况更新长文再次确认下载关闭与网易/微软/Mojang/各启动器无关，但仍称具体细节暂不能公开（S-032）；起因仍仅作者单方陈述与社群转述，无举报文书、与 MineBBS 公告矛盾并存，维持 <span class="badge b-disputed">disputed</span>。</li>
+</ul>
+<h2>C-009 — 具体法律依据、监管机关与通知文书未知</h2>
+<ul>
+<li>表述：截至核查，没有找到针对本次启动器调整的公开监管通知、处罚决定或法律文书；PCL、HMCL、PCL CE 均只以“相关法律法规”“合规性原因”“受近期事件影响”概括。</li>
+<li>核实状态：<span class="badge b-unver">unknown</span></li>
+<li>支持证据：三款启动器的公开说明均未列明条款/机关（S-001、S-003、S-006）；NexusMC 称“截至目前，尚未见到可公开核对的、针对本次启动器调整的监管通知”（S-008）；MineBBS 称各开发组均未公告具体原因（S-007）。</li>
+<li>反驳/限制证据：未公开不等于不存在；可能存在口头通知、约谈、平台内部通知或未公开的行政指导；“国家新闻出版署”被社群频繁提及，但检索未找到对应公开文书；不能据此推断是或不是该署。</li>
+<li>推断与限制：仅记录“公开材料缺失”，不对监管行为是否存在作事实判断。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：负向检索结果，保持未知。</li>
+</ul>
+<h2>C-010 — PCL 作者公布赞助退款安排</h2>
+<ul>
+<li>表述：PCL 作者在爱发电公告中称：2026-09-01 至 2026-10-21 的爱发电赞助可获得无条件退款；申请退款后原有赞助内容保留；退款在 2026 年年内按原支付渠道退回；退款渠道于 2026-11-07 关闭。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：爱发电公告正文（S-002，搜索索引可见全文）；游民星空截图的公告图片（S-010）；游民星空正文明确提到“针对此前赞助用户，公告给出退款安排”。</li>
+<li>反驳/限制证据：未实际提交退款申请验证流程；公告具体发布时间未知；退款到账时间以平台为准。</li>
+<li>推断与限制：可确认作者公布了该安排，不能确认每位赞助者都能顺利退款。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：作者公告文本与媒体截图一致。</li>
+</ul>
+<h2>C-011 — 网易《我的世界》中国版应用商店不可搜索与本次事件无直接因果</h2>
+<ul>
+<li>表述：部分玩家把“网易《我的世界》在应用商店搜不到”与本次启动器调整相联系；现有材料显示，至少部分渠道下架早于 2026-10-20，属于网易此前关停渠道服，并非本次事件导致。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：MineBBS 称相关言论“实则为网易我的世界中国版此前已经关停对应应用市场的渠道服版本”（S-007）；NexusMC 引荣耀官方说明称《我的世界：移动版》荣耀渠道因合作到期已于 2025-09-30 下架，并称网易官网仍展示移动版下载入口（S-008）；知乎回答亦持相同说法（S-019，仅作社群讨论，未采用为事实依据）。</li>
+<li>反驳/限制证据：未取得荣耀公告原件；未逐一核对所有应用商店、所有时间点；“至少部分渠道更早下架”不能证明“所有渠道下架都与本次无关”。</li>
+<li>推断与限制：只否定“本次事件导致全部下架”的单一因果，不对各渠道下架原因作总体判断。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：两家二手来源一致，但缺少渠道方原始公告。</li>
+</ul>
+<h2>C-012 — “恢复版/修改版启动器”存在安全风险，官方与社区均发出警告</h2>
+<ul>
+<li>表述：PCL 下载功能关闭后，社群出现所谓“恢复下载版”“修改版”“修复版”启动器；MineBBS、NexusMC、PCL CE 维护者与 B 站创作者提醒不要下载、运行或传播来源不明的可执行文件，称其可能被二次打包、植入恶意程序。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：MineBBS 公告的安全警告（S-007）；NexusMC 称社区已有用户报告运行来历不明 EXE 后遭遇病毒入侵，并称 PCL CE 维护者提醒玩家警惕（S-008）；B 站视频简介称“最近有人靠MC启动器进行大范围投毒”（S-017）；GitHub 上出现 <code>OMSociety/PCL-Download-Fixer</code> 等“恢复下载”项目（检索可见，未下载运行）；<strong>腾讯搜索聚合页（S-026）亦提醒"最近网上已经出现一些所谓的 PCL 修复版、特殊修改版和整合下载包……尽量别随便运行，尤其要小心要求输入微软账号密码的陌生程序"</strong>；<strong>10-25～28 信息真空期 OpenPCL、PCL 社区版系改件、图灵镜恢复工具、VMD 原版下载器等"修改版/修复版"扎堆上线（S-028），与既有警告互证，具体恶意事件仍待安全厂商通报</strong>。</li>
+<li>反驳/限制证据：未取得恶意样本、哈希或安全厂商分析报告；"有人被投毒"的具体案例、时间、平台未核实；不能把所有修改版一概认定为恶意软件，也不能保证官方版本绝对安全。</li>
+<li>推断与限制：风险警告有多个独立来源，但具体恶意事件仍待安全厂商/平台通报。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：警告来源再增（聚合页 S-026、改件涌现 S-028），与既有来源互证；具体感染事件仍未独立核实，维持 partially_verified。</li>
+</ul>
+<h2>C-013 — “请勿启动现有 PCL”与修改 Setup.ini 的指引并非 PCL 官方发布</h2>
+<ul>
+<li>表述：社群流传“任何现有版本的 PCL 请勿启动”，并指导在 <code>PCL/Setup.ini</code> 写入 <code>SystemSystemUpdate:3</code>。PCL 官方 2.99.0.0 说明中没有这些要求；NexusMC 称该设置对应“关闭更新提示”，不是防病毒措施，也不能保证旧版持续保留下载能力。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span></li>
+<li>支持证据：PCL 官方 Release 说明全文（S-001）；NexusMC 对 Setup.ini 设置的分析（S-008）；X 用户 @NL8526 的“请勿直接启动”帖与 QQ 群公告截图（S-014、S-009）显示该说法在社群传播。</li>
+<li>反驳/限制证据：未直接查阅 PCL 源码中 <code>SystemSystemUpdate</code> 的完整实现；无法排除 PCL 在其他渠道（群公告、B站评论）发过类似提醒；社群截图可能被断章取义。</li>
+<li>推断与限制：可确认“官方 Release 说明没有要求不要启动或修改 Setup.ini”，不能确认“所有社群提醒都非官方”。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：官方文本与二手技术分析一致，但缺少源码级核验。</li>
+</ul>
+<h2>C-014 — Minecraft 官方启动器仍可下载</h2>
+<ul>
+<li>表述：截至 2026-10-21，Minecraft 官网仍提供官方启动器下载入口；本次调整针对第三方启动器，不是 Minecraft 游戏或官方启动器的全面下架。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：Minecraft 官网下载页（S-020）；MineBBS、NexusMC 均建议使用官方启动器（S-007、S-008）。</li>
+<li>反驳/限制证据：官网可访问不等于中国大陆网络环境下下载/登录一定顺畅；官方启动器需要正版账号，未覆盖所有玩家。</li>
+<li>推断与限制：仅确认下载入口存在，不评估实际网络可用性。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：官网页面直接观察。</li>
+</ul>
+<h2>C-015 — 事件原因的结构性解释（分析层，不是事实主张）</h2>
+<ul>
+<li>表述：公开讨论常把此次调整解释为第三方启动器长期处于“游戏本体分发/版号/未成年人保护”的合规灰区，举报只是触发因素；这一解释可说明为何多款启动器同时收缩下载功能，但不能替代对具体触发链的核实。</li>
+<li>核实状态：<span class="badge b-unver">unverified</span>（分析/推断）</li>
+<li>支持证据：MoIu 从出版与版号、未成年人保护、平台定性三方面分析（S-012）；NexusMC 讨论举报机制与监管通知的区别（S-008）；PCL 作者“相关法律法规”表述（S-001）。</li>
+<li>反驳/限制证据：没有公开法律文书说明适用条款；不同启动器的限制范围不同（PCL 未限地区、HMCL/PCL CE 限大陆），说明各方对风险判断并不一致；把结构性风险当作已证实的起因会掩盖具体责任。</li>
+<li>推断与限制：仅作为分析框架记录，不与 C-008 的传闻混同；不得据此推断监管机关已作出决定。</li>
+<li>最近评估时间：2026-10-21</li>
+<li>状态变更理由：分析性内容，明确标注为推断。</li>
+</ul>
+<h2>C-016 — PCL 服务器遭大规模 DDoS 攻击（2026-10-22）</h2>
+<ul>
+<li>表述：2026-10-22，PCL 服务器遭大规模 DDoS 攻击，作者披露峰值每分钟 1.54 亿次 HTTPS 请求、总计 21 亿次、超 10000 个 IPv4 地址参与、直接损失超 6000 元（资源包被打穿后溢出计费 4674 元）；腾讯云 CDN 触发风控被临时禁用，多项线上服务瘫痪；作者准备报警并征集攻击者线索。后续（10-26）情况更新称 CDN 累计受 4 轮 DDoS/CC、总计 35 亿次请求，短期难恢复。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：作者爱发电动态（S-031，10-22 22:05）、微信梳理稿（S-027）、10-26 情况更新长文（S-032）、什么值得买复盘（S-030）均转述同一组攻击数据。</li>
+<li>反驳/限制证据：攻击数据来自作者单方披露，未见云厂商/安全厂商独立通报或攻击溯源报告；损失金额与"溢出计费"为作者口径。</li>
+<li>推断与限制：可确认"10-22 发生大规模 DDoS 且 CDN 被禁用、服务受损"，攻击规模与损失以作者披露为准，待独立通报。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：作者一手动态与多社群整理一致呈现同一数据，事实稳定。</li>
+</ul>
+<h2>C-017 — 龙腾猫跃 GitHub 账号被封禁（2026-10-22）</h2>
+<ul>
+<li>表述：2026-10-22 起，龙腾猫跃的 GitHub 账号被封禁，大量仓库内容被系统自动隐藏；作者称原因不明、未收到邮件、已联系客服。后续（10-26）情况更新怀疑是发送"后门/漏洞说明"文章时触发风控误封，GitHub 仍未回复。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：GitHub Discussion #9521（S-033，HexDragon-Bot 于 10-22 14:08 开帖确认"龙猫的GitHub号被封了，大量内容被系统自动隐藏"）；10-26 情况更新长文（S-032）作者自述；微信梳理稿（S-027）。</li>
+<li>反驳/限制证据：封禁具体原因、处理方与最终定性未见 GitHub 官方公开说明；作者"误封"判断为推测，待 GitHub 回复。</li>
+<li>推断与限制：可确认"GitHub 账号被封、内容隐藏"，不能确认封禁的最终性质与责任归属。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：GitHub 讨论帖与作者一手长文互证，事实稳定。</li>
+</ul>
+<h2>C-018 — "后门/漏洞"指控与安全核查（分析/争议层）</h2>
+<ul>
+<li>表述：2026-10-22 火绒论坛出现指控，称 PCL 公告分发存在"预留命令执行后门"，开发者可通过 CDN 下发命令强制修改全局设置。作者 10-23 在爱发电/B站与 GitHub #9531 回应：攻击需先掌控更新服务/CDN/用户电脑，PCL 默认不以管理员权限运行，不构成可利用漏洞；称该功能为紧急可靠措施。火绒实验室核查结论"未发现恶意行为、属设计缺陷、不属于病毒范围"，360 亦人工检测确认多版本非恶意。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span>（指控与回应均存在；安全结论待厂商原文）</li>
+<li>支持证据：火绒论坛指控经 AcFun/什么值得买转述（S-029、S-030）；作者回应（GitHub #9531 S-034、爱发电 S-031）；火绒实验室"未发现恶意行为、属设计缺陷"与 360 检测结论（S-030、S-032）。</li>
+<li>反驳/限制证据：火绒/360 结论为社群转述，未见厂商原始报告全文；"设计缺陷"与"后门"的定性仍有技术争议；指控方的具体 PoC（MiRinFork/PCLPoC）未独立复核。</li>
+<li>推断与限制：不把"后门"指控当作既定事实，也不把"完全无问题"当作结论；以"存在争议、主流安全厂商倾向否定恶意"记录。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：新增作者回应（#9531）与安全厂商核查结论（火绒/360 转述），争议获多源呈现，新增 partially_verified 主张。</li>
+</ul>
+<h2>C-019 — 2.99.0.1 删除"暂时"、下载功能转为永久关闭（2026-10-25）</h2>
+<ul>
+<li>表述：2026-10-25 00:58 发布 PCL 2.99.0.1：删除"暂时不再提供MC下载功能"中的"暂时"，隐藏下载相关入口，为部分设置修改添加黑名单；因 GitHub 封、CDN 被攻击、某平台关站，更新日志改发爱发电/黑盒。10-26 情况更新明确"下载功能确实是永久关闭、不会恢复了"，并称与网易/微软/Mojang/各启动器均无关，具体细节暂不能公开。</li>
+<li>核实状态：<span class="badge b-corrob">corroborated</span></li>
+<li>支持证据：作者爱发电动态（S-031，10-26 发布 2.99.0.1）、微信梳理稿（S-027）、10-26 情况更新长文（S-032）；TapTap 等社群亦确认（S-028 类整理）。</li>
+<li>反驳/限制证据：作者未公开关闭下载的具体合规依据与沟通细节；"永久关闭"为作者单方表述，未来是否以其他形式恢复未完全排除。</li>
+<li>推断与限制：可确认"2.99.0.1 删除'暂时'、入口隐藏、作者明示不恢复"，即下载功能在 2.99.x 主线已实质转为永久关闭；与 C-001 衔接（PCL 下载由"暂时"变为"永久"）。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：2.99.0.1 与 10-26 长文为一手来源，明确"不恢复"，新增 corroborated 主张。</li>
+</ul>
+<h2>C-020 — "修改版/修复版"启动器涌现与木马风险（持续）</h2>
+<ul>
+<li>表述：10-25～28 信息真空期，各类"修改版/修复版/恢复工具"启动器涌现（OpenPCL、PCL 社区版系改件、图灵镜恢复工具、VMD 原版下载器等）；平台与安全提醒来路不明安装包或夹带木马、警惕索取微软账号密码。与 C-012 的"修复版风险"警告衔接。</li>
+<li>核实状态：<span class="badge b-partial">partially_verified</span>（改件存在 corroborated；具体恶意事件待厂商通报）</li>
+<li>支持证据：什么值得买复盘列明多款改件涌现（S-028）；与既有 MineBBS/NexusMC/聚合页警告（S-007、S-008、S-026）互证。</li>
+<li>反驳/限制证据：未逐一下载审计各改件；"涌现"存在不等于"均为恶意"；具体感染事件仍缺安全厂商/样本通报。</li>
+<li>推断与限制：风险警告有独立来源，但具体恶意事件待证实；与 C-012 合并观察。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：新增"改件涌现"的社群整理证据（S-028），与既有风险警告互证，维持 partially_verified。</li>
+</ul>
+<h2>C-021 — HMCL 可能恢复大陆下载（社群说法，待核）</h2>
+<ul>
+<li>表述：2026-10-28 有 UP 主发布视频称"HMCL 最新版已恢复 MC 本体下载功能"；仅见社群说法，未获 HMCL 官方 Release/公告佐证。</li>
+<li>核实状态：<span class="badge b-unver">unverified</span></li>
+<li>支持证据：什么值得买复盘提及该 UP 主视频（S-028）。</li>
+<li>反驳/限制证据：未见 HMCL 官方 Release 页面、PR 或公告证实恢复；与 C-003 中"HMCL 预览版对大陆禁用下载页"的既有状态冲突，需官方材料确认是否回滚。</li>
+<li>推断与限制：仅记录"存在该社群说法"，不认定 HMCL 已恢复；待核对 HMCL 仓库 Release 与 PR 状态。</li>
+<li>最近评估时间：2026-11-03</li>
+<li>状态变更理由：本次巡检发现该说法，列为待核 unverified 主张。</li>
+</ul></div></article><article class="doc-sec" data-doc="sources" data-title="来源登记" data-sub="sources.md" hidden><div class="md"><h1>来源登记</h1>
+<p>来源可访问状态仅描述本次访问观察，不代表事实状态。所有时间除注明外均为 Asia/Shanghai（UTC+8）。本次未保存任何报道的完整原始字节；快照均为“原文短引文 + 元数据 + 事实汇编/摘要”，未计算哈希。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>来源 ID</th>
+<th>URL</th>
+<th>发布者/作者</th>
+<th>标题</th>
+<th>报道发布时间</th>
+<th>首次发现</th>
+<th>最近核查</th>
+<th>可访问状态</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="nw">S-001</td>
+<td>https://github.com/Meloong-Git/PCL/releases/tag/2.99.0.0</td>
+<td>Meloong-Git/PCL；<wbr/>Release 作者 LTCatt</td>
+<td>2.99.0.0</td>
+<td>2026-10-20<wbr/><span class="nw2">T07:01:34Z</span>（15:01:34+08:00）；<wbr/>Release 对象创建 06:51:42Z</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>通过 GitHub REST API 取得元数据与正文；<wbr/>Release 说明仅两行，<wbr/>无 assets。页面直接抓取曾传输错误，<wbr/>API 正常。</td>
+</tr>
+<tr>
+<td class="nw">S-002</td>
+<td>https://afdian.com/p/67085a68cc5411f1886152540025c377</td>
+<td>爱发电 / 龙腾猫跃</td>
+<td>悲报【正式版 2.99.0.0】</td>
+<td>2026-10-20（具体时刻 unknown）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>直接抓取仅返回页面框架（JS 渲染）；<wbr/>正文经搜索索引与游民星空截图（S-010）取得。含退款安排与作者评论“与网易微软麻将无关，<wbr/>中国式家长很神奇吧”。</td>
+</tr>
+<tr>
+<td class="nw">S-003</td>
+<td>https://github.com/HMCL-dev/HMCL/pull/7017</td>
+<td>HMCL-dev/HMCL；<wbr/>作者 Glavo</td>
+<td>在中国大陆地区禁用游戏下载功能</td>
+<td>2026-10-20<wbr/><span class="nw2">T07:22:28Z</span>（15:22:28+08:00）创建；<wbr/>08:37:22Z（16:37:22+08:00）合并</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>通过 GitHub API 取得 PR 元数据、<wbr/>文件列表、<wbr/>patch 与评论；<wbr/>PR 无描述正文，<wbr/>标题即说明；<wbr/>合并后锁定为 off-topic。</td>
+</tr>
+<tr>
+<td class="nw">S-004</td>
+<td>https://github.com/HMCL-dev/HMCL/releases/tag/v3.17.0.362</td>
+<td>HMCL-dev/HMCL</td>
+<td>v3.17.0.362</td>
+<td>2026-10-20<wbr/><span class="nw2">T08:50:39Z</span>（16:50:39+08:00）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>预览版（prerelease）；<wbr/>正文含更新日志链接与安装包 SHA-256；<wbr/>稳定版列表见同仓库 releases。</td>
+</tr>
+<tr>
+<td class="nw">S-005</td>
+<td>https://github.com/PCL-Community/PCL-CE/releases/tag/v2.15.1</td>
+<td>PCL-Community/PCL-CE</td>
+<td>Release 2.15.1</td>
+<td>2026-10-20<wbr/><span class="nw2">T12:47:51Z</span>（20:47:51+08:00）；<wbr/>对象创建 12:12:08Z（20:12:08+08:00）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>正文含“<em>install</em>: 中国大陆地区禁用 Minecraft 安装功能 (#3673)”；<wbr/>另有大量无关更新条目。</td>
+</tr>
+<tr>
+<td class="nw">S-006</td>
+<td>https://github.com/PCL-Community/PCL-CE/pull/3673</td>
+<td>PCL-Community/PCL-CE；<wbr/>作者 Big-Cake-jpg</td>
+<td>fix(install): 中国大陆地区禁用 Minecraft 安装功能</td>
+<td>2026-10-20<wbr/><span class="nw2">T09:56:13Z</span>（17:56:13+08:00）创建；<wbr/>10:24:20Z（18:24:20+08:00）合并</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>正文称“受近期事件影响……暂时禁止中国大陆地区用户使用 Minecraft 本体、<wbr/>整合包的下载、<wbr/>安装与补全功能”；<wbr/>摘要由自动化工具生成，<wbr/>需与实际代码区分。</td>
+</tr>
+<tr>
+<td class="nw">S-007</td>
+<td>https://www.minebbs.com/threads/50445/</td>
+<td>MineBBS 新闻资讯版 / Bingkler</td>
+<td>关于近期第三方启动器关闭游戏本体下载功能的情况说明与临时管制条例</td>
+<td>2026-10-20 17:55</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-partial">access_restricted</span></td>
+<td>直接抓取返回 HTTP 468（反爬/访问限制）；<wbr/>正文经搜索索引取得。公告明确与网易、<wbr/>Mojang、<wbr/>Microsoft 无直接关联，<wbr/>称未发现与具体服务器/资源/作者有关的迹象，<wbr/>并警告“修复版”风险。</td>
+</tr>
+<tr>
+<td class="nw">S-008</td>
+<td>https://www.nexusmc.cn/forum/post/pcl-hmcl-pcl-ce</td>
+<td>NexusMC / virgil698</td>
+<td>PCL 停止提供《我的世界》下载，<wbr/>HMCL 与 PCL CE 相继调整功能</td>
+<td>2026-10-20（具体时刻 unknown；<wbr/>页面显示 2026/10/20）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>页面标注 CC BY-SA 4.0；<wbr/>事实核查型整理，<wbr/>明确区分已确认功能调整与未证实起因，<wbr/>并纠正“国家新闻出版广电总局”已撤销等说法。</td>
+</tr>
+<tr>
+<td class="nw">S-009</td>
+<td>https://www.ali213.net/news/html/2026-10/1047963.html</td>
+<td>游侠网</td>
+<td>晴天霹雳！国内所有《我的世界》启动器下载功能被禁</td>
+<td>2026-10-20 16:26:07</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>标题与正文称“国内所有 MC 启动器都遭到了封禁”；<wbr/>正文同时称“有部分启动器还严肃警告玩家请勿使用正常启动方式启动游戏”。该文发布时 HMCL 尚未发版、<wbr/>PCL CE 尚未发版，<wbr/>概括性判断存疑。</td>
+</tr>
+<tr>
+<td class="nw">S-010</td>
+<td>https://www.gamersky.com/news/202610/2232175.shtml</td>
+<td>游民星空 / 猛鲨男鱼王</td>
+<td>未成年私服充值被家长举报！启动器无奈关闭游戏下载</td>
+<td>2026-10-21 09:58:37</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>含爱发电公告与 B 站评论截图；<wbr/>正文把“未成年私服充值被家长举报”作为起因陈述，<wbr/>但未给出举报材料、<wbr/>监管文书或可核对的一手来源。</td>
+</tr>
+<tr>
+<td class="nw">S-011</td>
+<td>https://www.mrxiaom.top/post/minecraft-launcher-takedown-20261020/</td>
+<td>人间工作P / MrXiaoM</td>
+<td>Minecraft 第三方启动器关闭下载事件简报</td>
+<td>2026-10-20（页面最后更新 17:37:40）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>称据 PCL/HMCL 维护者聊天记录“可能是未成年人充值私服，<wbr/>家长举报所致”；<wbr/>同时列出并反驳“珍妮模组”“网易中国版下架”等谣言。聊天记录未公开，<wbr/>属二手转述。</td>
+</tr>
+<tr>
+<td class="nw">S-012</td>
+<td>https://www.moiu.cn/zh/blog/mc-launcher-download-shutdown/</td>
+<td>MoIu Home</td>
+<td>PCL2 关掉 MC 下载：启动器被打回工具原形</td>
+<td>2026-10-20（具体时刻 unknown）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>给出 14:51/15:22/16:37/16:50/17:55 时间线，<wbr/>并分析 PCL 全局移除与 HMCL 地区判定的差异；<wbr/>含作者观点，<wbr/>事实与分析需分开。</td>
+</tr>
+<tr>
+<td class="nw">S-013</td>
+<td>http://games.sina.cn/esports/2026-10-20/edetail-inivwpzf7693323.d.html</td>
+<td>新浪游戏 / 新浪电竞</td>
+<td>PCL不能下载我的世界了怎么办？常用下载入口出问题后，<wbr/>MC玩家还能怎么办</td>
+<td>2026-10-20 18:52</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>服务型稿件；<wbr/>确认 PCL 提示措辞，<wbr/>称已安装版本不受影响；<wbr/>大量篇幅推介 CKTools/外星仔联机助手，<wbr/>属商业推介内容。</td>
+</tr>
+<tr>
+<td class="nw">S-014</td>
+<td>https://x.com/NL8526/status/2112456992078037162</td>
+<td>X / 柠凉 @NL8526</td>
+<td>目前所有公开的国内第三方启动器……均即将停止支持 Minecraft 的下载功能</td>
+<td>2026-10-20（页面显示 8:12 AM；<wbr/>时区 unknown）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>称“所有公开的国内第三方启动器”将停止下载，<wbr/>并称“任何现有版本的 PCL 请勿直接启动”；<wbr/>未给出处，<wbr/>属社群概括/提醒。</td>
+</tr>
+<tr>
+<td class="nw">S-015</td>
+<td>https://x.com/realNyarime/status/2112464762626015667</td>
+<td>X / 奶昔 @realNyarime</td>
+<td>主流Minecraft启动器将停用中国大陆用户的MC下载服务</td>
+<td>2026-10-20（页面显示 8:43 AM；<wbr/>时区 unknown）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>称“由于某服务器未成年充钱，<wbr/>然后老中举报顺手把PCL也带上了”；<wbr/>未给出证据，<wbr/>属传闻转述。</td>
+</tr>
+<tr>
+<td class="nw">S-016</td>
+<td>https://x.com/auspiceshirley/status/2112460510650372417</td>
+<td>X / Shirley Auspice @auspiceshirley</td>
+<td>今天（10月20日）PCL 发布 2.99.0.0……</td>
+<td>2026-10-20（页面显示 8:26 AM；<wbr/>时区 unknown）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>称触发原因无官方说明；<wbr/>提到“家长举报/《自然之需》”为传言；<wbr/>同时称网易版部分应用商店下架与启动器问题不完全是同一件事。</td>
+</tr>
+<tr>
+<td class="nw">S-017</td>
+<td>https://www.bilibili.com/video/BV1LZnN6hEMU/</td>
+<td>哔哩哔哩 / mr_zhou_ch</td>
+<td>一个举报，<wbr/>让国内所有 MC 启动器关停下载：这件事到底谁的错</td>
+<td>2026-10-20 23:57:51</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>简介把“未成年玩家充值后被家长举报、<wbr/>连坐到启动器”标为社区传闻，<wbr/>注明未经官方证实；<wbr/>标题使用“所有”“连坐”等框架词。页面标注“含AI生成内容”。</td>
+</tr>
+<tr>
+<td class="nw">S-018</td>
+<td>https://www.bilibili.com/video/BV1RDnc6SEvk/</td>
+<td>哔哩哔哩 / DeadLock模组推荐</td>
+<td>PCL启动器不再提供MC下载？背后的原因，<wbr/>其实是多年以来愈演愈烈的私服圈钱乱象</td>
+<td>2026-10-20 16:57:32</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>个人观点视频；<wbr/>把原因归结为私服圈钱乱象，<wbr/>称“启动器也是真的无辜”；<wbr/>属评论/推断，<wbr/>不是一手调查。</td>
+</tr>
+<tr>
+<td class="nw">S-019</td>
+<td>https://www.zhihu.com/question/2095907364306212445</td>
+<td>知乎</td>
+<td>如何看待2026年10月20日部分《我的世界》国产第三方启动器暂停下载功能？</td>
+<td>2026-10-20（问题日期；<wbr/>具体时刻 unknown）</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-partial">access_restricted</span></td>
+<td>直接访问 403；<wbr/>仅见搜索摘要。摘要提到“网易我的世界国服很早就开始陆续关停渠道服合作”，<wbr/>未采用为事实依据。</td>
+</tr>
+<tr>
+<td class="nw">S-020</td>
+<td>https://www.minecraft.net/zh-hans/download</td>
+<td>Mojang Studios / Microsoft</td>
+<td>下载 Minecraft</td>
+<td>页面未显示发布日期</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>官方下载页仍提供 Java 版启动器入口；<wbr/>页面说明官方启动器可下载新版本。仅确认入口存在，<wbr/>未测试中国大陆网络可用性。</td>
+</tr>
+<tr>
+<td class="nw">S-021</td>
+<td>https://www.bakaxl.com/</td>
+<td>BakaXL 开发团队</td>
+<td>BakaXL 启动器官方网站</td>
+<td>页面未显示发布日期</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>官网未显示与 2026-10-20 事件相关的下载限制公告；<wbr/>不能据此断言 BakaXL 未调整，<wbr/>需查其 GitHub/群公告。</td>
+</tr>
+<tr>
+<td class="nw">S-022</td>
+<td>https://www.bilibili.com/video/BV1wnnw6FEAv/</td>
+<td>哔哩哔哩 / ゚゚派蒙</td>
+<td>紧急提醒，<wbr/>PCL2启动器暂时不要更新，<wbr/>取消了下载原版MC本体的功能，<wbr/>附恢复下载功能插件</td>
+<td>2026-10-20 15:35:57</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>简介称“最近有人靠MC启动器进行大范围投毒”，<wbr/>并附百度网盘“恢复插件”；<wbr/>页面标注“未经作者授权，<wbr/>禁止转载”。仅记录其警告，<wbr/>未下载其插件。</td>
+</tr>
+<tr>
+<td class="nw">S-023</td>
+<td>https://github.com/topics/pcl2</td>
+<td>GitHub</td>
+<td>pcl2 topic</td>
+<td>页面未显示发布日期</td>
+<td class="nw">2026-10-21</td>
+<td class="nw">2026-10-21</td>
+<td><span class="badge b-ok">accessible</span></td>
+<td>检索可见 <code>OMSociety/PCL-Download-Fixer</code> 等“恢复 PCL 下载”项目；<wbr/>仅记录项目存在，<wbr/>未下载、<wbr/>运行或审计代码。</td>
+</tr>
+</tbody>
+</table></div>
+<p>| S-024 | https://new.qq.com/rain/a/20261021A0A2HF00 | 腾讯新闻（页面未显示原作者） | 未成年私服充值被家长举报！启动器无奈关闭游戏下载 | 2026-10-21（页面显示） | 2026-10-22 | 2026-10-22 | accessible | 内容经检索集成取得。转述 PCL 作者龙腾猫跃发文：起因是未成年玩家私服充值被家长举报服务器、PCL 因提供下载游玩私服方式受牵连；“与网易、微软、Mojang 无关”；“中国式家长很神奇吧”；公告含赞助退款安排。 |<br/>
+| S-025 | https://www.163.com/dy/article/L9ONMFN20526K1KN.html | 网易号（自媒体用户上传；平台声明仅提供信息存储服务） | 未成年私服充值被家长举报！启动器无奈关闭游戏下载 | 2026-10-21 前后（页面未显示精确时刻） | 2026-10-22 | 2026-10-22 | accessible | 内容与 S-024 基本一致，疑为同源转载/洗稿；以 S-024 为主，本来源为辅证。 |<br/>
+| S-026 | https://so.html5.qq.com/page/real/search_news?docid=70000021_2276ad834e385552 | 腾讯搜索新闻聚合页 | PCL、HMCL 下载 MC 受限？我的世界还能去哪下 | 2026-10-21（页面显示） | 2026-10-22 | 2026-10-22 | accessible | 聚合页洗稿式整理（含商业推广内容，已标注）。复述三款启动器限制与作者回应；明确聊天截图"不足以确认完整事件经过"；vivo 应用商店现象"没有可靠证据"关联；含备份指导、官方启动器替代、CKTools 第三方渠道（推广）与"修复版/修改版"安全警告。 |<br/>
+| S-027 | http://mp.weixin.qq.com/s?__biz=MzY5MzQ5MTU0Mg==&amp;mid=2247483836&amp;idx=1&amp;sn=1787e22dfccd876f1fce763a8e115ae6 | 微信公众号（作者粉丝梳理稿） | PCL2这几天，龙腾猫跃到底挨了多少下 | 2026-10-25 前后（页面显示） | 2026-11-03 | 2026-11-03 | accessible（检索集成取得） | 第三方梳理稿：10-20 关闭下载、10-22 DDoS（1.54亿/分钟、21亿次、超1万IP、损失超6000元、CDN被腾讯云禁用）、GitHub 账号被封与"后门"争议、10-23 作者回应、10-25 00:58 删除"暂时"发布 2.99.0.1；转述作者各平台动态。属粉丝视角整理，事实与作者自述互证，但带情绪化叙述。 |<br/>
+| S-028 | https://post.m.smzdm.com/p/aomqpq2n | 什么值得买社区 | 10天前MC启动器集体"下架下载按钮"：4个已确认事实，3个被证伪的谣言，3条不炸存档的路 | 2026-10-31 前后（页面显示） | 2026-11-03 | 2026-11-03 | accessible（检索集成取得） | 社区复盘：10-25 凌晨 2.99.0.1 删"暂时"、隐藏入口、加黑名单，披露 GitHub 封与 CDN 被攻击；10-25～28"修改版/修复版"涌现（OpenPCL、PCL社区版系改件、图灵镜恢复工具、VMD 原版下载器）；10-28 有 UP 主称"HMCL 最新版已恢复 MC 本体下载功能"。属社群整理，HMCL 恢复为单一说法待核。 |<br/>
+| S-029 | https://www.acfun.cn/a/ac48935018 | AcFun | 龙腾猫跃的2026年10月：一场"做局"，还是一场精准的围猎？ | 2026-10 下旬（页面显示） | 2026-11-03 | 2026-11-03 | accessible（检索集成取得） | 分析稿：梳理 10-20 关闭下载、10-22 DDoS+GitHub封+"后门"指控四天四件事；对"后门"指控作技术克制分析，指出火绒论坛指控有具体性但未被当作既定事实；强调现有证据不足以证明"做局"，更可能是合规灰区项目在脆弱窗口遭叠加打击。属评论/分析层。 |<br/>
+| S-030 | https://post.smzdm.com/p/a70p3nkg | 什么值得买社区 | 「MC被下架」的真相在反转：关掉的只是入口，挨打的只有一个人 | 2026-10 下旬（页面显示） | 2026-11-03 | 2026-11-03 | accessible（检索集成取得） | 社群复盘：三次"反转"——关的是入口不是游戏、起因至今是谜、GitHub 账号被封；转述火绒实验室核查结论"未发现恶意行为，属设计缺陷，不属于病毒范围"。数据（DDoS 1.54亿/分钟、21亿次、损失6000元）与作者自述一致。属评论层。 |<br/>
+| S-031 | https://afdian.com/a/LTCat?tab=feed | 爱发电 / 龙腾猫跃（作者本人） | 龙腾猫跃动态（10-20 退款公告、10-22 DDoS、10-23 后门说明、10-26 2.99.0.1/情况更新） | 2026-10-20～10-26 | 2026-10-21（首见） | 2026-11-03 | accessible（检索集成取得） | 作者一手动态：10-22 22:05 披露 DDoS 数据并准备报警；10-23 发布"后门/漏洞"说明；10-26 发布 2.99.0.1（删"暂时"、隐藏入口、加黑名单）与"一些情况更新"长文。为事件核心一手来源。 |<br/>
+| S-032 | https://ifdian.net/p/9b6b498ad0bb11f19d70525400c8052f | 爱发电 / 龙腾猫跃（作者本人） | 一些情况更新 | 2026-10-26（页面显示） | 2026-11-03 | 2026-11-03 | accessible（检索集成取得） | 作者一手长文：GitHub 封禁疑为发送"后门说明"触发风控误封、仍在等回复；CDN 累计受 4 轮 DDoS/CC、总计 35 亿次请求、短期难恢复；向安全从业者咨询后确认各版本 PCL 均可安全使用，火绒与 360 人工检测确认多版本非恶意；明确"下载功能确实是永久关闭、不会恢复了"，与网易/微软/Mojang/各启动器无关，具体细节暂不能公开。 |<br/>
+| S-033 | https://github.com/Meloong-Git/PCL/discussions/9521 | GitHub Discussions / HexDragon-Bot（bot 号，作者关联） | 龙猫的GitHub号被封了，大量内容被系统自动隐藏 | 2026-10-22 14:08（开帖） | 2026-11-03 | 2026-11-03 | accessible | 作者 bot 号开帖确认 GitHub 账号被封、内容被系统隐藏；称原因不明、未收邮件、正联系客服。为一手佐证（经 bot 号）。 |<br/>
+| S-034 | https://github.com/Meloong-Git/PCL/discussions/9531 | GitHub Discussions（转载作者说明） | 转：有关 PCL 存在所谓"后门/漏洞"的说明 | 2026-10-23 前后（页面显示） | 2026-11-03 | 2026-11-03 | accessible | 转载作者"后门/漏洞"说明：称该功能不存在安全漏洞或后门，是紧急可靠措施；攻击需先掌控更新服务/CDN/用户电脑，PCL 默认不以管理员权限运行，不构成可利用漏洞；因 GitHub 账号被封只能发此处。含社区评论（有质疑、有支持）。 |</p>
+<h2>报道版本</h2>
+<ul>
+<li>本事件目前保存的均为基于网页/API 可见内容整理的“原文短引文 + 元数据 + 事实汇编/摘要”型文字快照；未保存任何报道的完整正文字节或原始响应，未计算哈希。</li>
+<li>GitHub Release/PR 的正文较短，S-001 可视为接近全文的短引文；S-003/S-006 仅保存标题、元数据、关键 patch 与评论摘要，未复制全部 diff。</li>
+<li>爱发电公告（S-002）直接抓取只得到页面框架，正文经搜索索引与游民星空截图取得；具体发布时间未能确定，未把截图时间当作发布时间。</li>
+<li>MineBBS（S-007）直接抓取返回 468，正文经搜索索引取得；未绕过访问限制。</li>
+<li>各快照获取时间：S-001～S-023 为 2026-10-21T18:58:09+08:00 前后的运行窗口；S-024～S-026 为 2026-10-22T18:50—19:00 运行窗（Asia/Shanghai）；S-027～S-034 为 2026-11-03T21:15+08:00 前后的运行窗口（增量巡检）；未逐条记录到秒。</li>
+<li>供后续补做：PCL 2.99.0.0/2.99.0.1 客户端实际行为验证；HMCL 3.17.0.362 及后续版本运行验证（含"是否恢复大陆下载"核查，见 C-021）；PCL CE 2.15.1 运行验证；BakaXL 等启动器的 GitHub/群公告核查；监管机关公开文书检索；恶意软件样本/安全厂商通报；GitHub 账号解封进度与封禁定性；退款通道 11-07 关闭后的实际处理。</li>
+</ul></div></article><article class="doc-sec" data-doc="status" data-title="状态与待办" data-sub="status.md" hidden><div class="md"><h1>当前状态</h1>
+<ul>
+<li>事件状态：<code>developing</code></li>
+<li>截至时间：2026-11-03T21:15+08:00</li>
+<li>最近核查时间：2026-11-03T21:15+08:00</li>
+<li>状态依据：PCL 下载功能已在 2.99.0.1（10-25 00:58）由"暂时"转为永久关闭（作者 10-26 长文明示"不会恢复"），入口隐藏、部分设置加黑名单；HMCL 预览版 3.17.0.362 与 PCL CE 2.15.1 仍按大陆地区限制下载（C-001、C-003、C-005、C-019）。此后事件重心转向攻击与争议：10-22 PCL 遭大规模 DDoS（每分钟 1.54 亿次、累计 21 亿次、损失超 6000 元、CDN 被腾讯云禁用），龙腾猫跃 GitHub 账号同日被封、内容隐藏；10-22～23 火绒论坛"后门"指控，作者回应称无漏洞/后门，火绒实验室与 360 检测倾向否定恶意（C-016、C-017、C-018）。退款通道 11-07 关闭为已知节点。信息真空期"修改版/修复版"涌现、木马风险持续（C-020）；另有 UP 主称 HMCL 已恢复下载，仅社群说法待核（C-021）。起因（未成年私服充值被家长举报）仍仅作者单方陈述，无文书，维持 <span class="badge b-disputed">disputed</span>。事件仍在发展，故维持 <code>developing</code>。</li>
+<li>阶段性结案条件/理由：不适用；核心事实虽已确认，但起因、法律依据、影响范围与是否恢复均未定。</li>
+<li>重新激活条件：<br/>
+  1. PCL、HMCL 或 PCL CE 发布恢复下载/安装功能的正式版本或公告；<br/>
+  2. 国家新闻出版署、网信办、市场监管等部门公布针对本次调整的公开通知、处罚或说明；<br/>
+  3. PCL 作者、HMCL 维护者或 PCL CE 维护者公开具体起因、举报材料或与监管沟通的记录；<br/>
+  4. 出现可核验的“恢复版/修改版”恶意软件事件通报或样本分析；<br/>
+  5. BakaXL、Fjord、Axolotl、FCL 等其他启动器发布同类限制或明确否认受影响；<br/>
+  6. 网易、Mojang 或 Microsoft 就此事作出正式回应；<br/>
+  7. 连续两周无新增权威信息且无恢复迹象（可转 <code>quiet</code>）。</li>
+<li>待办与未决问题：<br/>
+  1. 查明“相关法律法规”具体指向哪一条、由哪个机关以何种形式提出；<br/>
+  2. 核查“未成年私服充值被家长举报”链条中的当事人、金额、服务器、受理机关与处理结果（作者自述已记录，文书仍缺）；<br/>
+  3. 确认 PCL 的限制是否覆盖中国大陆以外地区，以及为何未采用地区判定；<br/>
+  4. 跟踪 HMCL 稳定版是否跟进限制（当前稳定版仍为 v3.16.4）；<br/>
+  5. 实际运行验证三款客户端的下载、补全与本地启动行为；<br/>
+  6. 核查 BakaXL、Fjord、Axolotl、FCL 等是否调整下载功能（本轮仅检索未发现公告，需查其 GitHub/群公告）；<br/>
+  7. 核对网易《我的世界》中国版各应用商店下架时间线与本次事件的关系（vivo 应用商店现象已注“无可靠证据”）；<br/>
+  8. 核实“请勿启动现有 PCL”“修改 Setup.ini”指引的来源与实际作用；<br/>
+  9. 查找“恢复版/修改版”启动器的恶意样本、哈希或安全厂商通报；<br/>
+  10. 查找官方恢复时间表及对玩家、整合包作者、服务器运营者的影响数据。</li>
+<li>状态历史：</li>
+<li>2026-10-21 建档，状态设为 <code>developing</code>（理由：三款启动器功能调整有一手证据，但具体法律依据、起因链条与后续恢复均未确定；媒体“所有启动器被封禁”属过度概括）。</li>
+<li>2026-10-22 增量巡检，维持 <code>developing</code>（理由：新增作者自述的媒体报道，但无文书且与 MineBBS 公告矛盾；未发现恢复版本或监管文书）。</li>
+<li>2026-11-03 增量巡检，维持 <code>developing</code>（理由：新增 2.99.0.1 永久关闭下载、10-22 DDoS 与 GitHub 封禁、10-23"后门"争议与安全厂商核查、改件涌现与木马风险；退款 11-07 关闭在即；HMCL 恢复说法仅社群来源待核；起因仍无文书）。</li>
+</ul></div></article><article class="doc-sec" data-doc="narrative" data-title="叙事与用语观察" data-sub="narrative.md" hidden><div class="md"><h1>叙事与用语观察（框架分析）</h1>
+<ul>
+<li>事件 ID：evt-20261020-mc-launcher-download-shutdown</li>
+<li>建档：2026-10-21（Asia/Shanghai）</li>
+<li>性质：分析/推断层记录，不是事实主张；每条尽量附来源 ID 与观察时间。</li>
+<li>方法依据：仓库根目录 <code>AGENTS.md</code>“叙事与用语观察（框架分析）”一节；后续每次巡检按日期追加“补充观察”。</li>
+<li>本次基础：2026-10-20～10-21 收集的来源 S-001～S-023。部分引语来自搜索索引、媒体截图或页面摘要；未保存原文全文者已注明。</li>
+<li>重要前提：本事件同时存在“启动器整体被封杀”“仅下载功能被关闭”“已安装版本仍可启动”三种不同范围的描述。三者不能混用；本文件把范围差异本身作为观察对象。</li>
+</ul>
+<h2>2026-10-21 首版（观察窗口 2026-10-20～10-21）</h2>
+<h3>一、称名与定性词表</h3>
+<ul>
+<li><strong>对象称名</strong>：<code>启动器</code>、<code>第三方启动器</code>、<code>国产第三方启动器</code>、<code>国内启动器</code>、<code>公开启动器</code>、<code>PCL2</code>、<code>PCL</code>、<code>HMCL</code>、<code>PCL CE/社区版</code>。其中 <code>PCL2</code> 是玩家惯称，官方版本号写作 <code>PCL 2.99.0.0</code>；<code>PCL CE</code> 是独立社区分支，媒体有时把它与 PCL 混称为“PCL 社区版”。</li>
+<li><strong>功能称名</strong>：<code>下载功能</code>、<code>MC 下载功能</code>、<code>游戏本体下载</code>、<code>原版下载</code>、<code>安装功能</code>、<code>补全功能</code>、<code>整合包下载</code>。官方文本多用“MC 下载功能”“Minecraft 本体、整合包的下载、安装与补全”；媒体常简化为“下载功能”，再进一步简化为“被封禁/下架”。</li>
+<li><strong>事件定性</strong>：<code>关闭下载</code>、<code>暂停下载</code>、<code>不再提供</code>、<code>禁用</code>、<code>限制</code>、<code>合规性原因</code>、<code>封禁</code>、<code>被封杀</code>、<code>下架</code>、<code>坠机</code>、<code>关闸</code>、<code>天塌了</code>、<code>大清洗</code>、<code>连坐</code>。</li>
+<li><strong>原因称名</strong>：<code>相关法律法规</code>、<code>合规性原因</code>、<code>受近期事件影响</code>、<code>家长举报</code>、<code>未成年私服充值</code>、<code>私服圈钱乱象</code>、<code>中国式家长</code>、<code>监管口径</code>。</li>
+<li><strong>人物称名</strong>：<code>作者</code>、<code>制作者</code>、<code>主要维护者</code>、<code>开发者</code>、<code>龙腾猫跃</code>、<code>Glavo</code>、<code>PCL CE 维护者</code>；玩家一侧为 <code>MC 玩家</code>、<code>孩子们</code>、<code>普通玩家</code>、<code>正版玩家/离线玩家</code>。</li>
+<li>观察：<code>封禁/封杀/下架</code> 把“删除一个下载入口”升级为“整个产品被禁止”；<code>坠机/关闸/天塌了</code> 是社群灾难化修辞；<code>连坐</code> 把行政/平台行为描述为前现代刑罚，强化“无辜者受牵连”；<code>合规性原因</code> 则是去主体化的官方措辞，既不说是谁要求，也不说依据哪一条。</li>
+</ul>
+<h3>二、当事方与官方措辞</h3>
+<ul>
+<li><strong>PCL（S-001，2026-10-20 15:01）</strong>：版本说明全文仅两行：“为遵守相关法律法规，PCL 不再提供 MC 下载功能，非常抱歉 qwq……”；“注：与网易微软麻将无关，中国式家长很神奇吧”。前半句是标准合规话术，后半句用“麻将”（Mojang 的谐音/戏称）和“中国式家长”把原因指向家庭/举报，而非公司或监管机关。<code>qwq</code>、<code>悲报</code>、<code>Orz</code> 等二次元/社群语气，降低了公告的官方感，也拉近了与玩家社群的距离。</li>
+<li><strong>PCL 爱发电公告（S-002，2026-10-20，时刻 unknown）</strong>：标题“悲报【正式版 2.99.0.0】”；正文在合规说明后紧接退款安排，语气为“真的非常抱歉 Orz……”。把“功能删除”与“赞助退款”并列，等于承认这次调整对付费支持者有直接影响。</li>
+<li><strong>PCL 作者 B 站置顶评论（S-010 截图，2026-10-20 15:19）</strong>：“注：与网易微软麻将无关，中国式家长很神奇吧”。与 Release 说明一致；这是目前最接近“起因”的当事方表述，但它只指向“家长”，没有给出举报、充值、服务器或监管细节。</li>
+<li><strong>HMCL（S-003，2026-10-20 15:22）</strong>：PR 标题“在中国大陆地区禁用游戏下载功能”；PR 无描述正文。没有“悲报”式情绪词，也没有解释原因，只给出地区与功能范围。代码中的地区判定与 fail-closed 设计，显示其按“大陆用户”做风险隔离，而非全球移除。</li>
+<li><strong>PCL CE（S-006，2026-10-20 17:56）</strong>：PR 正文“受近期事件影响，我们决定暂时禁止中国大陆地区用户使用 Minecraft 本体、整合包的下载、安装与补全功能”。用“近期事件”而非“法律法规”，用“暂时”给出可逆预期；范围写得最具体（本体、整合包、下载、安装、补全）。</li>
+<li><strong>MineBBS 新闻版（S-007，2026-10-20 17:55）</strong>：称 PCL 与 HMCL 等“因合规性原因关停”；明确“本次事件与网易游戏、Mojang Studio 与 Microsoft 均无直接关联”；又称“目前未有任何迹象表明本次事件与某一具体服务器、资源或资源作者存在关联”。这是对“家长举报某私服”传闻的直接降温，但它本身也是社区管理组公告，不是监管机关或当事公司的正式声明。</li>
+<li><strong>NexusMC（S-008，2026-10-20）</strong>：使用“调整”“限制”“功能关闭”等克制词；明确“目前没有充分依据认为所有国内第三方启动器都将停止下载”，并提醒“不能把无法下载新游戏版本理解为 Minecraft 本身或已安装游戏全面停运”。属于事实核查/去升级框架。</li>
+</ul>
+<h3>三、媒体标题与框架类型</h3>
+<h4>1. 行政封禁/全面封杀框架</h4>
+<ul>
+<li>游侠网（S-009，2026-10-20 16:26）标题：“晴天霹雳！国内所有《我的世界》启动器下载功能被禁”。正文：“目前国内所有的MC启动器都遭到了封禁，取消了下载服务，一些启动器还能正常游玩，只是不能下载，而有部分启动器还严肃警告玩家请勿使用正常启动方式启动游戏。”</li>
+<li>框架要素：<code>所有</code>、<code>被禁</code>、<code>封禁</code>、<code>晴天霹雳</code>；被动语态省略施动者，读者自然补全为“监管部门”；“部分启动器警告请勿正常启动”把社群提醒与官方公告并置，强化“连启动都不安全”的印象。</li>
+<li>事实限制：该文发布时 HMCL 仅合并 PR、尚未发版，PCL CE 尚未发版；“所有”没有名单，也没有逐家核验。其“请勿正常启动”来源很可能是 QQ 群/社群通知（S-009 截图），并非 PCL 官方 Release（S-001）。</li>
+<li>同类标题：B 站“悲报，所有mc公开发布的启动器全部坠机了”“mc国内下载渠道全面关闭”“PCL2天塌了？”（检索可见，未逐一列为来源）。这些标题把“下载入口关闭”转写为“启动器坠机/渠道全面关闭”。</li>
+</ul>
+<h4>2. 家长举报/连坐框架</h4>
+<ul>
+<li>游民星空（S-010，2026-10-21 09:58）标题：“未成年私服充值被家长举报！启动器无奈关闭游戏下载”。正文：“据说明，事件起因是有未成年玩家在私服充值后被家长举报服务器，而PCL提供了下载游玩私服的方式，因此受到牵连，只能暂时关闭下载功能。”</li>
+<li>框架要素：<code>未成年</code>、<code>私服充值</code>、<code>家长举报</code>、<code>无奈</code>、<code>牵连</code>、<code>只能暂时</code>；把启动器写成被动受害者，把家长写成施动者，把“充值与退款”写成事件起点。<code>据说明</code> 没有说明“据谁说”，但标题已把因果确定化。</li>
+<li>事实限制：文中没有举报回执、交易记录、监管文书或当事方具名采访；MineBBS 明确称未发现与具体服务器有关的迹象（S-007）；NexusMC 把金额、身份、举报对象、监管通知均列为未证实（S-008）。</li>
+<li>同类标题：B 站“PCL惨遭连坐！MC玩家凭什么要为你的教育失败买单？”“一个举报，让国内所有 MC 启动器关停下载：这件事到底谁的错”“pcl启动器被中国家长举报”（检索可见）；<code>连坐</code>、<code>教育失败</code>、<code>中国式家长</code> 把技术/合规问题转译为家庭教育与代际冲突。</li>
+</ul>
+<h4>3. 合规/结构性风险框架</h4>
+<ul>
+<li>NexusMC（S-008）：“这些变动表明，影响已不限于 PCL 一个项目。不过，各启动器由不同团队维护，限制的地区和功能范围也不完全相同。”并区分“已确认的功能调整”与“尚待证实的起因”。</li>
+<li>MoIu（S-012）：“这次不是网易赢了，是监管口径落到了工具层。谁提供游戏本体分发，谁就被当成发行方。”把事件解释为第三方启动器“去平台化”的结构性一步，而非单次举报。</li>
+<li>MrXiaoM（S-011）引“有些事不上秤没有四两，上了秤一千斤也打不住”，把举报/监管描述为“上秤”时刻；同时称“对于玩家，尤其是开发者来说，这是无需惊慌的事情”，试图降温。</li>
+<li>框架要素：<code>合规</code>、<code>版号</code>、<code>分发</code>、<code>平台化</code>、<code>结构性风险</code>、<code>监管口径</code>；把责任从“某个家长”转回“长期灰色地带”。这类文本多为个人博客/社区媒体，不是官方定性。</li>
+</ul>
+<h4>4. 服务/替代方案框架</h4>
+<ul>
+<li>新浪游戏（S-013，2026-10-20 18:52）：“PCL 本身还能继续使用，已经装好的版本也不会因此消失。比较麻烦的是刚换电脑、想装新版本，或者准备重新配游戏环境的玩家。”随后大段推介 CKTools/外星仔联机助手，文中夹带“PCL已倒！最强免费MC启动器来了！”等推广式小标题。</li>
+<li>MineBBS（S-007）列出 Modrinth App、Prism Launcher、ATLauncher、CurseForge Launcher 等“不来自中国大陆、未在中国大陆展业”的替代品，并声明不提供支持。</li>
+<li>框架要素：<code>还能用</code>、<code>已装版本不受影响</code>、<code>替代品</code>、<code>官方启动器</code>；把“封杀”叙事拉回“工具选择/迁移成本”。但服务型稿件常与商业推广混合，需区分信息与广告。</li>
+</ul>
+<h4>5. 圈层对立/阴谋论框架</h4>
+<ul>
+<li>B 站标题：“mc下架了，迷你玩家你们开心了吧”“家长举报引发大地震？实锤PCL移除下载功能，网易版应用商店下架，MC圈大清洗来了?!”“PCL2等众多MC启动器被制裁，因为什么？”（检索可见）。</li>
+<li>框架要素：<code>迷你世界</code> 对立、<code>大清洗</code>、<code>制裁</code>、<code>实锤</code>；把功能调整扩写为“MC 圈被清洗”，并引入长期存在的 MC/迷你世界玩家对立。</li>
+<li>事实限制：没有任何证据显示迷你世界或其主要玩家群体参与举报；此类标题属于情绪动员，不能作为事实来源。</li>
+</ul>
+<h3>四、时间变化与口径迁移</h3>
+<ul>
+<li><strong>10-20 16:26（游侠网）</strong>：<code>所有启动器</code>、<code>被封禁</code>、<code>部分无法使用/请勿正常启动</code>——范围最大、施动者最模糊。</li>
+<li><strong>10-20 17:55（MineBBS）</strong>：<code>包括但不仅限于 PCL 与 HMCL</code>、<code>因合规性原因</code>、<code>未发现与具体服务器有关</code>——范围收缩，明确否认与网易/Mojang/Microsoft 的关联，并直接给“私服举报”传闻降温。</li>
+<li><strong>10-20 18:52（新浪）</strong>：<code>PCL 还能用</code>、<code>已装版本不会消失</code>、<code>麻烦的是新装/换版本</code>——从“封杀”转为“功能缺失+迁移指南”。</li>
+<li><strong>10-21 09:58（游民星空）</strong>：<code>未成年私服充值被家长举报</code>、<code>无奈</code>、<code>牵连</code>——在功能事实已被广泛接受后，叙事重心转向“起因/责任”，并把传闻标题化。</li>
+<li>观察：这不是同一家媒体在 24 小时内的连续改口，而是不同类型文本（快讯、论坛公告、服务稿、人物化新闻）对同一事件的不同取景。整体信息生态的注意力从“是否被封”迁移到“为什么被封/谁该负责”。<code>封杀</code> 一词在早期快讯中完成情绪定调，后续即使事实被修正，标题层面的“所有/封禁”仍继续流通。</li>
+<li>措辞变化：官方 <code>不再提供/暂时禁止</code> → 媒体 <code>关闭/禁用/限制</code> → 社群 <code>封杀/下架/坠机/关闸</code>。每往下一层，范围更大、施动者更模糊、情绪更强。记录这些层级，不等于认定某一层有意误导。</li>
+</ul>
+<h3>五、观察限制</h3>
+<ul>
+<li>本文件引用的多数页面未保存全文；部分引语来自搜索索引、媒体截图或页面摘要，原文措辞可能因页面更新而变化。</li>
+<li>X 页面显示的时间（如 8:12 AM）未注明时区，不能直接换算为北京时间；本档案只记“2026-10-20（时区 unknown）”。</li>
+<li>B 站播放量、点赞数、评论数会持续变化；本档案只在必要时记录核查时点，不把流量当作真实性证据。</li>
+<li>未对任何媒体的整体立场作系统性判断；单篇标题、单个用词只能说明该文本的框架选择，不能据此推断媒体长期倾向。</li>
+<li>未发现 coordinated narrative 的证据；<code>连坐</code>、<code>中国式家长</code>、<code>大清洗</code> 等词的集中出现，可能来自同一事件的情绪共振，也可能是平台推荐/标题竞争的结果，不能据此推断幕后协同。</li>
+<li>后续巡检应重点观察：官方公告是否补充法律依据；媒体是否从“家长举报”转向“监管/版号”解释；PCL/HMCL/PCL CE 是否恢复功能；社群是否出现新的替罪对象（网易、Mojang、迷你世界、正版玩家等）。</li>
+</ul></div></article><article class="doc-sec" data-doc="event" data-title="事件元数据（yaml）" data-sub="event.yaml" hidden><pre><code>schema_version: 1
+event_id: evt-20261020-mc-launcher-download-shutdown
+title: &quot;国内《我的世界》第三方启动器关闭游戏本体下载功能&quot;
+aliases: [&quot;PCL 2.99.0.0 关闭下载&quot;, &quot;HMCL 中国大陆禁用游戏下载&quot;, &quot;PCL CE 2.15.1 禁用安装&quot;, &quot;我的世界启动器被封杀&quot;, &quot;10·20 MC启动器下载关停事件&quot;, &quot;Minecraft 第三方启动器关闭下载事件&quot;]
+summary: &quot;2026年10月20日下午，Minecraft Java版第三方启动器PCL发布2.99.0.0，版本说明称“为遵守相关法律法规，PCL 不再提供 MC 下载功能”，作者另称“与网易微软麻将无关，中国式家长很神奇吧”。同日下午，HMCL合并PR #7017并在预览版3.17.0.362中按中国大陆地区限制版本/资源下载页面；晚间，PCL CE社区版2.15.1也禁用中国大陆地区的Minecraft本体、整合包下载、安装与补全。三款启动器均未公布移除本地启动能力，HMCL 与 PCL CE 明确保留已完整安装版本的启动；均未公布具体法律条款、监管机关、通知文书或恢复时间表。社区广泛流传“未成年玩家在私服充值后被家长举报、牵连启动器”的起因说法，但除作者暗示性措辞和二手转述外，缺少可核对的原始材料；MineBBS新闻版明确称未发现与某一具体服务器、资源或作者有关的迹象。事件同时引发“所有国内启动器被封禁”“网易中国版随之下架”“请勿启动旧版PCL”“恢复版启动器”等说法，需与已确认的功能调整分开记录。&quot;
+status: developing
+priority: high
+event_time:
+  start: 2026-10-20T15:01:34+08:00
+  end: unknown
+  precision: &quot;PCL 2.99.0.0 GitHub Release 的公开出版时间为 2026-10-20T07:01:34Z（15:01:34+08:00，分钟级）；Release 对象创建于 06:51:42Z（14:51:42+08:00）。Afdian 公告、B站置顶评论等具体时刻仅部分可见，已分别注明。&quot;
+first_discovered_at: 2026-10-21T18:58:09+08:00
+last_checked_at: 2026-10-22T18:55:00+08:00
+created_at: 2026-10-21T18:58:09+08:00
+updated_at: 2026-10-22T18:55:00+08:00
+location: &quot;中国大陆（HMCL、PCL CE 明确按地区限制）；线上平台（GitHub、爱发电、B站、MineBBS、NexusMC 等）&quot;
+entities: [&quot;PCL（Plain Craft Launcher）&quot;, &quot;龙腾猫跃 / LTCatt（PCL 主要维护者）&quot;, &quot;HMCL（Hello Minecraft! Launcher）&quot;, &quot;Glavo（HMCL 主要维护者）&quot;, &quot;PCL CE（PCL Community Edition）&quot;, &quot;PCL Community&quot;, &quot;MineBBS 新闻资讯版&quot;, &quot;NexusMC&quot;, &quot;游侠网&quot;, &quot;游民星空&quot;, &quot;新浪游戏&quot;, &quot;哔哩哔哩（B站）&quot;, &quot;网易游戏（《我的世界》中国版代理商）&quot;, &quot;Mojang Studios / Microsoft&quot;, &quot;国家新闻出版署（被社群提及，未见公开处理文书）&quot;]
+related_event_ids: []
+reopen_conditions: [&quot;PCL、HMCL 或 PCL CE 发布恢复下载/安装功能的正式版本或公告&quot;, &quot;国家新闻出版署、网信办、市场监管等部门公布针对本次调整的公开通知、处罚或说明&quot;, &quot;PCL 作者、HMCL 维护者或 PCL CE 维护者公开具体起因、举报材料或与监管沟通的记录&quot;, &quot;出现可核验的“恢复版/修改版”恶意软件事件通报或样本分析&quot;, &quot;BakaXL、Fjord、Axolotl、FCL 等其他启动器发布同类限制或明确否认受影响&quot;, &quot;网易、Mojang 或 Microsoft 就此事作出正式回应&quot;, &quot;连续两周无新增权威信息且无恢复迹象（可转 quiet）&quot;]
+closure_history: []
+open_questions: [&quot;PCL、HMCL、PCL CE 所称“相关法律法规”具体指哪一条？是否对应某个监管机关的正式通知、约谈或整改要求？&quot;, &quot;“未成年玩家在私服充值后被家长举报、牵连启动器”的完整链条：当事人身份/年龄段、充值金额、服务器名称、举报对象、受理机关、处理结果分别是什么？&quot;, &quot;PCL 的限制是否覆盖中国大陆以外地区？为何 PCL 未采用地区判定，而 HMCL/PCL CE 采用？&quot;, &quot;HMCL 3.17.0.362 为预览版；稳定版 3.16.4 及后续稳定版是否/何时跟进限制？&quot;, &quot;PCL CE 2.15.1 的“补全/修复”限制具体覆盖哪些操作？完全离线的已安装实例是否不受影响？&quot;, &quot;BakaXL、Fjord Launcher、Axolotl Launcher、FCL 等是否调整了下载功能？截至核查未见公开记录，不能据此断言未调整。&quot;, &quot;网易《我的世界》中国版在部分应用商店不可搜索，与本次事件是否完全无关？各渠道下架的具体时间线？&quot;, &quot;社群流传的“请勿启动现有 PCL”“修改 Setup.ini 的 SystemSystemUpdate:3”是否来自官方？其实际作用是什么？&quot;, &quot;所谓“恢复下载版/修改版”启动器是否已造成可核验的恶意软件感染？有无样本、哈希或安全厂商通报？&quot;, &quot;是否存在官方恢复时间表？PCL 客户端提示中的“暂不支持”与 HMCL/PCL CE 的“暂时”分别由谁设定？&quot;, &quot;本次调整对正版/离线玩家、整合包作者、服务器运营者的实际影响规模是否有可核实数据？&quot;]
+</code></pre></article><article class="doc-sec" data-doc="daily-logs/2026-10-21T18-58+08-00" data-title="10-21 18:58 巡检" data-sub="daily-logs/2026-10-21T18-58+08-00.md" hidden><div class="md"><h1>单事件巡检记录（建档）</h1>
+<ul>
+<li>检查时间：2026-10-21T18:58:09+08:00 起；补充复核 2026-10-21T20:00:00+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求“收集一下最近国内我的世界启动器被封杀的事件”</li>
+<li>检查范围：中文网络检索（GitHub、爱发电、B站、MineBBS、NexusMC、游侠网、游民星空、新浪游戏、知乎、X、个人博客、Minecraft 官网、BakaXL 官网）；查重（事件索引无同类事件，确认新建）</li>
+<li>结果（建档摘要）：</li>
+<li>核心事实：10-20 15:01 PCL 2.99.0.0 关闭 MC 下载；15:22—16:50 HMCL PR #7017 提交、合并并发布预览版 3.17.0.362；17:55 MineBBS 公告；17:56—20:47 PCL CE PR #3673 合并并发布 2.15.1；10-21 09:58 游民星空把“家长举报”起因标题化。</li>
+<li>证据分层：三款启动器功能调整 <span class="badge b-corrob">corroborated</span>；已安装版本可启动 <span class="badge b-partial">partially_verified</span>；“所有启动器被封禁” <span class="badge b-disputed">disputed</span>；“未成年私服充值被家长举报” <span class="badge b-disputed">disputed</span>；具体法律依据/监管文书 <span class="badge b-unver">unknown</span>；PCL 退款安排 <span class="badge b-corrob">corroborated</span>；“恢复版”安全风险 <span class="badge b-partial">partially_verified</span>。</li>
+<li>未决：具体法律条款与机关、举报链条一手材料、PCL 限制地域、HMCL 稳定版跟进、其他启动器、网易渠道下架时间线、恶意样本、恢复时间表。</li>
+<li>来源复访情况：本次为新建档案，无既有来源复访。GitHub Release/PR 通过 REST API 复核；爱发电、MineBBS 直接抓取受限，正文经搜索索引/截图取得；知乎 403；Minecraft 官网、BakaXL 官网可访问。20:00 补充复核 GitHub Releases：PCL/HMCL/PCL CE 均无新增版本，结论不变。</li>
+<li>文件更新：event.yaml、timeline.md、sources.md、claims.md、narrative.md、status.md、速览.html、snapshots/（S-001～S-023 共 23 个）、本日志、实践/事件索引.md、根速览.html、state/run-state.yaml、logs/2026-10-21T18-58+08-00.md。</li>
+<li>未完成项与后续动作：<br/>
+  1. 查找国家新闻出版署/网信办/市场监管等机关的公开通知、处罚或说明；<br/>
+  2. 取得举报回执、交易记录、聊天原文或当事方具名采访；<br/>
+  3. 实际运行 PCL 2.99.0.0、HMCL 3.17.0.362、PCL CE 2.15.1，验证下载、补全与本地启动；<br/>
+  4. 跟踪 HMCL 稳定版是否跟进限制；<br/>
+  5. 核查 BakaXL、Fjord、Axolotl、FCL 的 GitHub/群公告；<br/>
+  6. 核对网易《我的世界》中国版各渠道下架时间线；<br/>
+  7. 查找“恢复版/修改版”启动器的样本、哈希或安全厂商通报；<br/>
+  8. 跟踪官方恢复时间表与影响规模数据。</li>
+<li>重试/失败记录：</li>
+<li>GitHub 页面直接抓取多次出现传输错误（transport error），改用 GitHub REST API 成功；属临时网络/渲染问题，未绕过限制。</li>
+<li>爱发电页面为 JS 渲染，直接抓取仅得框架；正文经搜索索引与游民星空截图取得，未执行脚本或绕过访问控制。</li>
+<li>MineBBS 直接抓取返回 HTTP 468（反爬/访问限制），正文经搜索索引取得；未绕过。</li>
+<li>知乎问题页返回 403，属 <span class="badge b-partial">access_restricted</span>；仅见搜索摘要，未登录或绕过。</li>
+<li>新浪、游侠、游民、NexusMC、Minecraft 官网、BakaXL 官网可访问。</li>
+<li>未进行自动高频重试；无凭证或敏感请求头记录。</li>
+<li>来源 ID：S-001～S-023（全部为本轮新增）</li>
+<li>隐私注意：未收集当事人、举报人或开发者的非公开个人信息；未扩散住址、联系方式、身份证号等；社群截图仅保留与事件直接相关的公开短引文，未记录普通用户身份。</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/2026-10-22T18-55+08-00" data-title="10-22 18:55 巡检" data-sub="daily-logs/2026-10-22T18-55+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-10-22T18:50—18:55+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求"继续跟进"＋"整理好之后推送到仓库"（全事件增量巡检；本档案上次检查为 2026-10-21 20:00）</li>
+<li>检查范围：作者后续表态、监管文书、恢复版本、其他启动器反应</li>
+<li>结果：</li>
+<li>新增 S-024～S-026：腾讯新闻/网易号（10-21）转述 PCL 作者龙腾猫跃发文，<strong>直接自述起因</strong>"有未成年玩家在私服充值后被家长举报服务器，PCL 提供了下载游玩私服的方式，因此受到牵连，只能暂时关闭下载功能"，并重申"与网易、微软、Mojang 无关"及"中国式家长很神奇吧"；腾讯搜索聚合页（10-21）复述三款限制、明确聊天截图"不足以确认完整事件经过"、vivo 应用商店现象关联"没有可靠证据"、含备份指导/官方启动器替代/CKTools 商业推广/"修复版"安全警告。</li>
+<li>C-008 证据层升级（作者暗示 → 作者单方陈述经媒体），但因无举报文书且与 MineBBS 公告矛盾，维持 <span class="badge b-disputed">disputed</span>；C-012 新增聚合页佐证。</li>
+<li>未发现：PCL/HMCL/PCL CE 恢复下载的新版本或公告；监管机关公开文书；BakaXL 等其他启动器的同类限制公告（以本次检索范围为限）。</li>
+<li>文件更新：sources.md（S-024～S-026）、claims.md（C-008、C-012 更新）、timeline.md（新增 3 行）、status.md、event.yaml、snapshots/（3 个新文件）、本日志。</li>
+<li>未完成项与后续动作：<br/>
+  1. 监管机关公开文书检索（新闻出版署/网信办等）；<br/>
+  2. 举报链条的当事人/金额/服务器/受理机关（作者自述之外的可核材料）；<br/>
+  3. HMCL 稳定版是否跟进；BakaXL 等的 GitHub/群公告核查；<br/>
+  4. 三款客户端实际运行验证（下载/补全/本地启动）；<br/>
+  5. "恢复版/修改版"恶意样本与安全厂商通报；<br/>
+  6. 官方恢复时间表。</li>
+<li>重试/失败记录：本次无网络失败。</li>
+<li>来源 ID：S-001～S-026（本次新增 S-024～S-026）</li>
+</ul></div></article><article class="doc-sec" data-doc="daily-logs/2026-11-03T21-15+08-00" data-title="11-03 21:15 巡检" data-sub="daily-logs/2026-11-03T21-15+08-00.md" hidden><div class="md"><h1>单事件巡检记录</h1>
+<ul>
+<li>检查时间：2026-11-03T21:15+08:00（Asia/Shanghai）</li>
+<li>触发方式：用户请求"追踪现有事件新进展"＋"处理完推送到仓库"（全事件增量巡检；本档案上次检查为 2026-10-22T18:55）</li>
+<li>检查范围：10-22 服务器遭 DDoS 攻击；GitHub 账号被封禁；"后门/漏洞"指控与作者回应、安全厂商核查；2.99.0.1 删除"暂时"、下载功能转为永久关闭；退款渠道 11-07 关闭倒计时；"修改版/修复版"涌现与木马风险；HMCL 可能恢复下载的社群说法。</li>
+<li>检索手段：网络检索（微信/爱发电/GitHub Discussion/什么值得买/AcFun/TapTap 等）+ 既有档案交叉核对。</li>
+<li>结果：</li>
+<li><strong>10-22 DDoS 攻击（C-016，corroborated）</strong>：峰值每分钟 1.54 亿次 HTTPS 请求、总计 21 亿次、超 10000 个 IPv4 参与、直接损失超 6000 元（溢出计费 4674 元）；腾讯云 CDN 触发风控被临时禁用；作者准备报警（S-027、S-031）。</li>
+<li><strong>10-22 GitHub 账号封禁（C-017，corroborated）</strong>：龙腾猫跃 GitHub 账号被封、大量仓库内容隐藏；GitHub Discussion #9521 由 HexDragon-Bot 于 10-22 14:08 开帖确认；作者称原因不明、未收邮件、联系客服；后续（10-26）怀疑发送"后门说明"触发风控误封（S-033、S-032）。</li>
+<li><strong>"后门/漏洞"指控与核查（C-018，partially_verified）</strong>：火绒论坛出现"公告分发预留命令执行后门"指控；作者 10-23 回应称经调查不存在漏洞/后门（GitHub #9531、爱发电）；火绒实验室核查结论"未发现恶意行为、属设计缺陷、不属于病毒范围"（S-030 转述）；360 亦人工检测确认多版本非恶意（S-032）。</li>
+<li><strong>2.99.0.1 删除"暂时"、下载永久关闭（C-019，corroborated）</strong>：10-25 00:58 发布 2.99.0.1，删除"暂时"、隐藏下载入口、加设置黑名单；因 GitHub 封、CDN 被攻击、某平台关站，更新日志改发爱发电/黑盒；10-26 情况更新明确"下载功能确实是永久关闭、不会恢复了"，仍称与网易/微软/Mojang/各启动器无关（S-027、S-031、S-032）。</li>
+<li><strong>"修改版/修复版"涌现与木马风险（C-020，partially_verified）</strong>：10-25～28 信息真空期，OpenPCL、PCL 社区版系改件、图灵镜恢复工具、VMD 原版下载器等扎堆上线；平台与安全提醒来路不明安装包或夹带木马、警惕索取微软账号密码（S-028）。</li>
+<li><strong>HMCL 可能恢复下载（C-021，unverified）</strong>：10-28 有 UP 主发布"HMCL 最新版已恢复 MC 本体下载功能"视频，仅社群说法，未获官方 Release/公告佐证。</li>
+<li>文件更新：daily-logs/（本文件）、snapshots/2026-11-03-S-027.md、timeline.md（新增 6 行）、sources.md（S-027～S-034）、claims.md（新增 C-016～C-021；更新 C-001、C-008、C-012）、status.md。</li>
+<li>未完成项与后续动作：<br/>
+  1. HMCL 稳定版是否恢复大陆下载（C-021，待官方 Release 核实）；<br/>
+  2. "修改版/修复版"具体恶意样本、哈希或安全厂商通报；<br/>
+  3. GitHub 账号解封进度与封禁最终定性；<br/>
+  4. 退款通道 11-07 关闭后的实际处理；<br/>
+  5. 监管机关是否就起因/合规发布公开文书（C-009 仍 unknown）。</li>
+<li>重试/失败记录：本次无网络失败；来源可访问状态见 sources.md。</li>
+<li>来源 ID：S-001～S-034（本次新增 S-027～S-034）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-001" data-title="10-21 · S-001" data-sub="snapshots/2026-10-21-S-001.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-001</li>
+<li>原始 URL：https://github.com/Meloong-Git/PCL/releases/tag/2.99.0.0</li>
+<li>标题：2.99.0.0</li>
+<li>发布者/作者：Meloong-Git/PCL；Release 作者 LTCatt</li>
+<li>报道发布时间：2026-10-20T07:01:34Z（2026-10-20 15:01:34 Asia/Shanghai）；Release 对象创建于 06:51:42Z（14:51:42）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible（GitHub REST API）；页面直接抓取曾出现传输错误</li>
+<li>获取方式：GitHub REST API <code>repos/Meloong-Git/PCL/releases/tags/2.99.0.0</code></li>
+<li>保存范围：Release 说明全文短引文 + 元数据；未保存页面 HTML 原始字节</li>
+<li>许可/限制：GitHub 公开页面；未绕过访问限制</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>Release 名称/标签均为 <code>2.99.0.0</code>，不是草稿，未标记 prerelease。</li>
+<li><code>created_at</code>：2026-10-20T06:51:42Z；<code>published_at</code>：2026-10-20T07:01:34Z。</li>
+<li>说明正文仅两行：</li>
+<li>“为遵守相关法律法规，PCL 不再提供 MC 下载功能，非常抱歉 qwq……”</li>
+<li>“注：与网易微软麻将无关，中国式家长很神奇吧”</li>
+<li>Release 无 assets；未附具体法律条款、监管机关、通知文书或恢复时间表。</li>
+<li>核查时该版本仍为 PCL 仓库最新正式版。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>直接支持 C-001（PCL 删除下载功能并给出合规理由）与 C-002（公开出版时间）。</li>
+<li>是判断“PCL 官方是否要求用户不要启动旧版/修改 Setup.ini”的基准文本：说明中没有此类要求（C-013）。</li>
+<li>“中国式家长很神奇吧”是作者对起因的暗示性表述，但不能单独证明“未成年私服充值被举报”的具体链条（C-008）。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>仅凭 Release 文本不能确认限制是否覆盖中国大陆以外地区，也不能确认客户端实际行为。</li>
+<li>未实际下载、运行 2.99.0.0 验证下载入口与本地启动情况。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-002" data-title="10-21 · S-002" data-sub="snapshots/2026-10-21-S-002.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-002</li>
+<li>原始 URL：https://afdian.com/p/67085a68cc5411f1886152540025c377</li>
+<li>标题：悲报【正式版 2.99.0.0】</li>
+<li>发布者/作者：爱发电 / 龙腾猫跃（PCL 作者）</li>
+<li>报道发布时间：2026-10-20（具体时刻 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible（页面框架）；正文经搜索索引与游民星空截图（S-010）取得</li>
+<li>获取方式：直接抓取仅返回 JS 页面框架；未执行脚本，未绕过限制</li>
+<li>保存范围：事实汇编 + 短引文；不是公告全文，未保存截图原始文件</li>
+<li>许可/限制：爱发电公开赞助页；截图来自 S-010，版权归原发布者</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>标题为“悲报【正式版 2.99.0.0】”，与 PCL 2.99.0.0 发布同日。</li>
+<li>公告首句与 GitHub Release 一致：“为遵守相关法律法规，PCL 不再提供 MC 下载功能，非常抱歉 qwq……”</li>
+<li>退款安排（据搜索索引可见正文与 S-010 截图）：</li>
+<li>2026-09-01 至 2026-10-21 期间的爱发电赞助可无条件退款；</li>
+<li>申请退款后，原有赞助内容保留；</li>
+<li>退款在 2026 年年内按原支付渠道退回；</li>
+<li>退款申请通道于 2026-11-07 关闭。</li>
+<li>作者在公告评论区/置顶位置重复：“注：与网易微软麻将无关，中国式家长很神奇吧”。</li>
+<li>公告语气含“真的非常抱歉 Orz……”等社群化表达。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-001（PCL 官方合规表述）与 C-010（退款安排）。</li>
+<li>把“删除下载功能”与“赞助退款”并列，说明作者预期该调整对付费支持者有直接影响。</li>
+<li>“中国式家长”措辞是 C-008 传闻的弱支持证据，但不是举报材料或监管文书。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>未能取得公告完整正文与准确发布时间；不得把截图时间或搜索索引时间当作发布时间。</li>
+<li>未实际提交退款申请，无法验证流程与到账情况。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-003" data-title="10-21 · S-003" data-sub="snapshots/2026-10-21-S-003.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-003</li>
+<li>原始 URL：https://github.com/HMCL-dev/HMCL/pull/7017</li>
+<li>标题：在中国大陆地区禁用游戏下载功能</li>
+<li>发布者/作者：HMCL-dev/HMCL；PR 作者 Glavo</li>
+<li>报道发布时间：2026-10-20T07:22:28Z（15:22:28 Asia/Shanghai）创建；2026-10-20T08:37:22Z（16:37:22）合并</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible（GitHub API）</li>
+<li>获取方式：GitHub REST API 取得 PR 元数据、文件列表、patch 与评论摘要</li>
+<li>保存范围：元数据 + 关键代码行为摘要 + 评论要点；未复制全部 diff</li>
+<li>许可/限制：GitHub 公开仓库；未绕过访问限制</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>PR 编号 #7017，标题即说明，无描述正文；6 个提交，涉及 20 个文件；合并 commit <code>583e004</code>。</li>
+<li>合并后 PR 被锁定为 off-topic，仅协作者可评论。</li>
+<li>代码新增 <code>RegionUtils</code>，综合以下信号判断是否为中国大陆：</li>
+<li>时区为 <code>Asia/Shanghai</code> 或 UTC+8；</li>
+<li>系统国家码；</li>
+<li>Windows <code>GetUserGeoID</code>（中国为 45）；</li>
+<li>通过 <code>ipwho.is</code> 检查网络出口国家。</li>
+<li>判断失败时按“在中国大陆”处理（fail-closed）。</li>
+<li>受限时禁用版本下载页及一个附加内容下载列表页，并显示提示；未直接禁用所有下载入口。</li>
+<li>评论区有人建议只限制离线玩家、给正版玩家豁免，未被采纳。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>直接支持 C-003（HMCL 按大陆地区限制下载，并以预览版发布）。</li>
+<li>与 PCL 的全局移除形成对比：HMCL 采用地区判定与 fail-closed，说明维护者试图把影响限定在大陆网络环境（C-003、C-015）。</li>
+<li>锁定评论可视为维护者拒绝继续公开争论的信号，但不构成对起因的说明。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>仅审查 patch 与摘要，未逐行审计全部 20 个文件，也未运行 3.17.0.362 验证。</li>
+<li>“禁用两个页面”不等于“切断所有下载能力”，不能推断整合包、Java、自更新等入口的状态。</li>
+<li>PR 无描述，无法从中得知具体法律依据或监管沟通。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-004" data-title="10-21 · S-004" data-sub="snapshots/2026-10-21-S-004.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-004</li>
+<li>原始 URL：https://github.com/HMCL-dev/HMCL/releases/tag/v3.17.0.362</li>
+<li>标题：v3.17.0.362</li>
+<li>发布者/作者：HMCL-dev/HMCL</li>
+<li>报道发布时间：2026-10-20T08:50:39Z（16:50:39 Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible（GitHub API/页面）</li>
+<li>获取方式：GitHub REST API 与 Release 页面</li>
+<li>保存范围：元数据 + 更新日志要点 + 校验和说明；未下载安装包</li>
+<li>许可/限制：GitHub 公开仓库；未绕过访问限制</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>版本号 v3.17.0.362，标记为 prerelease（预览版）。</li>
+<li>发布时间 2026-10-20T08:50:39Z，即北京时间 16:50:39。</li>
+<li>Release 正文包含更新日志链接与安装包 SHA-256 校验和。</li>
+<li>该版本包含 PR #7017 的中国大陆下载限制。</li>
+<li>同仓库稳定版列表显示：最新稳定版仍为 v3.16.4（2026-09-17 发布）；核查时 v3.17.0.362 为最新版本。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-003（限制随预览版发布）与 C-004（稳定版尚未包含该限制）。</li>
+<li>说明“HMCL 已全面禁用下载”的说法不准确：截至核查，只有预览版用户会受影响。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>未下载、安装或运行该预览版，未验证地区判定在真实网络环境中的表现。</li>
+<li>“稳定版未包含限制”基于版本发布时间与变更记录推断，不排除下载源/服务端侧的限制。</li>
+<li>预览版后续可能转为稳定版或被新版本取代，需持续跟踪。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-005" data-title="10-21 · S-005" data-sub="snapshots/2026-10-21-S-005.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-005</li>
+<li>原始 URL：https://github.com/PCL-Community/PCL-CE/releases/tag/v2.15.1</li>
+<li>标题：Release 2.15.1</li>
+<li>发布者/作者：PCL-Community/PCL-CE</li>
+<li>报道发布时间：2026-10-20T12:47:51Z（20:47:51 Asia/Shanghai）；Release 对象创建 12:12:08Z（20:12:08）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible（GitHub API/页面）</li>
+<li>获取方式：GitHub REST API 与 Release 页面</li>
+<li>保存范围：元数据 + 更新日志要点；未下载安装包</li>
+<li>许可/限制：GitHub 公开仓库；未绕过访问限制</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>版本号 2.15.1，正式版，非 prerelease。</li>
+<li>公开出版时间 2026-10-20T12:47:51Z（20:47:51）。</li>
+<li>更新日志包含一行：“<em>install</em>: 中国大陆地区禁用 Minecraft 安装功能 (#3673)”。</li>
+<li>同版本另有大量与本次事件无关的更新条目。</li>
+<li>核查时该版本为 PCL CE 最新正式版。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-005（PCL CE 正式版加入大陆地区安装限制）。</li>
+<li>说明 PCL CE 的调整在 10-20 当晚已进入正式版，而 HMCL 仍停留在预览版。</li>
+<li>PCL CE 是独立社区分支，不能把其行为直接归因于 PCL 官方团队。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>仅阅读更新日志，未逐行核对对应代码，也未运行 2.15.1 验证。</li>
+<li>更新日志只写“安装功能”，未展开下载、补全、修复、整合包等具体范围；范围描述依赖 PR #3673（S-006）。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-006" data-title="10-21 · S-006" data-sub="snapshots/2026-10-21-S-006.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-006</li>
+<li>原始 URL：https://github.com/PCL-Community/PCL-CE/pull/3673</li>
+<li>标题：fix(install): 中国大陆地区禁用 Minecraft 安装功能</li>
+<li>发布者/作者：PCL-Community/PCL-CE；PR 作者 Big-Cake-jpg</li>
+<li>报道发布时间：2026-10-20T09:56:13Z（17:56:13 Asia/Shanghai）创建；2026-10-20T10:24:20Z（18:24:20）合并</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible（GitHub API）</li>
+<li>获取方式：GitHub REST API 取得 PR 元数据、正文与文件变更摘要</li>
+<li>保存范围：正文短引文 + 自动化摘要要点；未复制全部 diff</li>
+<li>许可/限制：GitHub 公开仓库；未绕过访问限制</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>PR 编号 #3673；创建与合并时间如上。</li>
+<li>正文原文：“受近期事件影响，我们决定暂时禁止中国大陆地区用户使用 Minecraft 本体、整合包的下载、安装与补全功能。”</li>
+<li>PR 摘要（由自动化工具生成）称：</li>
+<li>按 Windows 地理位置、区域设置、语言和时区信号评估地区；</li>
+<li>限制客户端下载、安装/修复、重置、加载器安装与整合包安装；</li>
+<li>仅当所需文件均已本地存在时允许启动。</li>
+<li>使用“暂时”一词，但未给出恢复时间或判定条件。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>直接支持 C-005（PCL CE 对大陆禁用本体、整合包下载/安装/补全）。</li>
+<li>范围写得比 PCL、HMCL 更具体，可用于区分“下载入口关闭”与“本地启动仍可用”（C-007）。</li>
+<li>“受近期事件影响”没有说明事件是什么，不能据此确认“家长举报”因果（C-008）。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>PR 摘要由自动化工具生成，可能与最终实现存在差异；未逐行核对代码。</li>
+<li>未运行 2.15.1 验证地区判定、补全限制与离线启动。</li>
+<li>“保守处理未知地区”可能造成误判，实际影响范围未知。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-007" data-title="10-21 · S-007" data-sub="snapshots/2026-10-21-S-007.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-007</li>
+<li>原始 URL：https://www.minebbs.com/threads/50445/</li>
+<li>标题：关于近期第三方启动器关闭游戏本体下载功能的情况说明与临时管制条例</li>
+<li>发布者/作者：MineBBS 新闻资讯版 / Bingkler</li>
+<li>报道发布时间：2026-10-20 17:55（Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：access_restricted（直接抓取返回 HTTP 468）</li>
+<li>获取方式：搜索索引取得正文；未绕过反爬/访问限制</li>
+<li>保存范围：事实汇编 + 短引文；不是公告全文</li>
+<li>许可/限制：论坛公告；未保存原始 HTML</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>公告称 PCL 与 HMCL 等启动器因合规性原因关停核心文件与资源包下载；使用“包括但不仅限于 PCL 与 HMCL”的表述，未说“所有启动器”。</li>
+<li>明确称：“本次事件与网易游戏、Mojang Studio 与 Microsoft 均无直接关联。”</li>
+<li>又称：“目前未有任何迹象表明本次事件与某一具体服务器、资源或资源作者存在关联。”</li>
+<li>警告所谓“修复版/恢复版启动器”可能被二次打包、植入恶意程序，提醒用户不要下载或运行来源不明的可执行文件。</li>
+<li>宣布临时管制：对无来源信息、伪造官方说明等行为从重处罚。</li>
+<li>建议的替代品包括 Modrinth App、Prism Launcher、ATLauncher、CurseForge Launcher 等，并声明不提供支持。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-006（调整范围有限，并非“所有启动器被封禁”）。</li>
+<li>直接削弱 C-008 中“与某一具体私服/资源作者有关”的传闻，但它是社区管理组公告，不是监管机关或当事公司声明。</li>
+<li>支持 C-012（“恢复版”安全风险警告）。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>HTTP 468 表示本次无法直接访问，不证明公告被删除或内容虚假。</li>
+<li>公告未给出具体法律条款、监管机关或举报材料。</li>
+<li>论坛管理组可能基于社区信息作判断，不能替代官方调查。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-008" data-title="10-21 · S-008" data-sub="snapshots/2026-10-21-S-008.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-008</li>
+<li>原始 URL：https://www.nexusmc.cn/forum/post/pcl-hmcl-pcl-ce</li>
+<li>标题：PCL 停止提供《我的世界》下载，HMCL 与 PCL CE 相继调整功能</li>
+<li>发布者/作者：NexusMC / virgil698</li>
+<li>报道发布时间：2026-10-20（页面显示 2026/10/20；具体时刻 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：事实核查要点 + 短引文；不是全文存档</li>
+<li>许可/限制：页面标注 CC BY-SA 4.0；转载需署名、相同方式共享</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>把“已确认的功能调整”与“尚待证实的起因”分开叙述。</li>
+<li>称目前“没有充分依据认为所有国内第三方启动器都将停止下载”，并提醒“不能把无法下载新游戏版本理解为 Minecraft 本身或已安装游戏全面停运”。</li>
+<li>称社区流传“某服务器出现未成年人充值约 6000 元的退款纠纷，家长在举报服务器时一并举报了 PCL”；另有消息称“监管部门接到举报后要求先关闭下载渠道，其他启动器因此考虑跟进”。</li>
+<li>指出上述说法中的充值者身份、交易金额、举报对象及监管通知均未获涉事方或主管机关公开材料证实。</li>
+<li>指出“国家新闻出版广电总局”已撤销，社群流传的该机构名称不准确。</li>
+<li>引荣耀官方说明称《我的世界：移动版》荣耀渠道因合作到期已于 2025-09-30 下架；网易官网仍展示移动版下载入口。</li>
+<li>分析 <code>PCL/Setup.ini</code> 中 <code>SystemSystemUpdate:3</code> 对应“关闭更新提示”，不是防病毒措施，也不能保证旧版持续保留下载能力。</li>
+<li>称社区已有用户报告运行来历不明 EXE 后遭遇病毒入侵，并称 PCL CE 维护者提醒玩家警惕（二手转述，未给样本）。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-006、C-007、C-011、C-012、C-013 的“限制范围/安全风险/渠道下架”判断。</li>
+<li>是本次来源中较少明确区分“监管通知”与“社群传闻”的整理之一。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>属社区事实核查型二手整理，不是监管机关或当事方公告。</li>
+<li>荣耀公告原件未取得；“用户遭病毒入侵”无样本、哈希或安全厂商报告。</li>
+<li>未保存全文，页面可能更新。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-009" data-title="10-21 · S-009" data-sub="snapshots/2026-10-21-S-009.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-009</li>
+<li>原始 URL：https://www.ali213.net/news/html/2026-10/1047963.html</li>
+<li>标题：晴天霹雳！国内所有《我的世界》启动器下载功能被禁</li>
+<li>发布者/作者：游侠网</li>
+<li>报道发布时间：2026-10-20 16:26:07（Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：标题、正文关键短引文与时间；不是全文存档</li>
+<li>许可/限制：媒体报道；仅作研究引用</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>标题使用“国内所有《我的世界》启动器”“下载功能被禁”。</li>
+<li>正文称：“目前国内所有的MC启动器都遭到了封禁，取消了下载服务，一些启动器还能正常游玩，只是不能下载，而有部分启动器还严肃警告玩家请勿使用正常启动方式启动游戏。”</li>
+<li>文章发布时（16:26），HMCL 的 PR #7017 尚未合并（16:37），PCL CE 的 PR #3673 尚未创建（17:56），HMCL 预览版与 PCL CE 正式版均未发布。</li>
+<li>文中没有列出“所有启动器”的名单，也没有逐家核验。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>是“行政封禁/全面封杀”框架的代表文本，支持 C-006 中“所有/被封禁”属过度概括的判断。</li>
+<li>“部分启动器警告请勿使用正常启动方式启动游戏”很可能来自社群通知（S-014），而非 PCL 官方 Release（S-001）；该并置强化了“连启动都不安全”的印象（C-013）。</li>
+<li>发布时间早于多款启动器的实际发版，是判断报道时效与概括范围的重要证据。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>报道存在不等于其概括成立；本档案只记录文本与时间关系，不据此判断媒体动机。</li>
+<li>“封禁”含义模糊，可能指下载功能、账号服务或整款软件；需与一手发布记录对照。</li>
+<li>未保存全文，后续页面可能修改。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-010" data-title="10-21 · S-010" data-sub="snapshots/2026-10-21-S-010.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-010</li>
+<li>原始 URL：https://www.gamersky.com/news/202610/2232175.shtml</li>
+<li>标题：未成年私服充值被家长举报！启动器无奈关闭游戏下载</li>
+<li>发布者/作者：游民星空 / 猛鲨男鱼王</li>
+<li>报道发布时间：2026-10-21 09:58:37（Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：标题、正文关键短引文、截图内容摘要；未保存图片文件</li>
+<li>许可/限制：媒体报道；截图版权归原发布者</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>标题把“未成年私服充值被家长举报”作为确定化因果。</li>
+<li>正文称：“据说明，事件起因是有未成年玩家在私服充值后被家长举报服务器，而PCL提供了下载游玩私服的方式，因此受到牵连，只能暂时关闭下载功能。”</li>
+<li>文中称作者给出退款安排；配图包含爱发电公告与 B 站评论区“注：与网易微软麻将无关，中国式家长很神奇吧”。</li>
+<li>文中未给出举报回执、受理通知、交易记录、服务器名称、当事人身份或监管文书，也没有具名采访。</li>
+<li>“据说明”未说明信息来源是谁。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>是 C-008 传闻被媒体标题化、因果确定化的关键文本。</li>
+<li>与 MineBBS（S-007）“未发现与具体服务器有关”的表述直接冲突，支持维持 <span class="badge b-disputed">disputed</span>。</li>
+<li>截图可作为 S-002 公告与作者评论存在的辅助证据，但不能替代公告原文。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>因果断言缺少一手材料；本档案不把它当作事实。</li>
+<li>“无奈”“牵连”是框架词，属于叙事选择，不是证据。</li>
+<li>未取得截图原图与完整公告，无法核对截图是否经过裁剪或断章取义。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-011" data-title="10-21 · S-011" data-sub="snapshots/2026-10-21-S-011.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-011</li>
+<li>原始 URL：https://www.mrxiaom.top/post/minecraft-launcher-takedown-20261020/</li>
+<li>标题：Minecraft 第三方启动器关闭下载事件简报</li>
+<li>发布者/作者：人间工作P / MrXiaoM</li>
+<li>报道发布时间：2026-10-20（页面最后更新 17:37:40；具体首发时刻 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：事实与观点要点；不是全文存档</li>
+<li>许可/限制：个人博客；仅作研究引用</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>称据 PCL/HMCL 维护者的聊天记录，“可能是未成年人充值私服，家长举报所致”。</li>
+<li>聊天记录未公开；作者使用“可能”而非确定判断，属二手转述。</li>
+<li>列出并反驳“珍妮模组”“网易中国版下架”等说法，称后者为谣言。</li>
+<li>用“有些事不上秤没有四两，上了秤一千斤也打不住”比喻举报/监管触发的结构性风险。</li>
+<li>称“对于玩家，尤其是开发者来说，这是无需惊慌的事情”，试图降温。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>是 C-008 传闻的较早二手来源之一，明确标注不确定性，比 S-010 的标题更谨慎。</li>
+<li>对“珍妮模组”等细节的辟谣，支持 C-008 中“不同版本细节互相矛盾”的判断。</li>
+<li>“上秤”框架属结构性解释，可与 C-015 分析层对照，但不能当作事实。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>未公开聊天记录原文、参与者身份或时间；无法核对转述准确性。</li>
+<li>个人博客，非当事方或监管机关。</li>
+<li>未保存全文，页面可能更新。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-012" data-title="10-21 · S-012" data-sub="snapshots/2026-10-21-S-012.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-012</li>
+<li>原始 URL：https://www.moiu.cn/zh/blog/mc-launcher-download-shutdown/</li>
+<li>标题：PCL2 关掉 MC 下载：启动器被打回工具原形</li>
+<li>发布者/作者：MoIu Home</li>
+<li>报道发布时间：2026-10-20（具体时刻 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：时间线、技术对比与观点要点；不是全文存档</li>
+<li>许可/限制：个人博客；仅作研究引用</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>给出时间线：14:51（PCL Release 对象创建）、15:22（HMCL PR）、16:37（合并）、16:50（HMCL 预览版）、17:55（MineBBS 公告）。</li>
+<li>对比 PCL 的全局移除与 HMCL 的地区判定，指出两者风险处理方式不同。</li>
+<li>从出版与版号、未成年人保护、平台定性三方面解释第三方启动器长期处于合规灰区。</li>
+<li>称“这次不是网易赢了，是监管口径落到了工具层。谁提供游戏本体分发，谁就被当成发行方。”</li>
+<li>含作者对“启动器被打回工具原形”的评论与推断。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-002 的时间校正（14:51 是对象创建，15:01 才是公开出版），但该文本身把 14:51 记为时间线节点。</li>
+<li>支持 C-003 对 HMCL 地区判定的描述。</li>
+<li>为 C-015 结构性解释提供分析素材，属推断层，不是事实。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>个人博客，事实与分析混写；14:51/15:01 的区分需以 GitHub API 为准。</li>
+<li>未给出监管条款或文书。</li>
+<li>未保存全文，页面可能更新。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-013" data-title="10-21 · S-013" data-sub="snapshots/2026-10-21-S-013.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-013</li>
+<li>原始 URL：http://games.sina.cn/esports/2026-10-20/edetail-inivwpzf7693323.d.html</li>
+<li>标题：PCL不能下载我的世界了怎么办？常用下载入口出问题后，MC玩家还能怎么办</li>
+<li>发布者/作者：新浪游戏 / 新浪电竞</li>
+<li>报道发布时间：2026-10-20 18:52（Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：关键事实与推介内容摘要；不是全文存档</li>
+<li>许可/限制：媒体服务型稿件；含商业推介</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>称 PCL 提示“为遵守相关法律法规，PCL 暂不支持提供 MC 下载”，与 GitHub Release 的“不再提供”措辞略有差异。</li>
+<li>称 PCL 本身还能继续使用，已经装好的版本不会消失；麻烦的是新装、换电脑或重新配环境的玩家。</li>
+<li>文章大量篇幅推介 CKTools/外星仔联机助手，并使用“PCL已倒！最强免费MC启动器来了！”等推广式小标题。</li>
+<li>属“功能缺失 + 迁移指南”框架，而非“全面封杀”框架。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-007（已安装版本仍可启动）与 C-001（PCL 的合规提示措辞）。</li>
+<li>提示客户端弹窗可能使用“暂不支持提供”，与 Release 的“不再提供”不完全一致；该差异需以实际客户端验证，不能仅凭媒体转述判断。</li>
+<li>商业推介部分不作为事实依据。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>服务型稿件，信息与广告混合；未独立核实 CKTools 的资质、安全性或与新浪的关系。</li>
+<li>未保存全文，页面可能更新。</li>
+<li>未实际运行 PCL 验证弹窗原文。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-014" data-title="10-21 · S-014" data-sub="snapshots/2026-10-21-S-014.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-014</li>
+<li>原始 URL：https://x.com/NL8526/status/2112456992078037162</li>
+<li>标题：目前所有公开的国内第三方启动器……均即将停止支持 Minecraft 的下载功能</li>
+<li>发布者/作者：X / 柠凉 @NL8526</li>
+<li>报道发布时间：2026-10-20（页面显示 8:12 AM；时区 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：帖文要点与短引文；不是全文存档</li>
+<li>许可/限制：公开帖文；未保存图片/截图原文件</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>称“目前所有公开的国内第三方启动器，包括但不限于PCL2、HMCL启动器，均即将停止支持 Minecraft 的下载功能”。</li>
+<li>称“PCL 即日起不支持 Minecraft 自动下载功能。请注意，任何现有版本的 PCL请勿直接启动！”</li>
+<li>提醒近期可能出现大量不明来源的启动器可执行文件，注意甄别是否含木马病毒，也不要随意传播这些副本；建议转用 AxolotlLauncher、FjordLauncher。</li>
+<li>未给出监管文书、启动器完整名单或官方链接。</li>
+<li>页面显示时间 8:12 AM，未注明时区，不能直接换算为北京时间。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>是“所有启动器”概括与“请勿启动旧版 PCL”提醒的社群来源之一，支持 C-006、C-013 对传闻传播路径的记录。</li>
+<li>“请勿直接启动”与 PCL 官方 Release 文本不符；该提醒可能源于对恶意软件/投毒的担忧，但帖文未给出技术依据。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>个人社群帖文，非官方来源；名单、证据、时区均缺失。</li>
+<li>截图可能经过裁剪或脱离原语境；未取得群公告原文。</li>
+<li>不能据此断言所有启动器都将停止下载，也不能据此认定旧版 PCL 必然不安全。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-015" data-title="10-21 · S-015" data-sub="snapshots/2026-10-21-S-015.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-015</li>
+<li>原始 URL：https://x.com/realNyarime/status/2112464762626015667</li>
+<li>标题：主流Minecraft启动器将停用中国大陆用户的MC下载服务</li>
+<li>发布者/作者：X / 奶昔 @realNyarime</li>
+<li>报道发布时间：2026-10-20（页面显示 8:43 AM；时区 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：帖文要点与短引文；不是全文存档</li>
+<li>许可/限制：公开帖文；仅作研究引用</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>称“主流Minecraft启动器将停用中国大陆用户的MC下载服务”。</li>
+<li>称“由于某服务器未成年充钱，然后老中举报顺手把PCL也带上了”。</li>
+<li>未给出服务器名称、充值金额、举报人、受理机关或任何链接/截图。</li>
+<li>页面显示时间 8:43 AM，时区 unknown。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>是 C-008“未成年私服充值被家长举报”传闻的传播节点之一，属于无证据转述。</li>
+<li>其“主流启动器/中国大陆用户”表述与后续 HMCL、PCL CE 的地区限制相符，但不能证明所有启动器均受影响（C-006）。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>个人社群帖文，无一手材料；不能作为事实依据。</li>
+<li>时区未知，不能精确放入北京时间时间线。</li>
+<li>未保存全文，帖文可能被删除或修改。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-016" data-title="10-21 · S-016" data-sub="snapshots/2026-10-21-S-016.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-016</li>
+<li>原始 URL：https://x.com/auspiceshirley/status/2112460510650372417</li>
+<li>标题：今天（10月20日）PCL 发布 2.99.0.0……</li>
+<li>发布者/作者：X / Shirley Auspice @auspiceshirley</li>
+<li>报道发布时间：2026-10-20（页面显示 8:26 AM；时区 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：帖文要点；不是全文存档</li>
+<li>许可/限制：公开帖文；仅作研究引用</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>称 PCL 当日发布 2.99.0.0，触发原因没有官方说明。</li>
+<li>提到“家长举报（涉及成人向整合包《自然之需》）”是传言，未被证实。</li>
+<li>称网易版在部分应用商店下架与启动器问题“不完全是同一件事”。</li>
+<li>称已安装好的游戏版本不受影响，启动器仍可正常启动本地文件。</li>
+<li>称对不在中国网络环境下、且有正版账号的用户，影响有限。</li>
+<li>页面显示时间 8:26 AM，时区 unknown。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-008 中“具体细节存在多个版本、均未证实”的判断，尤其“《自然之需》”这一细节。</li>
+<li>支持 C-011 对“网易渠道下架与本次事件无直接因果”的区分，但该帖本身也是二手判断。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>个人社群帖文，未给出一手材料或链接。</li>
+<li>时区未知；不能精确放入北京时间时间线。</li>
+<li>“不完全是同一件事”措辞模糊，不能作为渠道下架原因的定论。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-017" data-title="10-21 · S-017" data-sub="snapshots/2026-10-21-S-017.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-017</li>
+<li>原始 URL：https://www.bilibili.com/video/BV1LZnN6hEMU/</li>
+<li>标题：一个举报，让国内所有 MC 启动器关停下载：这件事到底谁的错</li>
+<li>发布者/作者：哔哩哔哩 / mr_zhou_ch</li>
+<li>报道发布时间：2026-10-20 23:57:51（Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：标题、简介与页面标注；未观看视频、未保存字幕</li>
+<li>许可/限制：B站视频；仅记录公开元数据</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>标题使用“一个举报”“国内所有 MC 启动器”“关停下载”“谁的错”。</li>
+<li>简介把“一名未成年玩家在服务器充值后被家长举报，投诉一路‘连坐’到免费启动器”标为社区传闻，并注明未经官方证实。</li>
+<li>页面标注“含AI生成内容”。</li>
+<li>未提供举报回执、监管文书或当事方采访。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>是“家长举报/连坐”框架的代表性视频文本，同时又在简介中自我标注“未经证实”，呈现标题确定化与正文免责并存的矛盾。</li>
+<li>支持 C-008 的“传闻广泛传播但缺少一手材料”判断。</li>
+<li>标题“所有”支持 C-006 对过度概括的记录。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>个人评论视频，不是调查报道；标题与简介的责任框架不能当作事实。</li>
+<li>页面标注含 AI 生成内容，需注意画面/旁白的合成可能。</li>
+<li>未观看全片，无法评估其是否提供新证据。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-018" data-title="10-21 · S-018" data-sub="snapshots/2026-10-21-S-018.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-018</li>
+<li>原始 URL：https://www.bilibili.com/video/BV1RDnc6SEvk/</li>
+<li>标题：PCL启动器不再提供MC下载？背后的原因，其实是多年以来愈演愈烈的私服圈钱乱象</li>
+<li>发布者/作者：哔哩哔哩 / DeadLock模组推荐</li>
+<li>报道发布时间：2026-10-20 16:57:32（Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：标题与页面可见信息；未观看视频、未保存字幕</li>
+<li>许可/限制：B站视频；仅记录公开元数据</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>标题把事件原因归结为“多年以来愈演愈烈的私服圈钱乱象”。</li>
+<li>页面信息称“启动器也是真的无辜”。</li>
+<li>属个人观点/评论视频，未提供监管文书或举报材料。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>代表“私服圈钱乱象”结构性解释框架，可与 C-015 分析层对照。</li>
+<li>把启动器写成无辜受害者，与“家长举报/连坐”框架相近，但归因对象从单个家长扩展到私服生态。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>个人评论，不是一手调查；标题中的因果是观点，不是已证实事实。</li>
+<li>未观看全片，无法判断是否引用新证据。</li>
+<li>不能据此确认事件起因或私服行业整体状况。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-019" data-title="10-21 · S-019" data-sub="snapshots/2026-10-21-S-019.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-019</li>
+<li>原始 URL：https://www.zhihu.com/question/2095907364306212445</li>
+<li>标题：如何看待2026年10月20日部分《我的世界》国产第三方启动器暂停下载功能？</li>
+<li>发布者/作者：知乎（问题页）</li>
+<li>报道发布时间：2026-10-20（问题日期；具体时刻 unknown）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：access_restricted（直接访问 403）</li>
+<li>获取方式：仅见搜索摘要；未登录、未绕过访问限制</li>
+<li>保存范围：仅记录问题标题与搜索摘要要点；未取得回答正文</li>
+<li>许可/限制：平台访问受限；不复制回答内容</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>问题标题使用“部分”而非“所有”，与游侠网标题形成范围差异。</li>
+<li>搜索摘要提到“网易我的世界国服很早就开始陆续关停渠道服合作”。</li>
+<li>未取得任何回答的完整正文、作者、发布时间或赞同数。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>仅作为社群讨论存在的记录，以及 C-011“渠道服下架早于本次事件”的弱旁证；未采用为事实依据。</li>
+<li>问题标题的“部分”可作为媒体范围表述差异的对照，但不能代表平台整体口径。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>403 表示本次无法访问，不证明内容被删除或不存在。</li>
+<li>搜索摘要可能不完整、过期或被改写，不能替代原文。</li>
+<li>未绕过登录/验证限制；后续如需引用，应在可访问时重新核验。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-020" data-title="10-21 · S-020" data-sub="snapshots/2026-10-21-S-020.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-020</li>
+<li>原始 URL：https://www.minecraft.net/zh-hans/download</li>
+<li>标题：下载 Minecraft</li>
+<li>发布者/作者：Mojang Studios / Microsoft</li>
+<li>报道发布时间：页面未显示发布日期</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取官方页面</li>
+<li>保存范围：页面功能与文案要点；未下载安装器</li>
+<li>许可/限制：官方页面；仅记录公开信息</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>页面仍提供 Java 版启动器下载入口。</li>
+<li>页面说明官方启动器可下载新版本。</li>
+<li>未显示与 2026-10-20 第三方启动器调整相关的公告或限制说明。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>支持 C-014（Minecraft 官方启动器仍可下载，本次调整不是游戏或官方启动器的全面下架）。</li>
+<li>可用于反驳“Minecraft 在国内被全面封杀”的扩大化说法。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>官网可访问不等于中国大陆网络环境下下载、登录一定顺畅；未做大陆网络实测。</li>
+<li>官方启动器需要正版账号，不能覆盖所有玩家。</li>
+<li>页面可能按地区/语言变化，本次观察不代表其他地区。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-021" data-title="10-21 · S-021" data-sub="snapshots/2026-10-21-S-021.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-021</li>
+<li>原始 URL：https://www.bakaxl.com/</li>
+<li>标题：BakaXL 启动器官方网站</li>
+<li>发布者/作者：BakaXL 开发团队</li>
+<li>报道发布时间：页面未显示发布日期</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取官网</li>
+<li>保存范围：首页可见内容与公告区域；未检索 GitHub/群公告</li>
+<li>许可/限制：官方网站；仅记录公开信息</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>官网未显示与 2026-10-20 事件相关的下载限制公告。</li>
+<li>未发现“停止提供 MC 下载”或“中国大陆地区禁用”的公开说明。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>仅能说明“官网首页未见相关公告”，不能据此断言 BakaXL 未调整下载功能（C-006 的限制说明）。</li>
+<li>后续应查其 GitHub 仓库、Release、QQ 群/ Discord 公告。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>“未找到”不等于“未发生”；官网可能未同步更新，限制也可能只写在客户端或群公告。</li>
+<li>未实际下载、运行 BakaXL 验证。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-022" data-title="10-21 · S-022" data-sub="snapshots/2026-10-21-S-022.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-022</li>
+<li>原始 URL：https://www.bilibili.com/video/BV1wnnw6FEAv/</li>
+<li>标题：紧急提醒，PCL2启动器暂时不要更新，取消了下载原版MC本体的功能，附恢复下载功能插件</li>
+<li>发布者/作者：哔哩哔哩 / ゚゚派蒙</li>
+<li>报道发布时间：2026-10-20 15:35:57（Asia/Shanghai）</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取页面</li>
+<li>保存范围：标题、简介要点；未下载视频或“插件”</li>
+<li>许可/限制：页面标注“未经作者授权，禁止转载”；仅记录公开元数据</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>标题称“PCL2启动器暂时不要更新”“取消了下载原版MC本体的功能”，并称附“恢复下载功能插件”。</li>
+<li>简介称“最近有人靠MC启动器进行大范围投毒”。</li>
+<li>简介附百度网盘链接，指向所谓“恢复插件”。</li>
+<li>未提供插件作者、代码、哈希或安全审计信息。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>是“请勿更新/恢复插件”社群提醒的早期来源之一，支持 C-012、C-013 对风险警告传播的记录。</li>
+<li>“大范围投毒”说法没有样本或安全厂商报告，不能作为已证实事实。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>未下载、运行或分析该“插件”；无法判断其安全性或是否恶意。</li>
+<li>标题与简介可能夸大；不能据此认定 PCL 官方版本不安全。</li>
+<li>页面禁止转载，本档案仅记录必要元数据与短引文。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-21-S-023" data-title="10-21 · S-023" data-sub="snapshots/2026-10-21-S-023.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-023</li>
+<li>原始 URL：https://github.com/topics/pcl2</li>
+<li>标题：pcl2 topic</li>
+<li>发布者/作者：GitHub（主题聚合页）</li>
+<li>报道发布时间：页面未显示发布日期</li>
+<li>获取时间：2026-10-21T18:58:09+08:00 前后（Asia/Shanghai）</li>
+<li>访问状态：accessible</li>
+<li>获取方式：直接抓取主题页</li>
+<li>保存范围：项目存在性记录；未下载、运行或审计代码</li>
+<li>许可/限制：GitHub 公开页面；各项目许可需单独核对</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>检索可见 <code>OMSociety/PCL-Download-Fixer</code> 等“恢复 PCL 下载”项目。</li>
+<li>主题页聚合了与 PCL2 相关的仓库，未提供项目安全性、作者身份或下载量证明。</li>
+</ul>
+<h2>与研究问题的关联</h2>
+<ul>
+<li>说明“恢复下载”工具已进入代码托管平台，支持 C-012 对“修改版/恢复版”生态存在的记录。</li>
+<li>项目存在不等于其有效或安全；不能据此判断已有恶意软件传播。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>未克隆、下载、运行或审计任何项目；未检查其 Release 二进制、提交历史或 issue。</li>
+<li>主题页排序与收录规则不明，不能代表全部相关项目。</li>
+<li>后续如需评估风险，应在隔离环境中做静态/动态分析，并优先查找安全厂商通报。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-024" data-title="10-22 · S-024" data-sub="snapshots/2026-10-22-S-024.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-024</li>
+<li>原始 URL：https://new.qq.com/rain/a/20261021A0A2HF00</li>
+<li>标题：未成年私服充值被家长举报！启动器无奈关闭游戏下载</li>
+<li>发布者/作者：腾讯新闻（页面未显示原作者；内容述及 PCL 作者龙腾猫跃发文）</li>
+<li>报道发布时间：2026-10-21（页面显示"发布时间：2026年10月21日"）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>该文转述 PCL 制作者龙腾猫跃近日发文：</li>
+<li>公告称"为遵守相关法律法规，PCL 不再提供 MC 下载功能"，作者为此致歉；针对此前赞助用户，公告给出退款安排。</li>
+<li><strong>事件起因说明</strong>："有未成年玩家在私服充值后被家长举报服务器，而 PCL 提供了下载游玩私服的方式，因此受到牵连，只能暂时关闭下载功能。"</li>
+<li>龙腾猫跃表示此事"与网易、微软、Mojang 无关"，并感叹"中国式家长很神奇吧"。</li>
+<li>本档案判断：这是 PCL 作者对起因的<strong>直接自述经媒体报道</strong>（此前档案中仅有置顶评论暗示与 MrXiaoM 转述，见 C-008）；但举报的具体对象、受理机关、文书仍无公开可核材料；MineBBS"未发现与具体服务器有关联"的公告（S-007）与作者自述并存。</li>
+<li>该文未提及恢复时间表。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-025" data-title="10-22 · S-025" data-sub="snapshots/2026-10-22-S-025.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-025</li>
+<li>原始 URL：https://www.163.com/dy/article/L9ONMFN20526K1KN.html</li>
+<li>标题：未成年私服充值被家长举报！启动器无奈关闭游戏下载</li>
+<li>发布者/作者：网易号（自媒体平台用户上传；页面特别声明"以上内容为网易号用户上传并发布，本平台仅提供信息存储服务"）</li>
+<li>报道发布时间：2026-10-21 前后（页面未显示精确时刻）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道</li>
+</ul>
+<h2>可核验信息（来源归属）</h2>
+<ul>
+<li>内容与 S-024（腾讯新闻）基本一致：PCL 作者龙腾猫跃发文称不再提供 MC 下载功能、给出赞助退款安排；称起因是"有未成年玩家在私服充值后被家长举报服务器，PCL 提供了下载游玩私服的方式，因此受到牵连"；称"与网易、微软、Mojang 无关"；"中国式家长很神奇吧"。</li>
+<li>关系备注：与 S-024 疑为同一信息的不同平台转载/洗稿（网易号自媒体属性，平台自述不保证内容），本档案以 S-024 为主、本来源为辅证，不重复采信。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-10-22-S-026" data-title="10-22 · S-026" data-sub="snapshots/2026-10-22-S-026.md" hidden><div class="md"><h1>事实汇编/摘要型文字快照</h1>
+<ul>
+<li>来源 ID：S-026</li>
+<li>原始 URL：https://so.html5.qq.com/page/real/search_news?docid=70000021_2276ad834e385552</li>
+<li>标题：PCL、HMCL 下载 MC 受限？我的世界还能去哪下（腾讯搜索聚合页）</li>
+<li>发布者/作者：腾讯搜索新闻聚合页（集成多家内容；页面显示发布时间 2026-10-21）</li>
+<li>获取时间：2026-10-22（Asia/Shanghai，本轮巡检运行期间）</li>
+<li>访问状态：accessible（内容经检索集成取得）</li>
+<li>保存范围：事实汇编，不是原文；未保存全文字节或原始响应</li>
+<li>许可/限制：保留必要事实摘要和链接，未复制完整报道；聚合页含商业推广内容（见下），相关部分仅记录存在</li>
+</ul>
+<h2>可核验信息（来源归属；聚合页洗稿式整理，逐条标注可信度）</h2>
+<ul>
+<li>三款启动器限制事实（与档案既有记载一致）：10-20 PCL 作者龙腾猫跃发布 2.99.0.0 版本公告确认停止 MC 下载（"为遵守相关法律法规，PCL 不再提供 MC 下载功能，非常抱歉 qwq……"）；HMCL 部分版本下载受限；10-20 PCL 社区版 PCL-CE 合并更新，限制中国大陆地区用户使用 MC 本体下载、安装及文件补全。</li>
+<li>作者回应（与 S-024 一致）：与网易、微软无关；提及"中国式家长"。</li>
+<li>聊天记录截图流传："疑似有玩家在私人服务器充值后发生纠纷，举报服务器时又把 PCL 一起举报了"——该页同时明确"这类聊天截图还不足以确认完整事件经过""没有交代具体举报内容、处理过程，也没有公布下载功能什么时候恢复"。</li>
+<li>应用商店现象：部分玩家发现在 vivo 应用商店搜索《我的世界》出现"游戏资源准备中"等提示；该页明确"这些现象之间是否存在联系，还没有可靠证据"。</li>
+<li>用户指导（该页）：已安装游戏不受影响；检查 .minecraft 目录（versions/saves/mods/config）；重装前备份；可考虑 Mojang 官方启动器（官网/Microsoft Store，需正版账号）。</li>
+<li>替代渠道（含商业推广）：外星仔联机助手接入第三方组件 CKTools 提供版本管理下载（页面含推广口令"史蒂夫"；非 Mojang/微软官方，实际支持以当前客户端为准）——记录存在，属商业推广信息。</li>
+<li>安全警告（与 C-012 互证）：该页提醒"最近网上已经出现一些所谓的 PCL 修复版、特殊修改版和整合下载包……尽量别随便运行，尤其要小心要求输入微软账号密码的陌生程序"。</li>
+</ul></div></article><article class="doc-sec" data-doc="snapshots/2026-11-03-S-027" data-title="11-03 · S-027" data-sub="snapshots/2026-11-03-S-027.md" hidden><div class="md"><h1>快照 · 2026-11-03-S-027（事实汇编/摘要型）</h1>
+<ul>
+<li>快照类型：基于网页检索可见内容整理的事实汇编/摘要；未保存完整正文字节，未计算哈希。</li>
+<li>获取时间：2026-11-03T21:15+08:00（Asia/Shanghai）</li>
+<li>获取方式：网络检索（微信/爱发电/GitHub Discussion/什么值得买/AcFun/TapTap）+ 与既有档案（S-001～S-026）交叉核对</li>
+<li>保存范围：10-22 → 11-03 区间新进展；原始 URL 见 sources.md（S-027～S-034）</li>
+<li>来源可访问状态仅描述本次观察，不代表事实状态。</li>
+</ul>
+<h2>一、10-22 DDoS 攻击与基础设施受损（C-016，corroborated）</h2>
+<ul>
+<li>作者自述（S-031 爱发电 10-22 22:05、S-027 微信梳理）：攻击期间每分钟 1.54 亿次 HTTPS 请求、总计 21 亿次、超 10000 个 IPv4 参与、直接损失超 6000 元（资源包被打穿后溢出计费 4674 元）；腾讯云 CDN 触发风控被临时禁用，多项服务瘫痪；作者准备报警并征集攻击者线索。后续（S-032 10-26 情况更新）称 CDN 累计受 4 轮 DDoS/CC、总计 35 亿次请求，仍难恢复。</li>
+</ul>
+<h2>二、GitHub 账号封禁（C-017，corroborated）</h2>
+<ul>
+<li>GitHub Discussion #9521（S-033，HexDragon-Bot 于 10-22 14:08 开帖）确认"龙猫的GitHub号被封了，大量内容被系统自动隐藏"；作者称原因不明、未收邮件、已联系客服。10-26 情况更新（S-032）怀疑是发送"后门/漏洞说明"文章时触发风控误封，目前 GitHub 仍未回复。</li>
+</ul>
+<h2>三、"后门/漏洞"指控与安全核查（C-018，partially_verified）</h2>
+<ul>
+<li>火绒论坛 10-22 帖子指控 PCL 公告分发存在"预留命令执行后门"（S-029 转述、S-030/smzdm 转述）。作者 10-23 在爱发电/B站与 GitHub #9531（S-034）回应：攻击需先掌控更新服务/CDN/用户电脑，PCL 默认不以管理员权限运行，不构成可利用漏洞。火绒实验室核查结论"未发现恶意行为、属设计缺陷、不属于病毒范围"；360 亦人工检测确认多版本非恶意（S-030、S-032）。</li>
+</ul>
+<h2>四、2.99.0.1 删除"暂时"、下载功能永久关闭（C-019，corroborated）</h2>
+<ul>
+<li>10-25 00:58 发布 2.99.0.1（S-027、S-031）：删除"暂时不再提供MC下载功能"中的"暂时"，隐藏下载相关入口，为部分设置修改添加黑名单；因 GitHub 封、CDN 被攻击、某平台关站，更新日志改发爱发电/黑盒。10-26 情况更新（S-032）明确"下载功能确实是永久关闭、不会恢复了"，并称与网易、微软、Mojang、各个启动器均无关，但具体细节仍不能公开。</li>
+</ul>
+<h2>五、"修改版/修复版"涌现与木马风险（C-020，partially_verified）</h2>
+<ul>
+<li>10-25～28 信息真空期，OpenPCL、PCL 社区版系改件、图灵镜恢复工具、VMD 原版下载器等扎堆上线（S-028）；平台与安全提醒来路不明安装包或夹带木马、警惕索取微软账号密码。具体恶意事件仍待安全厂商/样本分析通报。</li>
+</ul>
+<h2>六、HMCL 可能恢复下载（C-021，unverified）</h2>
+<ul>
+<li>10-28 有 UP 主发布"HMCL 最新版已恢复 MC 本体下载功能"（S-028 提及），仅社群说法，未获 HMCL 官方 Release/公告佐证，待核。</li>
+</ul>
+<h2>七、待核/限制</h2>
+<ul>
+<li>起因（未成年私服充值被家长举报）仍仅作者单方陈述与社群转述，无举报文书；监管机关公开文书仍缺（C-009 unknown）。退款渠道 11-07 关闭为已知节点，实际处理待观察。</li>
+</ul></div></article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const first="timeline";
+  const ORIG_TITLE="\u6863\u6848 \u00b7 \u56fd\u5185\u300a\u6211\u7684\u4e16\u754c\u300b\u7b2c\u4e09\u65b9\u542f\u52a8\u5668\u5173\u95ed\u6e38\u620f\u672c\u4f53\u4e0b\u8f7d\u529f\u80fd";
+  const secs=[...document.querySelectorAll('.doc-sec')];
+  const links=[...document.querySelectorAll('.doc')];
+  const content=document.getElementById('content');
+  const curName=document.getElementById('curName');
+  const curPath=document.getElementById('curPath');
+  const bar=document.getElementById('bar');
+  function show(id){
+    let hit=null;
+    secs.forEach(s=>{const on=s.dataset.doc===id;s.hidden=!on;if(on)hit=s;});
+    if(!hit){ if(secs[0]){secs[0].hidden=false;hit=secs[0];} }
+    links.forEach(a=>a.classList.toggle('active',a.dataset.doc===(hit?hit.dataset.doc:'')));
+    if(hit){
+      curName.textContent=hit.dataset.title||'';
+      curPath.textContent=hit.dataset.sub||'';
+      content.scrollTop=0;
+      document.title=(hit.dataset.title||'档案')+'｜'+ORIG_TITLE;
+      if(document.body.classList.contains('nav-open')) document.body.classList.remove('nav-open');
+      markWideTables(hit);
+    }
+  }
+  // 宽表在窄容器里需要横向滚动：补一条提示，避免误以为右侧没有内容
+  function markWideTables(scope){
+    scope.querySelectorAll('.tbl').forEach(t=>{
+      const wide=t.scrollWidth-t.clientWidth>4;
+      let hint=t.nextElementSibling;
+      const isHint=hint&&hint.classList&&hint.classList.contains('tbl-hint');
+      if(wide&&!isHint){
+        const d=document.createElement('p');
+        d.className='tbl-hint';
+        d.textContent='表格较宽，可左右滚动查看全部列 →';
+        t.insertAdjacentElement('afterend',d);
+      }else if(!wide&&isHint){
+        hint.remove();
+      }
+    });
+  }
+  function route(){
+    const h=decodeURIComponent(location.hash.replace(/^#\/?/,''));
+    show(h||first);
+  }
+  window.addEventListener('hashchange',route);
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('.md a[href^="#/"]');
+    if(a){ /* 交给 hashchange */ }
+  });
+  const docq=document.getElementById('docq');
+  docq.addEventListener('input',()=>{
+    const kw=docq.value.trim().toLowerCase();
+    links.forEach(a=>{a.style.display=!kw||a.dataset.name.includes(kw)?'':'none';});
+    document.querySelectorAll('.grp').forEach(g=>{
+      let n=g.nextElementSibling,any=false;
+      while(n&&!n.classList.contains('grp')){
+        if(n.classList.contains('doc')&&n.style.display!=='none')any=true;
+        n=n.nextElementSibling;
+      }
+      g.style.display=any?'':'none';
+    });
+  });
+  content.addEventListener('scroll',()=>{
+    const h=content.scrollHeight-content.clientHeight;
+    bar.style.width=(h>0?Math.min(100,content.scrollTop/h*100):0)+'%';
+  });
+  document.getElementById('menu').addEventListener('click',()=>document.body.classList.toggle('nav-open'));
+  document.getElementById('scrim').addEventListener('click',()=>document.body.classList.remove('nav-open'));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='/'&&document.activeElement!==docq){e.preventDefault();docq.focus();}
+    if(e.key==='Escape')document.body.classList.remove('nav-open');
+  });
+  route();
+})();
+</script>
+</body>
+</html>

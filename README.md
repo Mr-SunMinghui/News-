@@ -2,7 +2,9 @@
 
 长期、可追溯地观察互联网事件的进展，以及报道和来源本身的变化。人提供一句话或若干链接，Agent 补充调查、建立时间线和证据记录；后续由 Codex 桌面 Automation 按日触发巡检。
 
-快速浏览入口：[打开项目速览网页](速览.html)。每个事件目录内也有独立的 `速览.html`，按时间线查看关键节点，并可跳转到证据、来源和状态档案。新增事件时从 `实践/templates/event/速览.html` 复制页面模板。
+快速浏览入口：[打开项目速览网页](速览.html)。每个事件目录内有两页：`速览.html`（关键数据 + 时间线视图）和 `档案.html`（档案阅读器，站内直接阅读该事件全部 Markdown，含来源快照与巡检日志，无需打开裸 `.md`）。
+
+这两个页面由 `tools/build_views.py` 依据 `event.yaml` 与各 `.md` 生成，改完档案后重跑一次即可刷新（双击 `tools/build_views.bat`）。用法见 `tools/README.md`。
 
 ## 目录
 
@@ -14,7 +16,8 @@ inbox/                    待整理的一句话或链接
 实践/README.md             档案约定
 实践/事件索引.md           事件目录与状态概览
 实践/events/               按事件 ID 分目录的档案
-实践/templates/event/速览.html  新事件速览网页模板
+实践/templates/event/速览.html  历史页面模板（现由 tools/build_views.py 生成，保留作参考）
+tools/                     视图构建与校验脚本（build_views.py / verify_views.py）
 prompts/                   新事件录入和每日巡检提示词
 logs/                      每次运行的跨事件摘要
 state/                     机器可读的运行游标/示例
